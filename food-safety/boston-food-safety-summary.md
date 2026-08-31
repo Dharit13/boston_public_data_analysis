@@ -71,3 +71,22 @@ Neighborhood is ZIP via the Fire `ZIP_NEIGHBORHOOD` map. **Dorchester is 02122 +
 ## What these files are not
 
 Food inspections and active licenses are **not** RentSmart, **not** building permits, and **not** 311. One dump row is a violation. A license is not an inspection. 2026 is not a full year.
+
+---
+
+## Places — not 2025-only
+
+Always-pass, repeat offenders, and places to avoid are computed **inside each window**: complete years **2019, 2024, 2025**, plus **2026 YTD through 28 August**. Always-pass needs **at least 3 inspections** in that window and **zero** fail codes (`HE_Filed` is not a fail). Repeat offenders failed **at least two visits** in that window. Places to avoid are the worst of those within-window repeats.
+
+A separate list is places that failed in **multiple complete years 2012–2025** (2026 excluded). That is not the same as two fails inside one year.
+
+| Window | Always-pass | Repeat offenders |
+| --- | ---: | ---: |
+| 2019 | 60 | 1,010 |
+| 2024 | 328 | 1,296 |
+| 2025 | 92 | 1,349 |
+| 2026 YTD | 49 | 999 |
+
+2025 worst within-year repeat: **Dans Mini Dogs** (23 fails / 29 visits). Across complete years: **Go Fresh 365** (failed in all 14 years).
+
+Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays with word-boundary matching add Ice cream, Cafe, School, Hotel, Hospital, and Cultural / attraction. The City has no cafe or ice-cream license code. `ice` does not match ICE Auto Services.

@@ -29,7 +29,8 @@ Do **not** add 12,414 inspections + 3,347 licenses. Neighborhood on the inspecti
 3. **Department** — result clock, ZIP neighborhoods, licenses
 4. **City / Mayor** — policy asks
 5. **Public** — plain language for residents
-6. **Notes** — row counts and cleaning rules
+6. **Places** — always-pass, repeat offenders, and places to avoid for 2019, 2024, 2025, and 2026 YTD, plus multi-year repeats 2012–2025
+7. **Notes** — row counts and cleaning rules
 
 ## Files in this folder
 

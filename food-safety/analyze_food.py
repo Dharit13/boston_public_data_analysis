@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
@@ -24,6 +25,64 @@ FAIL_RESULTS = frozenset({
     "HE_FAILNOR",
 })
 STAR_LEVELS = ("*", "**", "***")
+ALWAYS_PASS_MIN = 3
+REPEAT_FAIL_MIN = 2
+PLACE_DETAIL_YEARS = (2019, 2024, 2025)
+
+CAT_FOOD_DRINKS = "Food and drinks"
+CAT_TAKEOUT = "Take-out"
+CAT_RETAIL = "Retail food"
+CAT_MOBILE = "Mobile food"
+CAT_ICE = "Ice cream"
+CAT_CAFE = "Cafe"
+CAT_CULTURAL = "Cultural / attraction"
+CAT_SCHOOL = "School"
+CAT_HOSPITAL = "Hospital"
+CAT_HOTEL = "Hotel"
+CAT_OTHER = "Other / unclassified"
+CODED_CAT = {
+    "FS": CAT_FOOD_DRINKS,
+    "FT": CAT_TAKEOUT,
+    "RF": CAT_RETAIL,
+    "MFW": CAT_MOBILE,
+}
+OVERLAY_ORDER = (
+    CAT_ICE,
+    CAT_CULTURAL,
+    CAT_HOSPITAL,
+    CAT_HOTEL,
+    CAT_SCHOOL,
+    CAT_CAFE,
+    CAT_FOOD_DRINKS,
+    CAT_TAKEOUT,
+    CAT_RETAIL,
+    CAT_MOBILE,
+    CAT_OTHER,
+)
+
+_ICE_RE = re.compile(
+    r"\b(ice\s*cream|gelato|frozen\s+yogurt|frozen\s+dessert|fro-?yo|yoghurt\s+shop)\b",
+    re.I,
+)
+_CULTURAL_RE = re.compile(
+    r"\b(museum|aquarium|zoo|botanical\s+gardens?|stadium|fenway\s+park)\b",
+    re.I,
+)
+_SCHOOL_STREET_RE = re.compile(r"\bschool\s+st(?:reet|\.)?\b", re.I)
+_SCHOOL_RE = re.compile(
+    r"\b(high\s+school|elementary\s+school|middle\s+school|university|college)\b",
+    re.I,
+)
+_SCHOOL_WORD_RE = re.compile(r"\bschool\b", re.I)
+_HOSPITAL_RE = re.compile(r"\b(hospital|medical\s+center)\b", re.I)
+_HOTEL_RE = re.compile(
+    r"\b(hotel|marriott|hilton|hyatt|sheraton|westin|aloft)\b",
+    re.I,
+)
+_CAFE_RE = re.compile(
+    r"\b(caf[eé]|coffeehouse|coffee\s+bar|coffee\s+shop|espresso|coffee)\b",
+    re.I,
+)
 
 QUALITY_NOTE = (
     "Food establishment inspections and active food licenses are separate "
@@ -55,6 +114,91 @@ def viol_star(raw: str) -> str:
     if text in STAR_LEVELS:
         return text
     return ""
+
+
+def categorize(business: str, licensecat: str) -> str:
+    name = strip_null(business)
+    coded = CODED_CAT.get(strip_null(licensecat).upper(), CAT_OTHER)
+    if _ICE_RE.search(name):
+        return CAT_ICE
+    if _CULTURAL_RE.search(name):
+        return CAT_CULTURAL
+    if _HOSPITAL_RE.search(name):
+        return CAT_HOSPITAL
+    if _HOTEL_RE.search(name):
+        return CAT_HOTEL
+    if _SCHOOL_RE.search(name) or (
+        _SCHOOL_WORD_RE.search(name) and not _SCHOOL_STREET_RE.search(name)
+    ):
+        return CAT_SCHOOL
+    if _CAFE_RE.search(name):
+        return CAT_CAFE
+    return coded
+
+
+def _place_key(row: dict) -> str:
+    return row["licenseno"] or f"{row['business']}|{row['address']}|{row['zip']}"
+
+
+def _roll_places(rows: list[dict]) -> dict[str, dict]:
+    by: dict[str, dict] = {}
+    for row in rows:
+        key = _place_key(row)
+        rec = by.get(key)
+        if rec is None:
+            rec = {
+                "name": row["business"],
+                "address": row["address"],
+                "zip": row["zip"],
+                "category": categorize(row["business"], row["licensecat"]),
+                "inspections": 0,
+                "fails": 0,
+            }
+            by[key] = rec
+        rec["inspections"] += 1
+        if row["fail"]:
+            rec["fails"] += 1
+    for rec in by.values():
+        n = rec["inspections"]
+        rec["fail_rate"] = round(100.0 * rec["fails"] / n, 1) if n else 0.0
+    return by
+
+
+def _public_place(rec: dict, extra: tuple[str, ...] = ()) -> dict:
+    keys = ("name", "address", "zip", "category", "inspections", "fails", "fail_rate") + extra
+    return {k: rec[k] for k in keys}
+
+
+def _window_payload(by: dict[str, dict], ytd: bool) -> dict:
+    places = list(by.values())
+    always = [
+        p
+        for p in places
+        if p["fails"] == 0 and p["inspections"] >= ALWAYS_PASS_MIN
+    ]
+    always.sort(key=lambda p: (-p["inspections"], p["name"].lower()))
+    repeats = [p for p in places if p["fails"] >= REPEAT_FAIL_MIN]
+    repeats.sort(key=lambda p: (-p["fails"], -p["fail_rate"], p["name"].lower()))
+    cat_n: Counter = Counter()
+    cat_fail: Counter = Counter()
+    for p in places:
+        cat_n[p["category"]] += p["inspections"]
+        cat_fail[p["category"]] += p["fails"]
+    category_n = [
+        {"label": lab, "inspections": cat_n[lab], "fails": cat_fail[lab]}
+        for lab in OVERLAY_ORDER
+        if cat_n[lab]
+    ]
+    return {
+        "ytd": ytd,
+        "min_pass_inspections": ALWAYS_PASS_MIN,
+        "always_pass": [_public_place(p) for p in always[:10]],
+        "repeat_offenders": [_public_place(p) for p in repeats[:15]],
+        "places_to_avoid": [_public_place(p) for p in repeats[:10]],
+        "always_pass_n": len(always),
+        "repeat_n": len(repeats),
+        "category_n": category_n,
+    }
 
 
 def _insp_key(licenseno: str, business: str, dt) -> tuple:
@@ -93,6 +237,10 @@ def load_inspections(path: Path) -> tuple[list[dict], dict]:
                     "result": strip_null(raw.get("result", "")),
                     "fail": is_fail(raw.get("result", "")),
                     "business": business,
+                    "licenseno": licenseno,
+                    "address": strip_null(raw.get("address", "")),
+                    "licensecat": strip_null(raw.get("licensecat", "")),
+                    "descript": strip_null(raw.get("descript", "")),
                     "zip": zip5,
                     "neighborhood": ZIP_NEIGHBORHOOD.get(zip5, ""),
                     "n_viol": 0,
@@ -214,6 +362,74 @@ def briefing_from_rows(
         except ValueError:
             pass
 
+    place_windows = {}
+    for year in PLACE_DETAIL_YEARS:
+        subset = [r for r in inspections if r["year"] == year]
+        payload = _window_payload(_roll_places(subset), ytd=False)
+        payload["year"] = year
+        place_windows[str(year)] = payload
+    ytd_payload = _window_payload(_roll_places(y2026), ytd=True)
+    ytd_payload["year"] = 2026
+    place_windows["2026_ytd"] = ytd_payload
+
+    years_failed: dict[str, set[int]] = defaultdict(set)
+    across_roll: dict[str, dict] = {}
+    for row in inspections:
+        if row["year"] not in COMPLETE_YEARS:
+            continue
+        key = _place_key(row)
+        rec = across_roll.get(key)
+        if rec is None:
+            rec = {
+                "name": row["business"],
+                "address": row["address"],
+                "zip": row["zip"],
+                "category": categorize(row["business"], row["licensecat"]),
+                "inspections": 0,
+                "fails": 0,
+            }
+            across_roll[key] = rec
+        rec["inspections"] += 1
+        if row["fail"]:
+            rec["fails"] += 1
+            years_failed[key].add(row["year"])
+    across_places = []
+    for key, rec in across_roll.items():
+        nyears = len(years_failed.get(key, ()))
+        if nyears < 2:
+            continue
+        rec["years_failed"] = nyears
+        rec["fail_rate"] = round(
+            100.0 * rec["fails"] / rec["inspections"], 1
+        ) if rec["inspections"] else 0.0
+        across_places.append(rec)
+    across_places.sort(
+        key=lambda p: (-p["years_failed"], -p["fails"], p["name"].lower())
+    )
+    repeat_across = {
+        "window": "2012–2025 complete years",
+        "years": list(COMPLETE_YEARS),
+        "places": [
+            _public_place(p, extra=("years_failed",)) for p in across_places[:15]
+        ],
+    }
+
+    category_by_year = []
+    for year in COMPLETE_YEARS:
+        coded_n = Counter()
+        for row in inspections:
+            if row["year"] != year:
+                continue
+            coded_n[CODED_CAT.get(row["licensecat"].upper(), CAT_OTHER)] += 1
+        category_by_year.append({
+            "year": year,
+            CAT_FOOD_DRINKS: coded_n[CAT_FOOD_DRINKS],
+            CAT_TAKEOUT: coded_n[CAT_TAKEOUT],
+            CAT_RETAIL: coded_n[CAT_RETAIL],
+            CAT_MOBILE: coded_n[CAT_MOBILE],
+            CAT_OTHER: coded_n[CAT_OTHER],
+        })
+
     return {
         "quality": quality_out,
         "years": COMPLETE_YEARS,
@@ -261,6 +477,9 @@ def briefing_from_rows(
                 1,
             ),
         },
+        "place_windows": place_windows,
+        "repeat_across_years": repeat_across,
+        "category_by_year": category_by_year,
     }
 
 
@@ -290,6 +509,19 @@ def main() -> None:
         "license_cats": briefing["license_cats"],
     }, indent=2))
     print("\nby_year", briefing["by_year"])
+    print("\nplace_windows", {
+        k: {
+            "ytd": w["ytd"],
+            "always_pass_n": w["always_pass_n"],
+            "repeat_n": w["repeat_n"],
+        }
+        for k, w in briefing["place_windows"].items()
+    })
+    print(
+        "repeat_across",
+        briefing["repeat_across_years"]["window"],
+        briefing["repeat_across_years"]["places"][0]["name"],
+    )
 
 
 if __name__ == "__main__":

@@ -89,7 +89,210 @@ const VIOL_LABELS = [
 ];
 const VIOL_2025 = [1963, 1873, 1519, 1149, 1121, 1095];
 
-type TabId = "summary" | "overview" | "department" | "city" | "public" | "full";
+const CODED_FOOD_DRINKS = [
+  5954, 4809, 4035, 4313, 4787, 4551, 4926, 4833, 3527, 5209, 8649, 6235, 6765, 5756,
+];
+const CODED_TAKEOUT = [
+  5396, 4329, 3472, 3772, 4210, 3729, 3803, 3741, 3102, 4273, 7446, 5238, 5761, 4895,
+];
+const CODED_RETAIL = [
+  3215, 2047, 1564, 1752, 1904, 1716, 1760, 1318, 1257, 1728, 3124, 1607, 1697, 1495,
+];
+const CODED_MOBILE = [
+  208, 259, 131, 201, 189, 203, 328, 224, 46, 108, 429, 301, 353, 268,
+];
+const ALWAYS_PASS_N = [
+  60, 328, 92, 49,
+];
+const REPEAT_N = [
+  1010, 1296, 1349, 999,
+];
+const OVERLAY_LABELS = [
+  "Ice cream",
+  "Cultural / attraction",
+  "Hospital",
+  "Hotel",
+  "School",
+  "Cafe",
+  "Food and drinks",
+  "Take-out",
+  "Retail food",
+  "Mobile food",
+  "Other / unclassified",
+];
+const OVERLAY_2019 = [
+  26, 31, 44, 194, 98, 1056, 4041, 3107, 1298, 221, 0,
+];
+const OVERLAY_2024 = [
+  43, 49, 75, 232, 137, 1436, 5718, 4878, 1663, 345, 0,
+];
+const OVERLAY_2025 = [
+  54, 30, 61, 220, 102, 1212, 4861, 4147, 1468, 259, 0,
+];
+const OVERLAY_2026 = [
+  19, 25, 42, 183, 54, 873, 3478, 2882, 1070, 268, 0,
+];
+
+type PlaceYearKey = "2019" | "2024" | "2025" | "2026_ytd";
+type PlaceRow = {
+  name: string;
+  address: string;
+  zip: string;
+  category: string;
+  inspections: number;
+  fails: number;
+  failRate: number;
+  yearsFailed?: number;
+};
+const PLACE_YEAR_PILLS: { id: PlaceYearKey; label: string }[] = [
+  { id: "2019", label: "2019" },
+  { id: "2024", label: "2024" },
+  { id: "2025", label: "2025" },
+  { id: "2026_ytd", label: "2026 YTD" },
+];
+const PLACE_WINDOWS: Record<PlaceYearKey, {
+  ytd: boolean;
+  yearLabel: string;
+  alwaysN: number;
+  repeatN: number;
+  alwaysPass: PlaceRow[];
+  avoid: PlaceRow[];
+}> = {
+  "2019": {
+    ytd: false,
+    yearLabel: "2019",
+    alwaysN: 60,
+    repeatN: 1010,
+    alwaysPass: [
+      { name: "Roxy's Gourmet Grilled Cheese No. 2", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 6, fails: 0, failRate: 0.0 },
+      { name: "The Bacon Truck No. 2", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 6, fails: 0, failRate: 0.0 },
+      { name: "Emmanuel College", address: "400  FENWAY", zip: "02115", category: "School", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "HILTON BOSTON LOGAN AIRPORT", address: "1  HOTEL DR", zip: "02128", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Mama Ana", address: "197  EIGHTH ST", zip: "02129", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Mcdonalds", address: "315  WASHINGTON ST", zip: "02108", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "THE BARKING CRAB", address: "88  SLEEPER ST", zip: "02210", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "AFC Sushi @ Walgreens No. 15390", address: "10  SCHOOL ST", zip: "02108", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "AFC Sushi @Liberty Mutual Ins.", address: "157  BERKELEY ST", zip: "02116", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "Bella Luna Restaurant @ the Brewery", address: "284  AMORY ST", zip: "02130", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
+    ],
+    avoid: [
+      { name: "TICO", address: "222  BERKELEY ST", zip: "02116", category: "Food and drinks", inspections: 10, fails: 7, failRate: 70.0 },
+      { name: "The Brahmin", address: "33  STANHOPE ST", zip: "02116", category: "Food and drinks", inspections: 5, fails: 5, failRate: 100.0 },
+      { name: "Restaurante Cesaria", address: "266  BOWDOIN ST", zip: "02122", category: "Food and drinks", inspections: 7, fails: 5, failRate: 71.4 },
+      { name: "Mc Goo's Pizza", address: "479 W BROADWAY", zip: "02127", category: "Take-out", inspections: 8, fails: 5, failRate: 62.5 },
+      { name: "New York Pizza", address: "433  MASSACHUSETTS AV", zip: "02118", category: "Take-out", inspections: 8, fails: 5, failRate: 62.5 },
+      { name: "SAKURAABANA INC", address: "57  BROAD ST", zip: "02109", category: "Food and drinks", inspections: 8, fails: 5, failRate: 62.5 },
+      { name: "Penguin Pizza", address: "735  HUNTINGTON AV", zip: "02115", category: "Food and drinks", inspections: 9, fails: 5, failRate: 55.6 },
+      { name: "Super Stop & Shop", address: "1100  MASSACHUSETTS AV", zip: "02125", category: "Retail food", inspections: 10, fails: 5, failRate: 50.0 },
+      { name: "Ilona", address: "493  MASSACHUSETTS AV", zip: "02118", category: "Food and drinks", inspections: 5, fails: 4, failRate: 80.0 },
+      { name: "MIAMI RESTAURANT", address: "381  CENTRE ST", zip: "02130", category: "Food and drinks", inspections: 5, fails: 4, failRate: 80.0 },
+    ],
+  },
+  "2024": {
+    ytd: false,
+    yearLabel: "2024",
+    alwaysN: 328,
+    repeatN: 1296,
+    alwaysPass: [
+      { name: "Limani Grille", address: "100  NORTHERN AV", zip: "02210", category: "Food and drinks", inspections: 6, fails: 0, failRate: 0.0 },
+      { name: "Zaaki", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 6, fails: 0, failRate: 0.0 },
+      { name: "CHECKMATE CAFE", address: "900  SOUTH ST", zip: "02131", category: "Cafe", inspections: 5, fails: 0, failRate: 0.0 },
+      { name: "Dave's Hot Chicken", address: "123  STUART ST", zip: "02116", category: "Food and drinks", inspections: 5, fails: 0, failRate: 0.0 },
+      { name: "Lincoln Tavern", address: "425 W BROADWAY", zip: "02127", category: "Food and drinks", inspections: 5, fails: 0, failRate: 0.0 },
+      { name: "SALSAS MEXICAN GRILL", address: "417  WASHINGTON ST", zip: "02108", category: "Take-out", inspections: 5, fails: 0, failRate: 0.0 },
+      { name: "311", address: "605  TREMONT ST", zip: "02118", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "A & N PIZZA", address: "1409  CENTRE ST", zip: "02132", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Burger King", address: "100  WASHINGTON ST", zip: "02121", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Chubby Chickpea Mobile", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 4, fails: 0, failRate: 0.0 },
+    ],
+    avoid: [
+      { name: "Alamo Drafthouse", address: "23  NORTHERN AV", zip: "02210", category: "Take-out", inspections: 21, fails: 14, failRate: 66.7 },
+      { name: "Deno's Pizza and Subs", address: "2040  CENTRE ST", zip: "02132", category: "Take-out", inspections: 13, fails: 11, failRate: 84.6 },
+      { name: "Dollar Tree No. 8071", address: "1089  DORCHESTER AV", zip: "02125", category: "Retail food", inspections: 15, fails: 10, failRate: 66.7 },
+      { name: "Mattapan Fish Market", address: "1600  BLUE HILL AV", zip: "02126", category: "Retail food", inspections: 11, fails: 9, failRate: 81.8 },
+      { name: "Walgreens No. 19437", address: "1100  DORCHESTER AV", zip: "02125", category: "Retail food", inspections: 12, fails: 9, failRate: 75.0 },
+      { name: "Dollar Tree", address: "1230  VFW PW", zip: "02132", category: "Retail food", inspections: 13, fails: 9, failRate: 69.2 },
+      { name: "CVS Pharmacy No. 1031", address: "4600  WASHINGTON ST", zip: "02131", category: "Retail food", inspections: 9, fails: 8, failRate: 88.9 },
+      { name: "Cold Stone Creamery", address: "800  BOYLSTON ST", zip: "02199", category: "Take-out", inspections: 10, fails: 8, failRate: 80.0 },
+      { name: "Saigon One Restaurant", address: "1331  DORCHESTER AV", zip: "02122", category: "Food and drinks", inspections: 10, fails: 8, failRate: 80.0 },
+      { name: "BERTUCCI'S", address: "633  V F W PK", zip: "02132", category: "Food and drinks", inspections: 12, fails: 8, failRate: 66.7 },
+    ],
+  },
+  "2025": {
+    ytd: false,
+    yearLabel: "2025",
+    alwaysN: 92,
+    repeatN: 1349,
+    alwaysPass: [
+      { name: "Dunkin Donuts", address: "1627  TREMONT ST", zip: "02120", category: "Take-out", inspections: 6, fails: 0, failRate: 0.0 },
+      { name: "Blue Ribbon Barbecue", address: "401  PARK DR", zip: "02215", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "CVS/Pharmacy No. 10517", address: "77  SEAPORT BL", zip: "02210", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "CVS/Pharmacy No. 1900", address: "218  HANOVER ST", zip: "02113", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Honeygrow", address: "100  NORTHERN AV", zip: "02210", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Lala's Neapolitan-ish Pizza", address: "401  PARK DR", zip: "02215", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Shake Shack", address: "234  NEWBURY ST", zip: "02116", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Sodexo @ Liberty Mutual Fl. 2", address: "157  BERKELEY ST", zip: "02116", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "STARBUCKS COFFEE No.  7823", address: "470  WASHINGTON ST", zip: "02135", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Taco Bell", address: "74  SUMMER ST", zip: "02110", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+    ],
+    avoid: [
+      { name: "Dans Mini Dogs", address: "1010  MASSACHUSETTS AV", zip: "02118", category: "Food and drinks", inspections: 29, fails: 23, failRate: 79.3 },
+      { name: "Star Market No. 4587", address: "45  WM T MORRISSEY BL", zip: "02122", category: "Retail food", inspections: 17, fails: 10, failRate: 58.8 },
+      { name: "CVS No. 11036", address: "451  WASHINGTON ST", zip: "02124", category: "Retail food", inspections: 11, fails: 9, failRate: 81.8 },
+      { name: "Rincon Caribeno Restaurant", address: "18  FAIRMOUNT AV", zip: "02136", category: "Food and drinks", inspections: 11, fails: 9, failRate: 81.8 },
+      { name: "Yeanie's Burger & Social", address: "33  SAVIN HILL AV", zip: "02125", category: "Food and drinks", inspections: 12, fails: 9, failRate: 75.0 },
+      { name: "Slade's Bar & Grill", address: "950  TREMONT ST", zip: "02120", category: "Food and drinks", inspections: 13, fails: 9, failRate: 69.2 },
+      { name: "Boston Restaurant Bar & Grill", address: "1251  RIVER ST", zip: "02136", category: "Food and drinks", inspections: 15, fails: 9, failRate: 60.0 },
+      { name: "KMB(TEST)", address: "1010  MASSACHUSETTS AV", zip: "02118", category: "Take-out", inspections: 15, fails: 9, failRate: 60.0 },
+      { name: "NEW YORK FRIED CHICKEN & PIZZA", address: "531  COLUMBIA RD", zip: "02125", category: "Take-out", inspections: 10, fails: 8, failRate: 80.0 },
+      { name: "Pho Le", address: "1356  DORCHESTER AV", zip: "02122", category: "Food and drinks", inspections: 11, fails: 8, failRate: 72.7 },
+    ],
+  },
+  "2026_ytd": {
+    ytd: true,
+    yearLabel: "2026 YTD",
+    alwaysN: 49,
+    repeatN: 999,
+    alwaysPass: [
+      { name: "BM2: Bon Me OrangeNo. 2", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 9, fails: 0, failRate: 0.0 },
+      { name: "Cool Shade 2", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Dave's Hot Chicken", address: "1260  BOYLSTON ST", zip: "02215", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Grace Note Coffee", address: "100  HIGH ST", zip: "02110", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Olu's African Market", address: "4400  WASHINGTON ST", zip: "02131", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Ashmont Convenience Store", address: "1996  DORCHESTER AV", zip: "02124", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "B/SPOKE", address: "54  OLD COLONY AV", zip: "02127", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "Bibim Box", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "Boston Trolley Dogs", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "Boston Trolley DogsNo. 2", address: "1  CITYWIDE ST", zip: "02128", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
+    ],
+    avoid: [
+      { name: "Alamo Drafthouse", address: "23  NORTHERN AV", zip: "02210", category: "Take-out", inspections: 15, fails: 12, failRate: 80.0 },
+      { name: "Star Market No. 4587", address: "45  WM T MORRISSEY BL", zip: "02122", category: "Retail food", inspections: 15, fails: 10, failRate: 66.7 },
+      { name: "Dollar Tree StoreNo. 09513", address: "1329  HYDE PARK AV", zip: "02136", category: "Retail food", inspections: 17, fails: 10, failRate: 58.8 },
+      { name: "Boston Fried Chicken", address: "998  BLUE HILL AV", zip: "02124", category: "Food and drinks", inspections: 8, fails: 7, failRate: 87.5 },
+      { name: "Rod Thai Family Taste", address: "94  PETERBOROUGH ST", zip: "02215", category: "Food and drinks", inspections: 8, fails: 7, failRate: 87.5 },
+      { name: "Pink Taco", address: "374  CONGRESS ST", zip: "02210", category: "Food and drinks", inspections: 10, fails: 7, failRate: 70.0 },
+      { name: "MiNori Sushi No. 7", address: "122  BRIGHTON AV", zip: "02134", category: "Take-out", inspections: 6, fails: 6, failRate: 100.0 },
+      { name: "NICOLE'S PIZZA", address: "639  TREMONT ST", zip: "02118", category: "Take-out", inspections: 7, fails: 6, failRate: 85.7 },
+      { name: "AMERICA'S FOOD BASKET", address: "576  WASHINGTON ST", zip: "02124", category: "Retail food", inspections: 8, fails: 6, failRate: 75.0 },
+      { name: "Anna's Taqueria", address: "242  CAMBRIDGE ST", zip: "02114", category: "Food and drinks", inspections: 8, fails: 6, failRate: 75.0 },
+    ],
+  },
+};
+const REPEAT_ACROSS: PlaceRow[] = [
+  { name: "Go Fresh 365", address: "1102  WASHINGTON ST", zip: "02118", category: "Retail food", inspections: 105, fails: 54, failRate: 51.4, yearsFailed: 14 },
+  { name: "BOURBON ST. CAFE", address: "417  WASHINGTON ST", zip: "02108", category: "Cafe", inspections: 112, fails: 53, failRate: 47.3, yearsFailed: 14 },
+  { name: "Fan Fan Restaurant", address: "15  HARVARD AV", zip: "02136", category: "Food and drinks", inspections: 100, fails: 51, failRate: 51.0, yearsFailed: 14 },
+  { name: "The Real Deal", address: "1882  CENTRE ST", zip: "02132", category: "Food and drinks", inspections: 99, fails: 51, failRate: 51.5, yearsFailed: 14 },
+  { name: "Bonchon Allston", address: "101  BRIGHTON AV", zip: "02134", category: "Food and drinks", inspections: 104, fails: 50, failRate: 48.1, yearsFailed: 14 },
+  { name: "Nhu Lan Fast Food", address: "1155  DORCHESTER AV", zip: "02125", category: "Take-out", inspections: 99, fails: 49, failRate: 49.5, yearsFailed: 14 },
+  { name: "Yely's Coffee Shop", address: "284  CENTRE ST", zip: "02130", category: "Cafe", inspections: 99, fails: 47, failRate: 47.5, yearsFailed: 14 },
+  { name: "Los Amigos Mexican Grill", address: "1741  CENTRE ST", zip: "02132", category: "Take-out", inspections: 100, fails: 46, failRate: 46.0, yearsFailed: 14 },
+  { name: "NEW YORK FRIED CHICKEN & PIZZA", address: "531  COLUMBIA RD", zip: "02125", category: "Take-out", inspections: 84, fails: 46, failRate: 54.8, yearsFailed: 14 },
+  { name: "Yamato Japanese Cuisine", address: "111  CHISWICK RD", zip: "02135", category: "Food and drinks", inspections: 94, fails: 46, failRate: 48.9, yearsFailed: 14 },
+];
+
+type TabId = "summary" | "overview" | "department" | "city" | "public" | "places" | "full";
 
 const TABS: { id: TabId; label: string }[] = [
   { id: "summary", label: "Summary" },
@@ -97,6 +300,7 @@ const TABS: { id: TabId; label: string }[] = [
   { id: "department", label: "Department" },
   { id: "city", label: "City / Mayor" },
   { id: "public", label: "Public" },
+  { id: "places", label: "Places" },
   { id: "full", label: "Full analysis" },
 ];
 
@@ -109,6 +313,8 @@ const TAB_BLURB: Record<TabId, string> = {
   city: "What the Mayor and Council need: more inspections than 2019, a higher fail share, and ZIP fail rates that are not the same as volume.",
   public:
     "Plain language: one inspection can have several violation rows. A license is not an inspection.",
+  places:
+    "Always-pass, repeat offenders, and places to avoid for 2019, 2024, 2025, and 2026 YTD — not a 2025-only list. Repeat across years is 2012–2025 complete years.",
   full: "Every chart and table from this analysis, in one place.",
 };
 
@@ -410,6 +616,202 @@ function SectionPlace() {
   );
 }
 
+function SectionPlaces() {
+  const [yearKey, setYearKey] = useCanvasState<PlaceYearKey>(
+    "places-year",
+    "2025",
+  );
+  const win = PLACE_WINDOWS[yearKey];
+  const windowCaption = win.ytd
+    ? `${win.yearLabel} through 28 August 2026 — not a full year`
+    : `${win.yearLabel} complete year`;
+
+  return (
+    <Stack gap={12}>
+      <H2>Always-pass, repeats, and places to avoid — by year</H2>
+      <Text>
+        These lists are not 2025-only. Always-pass and repeat offenders are
+        computed inside each window: complete years 2019, 2024, and 2025,
+        plus 2026 year-to-date. Always-pass requires at least 3 inspections
+        in that window and zero fails. Repeat offenders failed at least two
+        visits in that window. Places to avoid are the worst of those
+        within-window repeats. A second list counts places that failed in
+        multiple years across 2012–2025 complete years. Do not count 3,347
+        licenses as inspections.
+      </Text>
+      <Table
+        headers={[
+          "Window",
+          "Always-pass (≥3 inspections, 0 fails)",
+          "Repeat offenders (≥2 failed visits)",
+        ]}
+        columnAlign={["left", "right", "right"]}
+        rows={[
+          ["2019 complete", "60", "1,010"],
+          ["2024 complete", "328", "1,296"],
+          ["2025 complete", "92", "1,349"],
+          ["2026 YTD through 28 Aug", "49", "999"],
+        ]}
+        rowTone={["info", "info", "warning", "warning"]}
+      />
+      <Caption>
+        Source: Analyze Boston Food Establishment Inspections · collapsed
+        visits · 2024 always-pass is larger because 2024 had more
+        inspections (14,576) and a lower fail share (32.5%) than 2025
+        (12,414 · 40.3%). 2026 is not a full year. 2020 is COVID and is
+        not a list window here.
+      </Caption>
+      <BarChart
+        categories={["2019", "2024", "2025", "2026 YTD"]}
+        height={200}
+        series={[
+          { name: "Always-pass places", data: ALWAYS_PASS_N, tone: "success" },
+          { name: "Repeat offenders", data: REPEAT_N, tone: "danger" },
+        ]}
+        valueSuffix=" places"
+      />
+      <Caption>
+        Source: Analyze Boston Food Establishment Inspections · place counts
+        · always-pass min 3 inspections in the window · repeat ≥2 failed
+        visits in the window · 2026 YTD not a full year
+      </Caption>
+      <H3>Coded license category mix, 2012–2025</H3>
+      <BarChart
+        stacked
+        categories={YEARS}
+        height={240}
+        series={[
+          { name: "Food and drinks", data: CODED_FOOD_DRINKS },
+          { name: "Take-out", data: CODED_TAKEOUT },
+          { name: "Retail food", data: CODED_RETAIL },
+          { name: "Mobile food", data: CODED_MOBILE },
+        ]}
+        valueSuffix=" inspections"
+      />
+      <Caption>
+        Source: Analyze Boston Food Establishment Inspections · licensecat
+        on the inspection row · FS Food and drinks · FT Take-out (Eating
+        &amp; Drinking w/ Take Out) · RF Retail food · MFW Mobile food ·
+        2012–2025 complete years · Other / unclassified is 0 every year
+        because every collapsed inspection has one of those four codes ·
+        not a 2025 pie · licenses are a separate file
+      </Caption>
+      <H3>Name overlays on top of coded categories</H3>
+      <Table
+        headers={["Category", "2019", "2024", "2025", "2026 YTD"]}
+        columnAlign={["left", "right", "right", "right", "right"]}
+        rows={OVERLAY_LABELS.map((label, i) => [
+          label,
+          String(OVERLAY_2019[i]),
+          String(OVERLAY_2024[i]),
+          String(OVERLAY_2025[i]),
+          String(OVERLAY_2026[i]),
+        ])}
+      />
+      <Caption>
+        Source: Analyze Boston Food Establishment Inspections · collapsed
+        inspections · Ice cream, Cafe, School, Hotel, Hospital, and
+        Cultural / attraction are name overlays with word-boundary
+        matching (ice cream, gelato, frozen yogurt — not the substring
+        ice). ICE Auto Services and All Spice are not ice cream. FT is
+        Take-out, not Food. City has no cafe or ice-cream license code.
+        Other / unclassified is 0 on this dump. 2026 YTD is not a full
+        year.
+      </Caption>
+      <Row gap={8} wrap>
+        {PLACE_YEAR_PILLS.map((p) => (
+          <span key={p.id}>
+            <Pill active={yearKey === p.id} onClick={() => setYearKey(p.id)}>
+              {p.label}
+            </Pill>
+          </span>
+        ))}
+      </Row>
+      {win.ytd ? (
+        <Callout tone="danger" title="2026 is not a full year.">
+          Always-pass and places to avoid below are 2026 year-to-date
+          through 28 August. Do not treat them as a calendar year.
+        </Callout>
+      ) : null}
+      <Grid columns={2} gap={16}>
+        <Stat
+          value={String(win.alwaysN)}
+          label={`Always-pass places, ${windowCaption}`}
+          tone="success"
+        />
+        <Stat
+          value={String(win.repeatN)}
+          label={`Repeat offenders, ${windowCaption}`}
+          tone="danger"
+        />
+      </Grid>
+      <H3>Always-pass — {win.yearLabel} (at least 3 inspections, 0 fails)</H3>
+      <Table
+        headers={["Place", "Address", "Category", "Inspections"]}
+        columnAlign={["left", "left", "left", "right"]}
+        rows={win.alwaysPass.map((p) => [
+          p.name,
+          `${p.address}, ${p.zip}`,
+          p.category,
+          String(p.inspections),
+        ])}
+      />
+      <Caption>
+        {`Source: Analyze Boston Food Establishment Inspections · ${windowCaption} · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · names as recorded · mobile rows often use 1 CITYWIDE ST`}
+      </Caption>
+      <H3>Places to avoid — worst repeat offenders, {win.yearLabel}</H3>
+      <Table
+        headers={[
+          "Place",
+          "Address",
+          "Category",
+          "Fails",
+          "Inspections",
+          "Fail share",
+        ]}
+        columnAlign={["left", "left", "left", "right", "right", "right"]}
+        rows={win.avoid.map((p) => [
+          p.name,
+          `${p.address}, ${p.zip}`,
+          p.category,
+          String(p.fails),
+          String(p.inspections),
+          `${p.failRate}%`,
+        ])}
+      />
+      <Caption>
+        {`Source: Analyze Boston Food Establishment Inspections · ${windowCaption} · within-window repeat offenders (≥2 failed visits) ranked by fail count, then fail rate · top 10 · KMB(TEST) is as the City recorded it · not licenses`}
+      </Caption>
+      <H3>Repeat offenders across years — 2012–2025 complete years</H3>
+      <Table
+        headers={[
+          "Place",
+          "Address",
+          "Category",
+          "Years with a fail",
+          "Fails",
+          "Inspections",
+        ]}
+        columnAlign={["left", "left", "left", "right", "right", "right"]}
+        rows={REPEAT_ACROSS.map((p) => [
+          p.name,
+          `${p.address}, ${p.zip}`,
+          p.category,
+          String(p.yearsFailed ?? 0),
+          String(p.fails),
+          String(p.inspections),
+        ])}
+      />
+      <Caption>
+        Source: Analyze Boston Food Establishment Inspections · 2012–2025
+        complete years · failed in multiple years (at least 2 distinct
+        complete years) · 2026 YTD is excluded from this list · this is
+        not the same as two fails inside one year
+      </Caption>
+    </Stack>
+  );
+}
+
 function SectionQuality() {
   return (
     <Stack gap={12}>
@@ -488,7 +890,9 @@ function TabSummary() {
       />
       <Text>
         Open Overview for the citywide trend, Department for the result
-        clock, City / Mayor for ZIP fail rates, Public for plain language.
+        clock, City / Mayor for ZIP fail rates, Public for plain language,
+        Places for always-pass and repeat-offender lists by year (2019,
+        2024, 2025, and 2026 YTD).
       </Text>
     </Stack>
   );
@@ -599,6 +1003,11 @@ function TabPublic() {
         Records in this dump run through 28 August 2026 (8,894 so far).
         2026 is not a full year.
       </Callout>
+      <Callout tone="info" title="Always-pass and repeats are not 2025-only.">
+        Open Places for lists in 2019, 2024, 2025, and 2026 YTD, plus
+        places that failed in multiple years from 2012 through 2025.
+        Always-pass needs at least 3 inspections in that window.
+      </Callout>
       <Grid columns={2} gap={24}>
         <Stack gap={8}>
           <H3>2025 inspections by result hour</H3>
@@ -639,6 +1048,10 @@ function TabPublic() {
   );
 }
 
+function TabPlaces() {
+  return <SectionPlaces />;
+}
+
 function TabFull() {
   return (
     <Stack gap={32}>
@@ -649,6 +1062,8 @@ function TabFull() {
       <SectionClock />
       <Divider />
       <SectionPlace />
+      <Divider />
+      <SectionPlaces />
       <Divider />
       <SectionQuality />
     </Stack>
@@ -688,6 +1103,7 @@ export default function BostonFoodSafetyBriefing() {
       {tab === "department" ? <TabDepartment /> : null}
       {tab === "city" ? <TabCity /> : null}
       {tab === "public" ? <TabPublic /> : null}
+      {tab === "places" ? <TabPlaces /> : null}
       {tab === "full" ? <TabFull /> : null}
     </Stack>
   );
