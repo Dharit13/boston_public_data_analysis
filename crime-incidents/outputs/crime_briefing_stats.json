@@ -1,0 +1,2657 @@
+{
+  "quality": {
+    "raw": 947034,
+    "kept_offense": 947034,
+    "unique_incidents": 904961,
+    "multi_offense_incidents": 31269,
+    "note": "2015 starts 15 Jun. 2015\u20132018 files are offense-level; collapsed to one incident. 2026 through mid-August."
+  },
+  "date_span": {
+    "min_year": 2015,
+    "max_year": 2026,
+    "y2015_partial": true,
+    "y2026_months": 8,
+    "y2026_n": 51789
+  },
+  "years": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "by_year": [
+    {
+      "year": 2015,
+      "incidents": 46966,
+      "offenses": 53597
+    },
+    {
+      "year": 2016,
+      "incidents": 87994,
+      "offenses": 99430
+    },
+    {
+      "year": 2017,
+      "incidents": 89486,
+      "offenses": 101338
+    },
+    {
+      "year": 2018,
+      "incidents": 86734,
+      "offenses": 98888
+    },
+    {
+      "year": 2019,
+      "incidents": 87184,
+      "offenses": 87184
+    },
+    {
+      "year": 2020,
+      "incidents": 70894,
+      "offenses": 70894
+    },
+    {
+      "year": 2021,
+      "incidents": 71721,
+      "offenses": 71721
+    },
+    {
+      "year": 2022,
+      "incidents": 73852,
+      "offenses": 73852
+    },
+    {
+      "year": 2023,
+      "incidents": 78055,
+      "offenses": 78055
+    },
+    {
+      "year": 2024,
+      "incidents": 79124,
+      "offenses": 79124
+    },
+    {
+      "year": 2025,
+      "incidents": 81162,
+      "offenses": 81162
+    },
+    {
+      "year": 2026,
+      "incidents": 51789,
+      "offenses": 51789
+    }
+  ],
+  "stacked": {
+    "years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "series": [
+      {
+        "name": "Non-crime service",
+        "data": [
+          34051,
+          37259,
+          35675,
+          35855,
+          28930,
+          31217,
+          33843,
+          34258,
+          35358,
+          38197
+        ]
+      },
+      {
+        "name": "Motor vehicle",
+        "data": [
+          13301,
+          13467,
+          13159,
+          13134,
+          10314,
+          12395,
+          12348,
+          12569,
+          13069,
+          13138
+        ]
+      },
+      {
+        "name": "Property crime",
+        "data": [
+          22805,
+          21414,
+          20496,
+          20604,
+          20464,
+          17197,
+          16709,
+          18875,
+          18403,
+          17584
+        ]
+      },
+      {
+        "name": "Violence",
+        "data": [
+          12090,
+          11995,
+          12186,
+          12444,
+          8155,
+          7904,
+          8008,
+          8951,
+          8794,
+          8101
+        ]
+      },
+      {
+        "name": "Drugs",
+        "data": [
+          3293,
+          2883,
+          3052,
+          3020,
+          1401,
+          1591,
+          1527,
+          1866,
+          1998,
+          2688
+        ]
+      },
+      {
+        "name": "Other crime",
+        "data": [
+          776,
+          781,
+          684,
+          789,
+          688,
+          769,
+          816,
+          715,
+          667,
+          708
+        ]
+      },
+      {
+        "name": "Other",
+        "data": [
+          1678,
+          1687,
+          1482,
+          1338,
+          942,
+          648,
+          601,
+          821,
+          835,
+          746
+        ]
+      }
+    ]
+  },
+  "year_violence": [
+    12090,
+    11995,
+    12186,
+    12444,
+    8155,
+    7904,
+    8008,
+    8951,
+    8794,
+    8101
+  ],
+  "year_serious": [
+    3756,
+    3633,
+    3463,
+    3341,
+    2634,
+    2287,
+    2336,
+    2396,
+    2463,
+    2213
+  ],
+  "year_service": [
+    34051,
+    37259,
+    35675,
+    35855,
+    28930,
+    31217,
+    33843,
+    34258,
+    35358,
+    38197
+  ],
+  "year_property": [
+    22805,
+    21414,
+    20496,
+    20604,
+    20464,
+    17197,
+    16709,
+    18875,
+    18403,
+    17584
+  ],
+  "year_larceny": [
+    10340,
+    9970,
+    9984,
+    9998,
+    8958,
+    8071,
+    7791,
+    9412,
+    10230,
+    10244
+  ],
+  "year_shop": [
+    2453,
+    2435,
+    2696,
+    2361,
+    2025,
+    2316,
+    2234,
+    2893,
+    3755,
+    4340
+  ],
+  "year_invest_person": [
+    5773,
+    6667,
+    5460,
+    5743,
+    5122,
+    6841,
+    8070,
+    7006,
+    7705,
+    8935
+  ],
+  "year_invest_property": [
+    3356,
+    3981,
+    3752,
+    3679,
+    3222,
+    3531,
+    3539,
+    3481,
+    3467,
+    3515
+  ],
+  "year_sick": [
+    6568,
+    7219,
+    7745,
+    7800,
+    8236,
+    8129,
+    7919,
+    9043,
+    8833,
+    9718
+  ],
+  "year_towed": [
+    3225,
+    3952,
+    3712,
+    3145,
+    2552,
+    3215,
+    3190,
+    3263,
+    3492,
+    3771
+  ],
+  "year_verbal": [
+    4100,
+    4437,
+    4423,
+    3583,
+    1448,
+    1711,
+    1841,
+    1862,
+    2221,
+    1743
+  ],
+  "year_drugs": [
+    3293,
+    2883,
+    3052,
+    3020,
+    1401,
+    1591,
+    1527,
+    1866,
+    1998,
+    2688
+  ],
+  "year_rms_shooting": [
+    185,
+    217,
+    170,
+    810,
+    1122,
+    909,
+    733,
+    636,
+    485,
+    535
+  ],
+  "volume": [
+    87994,
+    89486,
+    86734,
+    87184,
+    70894,
+    71721,
+    73852,
+    78055,
+    79124,
+    81162
+  ],
+  "leaders": [
+    {
+      "year": 2015,
+      "volume_district": "B2 Roxbury",
+      "volume": 7499,
+      "violence_district": "B2 Roxbury",
+      "violence": 1218,
+      "serious_district": "B2 Roxbury",
+      "serious": 460
+    },
+    {
+      "year": 2016,
+      "volume_district": "B2 Roxbury",
+      "volume": 13644,
+      "violence_district": "B2 Roxbury",
+      "violence": 2262,
+      "serious_district": "B2 Roxbury",
+      "serious": 795
+    },
+    {
+      "year": 2017,
+      "volume_district": "B2 Roxbury",
+      "volume": 13833,
+      "violence_district": "B2 Roxbury",
+      "violence": 2130,
+      "serious_district": "B2 Roxbury",
+      "serious": 708
+    },
+    {
+      "year": 2018,
+      "volume_district": "B2 Roxbury",
+      "volume": 13332,
+      "violence_district": "B2 Roxbury",
+      "violence": 2149,
+      "serious_district": "B2 Roxbury",
+      "serious": 674
+    },
+    {
+      "year": 2019,
+      "volume_district": "B2 Roxbury",
+      "volume": 13030,
+      "violence_district": "B2 Roxbury",
+      "violence": 1985,
+      "serious_district": "B2 Roxbury",
+      "serious": 569
+    },
+    {
+      "year": 2020,
+      "volume_district": "B2 Roxbury",
+      "volume": 10442,
+      "violence_district": "B2 Roxbury",
+      "violence": 1317,
+      "serious_district": "B2 Roxbury",
+      "serious": 513
+    },
+    {
+      "year": 2021,
+      "volume_district": "B2 Roxbury",
+      "volume": 9929,
+      "violence_district": "B2 Roxbury",
+      "violence": 1118,
+      "serious_district": "B2 Roxbury",
+      "serious": 371
+    },
+    {
+      "year": 2022,
+      "volume_district": "B2 Roxbury",
+      "volume": 10031,
+      "violence_district": "A1 Downtown",
+      "violence": 1132,
+      "serious_district": "B2 Roxbury",
+      "serious": 343
+    },
+    {
+      "year": 2023,
+      "volume_district": "D4 South End",
+      "volume": 10408,
+      "violence_district": "B2 Roxbury",
+      "violence": 1328,
+      "serious_district": "D4 South End",
+      "serious": 363
+    },
+    {
+      "year": 2024,
+      "volume_district": "D4 South End",
+      "volume": 11319,
+      "violence_district": "B2 Roxbury",
+      "violence": 1266,
+      "serious_district": "A1 Downtown",
+      "serious": 378
+    },
+    {
+      "year": 2025,
+      "volume_district": "D4 South End",
+      "volume": 12762,
+      "violence_district": "B2 Roxbury",
+      "violence": 1288,
+      "serious_district": "B2 Roxbury",
+      "serious": 351
+    },
+    {
+      "year": 2026,
+      "volume_district": "D4 South End",
+      "volume": 7743,
+      "violence_district": "B2 Roxbury",
+      "violence": 830,
+      "serious_district": "B2 Roxbury",
+      "serious": 243
+    }
+  ],
+  "y2016": {
+    "n": 87994,
+    "violence": 12090,
+    "serious": 3756,
+    "service": 34051,
+    "property": 22805,
+    "drugs": 3293,
+    "shop": 2453,
+    "invest_person": 5773,
+    "sick": 6568,
+    "share_service": 38.7,
+    "share_violence": 13.7,
+    "share_property": 25.9,
+    "families": [
+      {
+        "label": "Other service",
+        "value": 14325
+      },
+      {
+        "label": "MV crash / traffic",
+        "value": 13301
+      },
+      {
+        "label": "Larceny",
+        "value": 10340
+      },
+      {
+        "label": "Investigate",
+        "value": 8763
+      },
+      {
+        "label": "Simple assault",
+        "value": 8334
+      },
+      {
+        "label": "Vandalism / fraud",
+        "value": 7873
+      },
+      {
+        "label": "Medical / sick assist",
+        "value": 7013
+      },
+      {
+        "label": "Verbal dispute",
+        "value": 3950
+      },
+      {
+        "label": "Drugs",
+        "value": 3293
+      },
+      {
+        "label": "Auto theft",
+        "value": 2306
+      },
+      {
+        "label": "Burglary",
+        "value": 2286
+      },
+      {
+        "label": "Aggravated assault",
+        "value": 2226
+      }
+    ],
+    "workload": [
+      {
+        "label": "Non-crime service",
+        "value": 34051
+      },
+      {
+        "label": "Property crime",
+        "value": 22805
+      },
+      {
+        "label": "Motor vehicle",
+        "value": 13301
+      },
+      {
+        "label": "Violence",
+        "value": 12090
+      },
+      {
+        "label": "Drugs",
+        "value": 3293
+      },
+      {
+        "label": "Other",
+        "value": 1678
+      },
+      {
+        "label": "Other crime",
+        "value": 776
+      }
+    ]
+  },
+  "y2020": {
+    "n": 70894,
+    "violence": 8155,
+    "serious": 2634,
+    "service": 28930
+  },
+  "y2024": {
+    "n": 79124,
+    "per_day": 216.2,
+    "violence": 8794,
+    "serious": 2463,
+    "service": 35358,
+    "property": 18403,
+    "larceny": 10230,
+    "shop": 3755,
+    "invest_person": 7705,
+    "invest_property": 3467,
+    "sick": 8833,
+    "towed": 3492,
+    "verbal": 2221,
+    "drugs": 1998,
+    "rms_shooting": 485,
+    "share_service": 44.7,
+    "share_violence": 11.1,
+    "share_serious": 3.1,
+    "share_property": 23.3,
+    "share_drugs": 2.5,
+    "b2_b3_c11": 27940,
+    "b2_b3_c11_share": 35.3,
+    "b2_b3_c11_violence": 3367,
+    "b2_b3_c11_violence_share": 38.3,
+    "b2_b3_c11_serious": 986,
+    "b2_b3_c11_serious_share": 40.0,
+    "peak_hour": 17,
+    "quiet_hour": 4,
+    "violence_peak_hour": 16,
+    "families": [
+      {
+        "label": "MV crash / traffic",
+        "value": 13069
+      },
+      {
+        "label": "Other service",
+        "value": 12587
+      },
+      {
+        "label": "Investigate",
+        "value": 11172
+      },
+      {
+        "label": "Larceny",
+        "value": 10230
+      },
+      {
+        "label": "Medical / sick assist",
+        "value": 9378
+      },
+      {
+        "label": "Simple assault",
+        "value": 6331
+      },
+      {
+        "label": "Vandalism / fraud",
+        "value": 5447
+      },
+      {
+        "label": "Verbal dispute",
+        "value": 2221
+      },
+      {
+        "label": "Drugs",
+        "value": 1998
+      },
+      {
+        "label": "Auto theft",
+        "value": 1710
+      },
+      {
+        "label": "Aggravated assault",
+        "value": 1696
+      },
+      {
+        "label": "Burglary",
+        "value": 1016
+      }
+    ],
+    "workload": [
+      {
+        "label": "Non-crime service",
+        "value": 35358
+      },
+      {
+        "label": "Property crime",
+        "value": 18403
+      },
+      {
+        "label": "Motor vehicle",
+        "value": 13069
+      },
+      {
+        "label": "Violence",
+        "value": 8794
+      },
+      {
+        "label": "Drugs",
+        "value": 1998
+      },
+      {
+        "label": "Other",
+        "value": 835
+      },
+      {
+        "label": "Other crime",
+        "value": 667
+      }
+    ],
+    "top_desc": [
+      {
+        "label": "INVESTIGATE PERSON",
+        "value": 7705
+      },
+      {
+        "label": "SICK ASSIST",
+        "value": 6750
+      },
+      {
+        "label": "M/V - LEAVING SCENE - PROPERTY DAMAGE",
+        "value": 4687
+      },
+      {
+        "label": "LARCENY SHOPLIFTING",
+        "value": 3755
+      },
+      {
+        "label": "TOWED MOTOR VEHICLE",
+        "value": 3492
+      },
+      {
+        "label": "INVESTIGATE PROPERTY",
+        "value": 3467
+      },
+      {
+        "label": "ASSAULT - SIMPLE",
+        "value": 3265
+      },
+      {
+        "label": "VANDALISM",
+        "value": 2802
+      },
+      {
+        "label": "PROPERTY - LOST/ MISSING",
+        "value": 2796
+      },
+      {
+        "label": "VERBAL DISPUTE",
+        "value": 2221
+      },
+      {
+        "label": "LARCENY THEFT FROM MV - NON-ACCESSORY",
+        "value": 2038
+      },
+      {
+        "label": "DRUGS - POSSESSION/ SALE/ MANUFACTURING/ USE",
+        "value": 1991
+      },
+      {
+        "label": "LARCENY THEFT FROM BUILDING",
+        "value": 1943
+      },
+      {
+        "label": "M/V ACCIDENT - PROPERTY DAMAGE",
+        "value": 1840
+      },
+      {
+        "label": "THREATS TO DO BODILY HARM",
+        "value": 1827
+      }
+    ]
+  },
+  "y2025": {
+    "n": 81162,
+    "per_day": 222.4,
+    "violence": 8101,
+    "serious": 2213,
+    "service": 38197,
+    "property": 17584,
+    "larceny": 10244,
+    "shop": 4340,
+    "invest_person": 8935,
+    "invest_property": 3515,
+    "sick": 9718,
+    "towed": 3771,
+    "verbal": 1743,
+    "drugs": 2688,
+    "rms_shooting": 535,
+    "share_service": 47.1,
+    "share_violence": 10.0,
+    "share_serious": 2.7,
+    "share_property": 21.7,
+    "share_drugs": 3.3,
+    "b2_b3_c11": 28777,
+    "b2_b3_c11_share": 35.5,
+    "b2_b3_c11_violence": 3265,
+    "b2_b3_c11_violence_share": 40.3,
+    "b2_b3_c11_serious": 949,
+    "b2_b3_c11_serious_share": 42.9,
+    "peak_hour": 17,
+    "quiet_hour": 4,
+    "violence_peak_hour": 16,
+    "month": [
+      6235,
+      5633,
+      6723,
+      6448,
+      7164,
+      6740,
+      7155,
+      7358,
+      7375,
+      7420,
+      6681,
+      6230
+    ],
+    "families": [
+      {
+        "label": "Other service",
+        "value": 13691
+      },
+      {
+        "label": "MV crash / traffic",
+        "value": 13138
+      },
+      {
+        "label": "Investigate",
+        "value": 12450
+      },
+      {
+        "label": "Medical / sick assist",
+        "value": 10313
+      },
+      {
+        "label": "Larceny",
+        "value": 10244
+      },
+      {
+        "label": "Simple assault",
+        "value": 5888
+      },
+      {
+        "label": "Vandalism / fraud",
+        "value": 4719
+      },
+      {
+        "label": "Drugs",
+        "value": 2688
+      },
+      {
+        "label": "Verbal dispute",
+        "value": 1743
+      },
+      {
+        "label": "Auto theft",
+        "value": 1677
+      },
+      {
+        "label": "Aggravated assault",
+        "value": 1517
+      },
+      {
+        "label": "Burglary",
+        "value": 944
+      }
+    ],
+    "workload": [
+      {
+        "label": "Non-crime service",
+        "value": 38197
+      },
+      {
+        "label": "Property crime",
+        "value": 17584
+      },
+      {
+        "label": "Motor vehicle",
+        "value": 13138
+      },
+      {
+        "label": "Violence",
+        "value": 8101
+      },
+      {
+        "label": "Drugs",
+        "value": 2688
+      },
+      {
+        "label": "Other",
+        "value": 746
+      },
+      {
+        "label": "Other crime",
+        "value": 708
+      }
+    ],
+    "top_desc": [
+      {
+        "label": "INVESTIGATE PERSON",
+        "value": 8935
+      },
+      {
+        "label": "SICK ASSIST",
+        "value": 7706
+      },
+      {
+        "label": "M/V - LEAVING SCENE - PROPERTY DAMAGE",
+        "value": 4680
+      },
+      {
+        "label": "LARCENY SHOPLIFTING",
+        "value": 4340
+      },
+      {
+        "label": "TOWED MOTOR VEHICLE",
+        "value": 3771
+      },
+      {
+        "label": "INVESTIGATE PROPERTY",
+        "value": 3515
+      },
+      {
+        "label": "ASSAULT - SIMPLE",
+        "value": 3161
+      },
+      {
+        "label": "PROPERTY - LOST/ MISSING",
+        "value": 2965
+      },
+      {
+        "label": "DRUGS - POSSESSION/ SALE/ MANUFACTURING/ USE",
+        "value": 2653
+      },
+      {
+        "label": "VANDALISM",
+        "value": 2474
+      },
+      {
+        "label": "LARCENY THEFT FROM BUILDING",
+        "value": 1903
+      },
+      {
+        "label": "M/V ACCIDENT - PROPERTY DAMAGE",
+        "value": 1782
+      },
+      {
+        "label": "VERBAL DISPUTE",
+        "value": 1743
+      },
+      {
+        "label": "LARCENY THEFT FROM MV - NON-ACCESSORY",
+        "value": 1713
+      },
+      {
+        "label": "M/V ACCIDENT - OTHER",
+        "value": 1705
+      }
+    ]
+  },
+  "y2026_ytd": {
+    "n": 51789,
+    "through_month": 8,
+    "n_2025_through_aug": 53456,
+    "violence": 4994,
+    "serious": 1388,
+    "service": 25606,
+    "shop": 2752,
+    "sick": 7459,
+    "invest_person": 5684
+  },
+  "hour_2024": [
+    6605,
+    1818,
+    1700,
+    1092,
+    803,
+    851,
+    1211,
+    2121,
+    3211,
+    3614,
+    4102,
+    4263,
+    4896,
+    4151,
+    4198,
+    3996,
+    5036,
+    5091,
+    4666,
+    3927,
+    3663,
+    3236,
+    2806,
+    2067
+  ],
+  "hour_violence_2024": [
+    768,
+    257,
+    274,
+    128,
+    85,
+    75,
+    92,
+    156,
+    278,
+    298,
+    392,
+    420,
+    491,
+    431,
+    479,
+    526,
+    577,
+    558,
+    493,
+    426,
+    460,
+    447,
+    379,
+    304
+  ],
+  "hour_2025": [
+    6271,
+    1838,
+    1587,
+    1015,
+    828,
+    890,
+    1241,
+    2358,
+    3388,
+    4002,
+    4481,
+    4521,
+    4937,
+    4278,
+    4403,
+    4043,
+    5125,
+    5292,
+    4837,
+    4072,
+    3736,
+    3206,
+    2763,
+    2050
+  ],
+  "hour_violence_2025": [
+    700,
+    259,
+    258,
+    119,
+    77,
+    75,
+    114,
+    179,
+    225,
+    305,
+    333,
+    366,
+    446,
+    375,
+    441,
+    445,
+    522,
+    521,
+    510,
+    435,
+    433,
+    376,
+    342,
+    245
+  ],
+  "weekday_2024": [
+    11559,
+    11845,
+    11588,
+    11467,
+    12085,
+    10821,
+    9759
+  ],
+  "weekday_2025": [
+    12109,
+    11943,
+    12112,
+    11547,
+    12408,
+    11034,
+    10009
+  ],
+  "month_2024": [
+    6144,
+    5838,
+    5304,
+    6468,
+    7172,
+    6851,
+    7035,
+    7113,
+    7060,
+    6829,
+    6539,
+    6771
+  ],
+  "month_2025": [
+    6235,
+    5633,
+    6723,
+    6448,
+    7164,
+    6740,
+    7155,
+    7358,
+    7375,
+    7420,
+    6681,
+    6230
+  ],
+  "district_profile_2024": [
+    {
+      "district": "D4 South End",
+      "code": "D4",
+      "incidents": 11319,
+      "violence": 1231,
+      "serious": 329,
+      "service": 4945,
+      "shoplifting": 1291,
+      "violence_pct": 10.9,
+      "service_pct": 43.7
+    },
+    {
+      "district": "B2 Roxbury",
+      "code": "B2",
+      "incidents": 10540,
+      "violence": 1266,
+      "serious": 371,
+      "service": 4763,
+      "shoplifting": 198,
+      "violence_pct": 12.0,
+      "service_pct": 45.2
+    },
+    {
+      "district": "A1 Downtown",
+      "code": "A1",
+      "incidents": 9342,
+      "violence": 1198,
+      "serious": 378,
+      "service": 4024,
+      "shoplifting": 692,
+      "violence_pct": 12.8,
+      "service_pct": 43.1
+    },
+    {
+      "district": "C11 Dorchester",
+      "code": "C11",
+      "incidents": 9276,
+      "violence": 1091,
+      "serious": 324,
+      "service": 3610,
+      "shoplifting": 509,
+      "violence_pct": 11.8,
+      "service_pct": 38.9
+    },
+    {
+      "district": "B3 Mattapan",
+      "code": "B3",
+      "incidents": 8124,
+      "violence": 1010,
+      "serious": 291,
+      "service": 3988,
+      "shoplifting": 97,
+      "violence_pct": 12.4,
+      "service_pct": 49.1
+    },
+    {
+      "district": "C6 South Boston",
+      "code": "C6",
+      "incidents": 6486,
+      "violence": 655,
+      "serious": 194,
+      "service": 2682,
+      "shoplifting": 334,
+      "violence_pct": 10.1,
+      "service_pct": 41.4
+    },
+    {
+      "district": "D14 Brighton",
+      "code": "D14",
+      "incidents": 5428,
+      "violence": 473,
+      "serious": 114,
+      "service": 2489,
+      "shoplifting": 114,
+      "violence_pct": 8.7,
+      "service_pct": 45.9
+    },
+    {
+      "district": "E13 Jamaica Plain",
+      "code": "E13",
+      "incidents": 4746,
+      "violence": 475,
+      "serious": 116,
+      "service": 2212,
+      "shoplifting": 165,
+      "violence_pct": 10.0,
+      "service_pct": 46.6
+    },
+    {
+      "district": "A7 East Boston",
+      "code": "A7",
+      "incidents": 4289,
+      "violence": 436,
+      "serious": 122,
+      "service": 2093,
+      "shoplifting": 94,
+      "violence_pct": 10.2,
+      "service_pct": 48.8
+    },
+    {
+      "district": "E18 Hyde Park",
+      "code": "E18",
+      "incidents": 4143,
+      "violence": 427,
+      "serious": 100,
+      "service": 1998,
+      "shoplifting": 103,
+      "violence_pct": 10.3,
+      "service_pct": 48.2
+    },
+    {
+      "district": "E5 West Roxbury",
+      "code": "E5",
+      "incidents": 3738,
+      "violence": 371,
+      "serious": 68,
+      "service": 1769,
+      "shoplifting": 134,
+      "violence_pct": 9.9,
+      "service_pct": 47.3
+    },
+    {
+      "district": "A15 Charlestown",
+      "code": "A15",
+      "incidents": 1392,
+      "violence": 129,
+      "serious": 42,
+      "service": 655,
+      "shoplifting": 10,
+      "violence_pct": 9.3,
+      "service_pct": 47.1
+    },
+    {
+      "district": "External",
+      "code": "External",
+      "incidents": 138,
+      "violence": 12,
+      "serious": 2,
+      "service": 56,
+      "shoplifting": 8,
+      "violence_pct": 8.7,
+      "service_pct": 40.6
+    }
+  ],
+  "district_profile_2025": [
+    {
+      "district": "D4 South End",
+      "code": "D4",
+      "incidents": 12762,
+      "violence": 1179,
+      "serious": 315,
+      "service": 5786,
+      "shoplifting": 1559,
+      "violence_pct": 9.2,
+      "service_pct": 45.3
+    },
+    {
+      "district": "B2 Roxbury",
+      "code": "B2",
+      "incidents": 10845,
+      "violence": 1288,
+      "serious": 351,
+      "service": 5083,
+      "shoplifting": 307,
+      "violence_pct": 11.9,
+      "service_pct": 46.9
+    },
+    {
+      "district": "C11 Dorchester",
+      "code": "C11",
+      "incidents": 9825,
+      "violence": 1003,
+      "serious": 287,
+      "service": 4298,
+      "shoplifting": 531,
+      "violence_pct": 10.2,
+      "service_pct": 43.7
+    },
+    {
+      "district": "A1 Downtown",
+      "code": "A1",
+      "incidents": 9158,
+      "violence": 1048,
+      "serious": 314,
+      "service": 4102,
+      "shoplifting": 770,
+      "violence_pct": 11.4,
+      "service_pct": 44.8
+    },
+    {
+      "district": "B3 Mattapan",
+      "code": "B3",
+      "incidents": 8107,
+      "violence": 974,
+      "serious": 311,
+      "service": 4052,
+      "shoplifting": 142,
+      "violence_pct": 12.0,
+      "service_pct": 50.0
+    },
+    {
+      "district": "C6 South Boston",
+      "code": "C6",
+      "incidents": 6849,
+      "violence": 653,
+      "serious": 175,
+      "service": 3022,
+      "shoplifting": 368,
+      "violence_pct": 9.5,
+      "service_pct": 44.1
+    },
+    {
+      "district": "D14 Brighton",
+      "code": "D14",
+      "incidents": 5398,
+      "violence": 406,
+      "serious": 93,
+      "service": 2578,
+      "shoplifting": 124,
+      "violence_pct": 7.5,
+      "service_pct": 47.8
+    },
+    {
+      "district": "E13 Jamaica Plain",
+      "code": "E13",
+      "incidents": 4994,
+      "violence": 439,
+      "serious": 104,
+      "service": 2532,
+      "shoplifting": 178,
+      "violence_pct": 8.8,
+      "service_pct": 50.7
+    },
+    {
+      "district": "A7 East Boston",
+      "code": "A7",
+      "incidents": 4126,
+      "violence": 335,
+      "serious": 82,
+      "service": 2136,
+      "shoplifting": 151,
+      "violence_pct": 8.1,
+      "service_pct": 51.8
+    },
+    {
+      "district": "E18 Hyde Park",
+      "code": "E18",
+      "incidents": 4081,
+      "violence": 390,
+      "serious": 103,
+      "service": 2026,
+      "shoplifting": 100,
+      "violence_pct": 9.6,
+      "service_pct": 49.6
+    },
+    {
+      "district": "E5 West Roxbury",
+      "code": "E5",
+      "incidents": 3584,
+      "violence": 280,
+      "serious": 43,
+      "service": 1874,
+      "shoplifting": 92,
+      "violence_pct": 7.8,
+      "service_pct": 52.3
+    },
+    {
+      "district": "A15 Charlestown",
+      "code": "A15",
+      "incidents": 1200,
+      "violence": 87,
+      "serious": 30,
+      "service": 594,
+      "shoplifting": 11,
+      "violence_pct": 7.2,
+      "service_pct": 49.5
+    },
+    {
+      "district": "External",
+      "code": "External",
+      "incidents": 129,
+      "violence": 10,
+      "serious": 3,
+      "service": 60,
+      "shoplifting": 4,
+      "violence_pct": 7.8,
+      "service_pct": 46.5
+    }
+  ],
+  "area_volume": {
+    "B2 Roxbury": [
+      13644,
+      13833,
+      13332,
+      13030,
+      10442,
+      9929,
+      10031,
+      10337,
+      10540,
+      10845
+    ],
+    "C11 Dorchester": [
+      12038,
+      11966,
+      11226,
+      11022,
+      8992,
+      9119,
+      9136,
+      9073,
+      9276,
+      9825
+    ],
+    "D4 South End": [
+      11562,
+      11055,
+      10767,
+      11276,
+      9283,
+      9245,
+      9592,
+      10408,
+      11319,
+      12762
+    ],
+    "B3 Mattapan": [
+      9779,
+      10162,
+      10177,
+      9591,
+      7828,
+      7422,
+      7316,
+      7903,
+      8124,
+      8107
+    ],
+    "A1 Downtown": [
+      9338,
+      9953,
+      9528,
+      9936,
+      7013,
+      8085,
+      8520,
+      9557,
+      9342,
+      9158
+    ],
+    "C6 South Boston": [
+      6304,
+      6618,
+      6657,
+      6286,
+      5440,
+      6020,
+      6097,
+      6660,
+      6486,
+      6849
+    ],
+    "D14 Brighton": [
+      5879,
+      5966,
+      5624,
+      5704,
+      4756,
+      4976,
+      5654,
+      5672,
+      5428,
+      5398
+    ],
+    "E13 Jamaica Plain": [
+      5001,
+      4882,
+      4805,
+      4928,
+      4103,
+      3802,
+      4295,
+      4716,
+      4746,
+      4994
+    ],
+    "E18 Hyde Park": [
+      4750,
+      5092,
+      5001,
+      5197,
+      4177,
+      3995,
+      4109,
+      4234,
+      4143,
+      4081
+    ],
+    "A7 East Boston": [
+      3706,
+      3720,
+      3445,
+      3400,
+      3141,
+      3264,
+      3719,
+      4102,
+      4289,
+      4126
+    ],
+    "E5 West Roxbury": [
+      3733,
+      3732,
+      3728,
+      3807,
+      3595,
+      3326,
+      3682,
+      3749,
+      3738,
+      3584
+    ],
+    "A15 Charlestown": [
+      1823,
+      2029,
+      1847,
+      1889,
+      1600,
+      1403,
+      1461,
+      1367,
+      1392,
+      1200
+    ]
+  },
+  "area_violence": {
+    "B2 Roxbury": [
+      2262,
+      2130,
+      2149,
+      1985,
+      1317,
+      1118,
+      1084,
+      1328,
+      1266,
+      1288
+    ],
+    "C11 Dorchester": [
+      1705,
+      1621,
+      1655,
+      1597,
+      1062,
+      1041,
+      975,
+      1042,
+      1091,
+      1003
+    ],
+    "D4 South End": [
+      1436,
+      1347,
+      1386,
+      1515,
+      1055,
+      951,
+      992,
+      1198,
+      1231,
+      1179
+    ],
+    "B3 Mattapan": [
+      1548,
+      1589,
+      1558,
+      1618,
+      982,
+      773,
+      834,
+      1023,
+      1010,
+      974
+    ],
+    "A1 Downtown": [
+      1295,
+      1410,
+      1499,
+      1476,
+      918,
+      1086,
+      1132,
+      1159,
+      1198,
+      1048
+    ],
+    "C6 South Boston": [
+      769,
+      805,
+      824,
+      896,
+      616,
+      740,
+      745,
+      794,
+      655,
+      653
+    ],
+    "D14 Brighton": [
+      619,
+      617,
+      584,
+      654,
+      398,
+      449,
+      476,
+      433,
+      473,
+      406
+    ],
+    "E13 Jamaica Plain": [
+      592,
+      601,
+      628,
+      657,
+      431,
+      402,
+      443,
+      522,
+      475,
+      439
+    ],
+    "E18 Hyde Park": [
+      657,
+      674,
+      646,
+      679,
+      431,
+      424,
+      418,
+      516,
+      427,
+      390
+    ],
+    "A7 East Boston": [
+      544,
+      519,
+      479,
+      481,
+      385,
+      349,
+      390,
+      382,
+      436,
+      335
+    ],
+    "E5 West Roxbury": [
+      451,
+      416,
+      484,
+      510,
+      371,
+      321,
+      365,
+      401,
+      371,
+      280
+    ],
+    "A15 Charlestown": [
+      179,
+      240,
+      254,
+      257,
+      141,
+      127,
+      124,
+      118,
+      129,
+      87
+    ]
+  },
+  "area_serious": {
+    "B2 Roxbury": [
+      795,
+      708,
+      674,
+      569,
+      513,
+      371,
+      343,
+      357,
+      371,
+      351
+    ],
+    "C11 Dorchester": [
+      515,
+      499,
+      474,
+      420,
+      352,
+      307,
+      309,
+      290,
+      324,
+      287
+    ],
+    "D4 South End": [
+      481,
+      436,
+      391,
+      414,
+      377,
+      271,
+      326,
+      363,
+      329,
+      315
+    ],
+    "B3 Mattapan": [
+      489,
+      514,
+      432,
+      494,
+      329,
+      263,
+      254,
+      264,
+      291,
+      311
+    ],
+    "A1 Downtown": [
+      459,
+      489,
+      462,
+      424,
+      310,
+      370,
+      327,
+      332,
+      378,
+      314
+    ],
+    "C6 South Boston": [
+      224,
+      230,
+      220,
+      261,
+      193,
+      233,
+      240,
+      234,
+      194,
+      175
+    ],
+    "D14 Brighton": [
+      152,
+      139,
+      121,
+      122,
+      112,
+      96,
+      119,
+      110,
+      114,
+      93
+    ],
+    "E13 Jamaica Plain": [
+      184,
+      161,
+      178,
+      184,
+      132,
+      76,
+      104,
+      121,
+      116,
+      104
+    ],
+    "E18 Hyde Park": [
+      137,
+      151,
+      144,
+      150,
+      91,
+      85,
+      100,
+      99,
+      100,
+      103
+    ],
+    "A7 East Boston": [
+      148,
+      143,
+      170,
+      132,
+      112,
+      83,
+      94,
+      117,
+      122,
+      82
+    ],
+    "E5 West Roxbury": [
+      105,
+      88,
+      98,
+      81,
+      57,
+      46,
+      71,
+      69,
+      68,
+      43
+    ],
+    "A15 Charlestown": [
+      49,
+      69,
+      84,
+      50,
+      38,
+      40,
+      36,
+      26,
+      42,
+      30
+    ]
+  },
+  "b2_mix": {
+    "Non-crime service": [
+      5058,
+      5390,
+      5267,
+      5166,
+      4313,
+      4151,
+      4619,
+      4688,
+      4763,
+      5083
+    ],
+    "Motor vehicle": [
+      2387,
+      2416,
+      2212,
+      2280,
+      1842,
+      2133,
+      1954,
+      1951,
+      1935,
+      1901
+    ],
+    "Property crime": [
+      2918,
+      2875,
+      2673,
+      2468,
+      2438,
+      2039,
+      1904,
+      1879,
+      2047,
+      2122
+    ],
+    "Violence": [
+      2262,
+      2130,
+      2149,
+      1985,
+      1317,
+      1118,
+      1084,
+      1328,
+      1266,
+      1288
+    ],
+    "Drugs": [
+      502,
+      462,
+      529,
+      549,
+      195,
+      144,
+      163,
+      236,
+      215,
+      219
+    ],
+    "Other crime": [
+      197,
+      198,
+      168,
+      198,
+      189,
+      206,
+      192,
+      136,
+      144,
+      161
+    ],
+    "Other": [
+      320,
+      362,
+      334,
+      384,
+      148,
+      138,
+      115,
+      119,
+      170,
+      71
+    ]
+  },
+  "repeat_streets_2024": [
+    {
+      "label": "HARRISON AVE (D4)",
+      "value": 2813
+    },
+    {
+      "label": "GIBSON ST (C11)",
+      "value": 2766
+    },
+    {
+      "label": "BLUE HILL AVE (B3)",
+      "value": 2615
+    },
+    {
+      "label": "WASHINGTON ST (B2)",
+      "value": 1961
+    },
+    {
+      "label": "WASHINGTON ST (D14)",
+      "value": 1753
+    },
+    {
+      "label": "W BROADWAY (C6)",
+      "value": 1674
+    },
+    {
+      "label": "HYDE PARK AVE (E18)",
+      "value": 1526
+    },
+    {
+      "label": "WASHINGTON ST (E13)",
+      "value": 1514
+    },
+    {
+      "label": "CENTRE ST (E5)",
+      "value": 1393
+    },
+    {
+      "label": "SUDBURY ST (A1)",
+      "value": 1367
+    },
+    {
+      "label": "BOYLSTON ST (D4)",
+      "value": 1293
+    },
+    {
+      "label": "E EAGLE ST (A7)",
+      "value": 808
+    }
+  ],
+  "repeat_streets_2025": [
+    {
+      "label": "HARRISON AVE (D4)",
+      "value": 3123
+    },
+    {
+      "label": "GIBSON ST (C11)",
+      "value": 2691
+    },
+    {
+      "label": "BLUE HILL AVE (B3)",
+      "value": 2379
+    },
+    {
+      "label": "WASHINGTON ST (E13)",
+      "value": 1727
+    },
+    {
+      "label": "WASHINGTON ST (D14)",
+      "value": 1691
+    },
+    {
+      "label": "W BROADWAY (C6)",
+      "value": 1687
+    },
+    {
+      "label": "BOYLSTON ST (D4)",
+      "value": 1489
+    },
+    {
+      "label": "WASHINGTON ST (B2)",
+      "value": 1432
+    },
+    {
+      "label": "SUDBURY ST (A1)",
+      "value": 1417
+    },
+    {
+      "label": "HYDE PARK AVE (E18)",
+      "value": 1359
+    },
+    {
+      "label": "CENTRE ST (E5)",
+      "value": 1329
+    },
+    {
+      "label": "E EAGLE ST (A7)",
+      "value": 865
+    }
+  ],
+  "repeat_violence_streets": [
+    {
+      "label": "BLUE HILL AVE (B3)",
+      "value": 332
+    },
+    {
+      "label": "GIBSON ST (C11)",
+      "value": 285
+    },
+    {
+      "label": "HARRISON AVE (D4)",
+      "value": 276
+    },
+    {
+      "label": "WASHINGTON ST (B2)",
+      "value": 164
+    },
+    {
+      "label": "WASHINGTON ST (E13)",
+      "value": 161
+    },
+    {
+      "label": "W BROADWAY (C6)",
+      "value": 144
+    },
+    {
+      "label": "HYDE PARK AVE (E18)",
+      "value": 132
+    },
+    {
+      "label": "BOYLSTON ST (D4)",
+      "value": 124
+    },
+    {
+      "label": "SUDBURY ST (A1)",
+      "value": 123
+    },
+    {
+      "label": "WASHINGTON ST (D14)",
+      "value": 106
+    }
+  ],
+  "repeat_shop_streets": [
+    {
+      "label": "BOYLSTON ST (D4)",
+      "value": 773
+    },
+    {
+      "label": "WASHINGTON ST (A1)",
+      "value": 391
+    },
+    {
+      "label": "NEWBURY ST (D4)",
+      "value": 279
+    },
+    {
+      "label": "ALLSTATE RD (C6)",
+      "value": 222
+    },
+    {
+      "label": "GENEVA AVE (C11)",
+      "value": 216
+    },
+    {
+      "label": "CAMBRIDGE ST (A1)",
+      "value": 145
+    },
+    {
+      "label": "DORCHESTER AVE (C11)",
+      "value": 142
+    },
+    {
+      "label": "WASHINGTON ST (C11)",
+      "value": 115
+    }
+  ],
+  "repeat_service_streets": [
+    {
+      "label": "HARRISON AVE (D4)",
+      "value": 1327
+    },
+    {
+      "label": "BLUE HILL AVE (B3)",
+      "value": 894
+    },
+    {
+      "label": "GIBSON ST (C11)",
+      "value": 851
+    },
+    {
+      "label": "WASHINGTON ST (E13)",
+      "value": 683
+    },
+    {
+      "label": "HYDE PARK AVE (E18)",
+      "value": 597
+    },
+    {
+      "label": "WASHINGTON ST (B2)",
+      "value": 566
+    },
+    {
+      "label": "WASHINGTON ST (D14)",
+      "value": 565
+    },
+    {
+      "label": "SUDBURY ST (A1)",
+      "value": 553
+    }
+  ],
+  "shootings": {
+    "n": 2250,
+    "fatal": 373,
+    "nonfatal": 1877,
+    "multi_victim": 693,
+    "span": {
+      "min": "2015-01-01",
+      "max": "2026-08-17"
+    },
+    "by_year": [
+      {
+        "year": 2015,
+        "n": 245,
+        "fatal": 33,
+        "nonfatal": 212
+      },
+      {
+        "year": 2016,
+        "n": 226,
+        "fatal": 38,
+        "nonfatal": 188
+      },
+      {
+        "year": 2017,
+        "n": 260,
+        "fatal": 46,
+        "nonfatal": 214
+      },
+      {
+        "year": 2018,
+        "n": 203,
+        "fatal": 48,
+        "nonfatal": 155
+      },
+      {
+        "year": 2019,
+        "n": 190,
+        "fatal": 28,
+        "nonfatal": 162
+      },
+      {
+        "year": 2020,
+        "n": 274,
+        "fatal": 44,
+        "nonfatal": 230
+      },
+      {
+        "year": 2021,
+        "n": 196,
+        "fatal": 25,
+        "nonfatal": 171
+      },
+      {
+        "year": 2022,
+        "n": 180,
+        "fatal": 32,
+        "nonfatal": 148
+      },
+      {
+        "year": 2023,
+        "n": 143,
+        "fatal": 27,
+        "nonfatal": 116
+      },
+      {
+        "year": 2024,
+        "n": 127,
+        "fatal": 20,
+        "nonfatal": 107
+      },
+      {
+        "year": 2025,
+        "n": 120,
+        "fatal": 19,
+        "nonfatal": 101
+      },
+      {
+        "year": 2026,
+        "n": 86,
+        "fatal": 13,
+        "nonfatal": 73
+      }
+    ],
+    "districts": [
+      {
+        "label": "B2 Roxbury",
+        "value": 666
+      },
+      {
+        "label": "B3 Mattapan",
+        "value": 573
+      },
+      {
+        "label": "C11 Dorchester",
+        "value": 384
+      },
+      {
+        "label": "E13 Jamaica Plain",
+        "value": 170
+      },
+      {
+        "label": "E18 Hyde Park",
+        "value": 119
+      },
+      {
+        "label": "D4 South End",
+        "value": 104
+      },
+      {
+        "label": "C6 South Boston",
+        "value": 76
+      },
+      {
+        "label": "A7 East Boston",
+        "value": 40
+      },
+      {
+        "label": "A1 Downtown",
+        "value": 40
+      },
+      {
+        "label": "E5 West Roxbury",
+        "value": 31
+      },
+      {
+        "label": "D14 Brighton",
+        "value": 30
+      },
+      {
+        "label": "A15 Charlestown",
+        "value": 17
+      }
+    ],
+    "core_b2_b3_c11": 1623,
+    "core_share": 72.1,
+    "core_by_year": [
+      {
+        "year": 2015,
+        "n": 245,
+        "core": 171,
+        "share": 69.8
+      },
+      {
+        "year": 2016,
+        "n": 226,
+        "core": 181,
+        "share": 80.1
+      },
+      {
+        "year": 2017,
+        "n": 260,
+        "core": 196,
+        "share": 75.4
+      },
+      {
+        "year": 2018,
+        "n": 203,
+        "core": 145,
+        "share": 71.4
+      },
+      {
+        "year": 2019,
+        "n": 190,
+        "core": 137,
+        "share": 72.1
+      },
+      {
+        "year": 2020,
+        "n": 274,
+        "core": 192,
+        "share": 70.1
+      },
+      {
+        "year": 2021,
+        "n": 196,
+        "core": 149,
+        "share": 76.0
+      },
+      {
+        "year": 2022,
+        "n": 180,
+        "core": 124,
+        "share": 68.9
+      },
+      {
+        "year": 2023,
+        "n": 143,
+        "core": 103,
+        "share": 72.0
+      },
+      {
+        "year": 2024,
+        "n": 127,
+        "core": 84,
+        "share": 66.1
+      },
+      {
+        "year": 2025,
+        "n": 120,
+        "core": 84,
+        "share": 70.0
+      }
+    ],
+    "race": [
+      {
+        "label": "Black or African American",
+        "value": 1742
+      },
+      {
+        "label": "White",
+        "value": 382
+      },
+      {
+        "label": "Unknown",
+        "value": 114
+      },
+      {
+        "label": "Asian",
+        "value": 12
+      }
+    ],
+    "gender": [
+      {
+        "label": "Male",
+        "value": 1999
+      },
+      {
+        "label": "Female",
+        "value": 240
+      },
+      {
+        "label": "Unknown",
+        "value": 11
+      }
+    ],
+    "area_series": {
+      "B2 Roxbury": [
+        82,
+        76,
+        81,
+        65,
+        61,
+        78,
+        61,
+        39,
+        34,
+        35,
+        30
+      ],
+      "B3 Mattapan": [
+        49,
+        61,
+        61,
+        41,
+        52,
+        73,
+        60,
+        47,
+        43,
+        29,
+        37
+      ],
+      "C11 Dorchester": [
+        40,
+        44,
+        54,
+        39,
+        24,
+        41,
+        28,
+        38,
+        26,
+        20,
+        17
+      ],
+      "E13 Jamaica Plain": [
+        29,
+        14,
+        18,
+        18,
+        18,
+        20,
+        13,
+        12,
+        12,
+        9,
+        6
+      ],
+      "E18 Hyde Park": [
+        11,
+        6,
+        13,
+        9,
+        13,
+        21,
+        9,
+        12,
+        8,
+        4,
+        6
+      ],
+      "D4 South End": [
+        17,
+        6,
+        11,
+        9,
+        6,
+        13,
+        6,
+        8,
+        6,
+        8,
+        6
+      ]
+    }
+  },
+  "shots_fired": {
+    "n": 9533,
+    "ballistics": 3271,
+    "span": {
+      "min": "2015-01-01",
+      "max": "2026-08-18"
+    },
+    "by_year": [
+      {
+        "year": 2015,
+        "n": 807
+      },
+      {
+        "year": 2016,
+        "n": 795
+      },
+      {
+        "year": 2017,
+        "n": 1078
+      },
+      {
+        "year": 2018,
+        "n": 882
+      },
+      {
+        "year": 2019,
+        "n": 825
+      },
+      {
+        "year": 2020,
+        "n": 1209
+      },
+      {
+        "year": 2021,
+        "n": 1124
+      },
+      {
+        "year": 2022,
+        "n": 743
+      },
+      {
+        "year": 2023,
+        "n": 650
+      },
+      {
+        "year": 2024,
+        "n": 538
+      },
+      {
+        "year": 2025,
+        "n": 604
+      },
+      {
+        "year": 2026,
+        "n": 278
+      }
+    ],
+    "districts": [
+      {
+        "label": "B2 Roxbury",
+        "value": 2714
+      },
+      {
+        "label": "B3 Mattapan",
+        "value": 2503
+      },
+      {
+        "label": "C11 Dorchester",
+        "value": 1908
+      },
+      {
+        "label": "E13 Jamaica Plain",
+        "value": 562
+      },
+      {
+        "label": "E18 Hyde Park",
+        "value": 472
+      },
+      {
+        "label": "D4 South End",
+        "value": 405
+      },
+      {
+        "label": "C6 South Boston",
+        "value": 300
+      },
+      {
+        "label": "D14 Brighton",
+        "value": 177
+      },
+      {
+        "label": "E5 West Roxbury",
+        "value": 173
+      },
+      {
+        "label": "A7 East Boston",
+        "value": 151
+      },
+      {
+        "label": "A1 Downtown",
+        "value": 90
+      },
+      {
+        "label": "A15 Charlestown",
+        "value": 78
+      }
+    ]
+  },
+  "guns": {
+    "span": {
+      "min": "2014-08-20",
+      "max": "2026-08-28"
+    },
+    "by_year": {
+      "2014": {
+        "crime": 146,
+        "safeguard": 79,
+        "buyback": 41,
+        "days": 92
+      },
+      "2015": {
+        "crime": 493,
+        "safeguard": 194,
+        "buyback": 97,
+        "days": 257
+      },
+      "2016": {
+        "crime": 578,
+        "safeguard": 178,
+        "buyback": 23,
+        "days": 257
+      },
+      "2017": {
+        "crime": 472,
+        "safeguard": 193,
+        "buyback": 67,
+        "days": 237
+      },
+      "2018": {
+        "crime": 453,
+        "safeguard": 223,
+        "buyback": 58,
+        "days": 250
+      },
+      "2019": {
+        "crime": 559,
+        "safeguard": 179,
+        "buyback": 10,
+        "days": 259
+      },
+      "2020": {
+        "crime": 571,
+        "safeguard": 234,
+        "buyback": 0,
+        "days": 258
+      },
+      "2021": {
+        "crime": 636,
+        "safeguard": 180,
+        "buyback": 17,
+        "days": 365
+      },
+      "2022": {
+        "crime": 691,
+        "safeguard": 195,
+        "buyback": 38,
+        "days": 365
+      },
+      "2023": {
+        "crime": 611,
+        "safeguard": 261,
+        "buyback": 12,
+        "days": 365
+      },
+      "2024": {
+        "crime": 588,
+        "safeguard": 320,
+        "buyback": 5,
+        "days": 365
+      },
+      "2025": {
+        "crime": 590,
+        "safeguard": 281,
+        "buyback": 0,
+        "days": 365
+      },
+      "2026": {
+        "crime": 362,
+        "safeguard": 219,
+        "buyback": 0,
+        "days": 240
+      }
+    }
+  },
+  "payroll_2025": {
+    "people": 3094,
+    "gross_m": 534,
+    "ot_m": 102,
+    "median_k": 179,
+    "attrition_pct": 18.8,
+    "ot_share_of_city": 55.7
+  },
+  "payroll_2024": {
+    "people": 3491,
+    "gross_m": 578,
+    "note": "2024 roster bulge and retro year \u2014 not a new normal"
+  }
+}

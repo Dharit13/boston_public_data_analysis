@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.env
+.env.*
+node_modules/
+*.canvas.data.json
+*.canvas.status.json
+data/raw/
+*.csv
+*.xlsx

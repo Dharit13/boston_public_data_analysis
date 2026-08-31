@@ -1,0 +1,869 @@
+{
+  "n": 626247,
+  "fire_leader": "Dorchester",
+  "vol_leader": "Dorchester",
+  "years_fire_first": {
+    "Dorchester": 13
+  },
+  "years_vol_first": {
+    "Dorchester": 13
+  },
+  "years_fire_top3": {
+    "Dorchester": 13,
+    "Fenway / Longwood / Kenmore": 11,
+    "Roxbury": 10,
+    "Allston-Brighton": 5
+  },
+  "years_vol_top3": {
+    "Dorchester": 13,
+    "Downtown core": 13,
+    "Fenway / Longwood / Kenmore": 8,
+    "Roxbury": 4,
+    "South End": 1
+  },
+  "totals_2012_2024": {
+    "Dorchester": 112703,
+    "Downtown core": 74878,
+    "Roxbury": 53828,
+    "Fenway / Longwood / Kenmore": 51756,
+    "Allston-Brighton": 48119,
+    "South End": 46618,
+    "Back Bay / Bay Village": 36042,
+    "Jamaica Plain": 32450,
+    "South Boston": 30764,
+    "East Boston": 28625,
+    "Mattapan": 22546,
+    "West Roxbury": 18167,
+    "Hyde Park": 18138,
+    "Roslindale": 16717,
+    "Charlestown": 15742,
+    "Seaport / Fort Point": 9378
+  },
+  "fires_2012_2024": {
+    "Dorchester": 14566,
+    "Fenway / Longwood / Kenmore": 6620,
+    "Roxbury": 6222,
+    "Allston-Brighton": 5957,
+    "Downtown core": 4533,
+    "South End": 3876,
+    "Jamaica Plain": 3356,
+    "Mattapan": 3025,
+    "Back Bay / Bay Village": 2783,
+    "East Boston": 2704,
+    "South Boston": 2561,
+    "Hyde Park": 2318,
+    "Roslindale": 1688,
+    "West Roxbury": 1668,
+    "Charlestown": 1337,
+    "Seaport / Fort Point": 616
+  },
+  "building_2012_2024": {
+    "Dorchester": 1519,
+    "Roxbury": 509,
+    "Allston-Brighton": 407,
+    "Jamaica Plain": 348,
+    "Downtown core": 336,
+    "East Boston": 289,
+    "Fenway / Longwood / Kenmore": 271,
+    "Mattapan": 261,
+    "Hyde Park": 223,
+    "South Boston": 217,
+    "South End": 205,
+    "Roslindale": 194,
+    "Back Bay / Bay Village": 149,
+    "West Roxbury": 137,
+    "Charlestown": 100,
+    "Seaport / Fort Point": 45
+  },
+  "false_2012_2024": {
+    "Dorchester": 34758,
+    "Downtown core": 30001,
+    "Fenway / Longwood / Kenmore": 22712,
+    "Allston-Brighton": 19040,
+    "Back Bay / Bay Village": 17102,
+    "Roxbury": 16625,
+    "South End": 13336,
+    "Jamaica Plain": 11093,
+    "South Boston": 10556,
+    "East Boston": 8796,
+    "Mattapan": 7233,
+    "Charlestown": 5911,
+    "Hyde Park": 5253,
+    "West Roxbury": 4899,
+    "Seaport / Fort Point": 4840,
+    "Roslindale": 4638
+  },
+  "service_2012_2024": {
+    "Dorchester": 36869,
+    "Downtown core": 23882,
+    "Roxbury": 19111,
+    "South End": 18646,
+    "Allston-Brighton": 13003,
+    "Fenway / Longwood / Kenmore": 12656,
+    "South Boston": 10786,
+    "East Boston": 10004,
+    "Back Bay / Bay Village": 9489,
+    "Jamaica Plain": 9060,
+    "West Roxbury": 7243,
+    "Mattapan": 7122,
+    "Hyde Park": 5883,
+    "Roslindale": 5445,
+    "Charlestown": 4575,
+    "Seaport / Fort Point": 2007
+  },
+  "cooking_2012_2024": {
+    "Dorchester": 8570,
+    "Fenway / Longwood / Kenmore": 4834,
+    "Roxbury": 3876,
+    "Allston-Brighton": 3621,
+    "South End": 2758,
+    "Downtown core": 2604,
+    "Mattapan": 1998,
+    "Back Bay / Bay Village": 1841,
+    "Jamaica Plain": 1788,
+    "South Boston": 1475,
+    "East Boston": 1305,
+    "Hyde Park": 1266,
+    "West Roxbury": 837,
+    "Roslindale": 760,
+    "Charlestown": 477,
+    "Seaport / Fort Point": 227
+  },
+  "loss_2012_2024": {
+    "Dorchester": 172487953,
+    "East Boston": 52513604,
+    "Allston-Brighton": 43752905,
+    "Fenway / Longwood / Kenmore": 43655862,
+    "Roxbury": 39318347,
+    "Downtown core": 34218321,
+    "Back Bay / Bay Village": 33894568,
+    "Mattapan": 26693878,
+    "Hyde Park": 21856698,
+    "South Boston": 20762785,
+    "Roslindale": 18983894,
+    "Jamaica Plain": 16614659,
+    "West Roxbury": 13690282,
+    "Charlestown": 13650825,
+    "South End": 13302605,
+    "Seaport / Fort Point": 6895365
+  },
+  "yearly": [
+    {
+      "year": 2012,
+      "top_volume": "Dorchester",
+      "top_volume_n": 6750,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1178,
+      "dorchester_inc": 6750,
+      "dorchester_fire": 1178,
+      "dorchester_bldg": 132,
+      "dorchester_false": 1750,
+      "dorchester_service": 1912,
+      "dorchester_cooking": 704
+    },
+    {
+      "year": 2013,
+      "top_volume": "Dorchester",
+      "top_volume_n": 7313,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1229,
+      "dorchester_inc": 7313,
+      "dorchester_fire": 1229,
+      "dorchester_bldg": 139,
+      "dorchester_false": 2041,
+      "dorchester_service": 2080,
+      "dorchester_cooking": 752
+    },
+    {
+      "year": 2014,
+      "top_volume": "Dorchester",
+      "top_volume_n": 7332,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1294,
+      "dorchester_inc": 7332,
+      "dorchester_fire": 1294,
+      "dorchester_bldg": 126,
+      "dorchester_false": 2007,
+      "dorchester_service": 2125,
+      "dorchester_cooking": 820
+    },
+    {
+      "year": 2015,
+      "top_volume": "Dorchester",
+      "top_volume_n": 8193,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1379,
+      "dorchester_inc": 8193,
+      "dorchester_fire": 1379,
+      "dorchester_bldg": 116,
+      "dorchester_false": 2159,
+      "dorchester_service": 2437,
+      "dorchester_cooking": 819
+    },
+    {
+      "year": 2016,
+      "top_volume": "Dorchester",
+      "top_volume_n": 8852,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1335,
+      "dorchester_inc": 8852,
+      "dorchester_fire": 1335,
+      "dorchester_bldg": 131,
+      "dorchester_false": 2224,
+      "dorchester_service": 2247,
+      "dorchester_cooking": 758
+    },
+    {
+      "year": 2017,
+      "top_volume": "Dorchester",
+      "top_volume_n": 8544,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1247,
+      "dorchester_inc": 8544,
+      "dorchester_fire": 1247,
+      "dorchester_bldg": 121,
+      "dorchester_false": 2427,
+      "dorchester_service": 2021,
+      "dorchester_cooking": 778
+    },
+    {
+      "year": 2018,
+      "top_volume": "Dorchester",
+      "top_volume_n": 8534,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1147,
+      "dorchester_inc": 8534,
+      "dorchester_fire": 1147,
+      "dorchester_bldg": 121,
+      "dorchester_false": 2628,
+      "dorchester_service": 2546,
+      "dorchester_cooking": 741
+    },
+    {
+      "year": 2019,
+      "top_volume": "Dorchester",
+      "top_volume_n": 8476,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1049,
+      "dorchester_inc": 8476,
+      "dorchester_fire": 1049,
+      "dorchester_bldg": 97,
+      "dorchester_false": 2902,
+      "dorchester_service": 2455,
+      "dorchester_cooking": 693
+    },
+    {
+      "year": 2020,
+      "top_volume": "Dorchester",
+      "top_volume_n": 8093,
+      "top_fire": "Dorchester",
+      "top_fire_n": 1107,
+      "dorchester_inc": 8093,
+      "dorchester_fire": 1107,
+      "dorchester_bldg": 121,
+      "dorchester_false": 2648,
+      "dorchester_service": 2504,
+      "dorchester_cooking": 563
+    },
+    {
+      "year": 2021,
+      "top_volume": "Dorchester",
+      "top_volume_n": 9123,
+      "top_fire": "Dorchester",
+      "top_fire_n": 892,
+      "dorchester_inc": 9123,
+      "dorchester_fire": 892,
+      "dorchester_bldg": 124,
+      "dorchester_false": 3127,
+      "dorchester_service": 3181,
+      "dorchester_cooking": 483
+    },
+    {
+      "year": 2022,
+      "top_volume": "Dorchester",
+      "top_volume_n": 9742,
+      "top_fire": "Dorchester",
+      "top_fire_n": 990,
+      "dorchester_inc": 9742,
+      "dorchester_fire": 990,
+      "dorchester_bldg": 107,
+      "dorchester_false": 3323,
+      "dorchester_service": 3830,
+      "dorchester_cooking": 503
+    },
+    {
+      "year": 2023,
+      "top_volume": "Dorchester",
+      "top_volume_n": 10832,
+      "top_fire": "Dorchester",
+      "top_fire_n": 889,
+      "dorchester_inc": 10832,
+      "dorchester_fire": 889,
+      "dorchester_bldg": 92,
+      "dorchester_false": 3687,
+      "dorchester_service": 4816,
+      "dorchester_cooking": 493
+    },
+    {
+      "year": 2024,
+      "top_volume": "Dorchester",
+      "top_volume_n": 10919,
+      "top_fire": "Dorchester",
+      "top_fire_n": 830,
+      "dorchester_inc": 10919,
+      "dorchester_fire": 830,
+      "dorchester_bldg": 92,
+      "dorchester_false": 3835,
+      "dorchester_service": 4715,
+      "dorchester_cooking": 463
+    },
+    {
+      "year": 2025,
+      "top_volume": "Dorchester",
+      "top_volume_n": 1755,
+      "top_fire": "Dorchester",
+      "top_fire_n": 142,
+      "dorchester_inc": 1755,
+      "dorchester_fire": 142,
+      "dorchester_bldg": 18,
+      "dorchester_false": 620,
+      "dorchester_service": 670,
+      "dorchester_cooking": 93
+    }
+  ],
+  "volume_lines": {
+    "Dorchester": [
+      6750,
+      7313,
+      7332,
+      8193,
+      8852,
+      8544,
+      8534,
+      8476,
+      8093,
+      9123,
+      9742,
+      10832,
+      10919
+    ],
+    "Downtown core": [
+      4325,
+      4858,
+      5385,
+      6219,
+      5844,
+      5628,
+      6057,
+      6214,
+      4646,
+      5495,
+      6197,
+      6901,
+      7109
+    ],
+    "Roxbury": [
+      3279,
+      3180,
+      3187,
+      3908,
+      3976,
+      4066,
+      4304,
+      4072,
+      3936,
+      4071,
+      4712,
+      5333,
+      5804
+    ],
+    "Fenway / Longwood / Kenmore": [
+      3685,
+      3804,
+      3689,
+      3937,
+      4040,
+      4092,
+      4386,
+      4310,
+      3145,
+      3583,
+      4108,
+      4555,
+      4422
+    ],
+    "Allston-Brighton": [
+      3053,
+      3023,
+      3346,
+      3765,
+      3488,
+      3725,
+      3818,
+      3657,
+      3525,
+      3778,
+      3940,
+      4332,
+      4669
+    ],
+    "South End": [
+      2176,
+      2382,
+      2621,
+      3167,
+      2933,
+      3197,
+      3552,
+      4091,
+      3834,
+      4216,
+      4640,
+      5018,
+      4791
+    ],
+    "Back Bay / Bay Village": [
+      2047,
+      2261,
+      2634,
+      3001,
+      2798,
+      2828,
+      3044,
+      2981,
+      2259,
+      2693,
+      3016,
+      3271,
+      3209
+    ],
+    "Jamaica Plain": [
+      1823,
+      2148,
+      2122,
+      2406,
+      2584,
+      2527,
+      2702,
+      2566,
+      2382,
+      2381,
+      2732,
+      2971,
+      3106
+    ]
+  },
+  "fire_lines": {
+    "Dorchester": [
+      1178,
+      1229,
+      1294,
+      1379,
+      1335,
+      1247,
+      1147,
+      1049,
+      1107,
+      892,
+      990,
+      889,
+      830
+    ],
+    "Fenway / Longwood / Kenmore": [
+      692,
+      723,
+      609,
+      647,
+      583,
+      568,
+      464,
+      495,
+      408,
+      369,
+      393,
+      361,
+      308
+    ],
+    "Roxbury": [
+      583,
+      569,
+      561,
+      604,
+      557,
+      521,
+      471,
+      441,
+      421,
+      353,
+      406,
+      379,
+      356
+    ],
+    "Allston-Brighton": [
+      540,
+      508,
+      552,
+      624,
+      572,
+      498,
+      434,
+      390,
+      438,
+      355,
+      380,
+      346,
+      320
+    ],
+    "Downtown core": [
+      414,
+      463,
+      401,
+      418,
+      506,
+      422,
+      351,
+      293,
+      279,
+      240,
+      278,
+      226,
+      242
+    ],
+    "South End": [
+      289,
+      276,
+      329,
+      324,
+      355,
+      357,
+      291,
+      280,
+      303,
+      283,
+      282,
+      278,
+      229
+    ],
+    "Jamaica Plain": [
+      290,
+      324,
+      291,
+      301,
+      327,
+      301,
+      267,
+      274,
+      241,
+      182,
+      186,
+      175,
+      197
+    ],
+    "Mattapan": [
+      237,
+      287,
+      234,
+      248,
+      264,
+      235,
+      210,
+      217,
+      194,
+      181,
+      244,
+      233,
+      241
+    ]
+  },
+  "leader_n": 112703,
+  "leader_series": {
+    "Service call": 36869,
+    "False alarm / false call": 34758,
+    "Good intent": 16911,
+    "Fire": 14566,
+    "Hazardous condition": 7756,
+    "Special incident": 1733,
+    "Explosion / overpressure (no fire)": 68,
+    "Severe weather": 42
+  },
+  "leader_types": [
+    [
+      "553 Public service",
+      20349
+    ],
+    [
+      "113 Cooking fire, confined to container",
+      8570
+    ],
+    [
+      "600 Good intent call, Other",
+      7360
+    ],
+    [
+      "745 Alarm system activation, no fire - unint",
+      6739
+    ],
+    [
+      "714 Central station, malicious false alarm",
+      6359
+    ],
+    [
+      "611 Dispatched & cancelled en route",
+      4845
+    ],
+    [
+      "743 Smoke detector activation, no fire - uni",
+      4015
+    ],
+    [
+      "735 Alarm system sounded due to malfunction",
+      3685
+    ],
+    [
+      "715 Local alarm system, malicious false alar",
+      2992
+    ],
+    [
+      "554 Assist invalid",
+      2868
+    ],
+    [
+      "552 Police matter",
+      2563
+    ],
+    [
+      "522 Water or steam leak",
+      2476
+    ]
+  ],
+  "leader_fire_types": [
+    [
+      "113 Cooking fire, confined to container",
+      8570
+    ],
+    [
+      "111 Building fire",
+      1519
+    ],
+    [
+      "151 Outside rubbish, trash or waste fire",
+      823
+    ],
+    [
+      "131 Passenger vehicle fire",
+      792
+    ],
+    [
+      "142 Brush or brush-and-grass mixture fire",
+      719
+    ],
+    [
+      "140 Natural vegetation fire, Other",
+      355
+    ],
+    [
+      "150 Outside rubbish fire, Other",
+      314
+    ],
+    [
+      "118 Trash or rubbish fire, contained",
+      262
+    ],
+    [
+      "143 Grass fire",
+      261
+    ],
+    [
+      "154 Dumpster or other outside trash receptac",
+      200
+    ]
+  ],
+  "leader_prop_fire": {
+    "Residential": 10057,
+    "Outside / special / street": 3295,
+    "Mercantile / business": 361,
+    "Assembly (restaurants, worship, rec)": 281,
+    "Health care / detention": 263,
+    "Educational": 147,
+    "Unknown": 103,
+    "Storage": 39,
+    "Industrial / manufacturing": 15,
+    "Manufacturing (other)": 5
+  },
+  "leader_stacked": {
+    "years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "series": [
+      {
+        "name": "Service call",
+        "data": [
+          1912,
+          2080,
+          2125,
+          2437,
+          2247,
+          2021,
+          2546,
+          2455,
+          2504,
+          3181,
+          3830,
+          4816,
+          4715
+        ]
+      },
+      {
+        "name": "False alarm / false call",
+        "data": [
+          1750,
+          2041,
+          2007,
+          2159,
+          2224,
+          2427,
+          2628,
+          2902,
+          2648,
+          3127,
+          3323,
+          3687,
+          3835
+        ]
+      },
+      {
+        "name": "Good intent",
+        "data": [
+          1214,
+          1206,
+          1308,
+          1499,
+          1371,
+          1521,
+          1478,
+          1424,
+          1308,
+          1383,
+          1113,
+          961,
+          1125
+        ]
+      },
+      {
+        "name": "Fire",
+        "data": [
+          1178,
+          1229,
+          1294,
+          1379,
+          1335,
+          1247,
+          1147,
+          1049,
+          1107,
+          892,
+          990,
+          889,
+          830
+        ]
+      },
+      {
+        "name": "Hazardous condition",
+        "data": [
+          686,
+          739,
+          586,
+          695,
+          764,
+          691,
+          697,
+          621,
+          495,
+          504,
+          452,
+          443,
+          383
+        ]
+      }
+    ]
+  },
+  "fenway_series": {
+    "False alarm / false call": 22712,
+    "Service call": 12656,
+    "Good intent": 6933,
+    "Fire": 6620,
+    "Hazardous condition": 2554,
+    "Special incident": 177,
+    "Explosion / overpressure (no fire)": 87,
+    "Severe weather": 17
+  },
+  "downtown_series": {
+    "False alarm / false call": 30001,
+    "Service call": 23882,
+    "Good intent": 12981,
+    "Fire": 4533,
+    "Hazardous condition": 3142,
+    "Special incident": 239,
+    "Explosion / overpressure (no fire)": 92,
+    "Severe weather": 8
+  },
+  "y2025": {
+    "n": 9776,
+    "top_volume": [
+      [
+        "Dorchester",
+        1755
+      ],
+      [
+        "Downtown core",
+        1147
+      ],
+      [
+        "Roxbury",
+        900
+      ],
+      [
+        "Allston-Brighton",
+        831
+      ],
+      [
+        "Fenway / Longwood / Kenmore",
+        753
+      ]
+    ],
+    "top_fire": [
+      [
+        "Dorchester",
+        142
+      ],
+      [
+        "Fenway / Longwood / Kenmore",
+        81
+      ],
+      [
+        "Roxbury",
+        67
+      ],
+      [
+        "Mattapan",
+        62
+      ],
+      [
+        "South End",
+        53
+      ]
+    ]
+  }
+}

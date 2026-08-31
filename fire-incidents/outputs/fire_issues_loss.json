@@ -1,0 +1,671 @@
+{
+  "fires_2012_2024": 63830,
+  "type_tot": [
+    [
+      "113 Cooking fire, confined to container",
+      38237
+    ],
+    [
+      "111 Building fire",
+      5210
+    ],
+    [
+      "151 Outside rubbish, trash or waste fire",
+      3782
+    ],
+    [
+      "142 Brush or brush-and-grass mixture fire",
+      3105
+    ],
+    [
+      "131 Passenger vehicle fire",
+      2522
+    ],
+    [
+      "118 Trash or rubbish fire, contained",
+      1552
+    ],
+    [
+      "140 Natural vegetation fire, Other",
+      1549
+    ],
+    [
+      "150 Outside rubbish fire, Other",
+      1308
+    ],
+    [
+      "154 Dumpster or other outside trash receptacle",
+      1293
+    ],
+    [
+      "143 Grass fire",
+      1225
+    ],
+    [
+      "100 Fire, Other",
+      786
+    ],
+    [
+      "116 Fuel burner/boiler malfunction, fire confi",
+      773
+    ],
+    [
+      "160 Special outside fire, Other",
+      698
+    ],
+    [
+      "112 Fires in structure other than in a buildin",
+      338
+    ],
+    [
+      "162 Outside equipment fire",
+      286
+    ]
+  ],
+  "family_tot": [
+    [
+      "Confined / contained fire (mostly cooking)",
+      40841
+    ],
+    [
+      "Building / structure fire",
+      5548
+    ],
+    [
+      "Outside trash / dumpster",
+      6474
+    ],
+    [
+      "Vegetation / brush / grass",
+      6136
+    ],
+    [
+      "Vehicle fire",
+      2936
+    ],
+    [
+      "Other outside fire",
+      1039
+    ],
+    [
+      "Other fire",
+      856
+    ]
+  ],
+  "family_year": {
+    "Confined / contained fire (mostly cooking)": [
+      3596,
+      3719,
+      3742,
+      3625,
+      3578,
+      3626,
+      3310,
+      3080,
+      2805,
+      2448,
+      2475,
+      2482,
+      2355
+    ],
+    "Building / structure fire": [
+      521,
+      507,
+      460,
+      466,
+      497,
+      424,
+      394,
+      400,
+      393,
+      404,
+      384,
+      328,
+      370
+    ],
+    "Outside trash / dumpster": [
+      564,
+      512,
+      449,
+      543,
+      606,
+      503,
+      362,
+      449,
+      616,
+      449,
+      532,
+      457,
+      432
+    ],
+    "Vegetation / brush / grass": [
+      457,
+      489,
+      482,
+      810,
+      837,
+      459,
+      303,
+      241,
+      515,
+      307,
+      640,
+      292,
+      304
+    ],
+    "Vehicle fire": [
+      273,
+      292,
+      294,
+      305,
+      248,
+      216,
+      235,
+      193,
+      176,
+      178,
+      180,
+      190,
+      156
+    ],
+    "Other outside fire": [
+      96,
+      101,
+      87,
+      74,
+      85,
+      75,
+      72,
+      79,
+      79,
+      73,
+      66,
+      73,
+      79
+    ],
+    "Other fire": [
+      102,
+      131,
+      124,
+      112,
+      125,
+      130,
+      106,
+      3,
+      7,
+      3,
+      7,
+      5,
+      1
+    ]
+  },
+  "family_loss": {
+    "Confined / contained fire (mostly cooking)": 6290511,
+    "Building / structure fire": 516040458,
+    "Outside trash / dumpster": 548540,
+    "Vegetation / brush / grass": 1209953,
+    "Vehicle fire": 33391446,
+    "Other outside fire": 885005,
+    "Other fire": 1442720
+  },
+  "prop_fire": [
+    [
+      "Residential",
+      41547
+    ],
+    [
+      "Outside / special / street",
+      14557
+    ],
+    [
+      "Assembly (restaurants, worship, rec)",
+      2246
+    ],
+    [
+      "Mercantile / business",
+      2079
+    ],
+    [
+      "Health care / detention",
+      1517
+    ],
+    [
+      "Educational",
+      867
+    ],
+    [
+      "Unknown",
+      505
+    ],
+    [
+      "Storage",
+      335
+    ],
+    [
+      "Industrial / manufacturing",
+      123
+    ],
+    [
+      "Manufacturing (other)",
+      54
+    ]
+  ],
+  "areas_n": 16,
+  "common_top3": [
+    {
+      "code": "113",
+      "label": "113 Cooking fire, confined to container",
+      "areas": 16,
+      "of": 16,
+      "count": 38237
+    },
+    {
+      "code": "111",
+      "label": "111 Building fire",
+      "areas": 15,
+      "of": 16,
+      "count": 5210
+    },
+    {
+      "code": "151",
+      "label": "151 Outside rubbish, trash or waste fire",
+      "areas": 8,
+      "of": 16,
+      "count": 3782
+    },
+    {
+      "code": "142",
+      "label": "142 Brush or brush-and-grass mixture fire",
+      "areas": 5,
+      "of": 16,
+      "count": 3105
+    },
+    {
+      "code": "131",
+      "label": "131 Passenger vehicle fire",
+      "areas": 2,
+      "of": 16,
+      "count": 2522
+    },
+    {
+      "code": "143",
+      "label": "143 Grass fire",
+      "areas": 1,
+      "of": 16,
+      "count": 1225
+    },
+    {
+      "code": "154",
+      "label": "154 Dumpster or other outside trash receptacle",
+      "areas": 1,
+      "of": 16,
+      "count": 1293
+    }
+  ],
+  "area_first": {
+    "113 Cooking fire, confined to container": 16
+  },
+  "cook_year": [
+    3319,
+    3453,
+    3536,
+    3440,
+    3398,
+    3431,
+    3124,
+    2880,
+    2599,
+    2289,
+    2304,
+    2290,
+    2174
+  ],
+  "bldg_year": [
+    491,
+    479,
+    448,
+    427,
+    474,
+    405,
+    378,
+    374,
+    361,
+    369,
+    348,
+    304,
+    352
+  ],
+  "fire_n_year": [
+    5609,
+    5751,
+    5638,
+    5935,
+    5976,
+    5433,
+    4782,
+    4445,
+    4591,
+    3862,
+    4284,
+    3827,
+    3697
+  ],
+  "yearly_types": {
+    "113 Cooking fire, confined to container": [
+      3319,
+      3453,
+      3536,
+      3440,
+      3398,
+      3431,
+      3124,
+      2880,
+      2599,
+      2289,
+      2304,
+      2290,
+      2174
+    ],
+    "111 Building fire": [
+      491,
+      479,
+      448,
+      427,
+      474,
+      405,
+      378,
+      374,
+      361,
+      369,
+      348,
+      304,
+      352
+    ],
+    "151 Outside rubbish, trash or waste fire": [
+      328,
+      278,
+      251,
+      325,
+      325,
+      247,
+      183,
+      264,
+      373,
+      260,
+      354,
+      305,
+      289
+    ],
+    "142 Brush or brush-and-grass mixture fire": [
+      216,
+      233,
+      223,
+      406,
+      384,
+      228,
+      161,
+      125,
+      292,
+      171,
+      342,
+      158,
+      166
+    ],
+    "131 Passenger vehicle fire": [
+      234,
+      251,
+      242,
+      260,
+      216,
+      180,
+      201,
+      167,
+      156,
+      156,
+      159,
+      166,
+      134
+    ],
+    "118 Trash or rubbish fire, contained": [
+      137,
+      146,
+      122,
+      102,
+      77,
+      120,
+      101,
+      136,
+      137,
+      105,
+      115,
+      132,
+      122
+    ]
+  },
+  "loss_year": [
+    {
+      "year": 2012,
+      "dollars": 53279010,
+      "events": 2409,
+      "prop": 48488577,
+      "cont": 4790433,
+      "fire": 53115460,
+      "building": 49648847
+    },
+    {
+      "year": 2013,
+      "dollars": 48029760,
+      "events": 2185,
+      "prop": 34756998,
+      "cont": 13272762,
+      "fire": 36786840,
+      "building": 33689901
+    },
+    {
+      "year": 2014,
+      "dollars": 38568995,
+      "events": 2033,
+      "prop": 30986768,
+      "cont": 7582227,
+      "fire": 38439280,
+      "building": 34627377
+    },
+    {
+      "year": 2015,
+      "dollars": 28637490,
+      "events": 1934,
+      "prop": 22479075,
+      "cont": 6158415,
+      "fire": 28483435,
+      "building": 25028722
+    },
+    {
+      "year": 2016,
+      "dollars": 47781692,
+      "events": 1745,
+      "prop": 38608963,
+      "cont": 9172729,
+      "fire": 47654690,
+      "building": 43360600
+    },
+    {
+      "year": 2017,
+      "dollars": 74681726,
+      "events": 1393,
+      "prop": 69205198,
+      "cont": 5476528,
+      "fire": 74311756,
+      "building": 71038590
+    },
+    {
+      "year": 2018,
+      "dollars": 35728559,
+      "events": 1165,
+      "prop": 29814404,
+      "cont": 5914155,
+      "fire": 35712599,
+      "building": 32811501
+    },
+    {
+      "year": 2019,
+      "dollars": 51228849,
+      "events": 1059,
+      "prop": 46228410,
+      "cont": 5000439,
+      "fire": 51182249,
+      "building": 46802816
+    },
+    {
+      "year": 2020,
+      "dollars": 34758722,
+      "events": 991,
+      "prop": 28730188,
+      "cont": 6028534,
+      "fire": 34748447,
+      "building": 32563991
+    },
+    {
+      "year": 2021,
+      "dollars": 38677838,
+      "events": 917,
+      "prop": 33734266,
+      "cont": 4943572,
+      "fire": 38622388,
+      "building": 35848201
+    },
+    {
+      "year": 2022,
+      "dollars": 41095470,
+      "events": 985,
+      "prop": 34658592,
+      "cont": 6436878,
+      "fire": 41026649,
+      "building": 37201465
+    },
+    {
+      "year": 2023,
+      "dollars": 34949348,
+      "events": 785,
+      "prop": 28142639,
+      "cont": 6806709,
+      "fire": 34890348,
+      "building": 29964820
+    },
+    {
+      "year": 2024,
+      "dollars": 44875092,
+      "events": 779,
+      "prop": 36842846,
+      "cont": 8032246,
+      "fire": 44834492,
+      "building": 41353745
+    }
+  ],
+  "loss_2025_ytd": 6460070,
+  "fires_2025_ytd": 698,
+  "total_loss_2012_2024": 572292551,
+  "total_prop": 482676924,
+  "total_cont": 89615627,
+  "total_fire_loss": 559808633,
+  "total_bldg_loss": 513940576,
+  "total_loss_events": 18380,
+  "loss_area": [
+    [
+      "Dorchester",
+      172487953
+    ],
+    [
+      "East Boston",
+      52513604
+    ],
+    [
+      "Allston-Brighton",
+      43752905
+    ],
+    [
+      "Fenway / Longwood / Kenmore",
+      43655862
+    ],
+    [
+      "Roxbury",
+      39318347
+    ],
+    [
+      "Downtown core",
+      34218321
+    ],
+    [
+      "Back Bay / Bay Village",
+      33894568
+    ],
+    [
+      "Mattapan",
+      26693878
+    ],
+    [
+      "Hyde Park",
+      21856698
+    ],
+    [
+      "South Boston",
+      20762785
+    ],
+    [
+      "Roslindale",
+      18983894
+    ],
+    [
+      "Jamaica Plain",
+      16614659
+    ]
+  ],
+  "loss_code": [
+    [
+      "111 Building fire",
+      513940576
+    ],
+    [
+      "131 Passenger vehicle fire",
+      23297344
+    ],
+    [
+      "113 Cooking fire, confined to container",
+      5145569
+    ],
+    [
+      "134 Water vehicle fire",
+      3970800
+    ],
+    [
+      "132 Road freight or transport vehicle fire",
+      2635400
+    ],
+    [
+      "112 Fires in structure other than in a buildin",
+      2099882
+    ],
+    [
+      "138 Off-road vehicle or heavy equipment fire",
+      1810252
+    ],
+    [
+      "100 Fire, Other",
+      1244865
+    ]
+  ],
+  "cum": [
+    53279010,
+    101308770,
+    139877765,
+    168515255,
+    216296947,
+    290978673,
+    326707232,
+    377936081,
+    412694803,
+    451372641,
+    492468111,
+    527417459,
+    572292551
+  ]
+}
