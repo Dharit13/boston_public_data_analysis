@@ -4149,7 +4149,9 @@
         {
           "name": "Roxy's Gourmet Grilled Cheese No. 2",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 74860",
           "zip": "02128",
+          "license": "74860",
           "category": "Mobile food",
           "inspections": 6,
           "fails": 0,
@@ -4158,7 +4160,9 @@
         {
           "name": "The Bacon Truck No. 2",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 389249",
           "zip": "02128",
+          "license": "389249",
           "category": "Mobile food",
           "inspections": 6,
           "fails": 0,
@@ -4167,7 +4171,9 @@
         {
           "name": "Emmanuel College",
           "address": "400  FENWAY",
+          "address_display": "400  FENWAY, 02115",
           "zip": "02115",
+          "license": "20052",
           "category": "School",
           "inspections": 4,
           "fails": 0,
@@ -4176,7 +4182,9 @@
         {
           "name": "HILTON BOSTON LOGAN AIRPORT",
           "address": "1  HOTEL DR",
+          "address_display": "1  HOTEL DR, 02128",
           "zip": "02128",
+          "license": "21184",
           "category": "Hotel",
           "inspections": 4,
           "fails": 0,
@@ -4185,7 +4193,9 @@
         {
           "name": "Mama Ana",
           "address": "197  EIGHTH ST",
+          "address_display": "197  EIGHTH ST, 02129",
           "zip": "02129",
+          "license": "84994",
           "category": "Food and drinks",
           "inspections": 4,
           "fails": 0,
@@ -4194,7 +4204,9 @@
         {
           "name": "Mcdonalds",
           "address": "315  WASHINGTON ST",
+          "address_display": "315  WASHINGTON ST, 02108",
           "zip": "02108",
+          "license": "76336",
           "category": "Take-out",
           "inspections": 4,
           "fails": 0,
@@ -4203,7 +4215,9 @@
         {
           "name": "THE BARKING CRAB",
           "address": "88  SLEEPER ST",
+          "address_display": "88  SLEEPER ST, 02210",
           "zip": "02210",
+          "license": "20104",
           "category": "Food and drinks",
           "inspections": 4,
           "fails": 0,
@@ -4212,7 +4226,9 @@
         {
           "name": "AFC Sushi @ Walgreens No. 15390",
           "address": "10  SCHOOL ST",
+          "address_display": "10  SCHOOL ST, 02108",
           "zip": "02108",
+          "license": "90461",
           "category": "Take-out",
           "inspections": 3,
           "fails": 0,
@@ -4221,7 +4237,9 @@
         {
           "name": "AFC Sushi @Liberty Mutual Ins.",
           "address": "157  BERKELEY ST",
+          "address_display": "157  BERKELEY ST, 02116",
           "zip": "02116",
+          "license": "374652",
           "category": "Food and drinks",
           "inspections": 3,
           "fails": 0,
@@ -4230,7 +4248,9 @@
         {
           "name": "Bella Luna Restaurant @ the Brewery",
           "address": "284  AMORY ST",
+          "address_display": "284  AMORY ST, 02130",
           "zip": "02130",
+          "license": "31331",
           "category": "Food and drinks",
           "inspections": 3,
           "fails": 0,
@@ -4299,7 +4319,9 @@
             {
               "name": "CHILDRENS HOSPITAL MAIN CAF",
               "address": "300  LONGWOOD AV",
+              "address_display": "300  LONGWOOD AV, 02115",
               "zip": "02115",
+              "license": "18886",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -4308,7 +4330,9 @@
             {
               "name": "Spaulding Rehabilitation Hospital",
               "address": "300  FIRST AV",
+              "address_display": "300  FIRST AV, 02129",
               "zip": "02129",
+              "license": "77115",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -4324,7 +4348,9 @@
             {
               "name": "HILTON BOSTON LOGAN AIRPORT",
               "address": "1  HOTEL DR",
+              "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
+              "license": "21184",
               "category": "Hotel",
               "inspections": 4,
               "fails": 0,
@@ -4333,7 +4359,9 @@
             {
               "name": "MARRIOTT'S CUSTOM HOUSE",
               "address": "3  MC KINLEY SQ",
+              "address_display": "3  MC KINLEY SQ, 02109",
               "zip": "02109",
+              "license": "20606",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -4349,7 +4377,9 @@
             {
               "name": "Emmanuel College",
               "address": "400  FENWAY",
+              "address_display": "400  FENWAY, 02115",
               "zip": "02115",
+              "license": "20052",
               "category": "School",
               "inspections": 4,
               "fails": 0,
@@ -4365,7 +4395,9 @@
             {
               "name": "Boston News Cafe (90 Arch St.)",
               "address": "90  ARCH ST",
+              "address_display": "90  ARCH ST, 02110",
               "zip": "02110",
+              "license": "77595",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4374,7 +4406,9 @@
             {
               "name": "GLOBE BAR & CAFE",
               "address": "384  BOYLSTON ST",
+              "address_display": "384  BOYLSTON ST, 02116",
               "zip": "02116",
+              "license": "353804",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4383,7 +4417,9 @@
             {
               "name": "Solid Ground Cafe",
               "address": "742  HUNTINGTON AV",
+              "address_display": "742  HUNTINGTON AV, 02115",
               "zip": "02115",
+              "license": "364838",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4392,7 +4428,9 @@
             {
               "name": "Starbucks Coffee Co. No. 875",
               "address": "228  WASHINGTON ST",
+              "address_display": "228  WASHINGTON ST, 02109",
               "zip": "02109",
+              "license": "25657",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4401,7 +4439,9 @@
             {
               "name": "Starbucks Coffee No.  7224",
               "address": "364  BROOKLINE AV",
+              "address_display": "364  BROOKLINE AV, 02115",
               "zip": "02115",
+              "license": "26636",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4410,7 +4450,9 @@
             {
               "name": "Starbucks Coffee No.  7805",
               "address": "90  OLIVER ST",
+              "address_display": "90  OLIVER ST, 02110",
               "zip": "02110",
+              "license": "26659",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4419,7 +4461,9 @@
             {
               "name": "Starbucks Coffee No. 22566",
               "address": "48  NORTHERN AV",
+              "address_display": "48  NORTHERN AV, 02210",
               "zip": "02210",
+              "license": "127085",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4428,7 +4472,9 @@
             {
               "name": "Sunny Cafe",
               "address": "1000  BENNINGTON ST",
+              "address_display": "1000  BENNINGTON ST, 02128",
               "zip": "02128",
+              "license": "201545",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4437,7 +4483,9 @@
             {
               "name": "Tatte Bakery & Cafe",
               "address": "70  CHARLES ST",
+              "address_display": "70  CHARLES ST, 02114",
               "zip": "02114",
+              "license": "134181",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -4453,7 +4501,9 @@
             {
               "name": "Mama Ana",
               "address": "197  EIGHTH ST",
+              "address_display": "197  EIGHTH ST, 02129",
               "zip": "02129",
+              "license": "84994",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -4462,7 +4512,9 @@
             {
               "name": "THE BARKING CRAB",
               "address": "88  SLEEPER ST",
+              "address_display": "88  SLEEPER ST, 02210",
               "zip": "02210",
+              "license": "20104",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -4471,7 +4523,9 @@
             {
               "name": "AFC Sushi @Liberty Mutual Ins.",
               "address": "157  BERKELEY ST",
+              "address_display": "157  BERKELEY ST, 02116",
               "zip": "02116",
+              "license": "374652",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4480,7 +4534,9 @@
             {
               "name": "Bella Luna Restaurant @ the Brewery",
               "address": "284  AMORY ST",
+              "address_display": "284  AMORY ST, 02130",
               "zip": "02130",
+              "license": "31331",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4489,7 +4545,9 @@
             {
               "name": "Boston Chops",
               "address": "1375  WASHINGTON ST",
+              "address_display": "1375  WASHINGTON ST, 02118",
               "zip": "02118",
+              "license": "86604",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4498,7 +4556,9 @@
             {
               "name": "Canary Square",
               "address": "435 S HUNTINGTON AV",
+              "address_display": "435 S HUNTINGTON AV, 02130",
               "zip": "02130",
+              "license": "68719",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4507,7 +4567,9 @@
             {
               "name": "Chipotle Mexican Grill",
               "address": "1924  BEACON ST",
+              "address_display": "1924  BEACON ST, 02135",
               "zip": "02135",
+              "license": "27303",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4516,7 +4578,9 @@
             {
               "name": "Dorchester Brewing Company",
               "address": "1246  MASSACHUSETTS AV",
+              "address_display": "1246  MASSACHUSETTS AV, 02125",
               "zip": "02125",
+              "license": "166847",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4525,7 +4589,9 @@
             {
               "name": "EL PENOL RESTAURANT",
               "address": "54  BENNINGTON ST",
+              "address_display": "54  BENNINGTON ST, 02128",
               "zip": "02128",
+              "license": "23581",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4534,7 +4600,9 @@
             {
               "name": "GRASSHOPPER VEGETARIAN",
               "address": "1 N BEACON ST",
+              "address_display": "1 N BEACON ST, 02134",
               "zip": "02134",
+              "license": "23973",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -4550,7 +4618,9 @@
             {
               "name": "Mcdonalds",
               "address": "315  WASHINGTON ST",
+              "address_display": "315  WASHINGTON ST, 02108",
               "zip": "02108",
+              "license": "76336",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -4559,7 +4629,9 @@
             {
               "name": "AFC Sushi @ Walgreens No. 15390",
               "address": "10  SCHOOL ST",
+              "address_display": "10  SCHOOL ST, 02108",
               "zip": "02108",
+              "license": "90461",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4568,7 +4640,9 @@
             {
               "name": "Boloco",
               "address": "48  CONGRESS ST",
+              "address_display": "48  CONGRESS ST, 02109",
               "zip": "02109",
+              "license": "27549",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4577,7 +4651,9 @@
             {
               "name": "Burger King",
               "address": "1  MAVERICK SQ",
+              "address_display": "1  MAVERICK SQ, 02128",
               "zip": "02128",
+              "license": "73889",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4586,7 +4662,9 @@
             {
               "name": "C11",
               "address": "4  JERSEY ST",
+              "address_display": "4  JERSEY ST, 02215",
               "zip": "02215",
+              "license": "31653",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4595,7 +4673,9 @@
             {
               "name": "Chacarero",
               "address": "93  ARCH ST",
+              "address_display": "93  ARCH ST, 02110",
               "zip": "02110",
+              "license": "28085",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4604,7 +4684,9 @@
             {
               "name": "Cisco Brewery",
               "address": "200  LOGAN AIRPORT TRMNL B",
+              "address_display": "200  LOGAN AIRPORT TRMNL B, 02128",
               "zip": "02128",
+              "license": "27909",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4613,7 +4695,9 @@
             {
               "name": "Dumpling King",
               "address": "40  HARRISON AV",
+              "address_display": "40  HARRISON AV, 02111",
               "zip": "02111",
+              "license": "74577",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4622,7 +4706,9 @@
             {
               "name": "Dunkin Donuts",
               "address": "616  MASSACHUSETTS AV",
+              "address_display": "616  MASSACHUSETTS AV, 02118",
               "zip": "02118",
+              "license": "20593",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4631,7 +4717,9 @@
             {
               "name": "Dunkin Donuts",
               "address": "77  MILK ST ST",
+              "address_display": "77  MILK ST ST, 02110",
               "zip": "02110",
+              "license": "25962",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -4647,7 +4735,9 @@
             {
               "name": "Berezka International Food Store",
               "address": "1215  COMMONWEALTH AV",
+              "address_display": "1215  COMMONWEALTH AV, 02134",
               "zip": "02134",
+              "license": "78439",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -4656,7 +4746,9 @@
             {
               "name": "Daniel Beauty Supply & Dollar Store",
               "address": "3115  WASHINGTON ST",
+              "address_display": "3115  WASHINGTON ST, 02119",
               "zip": "02119",
+              "license": "142739",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -4665,7 +4757,9 @@
             {
               "name": "Genji Sushi No. 10087",
               "address": "181  CAMBRIDGE ST",
+              "address_display": "181  CAMBRIDGE ST, 02114",
               "zip": "02114",
+              "license": "24004",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -4674,7 +4768,9 @@
             {
               "name": "Los Paisanos Market",
               "address": "11  MERIDIAN ST",
+              "address_display": "11  MERIDIAN ST, 02128",
               "zip": "02128",
+              "license": "25942",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -4690,7 +4786,9 @@
             {
               "name": "Roxy's Gourmet Grilled Cheese No. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 74860",
               "zip": "02128",
+              "license": "74860",
               "category": "Mobile food",
               "inspections": 6,
               "fails": 0,
@@ -4699,7 +4797,9 @@
             {
               "name": "The Bacon Truck No. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 389249",
               "zip": "02128",
+              "license": "389249",
               "category": "Mobile food",
               "inspections": 6,
               "fails": 0,
@@ -4708,7 +4808,9 @@
             {
               "name": "Hometown Poke",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 411005",
               "zip": "02128",
+              "license": "411005",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -4717,7 +4819,9 @@
             {
               "name": "The Bacon Truck",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 97097",
               "zip": "02128",
+              "license": "97097",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -4738,7 +4842,9 @@
         {
           "name": "Limani Grille",
           "address": "100  NORTHERN AV",
+          "address_display": "100  NORTHERN AV, 02210",
           "zip": "02210",
+          "license": "490013",
           "category": "Food and drinks",
           "inspections": 6,
           "fails": 0,
@@ -4747,7 +4853,9 @@
         {
           "name": "Zaaki",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 353809",
           "zip": "02128",
+          "license": "353809",
           "category": "Mobile food",
           "inspections": 6,
           "fails": 0,
@@ -4756,7 +4864,9 @@
         {
           "name": "CHECKMATE CAFE",
           "address": "900  SOUTH ST",
+          "address_display": "900  SOUTH ST, 02131",
           "zip": "02131",
+          "license": "160958",
           "category": "Cafe",
           "inspections": 5,
           "fails": 0,
@@ -4765,7 +4875,9 @@
         {
           "name": "Dave's Hot Chicken",
           "address": "123  STUART ST",
+          "address_display": "123  STUART ST, 02116",
           "zip": "02116",
+          "license": "539852",
           "category": "Food and drinks",
           "inspections": 5,
           "fails": 0,
@@ -4774,7 +4886,9 @@
         {
           "name": "Lincoln Tavern",
           "address": "425 W BROADWAY",
+          "address_display": "425 W BROADWAY, 02127",
           "zip": "02127",
+          "license": "79301",
           "category": "Food and drinks",
           "inspections": 5,
           "fails": 0,
@@ -4783,7 +4897,9 @@
         {
           "name": "SALSAS MEXICAN GRILL",
           "address": "417  WASHINGTON ST",
+          "address_display": "417  WASHINGTON ST, 02108",
           "zip": "02108",
+          "license": "90395",
           "category": "Take-out",
           "inspections": 5,
           "fails": 0,
@@ -4792,7 +4908,9 @@
         {
           "name": "311",
           "address": "605  TREMONT ST",
+          "address_display": "605  TREMONT ST, 02118",
           "zip": "02118",
+          "license": "488587",
           "category": "Food and drinks",
           "inspections": 4,
           "fails": 0,
@@ -4801,7 +4919,9 @@
         {
           "name": "A & N PIZZA",
           "address": "1409  CENTRE ST",
+          "address_display": "1409  CENTRE ST, 02132",
           "zip": "02132",
+          "license": "23626",
           "category": "Take-out",
           "inspections": 4,
           "fails": 0,
@@ -4810,7 +4930,9 @@
         {
           "name": "Burger King",
           "address": "100  WASHINGTON ST",
+          "address_display": "100  WASHINGTON ST, 02121",
           "zip": "02121",
+          "license": "18425",
           "category": "Take-out",
           "inspections": 4,
           "fails": 0,
@@ -4819,7 +4941,9 @@
         {
           "name": "Chubby Chickpea Mobile",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 77929",
           "zip": "02128",
+          "license": "77929",
           "category": "Mobile food",
           "inspections": 4,
           "fails": 0,
@@ -4888,7 +5012,9 @@
             {
               "name": "Far Out Ice Cream",
               "address": "201  BROOKLINE AV",
+              "address_display": "201  BROOKLINE AV, 02215",
               "zip": "02215",
+              "license": "556063",
               "category": "Ice cream",
               "inspections": 3,
               "fails": 0,
@@ -4897,7 +5023,9 @@
             {
               "name": "Fomu Ice Cream",
               "address": "200  FANEUIL HALL MARKETPLACE",
+              "address_display": "200  FANEUIL HALL MARKETPLACE, 02109",
               "zip": "02109",
+              "license": "522597",
               "category": "Ice cream",
               "inspections": 3,
               "fails": 0,
@@ -4913,7 +5041,9 @@
             {
               "name": "3rd Floor @ Tufts Medical Center",
               "address": "750  WASHINGTON ST",
+              "address_display": "750  WASHINGTON ST, 02111",
               "zip": "02111",
+              "license": "541352",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -4922,7 +5052,9 @@
             {
               "name": "Mass General Hospital Cafe",
               "address": "55  FRUIT ST",
+              "address_display": "55  FRUIT ST, 02114",
               "zip": "02114",
+              "license": "18550",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -4931,7 +5063,9 @@
             {
               "name": "Patient Dining @ Tufts Medical Center",
               "address": "750  WASHINGTON ST",
+              "address_display": "750  WASHINGTON ST, 02111",
               "zip": "02111",
+              "license": "541354",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -4940,7 +5074,9 @@
             {
               "name": "Spaulding Rehabilitation Hospital",
               "address": "300  FIRST AV",
+              "address_display": "300  FIRST AV, 02129",
               "zip": "02129",
+              "license": "77115",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -4956,7 +5092,9 @@
             {
               "name": "HYATT CONF. & HOTEL (FS)",
               "address": "101  HARBORSIDE DR",
+              "address_display": "101  HARBORSIDE DR, 02128",
               "zip": "02128",
+              "license": "19765",
               "category": "Hotel",
               "inspections": 4,
               "fails": 0,
@@ -4965,7 +5103,9 @@
             {
               "name": "The Westin Boston Waterfront",
               "address": "425  SUMMER ST",
+              "address_display": "425  SUMMER ST, 02210",
               "zip": "02210",
+              "license": "26427",
               "category": "Hotel",
               "inspections": 4,
               "fails": 0,
@@ -4974,7 +5114,9 @@
             {
               "name": "The Westin Boston Waterfront/Starbucks",
               "address": "425  SUMMER ST",
+              "address_display": "425  SUMMER ST, 02210",
               "zip": "02210",
+              "license": "28965",
               "category": "Hotel",
               "inspections": 4,
               "fails": 0,
@@ -4983,7 +5125,9 @@
             {
               "name": "Battery Wharf Hotel/Grille",
               "address": "3  BATTERY WH",
+              "address_display": "3  BATTERY WH, 02109",
               "zip": "02109",
+              "license": "331775",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -4992,7 +5136,9 @@
             {
               "name": "Canopy Hotel",
               "address": "99  BLACKSTONE ST",
+              "address_display": "99  BLACKSTONE ST, 02109",
               "zip": "02109",
+              "license": "415043",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5001,7 +5147,9 @@
             {
               "name": "Cosmica @ the Revolution Hotel",
               "address": "40  BERKELEY ST",
+              "address_display": "40  BERKELEY ST, 02116",
               "zip": "02116",
+              "license": "401924",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5010,7 +5158,9 @@
             {
               "name": "Four Seasons Hotel Boston",
               "address": "200  BOYLSTON ST",
+              "address_display": "200  BOYLSTON ST, 02116",
               "zip": "02116",
+              "license": "18140",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5019,7 +5169,9 @@
             {
               "name": "HILTON BOSTON LOGAN AIRPORT",
               "address": "1  HOTEL DR",
+              "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
+              "license": "21184",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5028,7 +5180,9 @@
             {
               "name": "Residence Inn by Marriott",
               "address": "370  CONGRESS ST",
+              "address_display": "370  CONGRESS ST, 02210",
               "zip": "02210",
+              "license": "380877",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5037,7 +5191,9 @@
             {
               "name": "Roof Top Pool at The Colonnade Hotel",
               "address": "120  HUNTINGTON AV",
+              "address_display": "120  HUNTINGTON AV, 02116",
               "zip": "02116",
+              "license": "480768",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5053,7 +5209,9 @@
             {
               "name": "Suffolk University Sawyer Cafe",
               "address": "8  ASHBURTON PL",
+              "address_display": "8  ASHBURTON PL, 02108",
               "zip": "02108",
+              "license": "456494",
               "category": "School",
               "inspections": 4,
               "fails": 0,
@@ -5062,7 +5220,9 @@
             {
               "name": "BU 4thFl SCHOOL OF MGMT",
               "address": "595  COMMONWEALTH AV",
+              "address_display": "595  COMMONWEALTH AV, 02215",
               "zip": "02215",
+              "license": "22460",
               "category": "School",
               "inspections": 3,
               "fails": 0,
@@ -5071,7 +5231,9 @@
             {
               "name": "Northeastern University Belvidere",
               "address": "39  DALTON ST",
+              "address_display": "39  DALTON ST, 02199",
               "zip": "02199",
+              "license": "537896",
               "category": "School",
               "inspections": 3,
               "fails": 0,
@@ -5080,7 +5242,9 @@
             {
               "name": "University Club of Boston-Rooftop Bar",
               "address": "426  STUART ST",
+              "address_display": "426  STUART ST, 02116",
               "zip": "02116",
+              "license": "526306",
               "category": "School",
               "inspections": 3,
               "fails": 0,
@@ -5096,7 +5260,9 @@
             {
               "name": "CHECKMATE CAFE",
               "address": "900  SOUTH ST",
+              "address_display": "900  SOUTH ST, 02131",
               "zip": "02131",
+              "license": "160958",
               "category": "Cafe",
               "inspections": 5,
               "fails": 0,
@@ -5105,7 +5271,9 @@
             {
               "name": "The Well Coffee House Boston",
               "address": "62  WILLIAM C KELLY SQ",
+              "address_display": "62  WILLIAM C KELLY SQ, 02128",
               "zip": "02128",
+              "license": "372405",
               "category": "Cafe",
               "inspections": 4,
               "fails": 0,
@@ -5114,7 +5282,9 @@
             {
               "name": "Unidine Cafe Coffee Bar",
               "address": "529  MAIN ST",
+              "address_display": "529  MAIN ST, 02129",
               "zip": "02129",
+              "license": "144284",
               "category": "Cafe",
               "inspections": 4,
               "fails": 0,
@@ -5123,7 +5293,9 @@
             {
               "name": "960 Cafe",
               "address": "960  MASSACHUSETTS AV",
+              "address_display": "960  MASSACHUSETTS AV, 02118",
               "zip": "02118",
+              "license": "534002",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5132,7 +5304,9 @@
             {
               "name": "B I DEACONESS/WEST END CAFE",
               "address": "1  DEACONESS RD",
+              "address_display": "1  DEACONESS RD, 02215",
               "zip": "02215",
+              "license": "21931",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5141,7 +5315,9 @@
             {
               "name": "Blank Street Coffee",
               "address": "489 E BROADWAY",
+              "address_display": "489 E BROADWAY, 02127",
               "zip": "02127",
+              "license": "542405",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5150,7 +5326,9 @@
             {
               "name": "Boston News Cafe (90 Arch St.)",
               "address": "90  ARCH ST",
+              "address_display": "90  ARCH ST, 02110",
               "zip": "02110",
+              "license": "77595",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5159,7 +5337,9 @@
             {
               "name": "Capital One Cafe",
               "address": "795  BOYLSTON ST",
+              "address_display": "795  BOYLSTON ST, 02116",
               "zip": "02116",
+              "license": "479008",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5168,7 +5348,9 @@
             {
               "name": "Capital One Cafe",
               "address": "55  SEAPORT BL",
+              "address_display": "55  SEAPORT BL, 02210",
               "zip": "02210",
+              "license": "515362",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5177,7 +5359,9 @@
             {
               "name": "Dug Out Cafe Inc",
               "address": "722  COMMONWEALTH AV",
+              "address_display": "722  COMMONWEALTH AV, 02115",
               "zip": "02115",
+              "license": "18360",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5193,7 +5377,9 @@
             {
               "name": "Limani Grille",
               "address": "100  NORTHERN AV",
+              "address_display": "100  NORTHERN AV, 02210",
               "zip": "02210",
+              "license": "490013",
               "category": "Food and drinks",
               "inspections": 6,
               "fails": 0,
@@ -5202,7 +5388,9 @@
             {
               "name": "Dave's Hot Chicken",
               "address": "123  STUART ST",
+              "address_display": "123  STUART ST, 02116",
               "zip": "02116",
+              "license": "539852",
               "category": "Food and drinks",
               "inspections": 5,
               "fails": 0,
@@ -5211,7 +5399,9 @@
             {
               "name": "Lincoln Tavern",
               "address": "425 W BROADWAY",
+              "address_display": "425 W BROADWAY, 02127",
               "zip": "02127",
+              "license": "79301",
               "category": "Food and drinks",
               "inspections": 5,
               "fails": 0,
@@ -5220,7 +5410,9 @@
             {
               "name": "311",
               "address": "605  TREMONT ST",
+              "address_display": "605  TREMONT ST, 02118",
               "zip": "02118",
+              "license": "488587",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5229,7 +5421,9 @@
             {
               "name": "El Jefe's Taqueria",
               "address": "80  BOYLSTON ST",
+              "address_display": "80  BOYLSTON ST, 02116",
               "zip": "02116",
+              "license": "415054",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5238,7 +5432,9 @@
             {
               "name": "Laugh Boston",
               "address": "425  SUMMER ST",
+              "address_display": "425  SUMMER ST, 02210",
               "zip": "02210",
+              "license": "86989",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5247,7 +5443,9 @@
             {
               "name": "Levy Premium Main Kitchen & Commissary",
               "address": "415  SUMMER ST",
+              "address_display": "415  SUMMER ST, 02210",
               "zip": "02210",
+              "license": "68093",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5256,7 +5454,9 @@
             {
               "name": "Lucia Ristorante",
               "address": "415  HANOVER ST",
+              "address_display": "415  HANOVER ST, 02109",
               "zip": "02109",
+              "license": "301099",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5265,7 +5465,9 @@
             {
               "name": "Moxies",
               "address": "899  CONGRESS ST",
+              "address_display": "899  CONGRESS ST, 02210",
               "zip": "02210",
+              "license": "533058",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5274,7 +5476,9 @@
             {
               "name": "Mud House",
               "address": "389  NEPONSET AV",
+              "address_display": "389  NEPONSET AV, 02122",
               "zip": "02122",
+              "license": "90223",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5290,7 +5494,9 @@
             {
               "name": "SALSAS MEXICAN GRILL",
               "address": "417  WASHINGTON ST",
+              "address_display": "417  WASHINGTON ST, 02108",
               "zip": "02108",
+              "license": "90395",
               "category": "Take-out",
               "inspections": 5,
               "fails": 0,
@@ -5299,7 +5505,9 @@
             {
               "name": "A & N PIZZA",
               "address": "1409  CENTRE ST",
+              "address_display": "1409  CENTRE ST, 02132",
               "zip": "02132",
+              "license": "23626",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5308,7 +5516,9 @@
             {
               "name": "Burger King",
               "address": "100  WASHINGTON ST",
+              "address_display": "100  WASHINGTON ST, 02121",
               "zip": "02121",
+              "license": "18425",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5317,7 +5527,9 @@
             {
               "name": "Dunkin Donuts",
               "address": "1931  DORCHESTER AV",
+              "address_display": "1931  DORCHESTER AV, 02124",
               "zip": "02124",
+              "license": "480908",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5326,7 +5538,9 @@
             {
               "name": "Dunkin Donuts",
               "address": "210  HARVARD AV",
+              "address_display": "210  HARVARD AV, 02134",
               "zip": "02134",
+              "license": "32504",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5335,7 +5549,9 @@
             {
               "name": "DUNKIN DONUTS(ARRIVAL)",
               "address": "100  TERMINAL RD",
+              "address_display": "100  TERMINAL RD, 02128",
               "zip": "02128",
+              "license": "23670",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5344,7 +5560,9 @@
             {
               "name": "Dunkin Donuts-Amer Airlines/Landside",
               "address": "200  LOGAN AIRPORT TRMNL B",
+              "address_display": "200  LOGAN AIRPORT TRMNL B, 02128",
               "zip": "02128",
+              "license": "25854",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5353,7 +5571,9 @@
             {
               "name": "Frio Rico",
               "address": "360  BENNINGTON ST",
+              "address_display": "360  BENNINGTON ST, 02128",
               "zip": "02128",
+              "license": "28731",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5362,7 +5582,9 @@
             {
               "name": "JIMMY JOHN'S",
               "address": "100  TERMINAL RD",
+              "address_display": "100  TERMINAL RD, 02128",
               "zip": "02128",
+              "license": "536728",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5371,7 +5593,9 @@
             {
               "name": "Shanti Express",
               "address": "49  WARREN ST",
+              "address_display": "49  WARREN ST, 02119",
               "zip": "02119",
+              "license": "446731",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -5387,7 +5611,9 @@
             {
               "name": "CVS/Pharmacy No. 1889",
               "address": "427  WASHINGTON ST",
+              "address_display": "427  WASHINGTON ST, 02135",
               "zip": "02135",
+              "license": "20759",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -5396,7 +5622,9 @@
             {
               "name": "Daily Table",
               "address": "450  WASHINGTON ST",
+              "address_display": "450  WASHINGTON ST, 02124",
               "zip": "02124",
+              "license": "129653",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -5405,7 +5633,9 @@
             {
               "name": "Star Market No. 4572",
               "address": "370  WESTERN AV",
+              "address_display": "370  WESTERN AV, 02135",
               "zip": "02135",
+              "license": "25692",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -5414,7 +5644,9 @@
             {
               "name": "Tropical Food Mart",
               "address": "4545  WASHINGTON ST",
+              "address_display": "4545  WASHINGTON ST, 02131",
               "zip": "02131",
+              "license": "89935",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -5423,7 +5655,9 @@
             {
               "name": "AFC Zenshi @ Shaw's 3588",
               "address": "1065  COMMONWEALTH AV",
+              "address_display": "1065  COMMONWEALTH AV, 02215",
               "zip": "02215",
+              "license": "378993",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -5432,7 +5666,9 @@
             {
               "name": "AFC Zenshi @ Shaw's 4572",
               "address": "370  WESTERN AV",
+              "address_display": "370  WESTERN AV, 02135",
               "zip": "02135",
+              "license": "21946",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -5441,7 +5677,9 @@
             {
               "name": "Bob's Grocery",
               "address": "160  ENDICOTT ST",
+              "address_display": "160  ENDICOTT ST, 02113",
               "zip": "02113",
+              "license": "19919",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -5450,7 +5688,9 @@
             {
               "name": "BOB'S PITA MARKET.",
               "address": "4198  WASHINGTON ST",
+              "address_display": "4198  WASHINGTON ST, 02131",
               "zip": "02131",
+              "license": "91975",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -5459,7 +5699,9 @@
             {
               "name": "Cibao Market",
               "address": "3936  WASHINGTON ST",
+              "address_display": "3936  WASHINGTON ST, 02131",
               "zip": "02131",
+              "license": "30694",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -5468,7 +5710,9 @@
             {
               "name": "Donna's Cakes",
               "address": "100  SPRING ST",
+              "address_display": "100  SPRING ST, 02132",
               "zip": "02132",
+              "license": "460716",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -5484,7 +5728,9 @@
             {
               "name": "Zaaki",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 353809",
               "zip": "02128",
+              "license": "353809",
               "category": "Mobile food",
               "inspections": 6,
               "fails": 0,
@@ -5493,7 +5739,9 @@
             {
               "name": "Chubby Chickpea Mobile",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 77929",
               "zip": "02128",
+              "license": "77929",
               "category": "Mobile food",
               "inspections": 4,
               "fails": 0,
@@ -5502,7 +5750,9 @@
             {
               "name": "Berry Sweets No. 1",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 396032",
               "zip": "02128",
+              "license": "396032",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5511,7 +5761,9 @@
             {
               "name": "BM3:BON ME RED",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 86676",
               "zip": "02128",
+              "license": "86676",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5520,7 +5772,9 @@
             {
               "name": "Boston Trolley DogsNo. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
+              "license": "531943",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5529,7 +5783,9 @@
             {
               "name": "Chicken and Rice Guys No. 1",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 523270",
               "zip": "02128",
+              "license": "523270",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5538,7 +5794,9 @@
             {
               "name": "Dezz Kitchen",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 481891",
               "zip": "02128",
+              "license": "481891",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5547,7 +5805,9 @@
             {
               "name": "How's Your Meat",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 460308",
               "zip": "02128",
+              "license": "460308",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5556,7 +5816,9 @@
             {
               "name": "Indulge India",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 524220",
               "zip": "02128",
+              "license": "524220",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5565,7 +5827,9 @@
             {
               "name": "Moyzilla No. 4",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 401890",
               "zip": "02128",
+              "license": "401890",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -5586,7 +5850,9 @@
         {
           "name": "Dunkin Donuts",
           "address": "1627  TREMONT ST",
+          "address_display": "1627  TREMONT ST, 02120",
           "zip": "02120",
+          "license": "548628",
           "category": "Take-out",
           "inspections": 6,
           "fails": 0,
@@ -5595,7 +5861,9 @@
         {
           "name": "Blue Ribbon Barbecue",
           "address": "401  PARK DR",
+          "address_display": "401  PARK DR, 02215",
           "zip": "02215",
+          "license": "539029",
           "category": "Take-out",
           "inspections": 4,
           "fails": 0,
@@ -5604,7 +5872,9 @@
         {
           "name": "CVS/Pharmacy No. 10517",
           "address": "77  SEAPORT BL",
+          "address_display": "77  SEAPORT BL, 02210",
           "zip": "02210",
+          "license": "301882",
           "category": "Retail food",
           "inspections": 4,
           "fails": 0,
@@ -5613,7 +5883,9 @@
         {
           "name": "CVS/Pharmacy No. 1900",
           "address": "218  HANOVER ST",
+          "address_display": "218  HANOVER ST, 02113",
           "zip": "02113",
+          "license": "19949",
           "category": "Retail food",
           "inspections": 4,
           "fails": 0,
@@ -5622,7 +5894,9 @@
         {
           "name": "Honeygrow",
           "address": "100  NORTHERN AV",
+          "address_display": "100  NORTHERN AV, 02210",
           "zip": "02210",
+          "license": "333091",
           "category": "Food and drinks",
           "inspections": 4,
           "fails": 0,
@@ -5631,7 +5905,9 @@
         {
           "name": "Lala's Neapolitan-ish Pizza",
           "address": "401  PARK DR",
+          "address_display": "401  PARK DR, 02215",
           "zip": "02215",
+          "license": "517981",
           "category": "Take-out",
           "inspections": 4,
           "fails": 0,
@@ -5640,7 +5916,9 @@
         {
           "name": "Shake Shack",
           "address": "234  NEWBURY ST",
+          "address_display": "234  NEWBURY ST, 02116",
           "zip": "02116",
+          "license": "134172",
           "category": "Food and drinks",
           "inspections": 4,
           "fails": 0,
@@ -5649,7 +5927,9 @@
         {
           "name": "Sodexo @ Liberty Mutual Fl. 2",
           "address": "157  BERKELEY ST",
+          "address_display": "157  BERKELEY ST, 02116",
           "zip": "02116",
+          "license": "465753",
           "category": "Food and drinks",
           "inspections": 4,
           "fails": 0,
@@ -5658,7 +5938,9 @@
         {
           "name": "STARBUCKS COFFEE No.  7823",
           "address": "470  WASHINGTON ST",
+          "address_display": "470  WASHINGTON ST, 02135",
           "zip": "02135",
+          "license": "26054",
           "category": "Cafe",
           "inspections": 4,
           "fails": 0,
@@ -5667,7 +5949,9 @@
         {
           "name": "Taco Bell",
           "address": "74  SUMMER ST",
+          "address_display": "74  SUMMER ST, 02110",
           "zip": "02110",
+          "license": "409207",
           "category": "Food and drinks",
           "inspections": 4,
           "fails": 0,
@@ -5736,7 +6020,9 @@
             {
               "name": "Mass General Hospital Cafe",
               "address": "55  FRUIT ST",
+              "address_display": "55  FRUIT ST, 02114",
               "zip": "02114",
+              "license": "18550",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -5745,7 +6031,9 @@
             {
               "name": "Spaulding Rehabilitation Hospital",
               "address": "300  FIRST AV",
+              "address_display": "300  FIRST AV, 02129",
               "zip": "02129",
+              "license": "77115",
               "category": "Hospital",
               "inspections": 3,
               "fails": 0,
@@ -5761,7 +6049,9 @@
             {
               "name": "Aloft Boston Seaport Hotel Refuel",
               "address": "401  D ST",
+              "address_display": "401  D ST, 02210",
               "zip": "02210",
+              "license": "465167",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5770,7 +6060,9 @@
             {
               "name": "CitizenM Hotel Boston Back Bay",
               "address": "1001  BOYLSTON ST",
+              "address_display": "1001  BOYLSTON ST, 02215",
               "zip": "02215",
+              "license": "519755",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5779,7 +6071,9 @@
             {
               "name": "HILTON BOSTON LOGAN AIRPORT",
               "address": "1  HOTEL DR",
+              "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
+              "license": "21184",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5788,7 +6082,9 @@
             {
               "name": "HYATT CONF. & HOTEL (FS)",
               "address": "101  HARBORSIDE DR",
+              "address_display": "101  HARBORSIDE DR, 02128",
               "zip": "02128",
+              "license": "19765",
               "category": "Hotel",
               "inspections": 3,
               "fails": 0,
@@ -5804,7 +6100,9 @@
             {
               "name": "Suffolk University Sargent Hall",
               "address": "120  TREMONT ST",
+              "address_display": "120  TREMONT ST, 02108",
               "zip": "02108",
+              "license": "456504",
               "category": "School",
               "inspections": 3,
               "fails": 0,
@@ -5820,7 +6118,9 @@
             {
               "name": "STARBUCKS COFFEE No.  7823",
               "address": "470  WASHINGTON ST",
+              "address_display": "470  WASHINGTON ST, 02135",
               "zip": "02135",
+              "license": "26054",
               "category": "Cafe",
               "inspections": 4,
               "fails": 0,
@@ -5829,7 +6129,9 @@
             {
               "name": "Anna's Cafe",
               "address": "267  MEDFORD ST",
+              "address_display": "267  MEDFORD ST, 02129",
               "zip": "02129",
+              "license": "135886",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5838,7 +6140,9 @@
             {
               "name": "Cafe Presto",
               "address": "1  HOTEL DR",
+              "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
+              "license": "308963",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5847,7 +6151,9 @@
             {
               "name": "Code 10 Restaurant Cafe",
               "address": "2 E CONCORD ST",
+              "address_display": "2 E CONCORD ST, 02118",
               "zip": "02118",
+              "license": "125523",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5856,7 +6162,9 @@
             {
               "name": "COURTYARD CAFE",
               "address": "200  LONGWOOD AV",
+              "address_display": "200  LONGWOOD AV, 02115",
               "zip": "02115",
+              "license": "23923",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5865,7 +6173,9 @@
             {
               "name": "Pressed Cafe Seaport",
               "address": "43-61  PIER 4 BL",
+              "address_display": "43-61  PIER 4 BL, 02210",
               "zip": "02210",
+              "license": "580589",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5874,7 +6184,9 @@
             {
               "name": "Revival Cafe & Kitchen",
               "address": "15  NECCO ST",
+              "address_display": "15  NECCO ST, 02210",
               "zip": "02210",
+              "license": "568855",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5883,7 +6195,9 @@
             {
               "name": "Tatte Bakery & Cafe",
               "address": "70  CHARLES ST",
+              "address_display": "70  CHARLES ST, 02114",
               "zip": "02114",
+              "license": "134181",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5892,7 +6206,9 @@
             {
               "name": "Tatte Bakery & Cafe",
               "address": "201  WASHINGTON ST",
+              "address_display": "201  WASHINGTON ST, 02108",
               "zip": "02108",
+              "license": "385584",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -5908,7 +6224,9 @@
             {
               "name": "Honeygrow",
               "address": "100  NORTHERN AV",
+              "address_display": "100  NORTHERN AV, 02210",
               "zip": "02210",
+              "license": "333091",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5917,7 +6235,9 @@
             {
               "name": "Shake Shack",
               "address": "234  NEWBURY ST",
+              "address_display": "234  NEWBURY ST, 02116",
               "zip": "02116",
+              "license": "134172",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5926,7 +6246,9 @@
             {
               "name": "Sodexo @ Liberty Mutual Fl. 2",
               "address": "157  BERKELEY ST",
+              "address_display": "157  BERKELEY ST, 02116",
               "zip": "02116",
+              "license": "465753",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5935,7 +6257,9 @@
             {
               "name": "Taco Bell",
               "address": "74  SUMMER ST",
+              "address_display": "74  SUMMER ST, 02110",
               "zip": "02110",
+              "license": "409207",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5944,7 +6268,9 @@
             {
               "name": "Vejigantes Restaurant",
               "address": "57 W DEDHAM ST",
+              "address_display": "57 W DEDHAM ST, 02118",
               "zip": "02118",
+              "license": "77974",
               "category": "Food and drinks",
               "inspections": 4,
               "fails": 0,
@@ -5953,7 +6279,9 @@
             {
               "name": "Ali Baba",
               "address": "99A  CAMBRIDGE ST",
+              "address_display": "99A  CAMBRIDGE ST, 02129",
               "zip": "02129",
+              "license": "422123",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -5962,7 +6290,9 @@
             {
               "name": "Bambu",
               "address": "287  ADAMS ST",
+              "address_display": "287  ADAMS ST, 02122",
               "zip": "02122",
+              "license": "310779",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -5971,7 +6301,9 @@
             {
               "name": "Bleacher Bar",
               "address": "70  LANSDOWNE ST",
+              "address_display": "70  LANSDOWNE ST, 02215",
               "zip": "02215",
+              "license": "29474",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -5980,7 +6312,9 @@
             {
               "name": "Cava",
               "address": "125  SUMMER ST",
+              "address_display": "125  SUMMER ST, 02110",
               "zip": "02110",
+              "license": "480212",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -5989,7 +6323,9 @@
             {
               "name": "Cava",
               "address": "669  BOYLSTON ST",
+              "address_display": "669  BOYLSTON ST, 02116",
               "zip": "02116",
+              "license": "353940",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6005,7 +6341,9 @@
             {
               "name": "Dunkin Donuts",
               "address": "1627  TREMONT ST",
+              "address_display": "1627  TREMONT ST, 02120",
               "zip": "02120",
+              "license": "548628",
               "category": "Take-out",
               "inspections": 6,
               "fails": 0,
@@ -6014,7 +6352,9 @@
             {
               "name": "Blue Ribbon Barbecue",
               "address": "401  PARK DR",
+              "address_display": "401  PARK DR, 02215",
               "zip": "02215",
+              "license": "539029",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -6023,7 +6363,9 @@
             {
               "name": "Lala's Neapolitan-ish Pizza",
               "address": "401  PARK DR",
+              "address_display": "401  PARK DR, 02215",
               "zip": "02215",
+              "license": "517981",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -6032,7 +6374,9 @@
             {
               "name": "The Monkey Bar",
               "address": "200  FANEUIL HALL MARKET PL",
+              "address_display": "200  FANEUIL HALL MARKET PL, 02109",
               "zip": "02109",
+              "license": "582964",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -6041,7 +6385,9 @@
             {
               "name": "AFC Zenshi @ Shaws No. 1208",
               "address": "246  BORDER ST",
+              "address_display": "246  BORDER ST, 02128",
               "zip": "02128",
+              "license": "364776",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6050,7 +6396,9 @@
             {
               "name": "Alamo Drafthouse",
               "address": "23  NORTHERN AV",
+              "address_display": "23  NORTHERN AV, 02210",
               "zip": "02210",
+              "license": "522086",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6059,7 +6407,9 @@
             {
               "name": "B. Good Burger",
               "address": "200  TERMINAL RD",
+              "address_display": "200  TERMINAL RD, 02128",
               "zip": "02128",
+              "license": "371852",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6068,7 +6418,9 @@
             {
               "name": "Beantown Pastrami",
               "address": "100  HANOVER ST",
+              "address_display": "100  HANOVER ST, 02114",
               "zip": "02114",
+              "license": "140128",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6077,7 +6429,9 @@
             {
               "name": "Charley's Philly Steaks",
               "address": "350  LONGWOOD AV",
+              "address_display": "350  LONGWOOD AV, 02215",
               "zip": "02215",
+              "license": "143575",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6086,7 +6440,9 @@
             {
               "name": "Craft Food Hall",
               "address": "135  WILLIAM T MORRISSEY BL",
+              "address_display": "135  WILLIAM T MORRISSEY BL, 02125",
               "zip": "02125",
+              "license": "450802",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6102,7 +6458,9 @@
             {
               "name": "CVS/Pharmacy No. 10517",
               "address": "77  SEAPORT BL",
+              "address_display": "77  SEAPORT BL, 02210",
               "zip": "02210",
+              "license": "301882",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -6111,7 +6469,9 @@
             {
               "name": "CVS/Pharmacy No. 1900",
               "address": "218  HANOVER ST",
+              "address_display": "218  HANOVER ST, 02113",
               "zip": "02113",
+              "license": "19949",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -6120,7 +6480,9 @@
             {
               "name": "Trader Joe's No. 566",
               "address": "44  THOMSON PL",
+              "address_display": "44  THOMSON PL, 02210",
               "zip": "02210",
+              "license": "398730",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -6129,7 +6491,9 @@
             {
               "name": "WHOLE FOODS MARKET",
               "address": "15  WASHINGTON ST",
+              "address_display": "15  WASHINGTON ST, 02135",
               "zip": "02135",
+              "license": "24017",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -6138,7 +6502,9 @@
             {
               "name": "ADAMS CONVENIENCE STORE",
               "address": "114  BLACKSTONE ST",
+              "address_display": "114  BLACKSTONE ST, 02108",
               "zip": "02108",
+              "license": "139414",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6147,7 +6513,9 @@
             {
               "name": "ALBA PRODUCE",
               "address": "18  PARMENTER ST",
+              "address_display": "18  PARMENTER ST, 02113",
               "zip": "02113",
+              "license": "21026",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6156,7 +6524,9 @@
             {
               "name": "Dollar General Store No. 19117",
               "address": "500  GENEVA AV",
+              "address_display": "500  GENEVA AV, 02122",
               "zip": "02122",
+              "license": "344417",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6165,7 +6535,9 @@
             {
               "name": "KAREN MARKET",
               "address": "41  BENNINGTON ST",
+              "address_display": "41  BENNINGTON ST, 02128",
               "zip": "02128",
+              "license": "24070",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6174,7 +6546,9 @@
             {
               "name": "MASS. AVE. SUNOCO MART",
               "address": "895  MASSACHUSETTS AV",
+              "address_display": "895  MASSACHUSETTS AV, 02118",
               "zip": "02118",
+              "license": "20073",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6183,7 +6557,9 @@
             {
               "name": "Star Market Company",
               "address": "50  CAUSEWAY ST",
+              "address_display": "50  CAUSEWAY ST, 02114",
               "zip": "02114",
+              "license": "359367",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6199,7 +6575,9 @@
             {
               "name": "Boston Trolley DogsNo. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
+              "license": "531943",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6208,7 +6586,9 @@
             {
               "name": "Eloti No. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 550426",
               "zip": "02128",
+              "license": "550426",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6217,7 +6597,9 @@
             {
               "name": "Madame Chervilo",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 595710",
               "zip": "02128",
+              "license": "595710",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6226,7 +6608,9 @@
             {
               "name": "Papi's Stuffed Sopapillas",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 528241",
               "zip": "02128",
+              "license": "528241",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6235,7 +6619,9 @@
             {
               "name": "Twizted Pickle",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 531319",
               "zip": "02128",
+              "license": "531319",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6244,7 +6630,9 @@
             {
               "name": "Zaz Food Truck",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 482060",
               "zip": "02128",
+              "license": "482060",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6265,7 +6653,9 @@
         {
           "name": "BM2: Bon Me OrangeNo. 2",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 523524",
           "zip": "02128",
+          "license": "523524",
           "category": "Mobile food",
           "inspections": 9,
           "fails": 0,
@@ -6274,7 +6664,9 @@
         {
           "name": "Cool Shade 2",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 599905",
           "zip": "02128",
+          "license": "599905",
           "category": "Mobile food",
           "inspections": 4,
           "fails": 0,
@@ -6283,7 +6675,9 @@
         {
           "name": "Dave's Hot Chicken",
           "address": "1260  BOYLSTON ST",
+          "address_display": "1260  BOYLSTON ST, 02215",
           "zip": "02215",
+          "license": "554038",
           "category": "Take-out",
           "inspections": 4,
           "fails": 0,
@@ -6292,7 +6686,9 @@
         {
           "name": "Grace Note Coffee",
           "address": "100  HIGH ST",
+          "address_display": "100  HIGH ST, 02110",
           "zip": "02110",
+          "license": "413549",
           "category": "Cafe",
           "inspections": 4,
           "fails": 0,
@@ -6301,7 +6697,9 @@
         {
           "name": "Olu's African Market",
           "address": "4400  WASHINGTON ST",
+          "address_display": "4400  WASHINGTON ST, 02131",
           "zip": "02131",
+          "license": "607074",
           "category": "Retail food",
           "inspections": 4,
           "fails": 0,
@@ -6310,7 +6708,9 @@
         {
           "name": "Ashmont Convenience Store",
           "address": "1996  DORCHESTER AV",
+          "address_display": "1996  DORCHESTER AV, 02124",
           "zip": "02124",
+          "license": "76483",
           "category": "Retail food",
           "inspections": 3,
           "fails": 0,
@@ -6319,7 +6719,9 @@
         {
           "name": "B/SPOKE",
           "address": "54  OLD COLONY AV",
+          "address_display": "54  OLD COLONY AV, 02127",
           "zip": "02127",
+          "license": "467384",
           "category": "Take-out",
           "inspections": 3,
           "fails": 0,
@@ -6328,7 +6730,9 @@
         {
           "name": "Bibim Box",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 317902",
           "zip": "02128",
+          "license": "317902",
           "category": "Mobile food",
           "inspections": 3,
           "fails": 0,
@@ -6337,7 +6741,9 @@
         {
           "name": "Boston Trolley Dogs",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 139282",
           "zip": "02128",
+          "license": "139282",
           "category": "Mobile food",
           "inspections": 3,
           "fails": 0,
@@ -6346,7 +6752,9 @@
         {
           "name": "Boston Trolley DogsNo. 2",
           "address": "1  CITYWIDE ST",
+          "address_display": "Mobile (citywide) \u00b7 License 531943",
           "zip": "02128",
+          "license": "531943",
           "category": "Mobile food",
           "inspections": 3,
           "fails": 0,
@@ -6415,7 +6823,9 @@
             {
               "name": "Grace Note Coffee",
               "address": "100  HIGH ST",
+              "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
+              "license": "413549",
               "category": "Cafe",
               "inspections": 4,
               "fails": 0,
@@ -6424,7 +6834,9 @@
             {
               "name": "FLOUR BAKERY & CAFE",
               "address": "1595  WASHINGTON ST",
+              "address_display": "1595  WASHINGTON ST, 02118",
               "zip": "02118",
+              "license": "21518",
               "category": "Cafe",
               "inspections": 3,
               "fails": 0,
@@ -6440,7 +6852,9 @@
             {
               "name": "Bubble Bath",
               "address": "100  HIGH ST",
+              "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
+              "license": "416143",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6449,7 +6863,9 @@
             {
               "name": "Chipotle Mexican Grill",
               "address": "1924  BEACON ST",
+              "address_display": "1924  BEACON ST, 02135",
               "zip": "02135",
+              "license": "27303",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6458,7 +6874,9 @@
             {
               "name": "Irashai Sushi and Teriyaki",
               "address": "8  KNEELAND ST",
+              "address_display": "8  KNEELAND ST, 02111",
               "zip": "02111",
+              "license": "75249",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6467,7 +6885,9 @@
             {
               "name": "Island Cuisine Restaurant and Bakery",
               "address": "554  DUDLEY ST",
+              "address_display": "554  DUDLEY ST, 02125",
               "zip": "02125",
+              "license": "586682",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6476,7 +6896,9 @@
             {
               "name": "Ropes & Gray L L P",
               "address": "800  BOYLSTON ST",
+              "address_display": "800  BOYLSTON ST, 02199",
               "zip": "02199",
+              "license": "73849",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6485,7 +6907,9 @@
             {
               "name": "Starbucks",
               "address": "1341  BOYLSTON ST",
+              "address_display": "1341  BOYLSTON ST, 02215",
               "zip": "02215",
+              "license": "144417",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6494,7 +6918,9 @@
             {
               "name": "Tasty Burger",
               "address": "86  VAN NESS ST",
+              "address_display": "86  VAN NESS ST, 02215",
               "zip": "02215",
+              "license": "526245",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6503,7 +6929,9 @@
             {
               "name": "The Ancient Bakers",
               "address": "1199  TREMONT ST",
+              "address_display": "1199  TREMONT ST, 02120",
               "zip": "02120",
+              "license": "621550",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6512,7 +6940,9 @@
             {
               "name": "Trillium at Farnsworth",
               "address": "47  FARNSWORTH ST",
+              "address_display": "47  FARNSWORTH ST, 02210",
               "zip": "02210",
+              "license": "348174",
               "category": "Food and drinks",
               "inspections": 3,
               "fails": 0,
@@ -6528,7 +6958,9 @@
             {
               "name": "Dave's Hot Chicken",
               "address": "1260  BOYLSTON ST",
+              "address_display": "1260  BOYLSTON ST, 02215",
               "zip": "02215",
+              "license": "554038",
               "category": "Take-out",
               "inspections": 4,
               "fails": 0,
@@ -6537,7 +6969,9 @@
             {
               "name": "B/SPOKE",
               "address": "54  OLD COLONY AV",
+              "address_display": "54  OLD COLONY AV, 02127",
               "zip": "02127",
+              "license": "467384",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6546,7 +6980,9 @@
             {
               "name": "Burger King",
               "address": "210  BRIGHTON AV",
+              "address_display": "210  BRIGHTON AV, 02134",
               "zip": "02134",
+              "license": "86902",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6555,7 +6991,9 @@
             {
               "name": "Charming Gardener/Dive Bar",
               "address": "100  HIGH ST",
+              "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
+              "license": "413556",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6564,7 +7002,9 @@
             {
               "name": "Cumin Club Indian Kitchen",
               "address": "100  HIGH ST",
+              "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
+              "license": "577760",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6573,7 +7013,9 @@
             {
               "name": "Dunkin",
               "address": "214 N BEACON ST",
+              "address_display": "214 N BEACON ST, 02135",
               "zip": "02135",
+              "license": "582382",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6582,7 +7024,9 @@
             {
               "name": "Dunkin Donuts",
               "address": "210  HARVARD AV",
+              "address_display": "210  HARVARD AV, 02134",
               "zip": "02134",
+              "license": "32504",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6591,7 +7035,9 @@
             {
               "name": "DUNKIN DONUTS/SCNVANOS",
               "address": "440  MASSACHUSETTS AV",
+              "address_display": "440  MASSACHUSETTS AV, 02118",
               "zip": "02118",
+              "license": "23314",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6600,7 +7046,9 @@
             {
               "name": "Dunkin' Donuts",
               "address": "1131  TREMONT ST",
+              "address_display": "1131  TREMONT ST, 02120",
               "zip": "02120",
+              "license": "19970",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6609,7 +7057,9 @@
             {
               "name": "Gary's Pizza",
               "address": "1744  WASHINGTON ST",
+              "address_display": "1744  WASHINGTON ST, 02118",
               "zip": "02118",
+              "license": "565935",
               "category": "Take-out",
               "inspections": 3,
               "fails": 0,
@@ -6625,7 +7075,9 @@
             {
               "name": "Olu's African Market",
               "address": "4400  WASHINGTON ST",
+              "address_display": "4400  WASHINGTON ST, 02131",
               "zip": "02131",
+              "license": "607074",
               "category": "Retail food",
               "inspections": 4,
               "fails": 0,
@@ -6634,7 +7086,9 @@
             {
               "name": "Ashmont Convenience Store",
               "address": "1996  DORCHESTER AV",
+              "address_display": "1996  DORCHESTER AV, 02124",
               "zip": "02124",
+              "license": "76483",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6643,7 +7097,9 @@
             {
               "name": "CVS  Pharmacy",
               "address": "214  HARVARD AV",
+              "address_display": "214  HARVARD AV, 02134",
               "zip": "02134",
+              "license": "425214",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6652,7 +7108,9 @@
             {
               "name": "Dollar Tree",
               "address": "1230  VFW PW",
+              "address_display": "1230  VFW PW, 02132",
               "zip": "02132",
+              "license": "144741",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6661,7 +7119,9 @@
             {
               "name": "HENRY'S MARKET",
               "address": "892  SOUTH ST",
+              "address_display": "892  SOUTH ST, 02131",
               "zip": "02131",
+              "license": "21759",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6670,7 +7130,9 @@
             {
               "name": "Kaba African Market",
               "address": "11  ROXBURY ST",
+              "address_display": "11  ROXBURY ST, 02119",
               "zip": "02119",
+              "license": "27956",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6679,7 +7141,9 @@
             {
               "name": "WHOLE FOODS MARKET(415 Centre St.)",
               "address": "415  CENTRE ST",
+              "address_display": "415  CENTRE ST, 02130",
               "zip": "02130",
+              "license": "75480",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6688,7 +7152,9 @@
             {
               "name": "Wild Duck Food Market",
               "address": "362  COMMONWEALTH AV",
+              "address_display": "362  COMMONWEALTH AV, 02115",
               "zip": "02115",
+              "license": "543772",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6704,7 +7170,9 @@
             {
               "name": "BM2: Bon Me OrangeNo. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 523524",
               "zip": "02128",
+              "license": "523524",
               "category": "Mobile food",
               "inspections": 9,
               "fails": 0,
@@ -6713,7 +7181,9 @@
             {
               "name": "Cool Shade 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 599905",
               "zip": "02128",
+              "license": "599905",
               "category": "Mobile food",
               "inspections": 4,
               "fails": 0,
@@ -6722,7 +7192,9 @@
             {
               "name": "Bibim Box",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 317902",
               "zip": "02128",
+              "license": "317902",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6731,7 +7203,9 @@
             {
               "name": "Boston Trolley Dogs",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 139282",
               "zip": "02128",
+              "license": "139282",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6740,7 +7214,9 @@
             {
               "name": "Boston Trolley DogsNo. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
+              "license": "531943",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6749,7 +7225,9 @@
             {
               "name": "Caribbean Hibachi",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 529989",
               "zip": "02128",
+              "license": "529989",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6758,7 +7236,9 @@
             {
               "name": "Cousins Maine Lobster",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 597760",
               "zip": "02128",
+              "license": "597760",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6767,7 +7247,9 @@
             {
               "name": "El Dugout",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 598183",
               "zip": "02128",
+              "license": "598183",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6776,7 +7258,9 @@
             {
               "name": "Extreme Flavor",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 598092",
               "zip": "02128",
+              "license": "598092",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6785,7 +7269,9 @@
             {
               "name": "Gogi On The Block No. 2",
               "address": "1  CITYWIDE ST",
+              "address_display": "Mobile (citywide) \u00b7 License 354104",
               "zip": "02128",
+              "license": "354104",
               "category": "Mobile food",
               "inspections": 3,
               "fails": 0,
@@ -6830,7 +7316,9 @@
       {
         "name": "Go Fresh 365",
         "address": "1102  WASHINGTON ST",
+        "address_display": "1102  WASHINGTON ST, 02118",
         "zip": "02118",
+        "license": "34585",
         "category": "Retail food",
         "inspections": 111,
         "fails": 58,
@@ -6840,7 +7328,9 @@
       {
         "name": "BOURBON ST. CAFE",
         "address": "417  WASHINGTON ST",
+        "address_display": "417  WASHINGTON ST, 02108",
         "zip": "02108",
+        "license": "21201",
         "category": "Cafe",
         "inspections": 118,
         "fails": 57,
@@ -6850,7 +7340,9 @@
       {
         "name": "Fan Fan Restaurant",
         "address": "15  HARVARD AV",
+        "address_display": "15  HARVARD AV, 02136",
         "zip": "02136",
+        "license": "37129",
         "category": "Food and drinks",
         "inspections": 105,
         "fails": 54,
@@ -6860,7 +7352,9 @@
       {
         "name": "Bonchon Allston",
         "address": "101  BRIGHTON AV",
+        "address_display": "101  BRIGHTON AV, 02134",
         "zip": "02134",
+        "license": "78286",
         "category": "Food and drinks",
         "inspections": 109,
         "fails": 53,
@@ -6870,7 +7364,9 @@
       {
         "name": "The Real Deal",
         "address": "1882  CENTRE ST",
+        "address_display": "1882  CENTRE ST, 02132",
         "zip": "02132",
+        "license": "23987",
         "category": "Food and drinks",
         "inspections": 103,
         "fails": 53,
@@ -6880,7 +7376,9 @@
       {
         "name": "Nhu Lan Fast Food",
         "address": "1155  DORCHESTER AV",
+        "address_display": "1155  DORCHESTER AV, 02125",
         "zip": "02125",
+        "license": "74834",
         "category": "Take-out",
         "inspections": 103,
         "fails": 51,
@@ -6890,7 +7388,9 @@
       {
         "name": "Yamato Japanese Cuisine",
         "address": "111  CHISWICK RD",
+        "address_display": "111  CHISWICK RD, 02135",
         "zip": "02135",
+        "license": "74763",
         "category": "Food and drinks",
         "inspections": 99,
         "fails": 49,
@@ -6900,7 +7400,9 @@
       {
         "name": "Yely's Coffee Shop",
         "address": "284  CENTRE ST",
+        "address_display": "284  CENTRE ST, 02130",
         "zip": "02130",
+        "license": "20071",
         "category": "Cafe",
         "inspections": 104,
         "fails": 49,
@@ -6910,7 +7412,9 @@
       {
         "name": "BALE RESTAURANT",
         "address": "1052  DORCHESTER AV",
+        "address_display": "1052  DORCHESTER AV, 02125",
         "zip": "02125",
+        "license": "22464",
         "category": "Take-out",
         "inspections": 104,
         "fails": 48,
@@ -6920,7 +7424,9 @@
       {
         "name": "MCKENNA'S CAFE",
         "address": "109  SAVIN HILL AV",
+        "address_display": "109  SAVIN HILL AV, 02125",
         "zip": "02125",
+        "license": "23628",
         "category": "Cafe",
         "inspections": 92,
         "fails": 48,
@@ -6930,7 +7436,9 @@
       {
         "name": "NEW YORK FRIED CHICKEN & PIZZA",
         "address": "531  COLUMBIA RD",
+        "address_display": "531  COLUMBIA RD, 02125",
         "zip": "02125",
+        "license": "23286",
         "category": "Take-out",
         "inspections": 90,
         "fails": 48,
@@ -6940,7 +7448,9 @@
       {
         "name": "NICOLE'S PIZZA",
         "address": "639  TREMONT ST",
+        "address_display": "639  TREMONT ST, 02118",
         "zip": "02118",
+        "license": "21851",
         "category": "Take-out",
         "inspections": 83,
         "fails": 48,
@@ -6950,7 +7460,9 @@
       {
         "name": "BERTUCCI'S",
         "address": "633  V F W PK",
+        "address_display": "633  V F W PK, 02132",
         "zip": "02132",
+        "license": "19320",
         "category": "Food and drinks",
         "inspections": 91,
         "fails": 47,
@@ -6960,7 +7472,9 @@
       {
         "name": "Los Amigos Mexican Grill",
         "address": "1741  CENTRE ST",
+        "address_display": "1741  CENTRE ST, 02132",
         "zip": "02132",
+        "license": "75844",
         "category": "Take-out",
         "inspections": 103,
         "fails": 47,
@@ -6970,7 +7484,9 @@
       {
         "name": "PARAMOUNT",
         "address": "44  CHARLES ST",
+        "address_display": "44  CHARLES ST, 02114",
         "zip": "02114",
+        "license": "20157",
         "category": "Food and drinks",
         "inspections": 95,
         "fails": 47,
@@ -6984,7 +7500,9 @@
           {
             "name": "P & R ICE CREAM",
             "address": "1284  BLUE HILL AV",
+            "address_display": "1284  BLUE HILL AV, 02126",
             "zip": "02126",
+            "license": "18908",
             "category": "Ice cream",
             "inspections": 60,
             "fails": 30,
@@ -6994,7 +7512,9 @@
           {
             "name": "THE BOSTON ICE CREAM FACTORY",
             "address": "777  WILLIAM T MORRISSEY BL",
+            "address_display": "777  WILLIAM T MORRISSEY BL, 02122",
             "zip": "02122",
+            "license": "21556",
             "category": "Ice cream",
             "inspections": 50,
             "fails": 23,
@@ -7004,7 +7524,9 @@
           {
             "name": "P & R Restaurant & Ice Cream Parlor",
             "address": "208  DUDLEY ST",
+            "address_display": "208  DUDLEY ST, 02119",
             "zip": "02119",
+            "license": "134804",
             "category": "Ice cream",
             "inspections": 48,
             "fails": 22,
@@ -7014,7 +7536,9 @@
           {
             "name": "Casa Colombia Rest. Ice Cream & Bakery",
             "address": "14  WILLIAM C KELLY SQ",
+            "address_display": "14  WILLIAM C KELLY SQ, 02128",
             "zip": "02128",
+            "license": "90341",
             "category": "Ice cream",
             "inspections": 26,
             "fails": 11,
@@ -7024,7 +7548,9 @@
           {
             "name": "WAI WAI ICE CREAM SHOP",
             "address": "26  OXFORD ST",
+            "address_display": "26  OXFORD ST, 02111",
             "zip": "02111",
+            "license": "24990",
             "category": "Ice cream",
             "inspections": 35,
             "fails": 10,
@@ -7034,7 +7560,9 @@
           {
             "name": "Froyo World",
             "address": "157  HARVARD AV",
+            "address_display": "157  HARVARD AV, 02134",
             "zip": "02134",
+            "license": "80923",
             "category": "Ice cream",
             "inspections": 29,
             "fails": 6,
@@ -7044,7 +7572,9 @@
           {
             "name": "Fomu Ice Cream",
             "address": "140  BROOKLINE AV",
+            "address_display": "140  BROOKLINE AV, 02215",
             "zip": "02215",
+            "license": "388817",
             "category": "Ice cream",
             "inspections": 21,
             "fails": 6,
@@ -7054,7 +7584,9 @@
           {
             "name": "Sprinkle's Ice Cream",
             "address": "100-199  FANEUIL HALL MARKET PL",
+            "address_display": "100-199  FANEUIL HALL MARKET PL, 02109",
             "zip": "02109",
+            "license": "26246",
             "category": "Ice cream",
             "inspections": 27,
             "fails": 5,
@@ -7064,7 +7596,9 @@
           {
             "name": "Van Leeuwen Ice Cream",
             "address": "131  SEAPORT BL",
+            "address_display": "131  SEAPORT BL, 02210",
             "zip": "02210",
+            "license": "554057",
             "category": "Ice cream",
             "inspections": 11,
             "fails": 5,
@@ -7074,7 +7608,9 @@
           {
             "name": "Jimmies Ice Cream Parlor",
             "address": "46  CORINTH ST ST",
+            "address_display": "46  CORINTH ST ST, 02131",
             "zip": "02131",
+            "license": "32437",
             "category": "Ice cream",
             "inspections": 17,
             "fails": 4,
@@ -7089,7 +7625,9 @@
           {
             "name": "Museum of Fine Arts Cafeteria",
             "address": "465  HUNTINGTON AV",
+            "address_display": "465  HUNTINGTON AV, 02115",
             "zip": "02115",
+            "license": "28124",
             "category": "Cultural / attraction",
             "inspections": 53,
             "fails": 23,
@@ -7099,7 +7637,9 @@
           {
             "name": "Museum of Science",
             "address": "10  CHARLES RIVER DM",
+            "address_display": "10  CHARLES RIVER DM, 02114",
             "zip": "02114",
+            "license": "23721",
             "category": "Cultural / attraction",
             "inspections": 49,
             "fails": 21,
@@ -7109,7 +7649,9 @@
           {
             "name": "Fenway Park-Aura Club",
             "address": "4  JERSEY ST",
+            "address_display": "4  JERSEY ST, 02215",
             "zip": "02215",
+            "license": "24578",
             "category": "Cultural / attraction",
             "inspections": 50,
             "fails": 17,
@@ -7119,7 +7661,9 @@
           {
             "name": "GAME ON FENWAY PARK",
             "address": "70  LANSDOWNE",
+            "address_display": "70  LANSDOWNE, 02215",
             "zip": "02215",
+            "license": "23739",
             "category": "Cultural / attraction",
             "inspections": 55,
             "fails": 28,
@@ -7129,7 +7673,9 @@
           {
             "name": "Gardner Museum Cafe",
             "address": "2  PALACE RD",
+            "address_display": "2  PALACE RD, 02115",
             "zip": "02115",
+            "license": "74435",
             "category": "Cultural / attraction",
             "inspections": 42,
             "fails": 16,
@@ -7139,7 +7685,9 @@
           {
             "name": "Museum of Fine Arts New American Cafe",
             "address": "465  HUNTINGTON AV",
+            "address_display": "465  HUNTINGTON AV, 02115",
             "zip": "02115",
+            "license": "73908",
             "category": "Cultural / attraction",
             "inspections": 43,
             "fails": 15,
@@ -7149,7 +7697,9 @@
           {
             "name": "Museum of Fine Arts-465 Bar and Restaurant",
             "address": "465  HUNTINGTON AV",
+            "address_display": "465  HUNTINGTON AV, 02215",
             "zip": "02215",
+            "license": "19405",
             "category": "Cultural / attraction",
             "inspections": 38,
             "fails": 11,
@@ -7159,7 +7709,9 @@
           {
             "name": "NEW ENGLAND AQUARIUM CORP.",
             "address": "250  ATLANTIC AV",
+            "address_display": "250  ATLANTIC AV, 02110",
             "zip": "02110",
+            "license": "20675",
             "category": "Cultural / attraction",
             "inspections": 22,
             "fails": 9,
@@ -7169,7 +7721,9 @@
           {
             "name": "Museum of Fine Arts-Taste D/B/A No. 19285",
             "address": "465  HUNTINGTON AV",
+            "address_display": "465  HUNTINGTON AV, 02115",
             "zip": "02115",
+            "license": "19285",
             "category": "Cultural / attraction",
             "inspections": 36,
             "fails": 7,
@@ -7179,7 +7733,9 @@
           {
             "name": "Fenway Stadium 13",
             "address": "201  BROOKLINE AV",
+            "address_display": "201  BROOKLINE AV, 02215",
             "zip": "02215",
+            "license": "24725",
             "category": "Cultural / attraction",
             "inspections": 25,
             "fails": 5,
@@ -7194,7 +7750,9 @@
           {
             "name": "Brighams & Womens Hospital - Tower Cafe",
             "address": "75  FRANCIS ST",
+            "address_display": "75  FRANCIS ST, 02115",
             "zip": "02115",
+            "license": "18544",
             "category": "Hospital",
             "inspections": 82,
             "fails": 29,
@@ -7204,7 +7762,9 @@
           {
             "name": "N.E. Deaconess Hospital Cafe",
             "address": "1  DEACONESS RD",
+            "address_display": "1  DEACONESS RD, 02215",
             "zip": "02215",
+            "license": "26029",
             "category": "Hospital",
             "inspections": 67,
             "fails": 20,
@@ -7214,7 +7774,9 @@
           {
             "name": "St. Elizabeth's Medical Center",
             "address": "736  CAMBRIDGE ST",
+            "address_display": "736  CAMBRIDGE ST, 02135",
             "zip": "02135",
+            "license": "74465",
             "category": "Hospital",
             "inspections": 57,
             "fails": 19,
@@ -7224,7 +7786,9 @@
           {
             "name": "BRIGHAM & WOMENS FAULKNER HOSPITAL",
             "address": "1153  CENTRE",
+            "address_display": "1153  CENTRE, 02130",
             "zip": "02130",
+            "license": "18286",
             "category": "Hospital",
             "inspections": 43,
             "fails": 13,
@@ -7234,7 +7798,9 @@
           {
             "name": "CHILDRENS HOSPITAL MAIN CAF",
             "address": "300  LONGWOOD AV",
+            "address_display": "300  LONGWOOD AV, 02115",
             "zip": "02115",
+            "license": "18886",
             "category": "Hospital",
             "inspections": 70,
             "fails": 18,
@@ -7244,7 +7810,9 @@
           {
             "name": "CARNEY HOSPITAL",
             "address": "2100  DORCHESTER AV",
+            "address_display": "2100  DORCHESTER AV, 02124",
             "zip": "02124",
+            "license": "74470",
             "category": "Hospital",
             "inspections": 44,
             "fails": 17,
@@ -7254,7 +7822,9 @@
           {
             "name": "CARTER FULLER MENTAL HOSPITAL",
             "address": "85 E NEWTON ST",
+            "address_display": "85 E NEWTON ST, 02118",
             "zip": "02118",
+            "license": "145991",
             "category": "Hospital",
             "inspections": 39,
             "fails": 17,
@@ -7264,7 +7834,9 @@
           {
             "name": "Mass General Hospital Cafe",
             "address": "55  FRUIT ST",
+            "address_display": "55  FRUIT ST, 02114",
             "zip": "02114",
+            "license": "18550",
             "category": "Hospital",
             "inspections": 52,
             "fails": 9,
@@ -7274,7 +7846,9 @@
           {
             "name": "Boston Medical Center (Shapiro Bldg.)",
             "address": "830  HARRISON AV",
+            "address_display": "830  HARRISON AV, 02118",
             "zip": "02118",
+            "license": "67365",
             "category": "Hospital",
             "inspections": 41,
             "fails": 6,
@@ -7284,7 +7858,9 @@
           {
             "name": "Brigham & Womens Hospital d/b/a O'Naturals",
             "address": "70  FRANCIS ST",
+            "address_display": "70  FRANCIS ST, 02115",
             "zip": "02115",
+            "license": "30323",
             "category": "Hospital",
             "inspections": 19,
             "fails": 8,
@@ -7299,7 +7875,9 @@
           {
             "name": "Seaport Hotel",
             "address": "1  SEAPORT LN",
+            "address_display": "1  SEAPORT LN, 02210",
             "zip": "02210",
+            "license": "20783",
             "category": "Hotel",
             "inspections": 75,
             "fails": 29,
@@ -7309,7 +7887,9 @@
           {
             "name": "Colonnade Hotel",
             "address": "120  HUNTINGTON AV",
+            "address_display": "120  HUNTINGTON AV, 02116",
             "zip": "02116",
+            "license": "18614",
             "category": "Hotel",
             "inspections": 71,
             "fails": 30,
@@ -7319,7 +7899,9 @@
           {
             "name": "The Bostonian Boston - A Millennium Hotel",
             "address": "20  NORTH ST",
+            "address_display": "20  NORTH ST, 02109",
             "zip": "02109",
+            "license": "18649",
             "category": "Hotel",
             "inspections": 83,
             "fails": 36,
@@ -7329,7 +7911,9 @@
           {
             "name": "MARRIOTT HOTEL-COPLEY PLACE",
             "address": "110  HUNTINGTON AV",
+            "address_display": "110  HUNTINGTON AV, 02116",
             "zip": "02116",
+            "license": "19114",
             "category": "Hotel",
             "inspections": 59,
             "fails": 27,
@@ -7339,7 +7923,9 @@
           {
             "name": "Four Seasons Hotel Boston",
             "address": "200  BOYLSTON ST",
+            "address_display": "200  BOYLSTON ST, 02116",
             "zip": "02116",
+            "license": "18140",
             "category": "Hotel",
             "inspections": 69,
             "fails": 25,
@@ -7349,7 +7935,9 @@
           {
             "name": "Lenox Hotel (5 Food Serv. Loc.)",
             "address": "704  BOYLSTON ST",
+            "address_display": "704  BOYLSTON ST, 02199",
             "zip": "02199",
+            "license": "22241",
             "category": "Hotel",
             "inspections": 55,
             "fails": 24,
@@ -7359,7 +7947,9 @@
           {
             "name": "BOSTON BACK BAY HILTON",
             "address": "40  DALTON ST",
+            "address_display": "40  DALTON ST, 02115",
             "zip": "02115",
+            "license": "21118",
             "category": "Hotel",
             "inspections": 54,
             "fails": 27,
@@ -7369,7 +7959,9 @@
           {
             "name": "SHERATON BOSTON (R.S./CAFE)",
             "address": "39  DALTON ST",
+            "address_display": "39  DALTON ST, 02199",
             "zip": "02199",
+            "license": "127712",
             "category": "Hotel",
             "inspections": 53,
             "fails": 27,
@@ -7379,7 +7971,9 @@
           {
             "name": "The Liberty Hotel",
             "address": "215  CHARLES ST",
+            "address_display": "215  CHARLES ST, 02114",
             "zip": "02114",
+            "license": "124860",
             "category": "Hotel",
             "inspections": 45,
             "fails": 20,
@@ -7389,7 +7983,9 @@
           {
             "name": "WESTIN COPLEY Place -BAR 10",
             "address": "10  HUNTINGTON AV",
+            "address_display": "10  HUNTINGTON AV, 02116",
             "zip": "02116",
+            "license": "23572",
             "category": "Hotel",
             "inspections": 52,
             "fails": 18,
@@ -7404,7 +8000,9 @@
           {
             "name": "UNIVERSITY HOUSE OF PIZZA",
             "address": "452  HUNTINGTON AV",
+            "address_display": "452  HUNTINGTON AV, 02115",
             "zip": "02115",
+            "license": "20033",
             "category": "School",
             "inspections": 57,
             "fails": 26,
@@ -7414,7 +8012,9 @@
           {
             "name": "Simmons College-Bartol",
             "address": "84  PILGRIM RD",
+            "address_display": "84  PILGRIM RD, 02115",
             "zip": "02115",
+            "license": "20585",
             "category": "School",
             "inspections": 56,
             "fails": 25,
@@ -7424,7 +8024,9 @@
           {
             "name": "Emmanuel College (Muddy River Cafe)",
             "address": "400  FENWAY",
+            "address_display": "400  FENWAY, 02115",
             "zip": "02115",
+            "license": "27926",
             "category": "School",
             "inspections": 48,
             "fails": 20,
@@ -7434,7 +8036,9 @@
           {
             "name": "UNIVERSITY GRILL & PIZZA",
             "address": "712  COMMONWEALTH AV",
+            "address_display": "712  COMMONWEALTH AV, 02215",
             "zip": "02215",
+            "license": "21100",
             "category": "School",
             "inspections": 37,
             "fails": 14,
@@ -7444,7 +8048,9 @@
           {
             "name": "Emmanuel College",
             "address": "400  FENWAY",
+            "address_display": "400  FENWAY, 02115",
             "zip": "02115",
+            "license": "20052",
             "category": "School",
             "inspections": 62,
             "fails": 27,
@@ -7454,7 +8060,9 @@
           {
             "name": "SIMMONS COLLEGE-THE FENS",
             "address": "300  FENWAY",
+            "address_display": "300  FENWAY, 02115",
             "zip": "02115",
+            "license": "20588",
             "category": "School",
             "inspections": 57,
             "fails": 24,
@@ -7464,7 +8072,9 @@
           {
             "name": "Berklee College of Music",
             "address": "160  MASSACHUSETTS AV",
+            "address_display": "160  MASSACHUSETTS AV, 02115",
             "zip": "02115",
+            "license": "86666",
             "category": "School",
             "inspections": 49,
             "fails": 23,
@@ -7474,7 +8084,9 @@
           {
             "name": "Common Ground Cafe @ Simmons College",
             "address": "300  FENWAY",
+            "address_display": "300  FENWAY, 02115",
             "zip": "02115",
+            "license": "73675",
             "category": "School",
             "inspections": 44,
             "fails": 15,
@@ -7484,7 +8096,9 @@
           {
             "name": "FISHER COLLEGE",
             "address": "118  BEACON ST",
+            "address_display": "118  BEACON ST, 02116",
             "zip": "02116",
+            "license": "20692",
             "category": "School",
             "inspections": 46,
             "fails": 19,
@@ -7494,7 +8108,9 @@
           {
             "name": "University Club of Boston",
             "address": "426  STUART ST",
+            "address_display": "426  STUART ST, 02116",
             "zip": "02116",
+            "license": "18588",
             "category": "School",
             "inspections": 49,
             "fails": 18,
@@ -7509,7 +8125,9 @@
           {
             "name": "BOURBON ST. CAFE",
             "address": "417  WASHINGTON ST",
+            "address_display": "417  WASHINGTON ST, 02108",
             "zip": "02108",
+            "license": "21201",
             "category": "Cafe",
             "inspections": 118,
             "fails": 57,
@@ -7519,7 +8137,9 @@
           {
             "name": "Yely's Coffee Shop",
             "address": "284  CENTRE ST",
+            "address_display": "284  CENTRE ST, 02130",
             "zip": "02130",
+            "license": "20071",
             "category": "Cafe",
             "inspections": 104,
             "fails": 49,
@@ -7529,7 +8149,9 @@
           {
             "name": "MCKENNA'S CAFE",
             "address": "109  SAVIN HILL AV",
+            "address_display": "109  SAVIN HILL AV, 02125",
             "zip": "02125",
+            "license": "23628",
             "category": "Cafe",
             "inspections": 92,
             "fails": 48,
@@ -7539,7 +8161,9 @@
           {
             "name": "Bourbon Street Cafe",
             "address": "350  LONGWOOD AV",
+            "address_display": "350  LONGWOOD AV, 02215",
             "zip": "02215",
+            "license": "29338",
             "category": "Cafe",
             "inspections": 69,
             "fails": 39,
@@ -7549,7 +8173,9 @@
           {
             "name": "Minina's Cafe",
             "address": "430  GENEVA AV",
+            "address_display": "430  GENEVA AV, 02122",
             "zip": "02122",
+            "license": "74391",
             "category": "Cafe",
             "inspections": 73,
             "fails": 38,
@@ -7559,7 +8185,9 @@
           {
             "name": "My Thai Cafe Vegetarian & Bubble Tea Bristro",
             "address": "3  BEACH ST",
+            "address_display": "3  BEACH ST, 02111",
             "zip": "02111",
+            "license": "23643",
             "category": "Cafe",
             "inspections": 69,
             "fails": 31,
@@ -7569,7 +8197,9 @@
           {
             "name": "Hong Kong 888 Cafe",
             "address": "888  SOUTH ST",
+            "address_display": "888  SOUTH ST, 02131",
             "zip": "02131",
+            "license": "80208",
             "category": "Cafe",
             "inspections": 62,
             "fails": 30,
@@ -7579,7 +8209,9 @@
           {
             "name": "Jaho Coffee & Tea",
             "address": "1651  WASHINGTON ST",
+            "address_display": "1651  WASHINGTON ST, 02118",
             "zip": "02118",
+            "license": "75022",
             "category": "Cafe",
             "inspections": 66,
             "fails": 30,
@@ -7589,7 +8221,9 @@
           {
             "name": "Nos Casa Cafe",
             "address": "475  DUDLEY ST",
+            "address_display": "475  DUDLEY ST, 02119",
             "zip": "02119",
+            "license": "74493",
             "category": "Cafe",
             "inspections": 62,
             "fails": 27,
@@ -7599,7 +8233,9 @@
           {
             "name": "CAFE MIRROR",
             "address": "362  WASHINGTON ST",
+            "address_display": "362  WASHINGTON ST, 02135",
             "zip": "02135",
+            "license": "23116",
             "category": "Cafe",
             "inspections": 54,
             "fails": 26,
@@ -7614,7 +8250,9 @@
           {
             "name": "Fan Fan Restaurant",
             "address": "15  HARVARD AV",
+            "address_display": "15  HARVARD AV, 02136",
             "zip": "02136",
+            "license": "37129",
             "category": "Food and drinks",
             "inspections": 105,
             "fails": 54,
@@ -7624,7 +8262,9 @@
           {
             "name": "Bonchon Allston",
             "address": "101  BRIGHTON AV",
+            "address_display": "101  BRIGHTON AV, 02134",
             "zip": "02134",
+            "license": "78286",
             "category": "Food and drinks",
             "inspections": 109,
             "fails": 53,
@@ -7634,7 +8274,9 @@
           {
             "name": "The Real Deal",
             "address": "1882  CENTRE ST",
+            "address_display": "1882  CENTRE ST, 02132",
             "zip": "02132",
+            "license": "23987",
             "category": "Food and drinks",
             "inspections": 103,
             "fails": 53,
@@ -7644,7 +8286,9 @@
           {
             "name": "Yamato Japanese Cuisine",
             "address": "111  CHISWICK RD",
+            "address_display": "111  CHISWICK RD, 02135",
             "zip": "02135",
+            "license": "74763",
             "category": "Food and drinks",
             "inspections": 99,
             "fails": 49,
@@ -7654,7 +8298,9 @@
           {
             "name": "BERTUCCI'S",
             "address": "633  V F W PK",
+            "address_display": "633  V F W PK, 02132",
             "zip": "02132",
+            "license": "19320",
             "category": "Food and drinks",
             "inspections": 91,
             "fails": 47,
@@ -7664,7 +8310,9 @@
           {
             "name": "PARAMOUNT",
             "address": "44  CHARLES ST",
+            "address_display": "44  CHARLES ST, 02114",
             "zip": "02114",
+            "license": "20157",
             "category": "Food and drinks",
             "inspections": 95,
             "fails": 47,
@@ -7674,7 +8322,9 @@
           {
             "name": "Pho Le",
             "address": "1356  DORCHESTER AV",
+            "address_display": "1356  DORCHESTER AV, 02122",
             "zip": "02122",
+            "license": "68290",
             "category": "Food and drinks",
             "inspections": 92,
             "fails": 47,
@@ -7684,7 +8334,9 @@
           {
             "name": "Victoria Seafood",
             "address": "1029  COMMONWEALTH AV",
+            "address_display": "1029  COMMONWEALTH AV, 02215",
             "zip": "02215",
+            "license": "20579",
             "category": "Food and drinks",
             "inspections": 98,
             "fails": 44,
@@ -7694,7 +8346,9 @@
           {
             "name": "PHO 2000",
             "address": "198  ADAMS ST",
+            "address_display": "198  ADAMS ST, 02122",
             "zip": "02122",
+            "license": "76202",
             "category": "Food and drinks",
             "inspections": 86,
             "fails": 43,
@@ -7704,7 +8358,9 @@
           {
             "name": "MERENGUE RESTAURANT",
             "address": "156  BLUE HILL AV",
+            "address_display": "156  BLUE HILL AV, 02119",
             "zip": "02119",
+            "license": "19901",
             "category": "Food and drinks",
             "inspections": 97,
             "fails": 42,
@@ -7719,7 +8375,9 @@
           {
             "name": "Nhu Lan Fast Food",
             "address": "1155  DORCHESTER AV",
+            "address_display": "1155  DORCHESTER AV, 02125",
             "zip": "02125",
+            "license": "74834",
             "category": "Take-out",
             "inspections": 103,
             "fails": 51,
@@ -7729,7 +8387,9 @@
           {
             "name": "BALE RESTAURANT",
             "address": "1052  DORCHESTER AV",
+            "address_display": "1052  DORCHESTER AV, 02125",
             "zip": "02125",
+            "license": "22464",
             "category": "Take-out",
             "inspections": 104,
             "fails": 48,
@@ -7739,7 +8399,9 @@
           {
             "name": "NEW YORK FRIED CHICKEN & PIZZA",
             "address": "531  COLUMBIA RD",
+            "address_display": "531  COLUMBIA RD, 02125",
             "zip": "02125",
+            "license": "23286",
             "category": "Take-out",
             "inspections": 90,
             "fails": 48,
@@ -7749,7 +8411,9 @@
           {
             "name": "NICOLE'S PIZZA",
             "address": "639  TREMONT ST",
+            "address_display": "639  TREMONT ST, 02118",
             "zip": "02118",
+            "license": "21851",
             "category": "Take-out",
             "inspections": 83,
             "fails": 48,
@@ -7759,7 +8423,9 @@
           {
             "name": "Los Amigos Mexican Grill",
             "address": "1741  CENTRE ST",
+            "address_display": "1741  CENTRE ST, 02132",
             "zip": "02132",
+            "license": "75844",
             "category": "Take-out",
             "inspections": 103,
             "fails": 47,
@@ -7769,7 +8435,9 @@
           {
             "name": "Jen Lai Noodle and Rice Co.",
             "address": "1  FANEUIL HALL MKT PL PL",
+            "address_display": "1  FANEUIL HALL MKT PL PL, 02109",
             "zip": "02109",
+            "license": "25746",
             "category": "Take-out",
             "inspections": 95,
             "fails": 46,
@@ -7779,7 +8447,9 @@
           {
             "name": "Domino's Pizza",
             "address": "205  ADAMS ST",
+            "address_display": "205  ADAMS ST, 02122",
             "zip": "02122",
+            "license": "79072",
             "category": "Take-out",
             "inspections": 91,
             "fails": 45,
@@ -7789,7 +8459,9 @@
           {
             "name": "CHUNG WAH",
             "address": "199  BOWDOIN ST",
+            "address_display": "199  BOWDOIN ST, 02122",
             "zip": "02122",
+            "license": "22022",
             "category": "Take-out",
             "inspections": 94,
             "fails": 44,
@@ -7799,7 +8471,9 @@
           {
             "name": "EL CHALAN",
             "address": "405  CHELSEA ST",
+            "address_display": "405  CHELSEA ST, 02128",
             "zip": "02128",
+            "license": "20637",
             "category": "Take-out",
             "inspections": 91,
             "fails": 44,
@@ -7809,7 +8483,9 @@
           {
             "name": "Comella's",
             "address": "1882  CENTRE ST",
+            "address_display": "1882  CENTRE ST, 02132",
             "zip": "02132",
+            "license": "24754",
             "category": "Take-out",
             "inspections": 80,
             "fails": 43,
@@ -7824,7 +8500,9 @@
           {
             "name": "Go Fresh 365",
             "address": "1102  WASHINGTON ST",
+            "address_display": "1102  WASHINGTON ST, 02118",
             "zip": "02118",
+            "license": "34585",
             "category": "Retail food",
             "inspections": 111,
             "fails": 58,
@@ -7834,7 +8512,9 @@
           {
             "name": "A C Farm Market",
             "address": "1429  DORCHESTER AV",
+            "address_display": "1429  DORCHESTER AV, 02122",
             "zip": "02122",
+            "license": "74325",
             "category": "Retail food",
             "inspections": 80,
             "fails": 42,
@@ -7844,7 +8524,9 @@
           {
             "name": "Shaw's Supermarkets No. 602",
             "address": "53  HUNTINGTON AV",
+            "address_display": "53  HUNTINGTON AV, 02199",
             "zip": "02199",
+            "license": "25674",
             "category": "Retail food",
             "inspections": 85,
             "fails": 42,
@@ -7854,7 +8536,9 @@
           {
             "name": "Star Market No. 3588",
             "address": "1065  COMMONWEALTH AV",
+            "address_display": "1065  COMMONWEALTH AV, 02215",
             "zip": "02215",
+            "license": "25686",
             "category": "Retail food",
             "inspections": 72,
             "fails": 35,
@@ -7864,7 +8548,9 @@
           {
             "name": "Stop & Shop No. 412",
             "address": "1622  TREMONT ST",
+            "address_display": "1622  TREMONT ST, 02120",
             "zip": "02120",
+            "license": "22727",
             "category": "Retail food",
             "inspections": 68,
             "fails": 32,
@@ -7874,7 +8560,9 @@
           {
             "name": "Stop & Shop Supermarket No. 004",
             "address": "950  AMERICAN LEGION HW",
+            "address_display": "950  AMERICAN LEGION HW, 02136",
             "zip": "02136",
+            "license": "31709",
             "category": "Retail food",
             "inspections": 68,
             "fails": 30,
@@ -7884,7 +8572,9 @@
           {
             "name": "F & T Davey's Supermarket",
             "address": "438  DUDLEY ST",
+            "address_display": "438  DUDLEY ST, 02119",
             "zip": "02119",
+            "license": "19236",
             "category": "Retail food",
             "inspections": 59,
             "fails": 25,
@@ -7894,7 +8584,9 @@
           {
             "name": "GARDEN HALAL MEAT MARKET INC.",
             "address": "88  BLACKSTONE ST",
+            "address_display": "88  BLACKSTONE ST, 02108",
             "zip": "02108",
+            "license": "25919",
             "category": "Retail food",
             "inspections": 59,
             "fails": 24,
@@ -7904,7 +8596,9 @@
           {
             "name": "Star Market No. 4587",
             "address": "45  WM T MORRISSEY BL",
+            "address_display": "45  WM T MORRISSEY BL, 02122",
             "zip": "02122",
+            "license": "25690",
             "category": "Retail food",
             "inspections": 97,
             "fails": 49,
@@ -7914,7 +8608,9 @@
           {
             "name": "Super Stop & Shop",
             "address": "1100  MASSACHUSETTS AV",
+            "address_display": "1100  MASSACHUSETTS AV, 02125",
             "zip": "02125",
+            "license": "24174",
             "category": "Retail food",
             "inspections": 97,
             "fails": 48,
@@ -7929,7 +8625,9 @@
           {
             "name": "Tenoch Mexican",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 138469",
             "zip": "02128",
+            "license": "138469",
             "category": "Mobile food",
             "inspections": 37,
             "fails": 11,
@@ -7939,7 +8637,9 @@
           {
             "name": "BM3:BON ME RED",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 86676",
             "zip": "02128",
+            "license": "86676",
             "category": "Mobile food",
             "inspections": 26,
             "fails": 8,
@@ -7949,7 +8649,9 @@
           {
             "name": "Chubby Chickpea Mobile",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 77929",
             "zip": "02128",
+            "license": "77929",
             "category": "Mobile food",
             "inspections": 61,
             "fails": 16,
@@ -7959,7 +8661,9 @@
           {
             "name": "Vanderbilt Food Trolly @107 Ave Louis Pasteur",
             "address": "1  CITYWIDE",
+            "address_display": "Mobile (citywide) \u00b7 License 37237",
             "zip": "02128",
+            "license": "37237",
             "category": "Mobile food",
             "inspections": 33,
             "fails": 13,
@@ -7969,7 +8673,9 @@
           {
             "name": "Momogoose 2",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 68113",
             "zip": "02128",
+            "license": "68113",
             "category": "Mobile food",
             "inspections": 35,
             "fails": 12,
@@ -7979,7 +8685,9 @@
           {
             "name": "Momogoose 3",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 78558",
             "zip": "02128",
+            "license": "78558",
             "category": "Mobile food",
             "inspections": 32,
             "fails": 11,
@@ -7989,7 +8697,9 @@
           {
             "name": "Momogoose 4",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 76220",
             "zip": "02128",
+            "license": "76220",
             "category": "Mobile food",
             "inspections": 31,
             "fails": 10,
@@ -7999,7 +8709,9 @@
           {
             "name": "Pennypackers 2",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 128072",
             "zip": "02128",
+            "license": "128072",
             "category": "Mobile food",
             "inspections": 28,
             "fails": 9,
@@ -8009,7 +8721,9 @@
           {
             "name": "Roxy's Gourmet Grilled Cheese No. 2",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 74860",
             "zip": "02128",
+            "license": "74860",
             "category": "Mobile food",
             "inspections": 45,
             "fails": 9,
@@ -8019,7 +8733,9 @@
           {
             "name": "Suya Joint",
             "address": "1  CITYWIDE ST",
+            "address_display": "Mobile (citywide) \u00b7 License 390602",
             "zip": "02128",
+            "license": "390602",
             "category": "Mobile food",
             "inspections": 20,
             "fails": 8,

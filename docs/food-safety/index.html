@@ -368,6 +368,16 @@ function esc(s) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
+function placeAddress(p) {
+  if (p.addressDisplay) return p.addressDisplay;
+  const compact = String(p.address || "").replace(/\s+/g, " ").trim().toUpperCase();
+  if (compact.indexOf("CITYWIDE") >= 0) {
+    return p.license
+      ? "Mobile (citywide) · License " + p.license
+      : "Mobile (citywide)";
+  }
+  return p.zip ? p.address + ", " + p.zip : (p.address || "");
+}
 function yearLabel(key) {
   return key === "2026_ytd" ? "2026 YTD" : key;
 }
@@ -424,10 +434,10 @@ function renderPlaces() {
     document.getElementById("alwaysHead").textContent =
       "Always-pass — " + catLabel + ", " + yearLabel(placeYear) + " (at least 3 inspections, 0 fails)";
     document.getElementById("alwaysBody").innerHTML = catAlways.map((p) =>
-      `<tr><td>${esc(p.name)}</td><td>${esc(p.address)}, ${esc(p.zip)}</td><td>${esc(p.category)}</td><td class="num">${num(p.inspections)}</td></tr>`
+      `<tr><td>${esc(p.name)}</td><td>${esc(placeAddress(p))}</td><td>${esc(p.category)}</td><td class="num">${num(p.inspections)}</td></tr>`
     ).join("");
     document.getElementById("alwaysCaption").textContent =
-      "Source: Analyze Boston Food Establishment Inspections · " + cap + " · " + catLabel + " · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · names as recorded · mobile rows often use 1 CITYWIDE ST";
+      "Source: Analyze Boston Food Establishment Inspections · " + cap + " · " + catLabel + " · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · names as recorded · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address · BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year avoid because the windows differ";
   } else {
     alwaysSec.hidden = true;
   }
@@ -437,10 +447,10 @@ function renderPlaces() {
     document.getElementById("avoidHead").textContent =
       "Places to avoid — " + catLabel + " (failed in ≥2 calendar years)";
     document.getElementById("avoidBody").innerHTML = catAvoid.map((p) =>
-      `<tr><td>${esc(p.name)}</td><td>${esc(p.address)}, ${esc(p.zip)}</td><td>${esc(p.category)}</td><td class="num">${num(p.yearsFailed)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td></tr>`
+      `<tr><td>${esc(p.name)}</td><td>${esc(placeAddress(p))}</td><td>${esc(p.category)}</td><td class="num">${num(p.yearsFailed)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td></tr>`
     ).join("");
     document.getElementById("avoidCaption").textContent =
-      "Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeat offender = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · " + catLabel + " · " + num(S.repeatNTotal) + " places citywide met this rule · 2026 YTD counts as one calendar year if it has a fail · not licenses";
+      "Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeat offender = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · " + catLabel + " · " + num(S.repeatNTotal) + " places citywide met this rule · 2026 YTD counts as one calendar year if it has a fail · not licenses · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address";
   } else {
     avoidSec.hidden = true;
   }

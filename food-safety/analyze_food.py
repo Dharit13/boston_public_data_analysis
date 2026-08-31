@@ -136,6 +136,29 @@ def categorize(business: str, licensecat: str) -> str:
     return coded
 
 
+def is_citywide_placeholder(address: str) -> bool:
+    text = " ".join(strip_null(address).upper().split())
+    if not text:
+        return False
+    if "CITYWIDE" in text:
+        return True
+    return text in {"1 CITYWIDE ST", "1 CITYWIDE"}
+
+
+def format_address_display(
+    address: str,
+    zip5: str = "",
+    licenseno: str = "",
+) -> str:
+    if is_citywide_placeholder(address):
+        if licenseno:
+            return f"Mobile (citywide) · License {licenseno}"
+        return "Mobile (citywide)"
+    if address and zip5:
+        return f"{address}, {zip5}"
+    return address or zip5
+
+
 def _place_key(row: dict) -> str:
     return row["licenseno"] or f"{row['business']}|{row['address']}|{row['zip']}"
 
@@ -150,6 +173,7 @@ def _roll_places(rows: list[dict]) -> dict[str, dict]:
                 "name": row["business"],
                 "address": row["address"],
                 "zip": row["zip"],
+                "license": row["licenseno"],
                 "category": categorize(row["business"], row["licensecat"]),
                 "inspections": 0,
                 "fails": 0,
@@ -165,7 +189,21 @@ def _roll_places(rows: list[dict]) -> dict[str, dict]:
 
 
 def _public_place(rec: dict, extra: tuple[str, ...] = ()) -> dict:
-    keys = ("name", "address", "zip", "category", "inspections", "fails", "fail_rate") + extra
+    rec = dict(rec)
+    rec["address_display"] = format_address_display(
+        rec["address"], rec["zip"], rec.get("license", "")
+    )
+    keys = (
+        "name",
+        "address",
+        "address_display",
+        "zip",
+        "license",
+        "category",
+        "inspections",
+        "fails",
+        "fail_rate",
+    ) + extra
     return {k: rec[k] for k in keys}
 
 
@@ -400,6 +438,7 @@ def briefing_from_rows(
                 "name": row["business"],
                 "address": row["address"],
                 "zip": row["zip"],
+                "license": row["licenseno"],
                 "category": categorize(row["business"], row["licensecat"]),
                 "inspections": 0,
                 "fails": 0,
