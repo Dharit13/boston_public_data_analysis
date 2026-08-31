@@ -1,0 +1,660 @@
+{
+  "quality": {
+    "permit_raw": 661589,
+    "permit_kept": 661589,
+    "permit_min": "2006-09-26",
+    "permit_max": "2026-08-29",
+    "zba_raw": 16394,
+    "zba_kept": 16392,
+    "zba_drop": 2,
+    "zba_min": "2013-01-31",
+    "zba_max": "2026-08-28",
+    "note": "Approved building permits and ZBA cases are separate files. Do not add ZBA counts into the permit year series. Complete permit years are 2012\u20132025. 2026 is year-to-date through 29 August \u2014 not a full year. 2020 is COVID. After-hours construction is not in this briefing. mode_type-style substring matching is not used: occupancy and ZBA decisions are exact codes."
+  },
+  "years": [
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "by_year": [
+    {
+      "year": 2012,
+      "permits": 38478,
+      "valuation": 5468288516.0
+    },
+    {
+      "year": 2013,
+      "permits": 40673,
+      "valuation": 5895963309.0
+    },
+    {
+      "year": 2014,
+      "permits": 43758,
+      "valuation": 6892694613.0
+    },
+    {
+      "year": 2015,
+      "permits": 43541,
+      "valuation": 8615553151.0
+    },
+    {
+      "year": 2016,
+      "permits": 44703,
+      "valuation": 8822482304.0
+    },
+    {
+      "year": 2017,
+      "permits": 45030,
+      "valuation": 10869332452.0
+    },
+    {
+      "year": 2018,
+      "permits": 43919,
+      "valuation": 10066294377.0
+    },
+    {
+      "year": 2019,
+      "permits": 45291,
+      "valuation": 11090742466.0
+    },
+    {
+      "year": 2020,
+      "permits": 32112,
+      "valuation": 8559637173.0
+    },
+    {
+      "year": 2021,
+      "permits": 37897,
+      "valuation": 11795342755.0
+    },
+    {
+      "year": 2022,
+      "permits": 39918,
+      "valuation": 16631986639.0
+    },
+    {
+      "year": 2023,
+      "permits": 38546,
+      "valuation": 17663308331.0
+    },
+    {
+      "year": 2024,
+      "permits": 37345,
+      "valuation": 13101493874.0
+    },
+    {
+      "year": 2025,
+      "permits": 36801,
+      "valuation": 12463006184.0
+    },
+    {
+      "year": 2026,
+      "permits": 24086,
+      "valuation": 8924219474.0
+    }
+  ],
+  "zba_by_year": [
+    {
+      "year": 2013,
+      "n": 350
+    },
+    {
+      "year": 2014,
+      "n": 1167
+    },
+    {
+      "year": 2015,
+      "n": 1399
+    },
+    {
+      "year": 2016,
+      "n": 1528
+    },
+    {
+      "year": 2017,
+      "n": 1445
+    },
+    {
+      "year": 2018,
+      "n": 1787
+    },
+    {
+      "year": 2019,
+      "n": 1616
+    },
+    {
+      "year": 2020,
+      "n": 1164
+    },
+    {
+      "year": 2021,
+      "n": 1189
+    },
+    {
+      "year": 2022,
+      "n": 1447
+    },
+    {
+      "year": 2023,
+      "n": 1086
+    },
+    {
+      "year": 2024,
+      "n": 883
+    },
+    {
+      "year": 2025,
+      "n": 906
+    },
+    {
+      "year": 2026,
+      "n": 425
+    }
+  ],
+  "stacked": {
+    "years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "series": [
+      {
+        "name": "Short Form Bldg Permit",
+        "data": [
+          10657,
+          11298,
+          11719,
+          12544,
+          12235,
+          12193,
+          12096,
+          12372,
+          8979,
+          12075,
+          11819,
+          11670,
+          11714,
+          11442
+        ]
+      },
+      {
+        "name": "Electrical Permit",
+        "data": [
+          7667,
+          8162,
+          8915,
+          8881,
+          9136,
+          9071,
+          9580,
+          9782,
+          7084,
+          8731,
+          9365,
+          9057,
+          9096,
+          8615
+        ]
+      },
+      {
+        "name": "Plumbing Permit",
+        "data": [
+          5457,
+          5659,
+          6144,
+          5663,
+          5969,
+          6367,
+          5901,
+          6352,
+          4334,
+          4987,
+          5447,
+          5261,
+          5081,
+          4995
+        ]
+      },
+      {
+        "name": "Gas Permit",
+        "data": [
+          4167,
+          4300,
+          4839,
+          4266,
+          4422,
+          4807,
+          4329,
+          4759,
+          3242,
+          3519,
+          3730,
+          3375,
+          3056,
+          2943
+        ]
+      },
+      {
+        "name": "Electrical Low Voltage",
+        "data": [
+          3430,
+          3596,
+          4012,
+          3917,
+          4098,
+          3683,
+          3229,
+          3386,
+          2403,
+          2190,
+          2382,
+          2148,
+          2081,
+          1967
+        ]
+      },
+      {
+        "name": "Long Form/Alteration Permit",
+        "data": [
+          2570,
+          2986,
+          2951,
+          3190,
+          3168,
+          2969,
+          3021,
+          3021,
+          2217,
+          2426,
+          2718,
+          2808,
+          2383,
+          2889
+        ]
+      },
+      {
+        "name": "Electrical Fire Alarms",
+        "data": [
+          1993,
+          2177,
+          2415,
+          2344,
+          2669,
+          2773,
+          2714,
+          2663,
+          1859,
+          1745,
+          1898,
+          1785,
+          1755,
+          1665
+        ]
+      },
+      {
+        "name": "Certificate of Occupancy",
+        "data": [
+          1414,
+          1339,
+          1485,
+          1521,
+          1734,
+          1838,
+          1669,
+          1582,
+          1121,
+          1260,
+          1395,
+          1323,
+          1215,
+          1199
+        ]
+      }
+    ]
+  },
+  "y2019": {
+    "n": 45291,
+    "per_day": 124.1,
+    "peak_hour": 15,
+    "quiet_hour": 6,
+    "valuation": 11090742466.0,
+    "fees": 70133642.0
+  },
+  "y2020": {
+    "n": 32112,
+    "per_day": 87.7,
+    "peak_hour": 14,
+    "quiet_hour": 6,
+    "valuation": 8559637173.0,
+    "fees": 56872916.0
+  },
+  "y2025": {
+    "n": 36801,
+    "per_day": 100.8,
+    "peak_hour": 15,
+    "quiet_hour": 7,
+    "valuation": 12463006184.0,
+    "fees": 53225266.0
+  },
+  "y2026_ytd": {
+    "n": 24086,
+    "per_day": 99.9,
+    "valuation": 8924219474.0
+  },
+  "hour_2025": [
+    282,
+    259,
+    145,
+    97,
+    131,
+    92,
+    33,
+    28,
+    76,
+    177,
+    407,
+    1014,
+    3212,
+    4273,
+    4492,
+    4577,
+    4190,
+    3388,
+    3400,
+    3079,
+    1733,
+    871,
+    547,
+    298
+  ],
+  "weekday_2025": [
+    6781,
+    8115,
+    7720,
+    7315,
+    6387,
+    309,
+    174
+  ],
+  "month_2025": [
+    2993,
+    2415,
+    2975,
+    2824,
+    3016,
+    2932,
+    3513,
+    3453,
+    3224,
+    3879,
+    2795,
+    2782
+  ],
+  "types_2025": [
+    {
+      "label": "Short Form Bldg Permit",
+      "value": 11442
+    },
+    {
+      "label": "Electrical Permit",
+      "value": 8615
+    },
+    {
+      "label": "Plumbing Permit",
+      "value": 4995
+    },
+    {
+      "label": "Gas Permit",
+      "value": 2943
+    },
+    {
+      "label": "Long Form/Alteration Permit",
+      "value": 2889
+    },
+    {
+      "label": "Electrical Low Voltage",
+      "value": 1967
+    },
+    {
+      "label": "Electrical Fire Alarms",
+      "value": 1665
+    },
+    {
+      "label": "Certificate of Occupancy",
+      "value": 1199
+    },
+    {
+      "label": "Electrical Temporary Service",
+      "value": 410
+    },
+    {
+      "label": "Amendment to a Long Form",
+      "value": 393
+    },
+    {
+      "label": "Erect/New Construction",
+      "value": 210
+    },
+    {
+      "label": "Use of Premises",
+      "value": 50
+    }
+  ],
+  "occupancy_2025": [
+    {
+      "label": "1\u20132 family",
+      "value": 14501
+    },
+    {
+      "label": "Commercial",
+      "value": 9924
+    },
+    {
+      "label": "Multifamily",
+      "value": 4480
+    },
+    {
+      "label": "1\u20133 family",
+      "value": 3693
+    },
+    {
+      "label": "Mixed",
+      "value": 1511
+    },
+    {
+      "label": "Other",
+      "value": 1284
+    },
+    {
+      "label": "1\u20134 family",
+      "value": 1181
+    },
+    {
+      "label": "Vacant land",
+      "value": 227
+    }
+  ],
+  "valuation_2025": [
+    {
+      "label": "Commercial",
+      "value": 6084858077.0
+    },
+    {
+      "label": "Mixed",
+      "value": 2469198483.0
+    },
+    {
+      "label": "Multifamily",
+      "value": 1719971551.0
+    },
+    {
+      "label": "Other",
+      "value": 1080898137.0
+    },
+    {
+      "label": "1\u20132 family",
+      "value": 797415981.0
+    },
+    {
+      "label": "1\u20133 family",
+      "value": 207761351.0
+    },
+    {
+      "label": "1\u20134 family",
+      "value": 90648795.0
+    },
+    {
+      "label": "Vacant land",
+      "value": 12253808.0
+    }
+  ],
+  "neighborhoods_2025": [
+    {
+      "label": "Dorchester",
+      "value": 4779
+    },
+    {
+      "label": "Back Bay / Bay Village",
+      "value": 2694
+    },
+    {
+      "label": "Jamaica Plain",
+      "value": 2275
+    },
+    {
+      "label": "Hyde Park",
+      "value": 2263
+    },
+    {
+      "label": "West Roxbury",
+      "value": 2208
+    },
+    {
+      "label": "Roslindale",
+      "value": 1995
+    },
+    {
+      "label": "South Boston",
+      "value": 1851
+    },
+    {
+      "label": "East Boston",
+      "value": 1741
+    },
+    {
+      "label": "Brighton",
+      "value": 1622
+    },
+    {
+      "label": "South End",
+      "value": 1468
+    },
+    {
+      "label": "Fenway / Longwood",
+      "value": 1461
+    },
+    {
+      "label": "Financial District / Waterfront",
+      "value": 1321
+    }
+  ],
+  "status_2025": [
+    {
+      "label": "Closed",
+      "value": 19251
+    },
+    {
+      "label": "Open",
+      "value": 17550
+    }
+  ],
+  "zba_2019": {
+    "n": 1616
+  },
+  "zba_2025": {
+    "n": 906
+  },
+  "zba_2026_ytd": {
+    "n": 425
+  },
+  "zba_decisions": [
+    {
+      "label": "Approved",
+      "value": 13074
+    },
+    {
+      "label": "Denied",
+      "value": 1398
+    },
+    {
+      "label": "Withdrawn",
+      "value": 433
+    },
+    {
+      "label": "Void",
+      "value": 8
+    }
+  ],
+  "zba_districts_2025": [
+    {
+      "label": "Dorchester Neighborhood",
+      "value": 140
+    },
+    {
+      "label": "South Boston Neighborhood",
+      "value": 75
+    },
+    {
+      "label": "Jamaica Plain Neighborhood",
+      "value": 75
+    },
+    {
+      "label": "Hyde Park Neighborhood",
+      "value": 70
+    },
+    {
+      "label": "West Roxbury Neighborhood",
+      "value": 67
+    },
+    {
+      "label": "Roxbury Neighborhood",
+      "value": 62
+    },
+    {
+      "label": "Roslindale Neighborhood",
+      "value": 59
+    },
+    {
+      "label": "Allston/Brighton Neighborhood",
+      "value": 54
+    }
+  ],
+  "vs_2019": {
+    "permits_pct": -18.7,
+    "valuation_pct": 12.4,
+    "n2019": 45291,
+    "n2025": 36801
+  }
+}

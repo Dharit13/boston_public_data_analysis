@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston building permits, 2006–2026 YTD</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a href="../earnings/">Earnings</a>
+    <a href="../fire/">Fire</a>
+    <a href="../crime/">Police</a>
+    <a href="../311/">311</a>
+    <a href="../vision-zero/">Vision Zero</a>
+    <a class="active" href="./">Permits</a>
+  </div>
+  <h1>Boston building permits — city briefing</h1>
+  <p class="subtitle">Analyze Boston Approved Building Permits, issued 26 September 2006 through 29 August 2026, and Zoning Board of Appeal Decisions, 31 January 2013 through 28 August 2026. 2012–2025 are complete permit years. 2026 is not a full year. 2020 is COVID. These two files are not after-hours construction.</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="department">Department</button>
+    <button class="tab-btn" data-tab="city">City / Mayor</button>
+    <button class="tab-btn" data-tab="public">Public</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Six findings. Numbers a reader can take into a meeting.</p>
+    <div class="callout warn">
+      <strong>Permit counts fell versus 2019. Declared valuation did not.</strong>
+      Approved building permits were 36,801 in 2025 against 45,291 in 2019 (−18.7%). Declared valuation was $12.46 billion against $11.09 billion (+12.4%). Erect/New Construction is 210 of those permits. Do not add ZBA (906) into the permit total.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">36,801</div><div class="stat-label">Permits in 2025 · 100.8 a day</div></div>
+      <div class="stat"><div class="stat-val">−18.7%</div><div class="stat-label">Permits vs 2019</div></div>
+      <div class="stat warn"><div class="stat-val">+12.4%</div><div class="stat-label">Declared value vs 2019</div></div>
+      <div class="stat"><div class="stat-val">210</div><div class="stat-label">Erect/New Construction, 2025</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Finding</th><th class="num">Number</th></tr></thead>
+      <tbody>
+        <tr><td>2025 vs 2019 permits</td><td class="num">36,801 vs 45,291 (−18.7%)</td></tr>
+        <tr><td>2025 vs 2019 declared valuation</td><td class="num">$12.46B vs $11.09B (+12.4%)</td></tr>
+        <tr><td>Erect/New Construction, 2025</td><td class="num">210 of 36,801</td></tr>
+        <tr><td>Peak issued hour, 2025</td><td class="num">3 p.m. (4,577) · quietest 7 a.m. (28)</td></tr>
+        <tr><td>Heaviest weekday, 2025</td><td class="num">Tuesday 8,115 · Sunday 174</td></tr>
+        <tr><td>2026 YTD permits (through 29 Aug)</td><td class="num">24,086 · 99.9 a day</td></tr>
+      </tbody>
+    </table>
+    <p>Open Overview for the citywide trend, Department for the issuance clock, City / Mayor for policy, Public for plain language.</p>
+  </div>
+
+  <div id="overview" class="tab-panel">
+    <p class="tab-blurb">Citywide approved building permits. 2020 is COVID — not a baseline. 2026 is not a full year. ZBA is a separate file.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">36,801</div><div class="stat-label">Permits in 2025</div></div>
+      <div class="stat"><div class="stat-val">100.8</div><div class="stat-label">Average permits per day</div></div>
+      <div class="stat"><div class="stat-val">$12.46B</div><div class="stat-label">Declared valuation, 2025</div></div>
+      <div class="stat"><div class="stat-val">661,589</div><div class="stat-label">Permit rows 2006–2026 YTD</div></div>
+    </div>
+    <h2>Fewer permits than 2019. More declared value.</h2>
+    <p>Use 2019 as the last normal pre-COVID year, not 2020. Approved building permits peaked at 45,291 in 2019 (124.1 a day). 2025 is 36,801 — 100.8 a day, 18.7% below 2019. Declared valuation moved the other way: $12.46 billion in 2025 against $11.09 billion in 2019 (+12.4%). Peak declared value was 2023 ($17.66 billion), not the peak-count year.</p>
+    <div class="callout warn">
+      <strong>2020 is a COVID year. Do not use it as a baseline.</strong>
+      Permits fell 29.1% in 2020 (45,291 → 32,112). Compare 2025 to 2019, then show 2020 as the shock.
+    </div>
+    <div class="callout warn">
+      <strong>2026 is not a full year.</strong>
+      Issued permits in this dump run through 29 August 2026 (24,086 year-to-date, 99.9 a day). Do not annualize that figure, and do not treat 24,086 as a calendar year.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Approved building permits per year</h3>
+        <div class="chart-box"><canvas id="cVol"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · issued_date · 2012–2025 complete years · 2026 YTD omitted (through 29 Aug, 24,086)</p>
+      </div>
+      <div>
+        <h3>Declared valuation per year</h3>
+        <div class="chart-box"><canvas id="cVal"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · declared_valuation · 2012–2025 complete years · dollars as recorded · 2023 peak $17.66 billion</p>
+      </div>
+    </div>
+    <h2>Most 2025 permits are short-form and trades, not Erect/New Construction.</h2>
+    <p>Short Form Bldg Permit is 11,442 of 36,801 (31.1%). Electrical, plumbing, and gas add 16,553. Erect/New Construction is 210 (0.57%). Occupancy is an exact code, not a substring: 1–2 family is 14,501 permits (39.4%) but only $797 million of declared value (6.4%). Commercial is 9,924 permits and $6.08 billion (48.8% of value).</p>
+    <div class="callout warn">
+      <strong>Do not add ZBA cases into the permit year series.</strong>
+      Zoning Board of Appeal recorded 906 dated cases in 2025 against 1,616 in 2019. That is a different file from 36,801 issued permits. Brief them side by side.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 permit types (top 8)</h3>
+        <div class="chart-box"><canvas id="cType"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · permittypedescr · 2025 · top 8 of 36,801 · Erect/New Construction is 210 and is not in this top 8</p>
+      </div>
+      <div>
+        <h3>2025 occupancy mix</h3>
+        <div class="chart-box"><canvas id="cOccPie"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · occupancytype exact codes · 2025 (n = 36,801)</p>
+      </div>
+    </div>
+    <h3>Permit type mix, 2012–2025</h3>
+    <div class="chart-box tall"><canvas id="cMix"></canvas></div>
+    <p class="caption">Source: Analyze Boston Approved Building Permits · permittypedescr · 2012–2025 complete years · share of these five types, not of all permits</p>
+    <div class="grid-2">
+      <div>
+        <h3>2025 permits by occupancy</h3>
+        <div class="chart-box"><canvas id="cOcc"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · occupancytype · 2025 · 1–2 family 14,501</p>
+      </div>
+      <div>
+        <h3>2025 declared valuation by occupancy</h3>
+        <div class="chart-box"><canvas id="cValOcc"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · declared_valuation by occupancytype · 2025 · top 6 · Commercial $6.08 billion · 1–2 family $797 million</p>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>Measure</th><th class="num">2019</th><th class="num">2025</th><th class="num">Change</th></tr></thead>
+      <tbody>
+        <tr><td>Issued permits</td><td class="num">45,291</td><td class="num">36,801</td><td class="num">−18.7%</td></tr>
+        <tr><td>Declared valuation</td><td class="num">$11.09B</td><td class="num">$12.46B</td><td class="num">+12.4%</td></tr>
+        <tr><td>Total fees</td><td class="num">$70.1M</td><td class="num">$53.2M</td><td class="num">−24.1%</td></tr>
+        <tr><td>Erect/New Construction</td><td class="num">—</td><td class="num">210</td><td class="num">0.57% of 2025</td></tr>
+        <tr><td>ZBA dated cases (separate file)</td><td class="num">1,616</td><td class="num">906</td><td class="num">−43.9%</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston Approved Building Permits and Zoning Board of Appeal Decisions · complete years 2019 and 2025 · do not add 906 into 36,801</p>
+  </div>
+
+  <div id="department" class="tab-panel">
+    <p class="tab-blurb">What ISD needs: issuance clock, weekday load, short-form and trade mix. issued_date is not construction hours.</p>
+    <div class="callout info">
+      <strong>For Inspectional Services</strong>
+      Staff issuance around the afternoon peak, not the 311 8 a.m. open. Tuesday is the heavy day (8,115). Short form plus electrical, plumbing, and gas is 27,995 of 36,801 in 2025. issued_date is not when construction happens.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">3 p.m.</div><div class="stat-label">Peak issued hour, 2025 (4,577)</div></div>
+      <div class="stat"><div class="stat-val">Tuesday</div><div class="stat-label">Heaviest weekday (8,115)</div></div>
+      <div class="stat"><div class="stat-val">October</div><div class="stat-label">Peak month (3,879)</div></div>
+    </div>
+    <h2>Issuance peaks at 3 p.m. on weekdays, not on the weekend.</h2>
+    <p>In 2025 the busiest issued_date hour is 3 p.m. (4,577 permits). The quietest is 7 a.m. (28). Tuesday is heaviest (8,115); Sunday is lightest (174); Saturday is 309. October is the peak month (3,879); February is the lightest (2,415). This clock is when ISD recorded the issue timestamp — not when crews were on site.</p>
+    <div class="callout info">
+      <strong>issued_date hour is not construction hours.</strong>
+      After-hours construction is a different Analyze Boston file and is not in this briefing (junk dates include 1753 and 2202). Do not read 3 p.m. as a job-site peak.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 permits by issued hour</h3>
+        <div class="chart-box"><canvas id="cHour"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · issued_date hour · 2025 · peak 3 p.m. (4,577) · quietest 7 a.m. (28)</p>
+      </div>
+      <div>
+        <h3>2025 permits by weekday</h3>
+        <div class="chart-box"><canvas id="cWeek"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · issued_date weekday · 2025 · Tuesday 8,115 · Sunday 174 · Saturday 309</p>
+      </div>
+    </div>
+    <h3>2025 permits by month</h3>
+    <div class="chart-box short"><canvas id="cMonth"></canvas></div>
+    <p class="caption">Source: Analyze Boston Approved Building Permits · issued_date month · 2025 · October 3,879 · February 2,415 · a complete calendar year</p>
+    <h2>Dorchester leads only as three ZIPs rolled together.</h2>
+    <p>Neighborhood is ZIP via the Fire ZIP_NEIGHBORHOOD map — not a neighborhood field on the permit. Dorchester is 02122 + 02124 + 02125 (4,779). Roxbury, Mission Hill / Roxbury, and Roxbury / Dorchester are separate map labels, so Roxbury 02119 does not appear in this top 12. Chart is the top 12 ZIP neighborhoods of 36,801.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Top ZIP neighborhoods, 2025 permits</h3>
+        <div class="chart-box"><canvas id="cNb"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · ZIP via Fire ZIP_NEIGHBORHOOD · 2025 · top 12 of 36,801 · Dorchester = 02122, 02124, 02125</p>
+      </div>
+      <div>
+        <h3>2025 status as recorded</h3>
+        <div class="chart-box"><canvas id="cStatus"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · status · 2025 · Closed 19,251 · Open 17,550 · Open = still valid; Closed = expired (City data dictionary), not work finished</p>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>ZIP neighborhood</th><th class="num">2025 permits</th><th>What the map is</th></tr></thead>
+      <tbody>
+        <tr><td>Dorchester</td><td class="num">4,779</td><td>02122 + 02124 + 02125</td></tr>
+        <tr><td>Back Bay / Bay Village</td><td class="num">2,694</td><td>02116 + 02199</td></tr>
+        <tr><td>Jamaica Plain</td><td class="num">2,275</td><td>02130</td></tr>
+        <tr><td>Hyde Park</td><td class="num">2,263</td><td>02136</td></tr>
+        <tr><td>West Roxbury</td><td class="num">2,208</td><td>02132</td></tr>
+        <tr><td>Roslindale</td><td class="num">1,995</td><td>02131</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston Approved Building Permits · 2025 · ZIP neighborhood from common.ZIP_NEIGHBORHOOD · Roxbury 02119 is a different map label from Dorchester and is outside this top 12</p>
+    <h2>What each shop should take from this</h2>
+    <table>
+      <thead><tr><th>Shop</th><th>Use this</th></tr></thead>
+      <tbody>
+        <tr><td>ISD / permits</td><td>36,801 in 2025 is −18.7% vs 2019. Short form 11,442. Peak 3 p.m.</td></tr>
+        <tr><td>ISD / ZBA</td><td>906 dated ZBA cases in 2025 vs 1,616 in 2019. Do not add ZBA into 36,801.</td></tr>
+        <tr><td>Planning / housing</td><td>1–2 family is 14,501 permits and $797M. Commercial is $6.08B of $12.46B.</td></tr>
+        <tr><td>Neighborhoods</td><td>Dorchester 4,779 is three ZIPs (02122, 02124, 02125). Roxbury 02119 is outside the top 12.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="city" class="tab-panel">
+    <p class="tab-blurb">What the Mayor and Council need: fewer permits than 2019, more declared value. Do not add ZBA into permit totals.</p>
+    <div class="callout warn">
+      <strong>For the Mayor: fewer permits than 2019 is not less construction value.</strong>
+      Boston issued 18.7% fewer approved building permits in 2025 than in 2019, and 12.4% more declared valuation ($12.46B vs $11.09B). Only 210 of 36,801 permits are Erect/New Construction. Do not brief ZBA volume as permit volume.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">−18.7%</div><div class="stat-label">2025 vs 2019 permits</div></div>
+      <div class="stat warn"><div class="stat-val">+12.4%</div><div class="stat-label">2025 vs 2019 declared value</div></div>
+      <div class="stat"><div class="stat-val">210</div><div class="stat-label">Erect/New Construction, 2025</div></div>
+      <div class="stat"><div class="stat-val">45,291</div><div class="stat-label">Peak permit year (2019)</div></div>
+    </div>
+    <h2>ZBA is a different file. Do not add ZBA into permit totals.</h2>
+    <p>The Zoning Board of Appeal tracker has 16,394 rows; 16,392 have a usable date after falling back from submitted_date to received_date to final_decision_date (submitted_date is often null). 2013 has 350 dated cases against 1,167 in 2014; the chart below starts in 2014. 2025 is 906 dated cases against 1,616 in 2019 (−43.9%). 2026 is 425 through 28 August — not a full year.</p>
+    <div class="callout warn">
+      <strong>Do not add ZBA counts into the permit year series.</strong>
+      36,801 issued permits and 906 ZBA cases in 2025 are not a combined construction total.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">906</div><div class="stat-label">ZBA dated cases, 2025</div></div>
+      <div class="stat"><div class="stat-val">1,616</div><div class="stat-label">ZBA dated cases, 2019</div></div>
+      <div class="stat"><div class="stat-val">13,074</div><div class="stat-label">Approved / AppProv, all years</div></div>
+      <div class="stat"><div class="stat-val">425</div><div class="stat-label">ZBA 2026 YTD through 28 Aug</div></div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>ZBA dated cases per year</h3>
+        <div class="chart-box"><canvas id="cZba"></canvas></div>
+        <p class="caption">Source: Analyze Boston Zoning Board of Appeal Decisions · submitted / received / final_decision_date · 2014–2025 · 2013 (350 vs 1,167 in 2014) omitted · 2026 YTD omitted (425 through 28 Aug)</p>
+      </div>
+      <div>
+        <h3>ZBA classified decision as recorded</h3>
+        <div class="chart-box"><canvas id="cZbaPie"></canvas></div>
+        <p class="caption">Source: Analyze Boston Zoning Board of Appeal Decisions · decision exact codes (AppProv + Approved → Approved; Denied + DeniedPrej → Denied) · 13,074 of 16,392 dated cases · 1,479 have no decision recorded</p>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>Zoning district as recorded</th><th class="num">2025 cases</th></tr></thead>
+      <tbody>
+        <tr><td>Dorchester Neighborhood</td><td class="num">140</td></tr>
+        <tr><td>South Boston Neighborhood</td><td class="num">75</td></tr>
+        <tr><td>Jamaica Plain Neighborhood</td><td class="num">75</td></tr>
+        <tr><td>Hyde Park Neighborhood</td><td class="num">70</td></tr>
+        <tr><td>West Roxbury Neighborhood</td><td class="num">67</td></tr>
+        <tr><td>Roxbury Neighborhood</td><td class="num">62</td></tr>
+        <tr><td>Roslindale Neighborhood</td><td class="num">59</td></tr>
+        <tr><td>Allston/Brighton Neighborhood</td><td class="num">54</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston Zoning Board of Appeal Decisions · zoning_district as recorded · 2025 · top 8 of 906</p>
+    <h2>Decisions this supports</h2>
+    <table>
+      <thead><tr><th>Ask</th><th>Number</th></tr></thead>
+      <tbody>
+        <tr><td>Do not treat permit decline as a valuation decline</td><td>36,801 permits · $12.46B declared in 2025</td></tr>
+        <tr><td>Do not brief short-form volume as Erect/New Construction</td><td>Erect/New Construction 210 of 36,801</td></tr>
+        <tr><td>Do not add ZBA into permits</td><td>906 vs 36,801 — they will not match</td></tr>
+        <tr><td>Do not annualize 2026</td><td>24,086 permits through 29 Aug · 425 ZBA through 28 Aug</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="public" class="tab-panel">
+    <p class="tab-blurb">Plain language: most 2025 permits are short-form and trades, not Erect/New Construction.</p>
+    <h2>What Boston residents should know</h2>
+    <p>These are City of Boston approved building permits, issued 26 September 2006 through 29 August 2026, plus Zoning Board of Appeal cases. This is not after-hours construction, and it is not 311 or Fire.</p>
+    <div class="callout info">
+      <strong>Most 2025 permits are short-form and trades.</strong>
+      Short Form Bldg Permit is 11,442 of 36,801. Electrical is 8,615. Plumbing is 4,995. Gas is 2,943. Erect/New Construction is 210.
+    </div>
+    <div class="callout warn">
+      <strong>1–2 family leads the count, not the dollars.</strong>
+      1–2 family occupancy is 14,501 permits and $797 million of declared value. Commercial occupancy is 9,924 permits and $6.08 billion.
+    </div>
+    <div class="callout warn">
+      <strong>2026 is only part of a year.</strong>
+      Permit records in this dump run through 29 August 2026 (24,086 so far). ZBA records run through 28 August (425). 2026 is not a full year.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 permits by issued hour</h3>
+        <div class="chart-box"><canvas id="cHourPub"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · 2025 · most at 3 p.m. (4,577) · issued_date, not job-site hours</p>
+      </div>
+      <div>
+        <h3>ZIP neighborhoods with the most 2025 permits</h3>
+        <div class="chart-box"><canvas id="cNbPub"></canvas></div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · 2025 · top 5 of 36,801 · Dorchester is 02122 + 02124 + 02125</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="notes" class="tab-panel">
+    <p class="tab-blurb">What these files are, and are not.</p>
+    <h2>What these files are, and are not</h2>
+    <table>
+      <thead><tr><th>Rule</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Permits kept 661,589 of 661,589 rows</td><td>issued_date span 2006-09-26 to 2026-08-29. Complete years 2012–2025.</td></tr>
+        <tr><td>ZBA kept 16,392 of 16,394 rows</td><td>Date fallback: submitted, then received, then final_decision. Span 2013-01-31 to 2026-08-28.</td></tr>
+        <tr><td>2026 is not a full year</td><td>Permits through 29 Aug (24,086). ZBA through 28 Aug (425).</td></tr>
+        <tr><td>Compare 2025 to 2019, not 2020</td><td>2020 COVID. Permits −29.1% (45,291 → 32,112).</td></tr>
+        <tr><td>Do not add ZBA 906 to permits 36,801</td><td>Different files. Occupancy and ZBA decisions are exact codes, not substrings.</td></tr>
+        <tr><td>After-hours construction is not in this briefing</td><td>That dump has junk dates (1753, 2202). issued_date hour is ISD issuance.</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston datasets approved-building-permits and zoning-board-of-appeal-decisions · dumps pulled 31 Aug 2026</p>
+    <p>Raw City CSVs are not in this repo. Run <code>python3 analyze_permits.py</code> from <code>building-permits/</code> with files in <code>$BOSTON_DATA_DIR</code> or <code>~/Downloads</code>.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const S = window.PERMITS;
+function share5(a,b,c,d,e) {
+  const n = a.length, out = [[],[],[],[],[]];
+  for (let i = 0; i < n; i++) {
+    const tot = (a[i]+b[i]+c[i]+d[i]+e[i]) || 1;
+    out[0].push(+(100*a[i]/tot).toFixed(1));
+    out[1].push(+(100*b[i]/tot).toFixed(1));
+    out[2].push(+(100*c[i]/tot).toFixed(1));
+    out[3].push(+(100*d[i]/tot).toFixed(1));
+    out[4].push(+(100*e[i]/tot).toFixed(1));
+  }
+  return out;
+}
+const mix = share5(S.shortForm, S.electrical, S.plumbing, S.gas, S.longForm);
+lineChart("cVol", S.years, [{ label: "Permits", data: S.permits }], { zero: true });
+lineChart("cVal", S.years, [{ label: "Declared valuation", data: S.valuation, color: "#d08770" }]);
+barChart("cType", S.typeLabels, [{ label: "2025 permits", data: S.type2025 }], { horizontal: true });
+pieChart("cOccPie", S.occLabels.map((label, i) => ({ label, value: S.occ2025[i] })));
+barChart("cMix", S.years, [
+  { label: "Short Form Bldg Permit", data: mix[0] },
+  { label: "Electrical Permit", data: mix[1], color: "#888" },
+  { label: "Plumbing Permit", data: mix[2], color: "#7aa2c4" },
+  { label: "Gas Permit", data: mix[3], color: "#a3be8c" },
+  { label: "Long Form/Alteration Permit", data: mix[4], color: "#d08770" },
+], { stacked: true });
+barChart("cOcc", S.occLabels, [{ label: "2025 permits", data: S.occ2025 }], { horizontal: true });
+barChart("cValOcc", S.valOccLabels, [{ label: "Declared valuation", data: S.valOcc2025, color: "#d08770" }], { horizontal: true });
+lineChart("cHour", S.hours, [{ label: "Permits", data: S.hour2025 }], { zero: true });
+barChart("cWeek", S.weekdays, [{ label: "Permits", data: S.weekday2025 }]);
+barChart("cMonth", S.months, [{ label: "Permits", data: S.month2025 }]);
+barChart("cNb", S.nbLabels, [{ label: "2025 permits", data: S.nb2025 }], { horizontal: true });
+pieChart("cStatus", [
+  { label: "Closed", value: 19251, color: "#a3be8c" },
+  { label: "Open", value: 17550, color: "#d08770" },
+]);
+lineChart("cZba", S.zbaYears, [{ label: "ZBA cases", data: S.zba, color: "#d08770" }], { zero: true });
+pieChart("cZbaPie", [
+  { label: "Approved", value: 13074, color: "#a3be8c" },
+  { label: "Denied", value: 1398, color: "#c45c5c" },
+  { label: "Withdrawn", value: 433, color: "#d08770" },
+  { label: "Void", value: 8, color: "#555" },
+]);
+lineChart("cHourPub", S.hours, [{ label: "Permits", data: S.hour2025 }], { zero: true });
+barChart("cNbPub", S.nbLabels.slice(0, 5), [{ label: "2025 permits", data: S.nb2025.slice(0, 5) }], { horizontal: true });
+</script>
+</body>
+</html>
