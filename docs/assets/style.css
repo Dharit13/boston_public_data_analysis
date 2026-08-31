@@ -6,7 +6,8 @@ body {
   line-height: 1.55;
   padding: 24px 16px 64px;
 }
-.wrap { max-width: 1080px; margin: 0 auto; }
+.wrap { max-width: 1140px; margin: 0 auto; }
+.tab-blurb { font-size: 0.85rem; color: #888; margin: -12px 0 18px; }
 a { color: #7bafe9; }
 h1 { font-size: 1.55rem; font-weight: 700; margin-bottom: 6px; }
 h2 { font-size: 1.15rem; margin: 28px 0 10px; }
@@ -55,10 +56,17 @@ h3 { font-size: 0.95rem; color: #ccc; margin: 16px 0 8px; }
   padding: 12px 12px 8px; margin-bottom: 16px; position: relative; height: 280px;
 }
 .chart-box.tall { height: 380px; }
+.chart-box.short { height: 220px; }
 .grid-2 {
   display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
 }
-@media (max-width: 800px) { .grid-2 { grid-template-columns: 1fr; } }
+.grid-3 {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+@media (max-width: 800px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+}
+td { vertical-align: top; }
 table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 8px 0 18px; }
 th, td { padding: 7px 8px; border-bottom: 1px solid #2a2a2a; text-align: left; }
 th { color: #888; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3px; }

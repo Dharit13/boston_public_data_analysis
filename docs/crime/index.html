@@ -15,18 +15,23 @@
     <a class="active" href="./">Police</a>
   </div>
   <h1>Boston Police Department — incident analysis</h1>
-  <p class="subtitle">Cleaned RMS records, 2016–2025. One incident per report number. 2025 is the last complete year.</p>
+  <p class="subtitle">Cleaned RMS records, 2016–2025. One incident per report number. 2025 is the last complete year. Shootings, shots fired, and gun recoveries run through mid-August 2026.</p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="summary">Summary</button>
-    <button class="tab-btn" data-tab="demand">Demand</button>
-    <button class="tab-btn" data-tab="mix">Mix</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="department">Department</button>
     <button class="tab-btn" data-tab="guns">Guns</button>
+    <button class="tab-btn" data-tab="city">City / Mayor</button>
+    <button class="tab-btn" data-tab="public">Public</button>
+    <button class="tab-btn" data-tab="efficiency">Efficiency / OT</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
   </div>
 
   <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Five findings. Numbers a reader can take into a meeting.</p>
     <div class="callout warn">
       <strong>We are still busy. Boston is not more violent.</strong>
-      Incidents −8% since 2016. Serious violence −41%. Shooting victims 190 (2019) → 120 (2025). 2020 is COVID: fewer reports, more shootings — do not use it as the before picture.
+      Incidents −8% since 2016, −7% vs 2019. Serious violence −41% since 2016. Shooting victims 190 (2019) → 120 (2025). 2020 is COVID: fewer reports, more shootings — do not use it as the before picture. In 2025, 47% of reports were non-crime service. D4 took the volume lead; B2 still owns the guns.
     </div>
     <div class="stats">
       <div class="stat"><div class="stat-val">81,162</div><div class="stat-label">Incidents in 2025 · 222 a day</div></div>
@@ -46,43 +51,453 @@
         <tr><td>BPD overtime, 2025</td><td class="num">$102M · 56% of all city OT</td></tr>
       </tbody>
     </table>
+    <p>Open Overview for the citywide trend (2020 is COVID), Guns for shootings and recoveries, Department for how to run the districts, City / Mayor for policy, Efficiency / OT for how to cut wasted assignments without thinning the gun districts.</p>
   </div>
 
-  <div id="demand" class="tab-panel">
-    <h2>Incidents per year</h2>
-    <div class="chart-box"><canvas id="cVol"></canvas></div>
-    <p class="caption">Source: BPD RMS · 2020 is the COVID-year roster of reports</p>
-    <h2>Serious violence</h2>
-    <div class="chart-box"><canvas id="cSer"></canvas></div>
-    <h2>Hour of day, 2025</h2>
-    <div class="chart-box"><canvas id="cHour"></canvas></div>
-    <p class="caption">4–5 p.m. is the peak for all-calls and violence. Midnight dump is unknown times, not a real peak.</p>
-  </div>
-
-  <div id="mix" class="tab-panel">
-    <h2>What the tape is made of</h2>
+  <div id="overview" class="tab-panel">
+    <p class="tab-blurb">Citywide demand, mix, and data coverage, 2016–2025. 2020 is COVID — not a baseline.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">81,162</div><div class="stat-label">Incidents in 2025</div></div>
+      <div class="stat"><div class="stat-val">222</div><div class="stat-label">Average reports per day</div></div>
+      <div class="stat ok"><div class="stat-val">2,213</div><div class="stat-label">Serious violence in 2025</div></div>
+      <div class="stat"><div class="stat-val">51,789</div><div class="stat-label">2026 YTD through mid-August</div></div>
+    </div>
+    <h2>Demand recovered. Violence did not come back with it.</h2>
+    <p>Use 2019 as the last normal pre-COVID year, not 2020. Volume fell 19% in 2020 because streets emptied — then climbed through 2025 and is still below 2016–2019. Serious violence is down about a third from 2016. The tape filled with sick-assist, investigate-person, and shoplifting.</p>
+    <div class="callout warn">
+      <strong>2020 is a COVID year. Do not use it as a baseline.</strong>
+      Reports −19% (87,184 → 70,894). Shootings +44% (190 → 274). Shots fired +47% (825 → 1,209). Verbal disputes collapsed; sick-assist did not. Compare 2025 to 2019, then show 2020 as the shock.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Unique incidents per year</h3>
+        <div class="chart-box"><canvas id="cVol"></canvas></div>
+        <p class="caption">BPD RMS · 2020 is COVID (70,894) · 2015 omitted (starts 15 Jun)</p>
+      </div>
+      <div>
+        <h3>Violence vs serious violence</h3>
+        <div class="chart-box"><canvas id="cViol"></canvas></div>
+        <p class="caption">Serious = homicide, sex offense, robbery, aggravated assault</p>
+      </div>
+    </div>
+    <h3>2019 (pre-COVID) · 2020 (COVID) · 2025</h3>
+    <table>
+      <thead><tr><th>Metric</th><th class="num">2019</th><th class="num">2020</th><th class="num">2025</th><th class="num">2025 vs 2019</th></tr></thead>
+      <tbody>
+        <tr><td>All incidents</td><td class="num">87,184</td><td class="num">70,894</td><td class="num">81,162</td><td class="num">−7%</td></tr>
+        <tr><td>Shooting victims</td><td class="num">190</td><td class="num">274</td><td class="num">120</td><td class="num">−37%</td></tr>
+        <tr><td>Shots fired</td><td class="num">825</td><td class="num">1,209</td><td class="num">604</td><td class="num">−27%</td></tr>
+        <tr><td>Serious violence</td><td class="num">3,341</td><td class="num">2,634</td><td class="num">2,213</td><td class="num">−34%</td></tr>
+        <tr><td>Verbal dispute</td><td class="num">3,583</td><td class="num">1,448</td><td class="num">1,743</td><td class="num">−51%</td></tr>
+        <tr><td>Drug incidents</td><td class="num">3,020</td><td class="num">1,401</td><td class="num">2,688</td><td class="num">−11%</td></tr>
+        <tr><td>Sick assist</td><td class="num">7,800</td><td class="num">8,236</td><td class="num">9,718</td><td class="num">+25%</td></tr>
+      </tbody>
+    </table>
+    <h2>What officers closed</h2>
     <div class="chart-box tall"><canvas id="cMix"></canvas></div>
     <p class="caption">Non-crime service is the growth story. Serious violence is not.</p>
-    <h2>Shoplifting</h2>
-    <div class="chart-box"><canvas id="cShop"></canvas></div>
-    <p class="caption">D4 (South End / Back Bay) owns retail theft volume — not a reason to pull cars from B2</p>
+    <div class="grid-2">
+      <div>
+        <h3>2025 mix</h3>
+        <div class="chart-box"><canvas id="cMixPie"></canvas></div>
+        <p class="caption">n = 81,162 unique incidents</p>
+      </div>
+      <div>
+        <h3>How the job changed, 2016 → 2025</h3>
+        <table>
+          <thead><tr><th>Category</th><th class="num">2016</th><th class="num">2025</th><th class="num">Change</th></tr></thead>
+          <tbody>
+            <tr><td>All incidents</td><td class="num">87,994</td><td class="num">81,162</td><td class="num">−8%</td></tr>
+            <tr><td>Non-crime service</td><td class="num">38.7%</td><td class="num">47.1%</td><td class="num">+4,146 count</td></tr>
+            <tr><td>Investigate person</td><td class="num">5,773</td><td class="num">8,935</td><td class="num">+55%</td></tr>
+            <tr><td>Sick assist</td><td class="num">6,568</td><td class="num">9,718</td><td class="num">+48%</td></tr>
+            <tr><td>Violence (all)</td><td class="num">13.7%</td><td class="num">10.0%</td><td class="num">−33% count</td></tr>
+            <tr><td>Serious violence</td><td class="num">3,756</td><td class="num">2,213</td><td class="num">−41%</td></tr>
+            <tr><td>Shoplifting</td><td class="num">2,453</td><td class="num">4,340</td><td class="num">+77%</td></tr>
+            <tr><td>Drug incidents</td><td class="num">3,293</td><td class="num">2,688</td><td class="num">−18%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="department" class="tab-panel">
+    <p class="tab-blurb">What the districts need: when we run, which districts still own gun violence, which streets are retail theft.</p>
+    <div class="callout info">
+      <strong>For Superintendents, district captains, and CompStat</strong>
+      Staff to the clock and the gun districts, not to the 3% serious share. D4 owns retail theft. B2 / B3 / C11 own shootings. Midnight is not a real peak — unknown times dump there. 4–5 p.m. is.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">4–5 p.m.</div><div class="stat-label">Peak total demand and violence</div></div>
+      <div class="stat warn"><div class="stat-val">D4 / B2</div><div class="stat-label">Busiest vs highest shooting share</div></div>
+      <div class="stat"><div class="stat-val">Friday</div><div class="stat-label">Heaviest weekday</div></div>
+    </div>
+    <h2>When officers are running</h2>
+    <div class="grid-2">
+      <div>
+        <h3>2025 incidents by hour</h3>
+        <div class="chart-box short"><canvas id="cHourAll"></canvas></div>
+        <p class="caption">Quietest 4 a.m. (828) · peak 5 p.m. (5,292) · midnight dump is unknown times</p>
+      </div>
+      <div>
+        <h3>2025 violence by hour</h3>
+        <div class="chart-box short"><canvas id="cHourViol"></canvas></div>
+        <p class="caption">Peak 4 p.m. (522) · overnight trough 4–6 a.m.</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 by weekday</h3>
+        <div class="chart-box short"><canvas id="cWeek"></canvas></div>
+        <p class="caption">Friday 12,408 · Sunday 10,009</p>
+      </div>
+      <div>
+        <h3>2025 by month</h3>
+        <div class="chart-box short"><canvas id="cMonth"></canvas></div>
+        <p class="caption">October 7,420 peak · February 5,633</p>
+      </div>
+    </div>
+    <h2>Common workload</h2>
+    <div class="callout warn">
+      <strong>Investigate-person and sick-assist are the cooking fires: everywhere, and not the lethal problem.</strong>
+      In 2025 those two codes were 18,653 incidents — 23% of everything BPD closed. Serious violence was 2,213 (2.7%). Shoplifting is the new growth line: 2,453 → 4,340.
+    </div>
+    <div class="chart-box"><canvas id="cWorkload"></canvas></div>
+    <p class="caption">Flags on the incident · 2016–2025</p>
+    <div class="grid-2">
+      <div>
+        <h3>Most frequent 2024 types</h3>
+        <table>
+          <thead><tr><th>Type</th><th class="num">Count</th></tr></thead>
+          <tbody>
+            <tr><td>Sick assist (incl. drug-related illness)</td><td class="num">8,833</td></tr>
+            <tr><td>Investigate person</td><td class="num">7,705</td></tr>
+            <tr><td>M/V leaving scene — property damage</td><td class="num">4,687</td></tr>
+            <tr><td>Larceny shoplifting</td><td class="num">3,755</td></tr>
+            <tr><td>Towed motor vehicle</td><td class="num">3,492</td></tr>
+            <tr><td>Investigate property</td><td class="num">3,467</td></tr>
+            <tr><td>Assault — simple</td><td class="num">3,265</td></tr>
+            <tr><td>Vandalism</td><td class="num">2,802</td></tr>
+            <tr><td>Property lost / missing</td><td class="num">2,796</td></tr>
+            <tr><td>Verbal dispute</td><td class="num">2,221</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>2024 shoplifting streets</h3>
+        <div class="chart-box tall"><canvas id="cShopSt"></canvas></div>
+        <p class="caption">3,755 shoplifting · D4 1,291 (34%) · Back Bay retail corridor</p>
+      </div>
+    </div>
+    <h3>2024 district workload</h3>
+    <table>
+      <thead><tr><th>District</th><th class="num">Incidents</th><th class="num">Serious violence</th><th class="num">Service %</th><th class="num">Shoplifting</th></tr></thead>
+      <tbody>
+        <tr><td>D4 South End / Back Bay</td><td class="num">11,319</td><td class="num">329</td><td class="num">44%</td><td class="num">1,291</td></tr>
+        <tr><td>B2 Roxbury</td><td class="num">10,540</td><td class="num">371</td><td class="num">45%</td><td class="num">198</td></tr>
+        <tr><td>A1 Downtown</td><td class="num">9,342</td><td class="num">378</td><td class="num">43%</td><td class="num">692</td></tr>
+        <tr><td>C11 Dorchester</td><td class="num">9,276</td><td class="num">324</td><td class="num">39%</td><td class="num">509</td></tr>
+        <tr><td>B3 Mattapan</td><td class="num">8,124</td><td class="num">291</td><td class="num">49%</td><td class="num">97</td></tr>
+        <tr><td>C6 South Boston</td><td class="num">6,486</td><td class="num">194</td><td class="num">41%</td><td class="num">334</td></tr>
+        <tr><td>D14 Brighton</td><td class="num">5,428</td><td class="num">114</td><td class="num">46%</td><td class="num">114</td></tr>
+        <tr><td>E13 Jamaica Plain</td><td class="num">4,746</td><td class="num">116</td><td class="num">47%</td><td class="num">165</td></tr>
+        <tr><td>A7 East Boston</td><td class="num">4,289</td><td class="num">122</td><td class="num">49%</td><td class="num">94</td></tr>
+        <tr><td>E18 Hyde Park</td><td class="num">4,143</td><td class="num">100</td><td class="num">48%</td><td class="num">103</td></tr>
+        <tr><td>E5 West Roxbury</td><td class="num">3,738</td><td class="num">68</td><td class="num">47%</td><td class="num">134</td></tr>
+        <tr><td>A15 Charlestown</td><td class="num">1,392</td><td class="num">42</td><td class="num">47%</td><td class="num">10</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">B3 has the highest service share and almost no shoplifting.</p>
+    <h2>What each shop should take from this</h2>
+    <table>
+      <thead><tr><th>Shop</th><th>Use this</th></tr></thead>
+      <tbody>
+        <tr><td>Operations</td><td>4–5 p.m. peak for all-calls and violence. Do not thin nights only because volume is lower — fatal shootings still happen after midnight.</td></tr>
+        <tr><td>D4 (South End / Back Bay)</td><td>Highest raw volume (12,762 in 2025). 1,559 shoplifting. Boylston and Newbury. Civilian larceny / retail liaison, not pulling cars from B2.</td></tr>
+        <tr><td>B2, B3, C11</td><td>72% of shooting victims. First-due strength stays. B3 is ~50% service — divert sick-assist there so cars are free for shots fired.</td></tr>
+        <tr><td>A1 Downtown</td><td>Second shoplifting district plus downtown assaults. Not the gun map.</td></tr>
+        <tr><td>BOS / detectives</td><td>Crime-gun recoveries still ~590/year. Shootings fell vs 2019; guns did not.</td></tr>
+        <tr><td>EMS / co-response</td><td>Sick assist 9,718 in 2025. This is the Fire public-service problem in a different uniform.</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div id="guns" class="tab-panel">
+    <p class="tab-blurb">Shootings, shots fired, and guns recovered. 2020 is the COVID spike. Compare 2025 to 2019.</p>
+    <div class="callout warn">
+      <strong>2020 is COVID. Gunfire went up while reports went down.</strong>
+      Shooting victims 190 (2019) → 274 (2020) → 120 (2025). Shots fired 825 → 1,209 → 604. Do not score 2025 against 2020 as if that year were normal.
+    </div>
+    <div class="stats">
+      <div class="stat ok"><div class="stat-val">120</div><div class="stat-label">Shooting victims, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">19</div><div class="stat-label">Fatal, 2025</div></div>
+      <div class="stat"><div class="stat-val">604</div><div class="stat-label">Shots-fired incidents, 2025</div></div>
+      <div class="stat"><div class="stat-val">590</div><div class="stat-label">Crime guns recovered, 2025</div></div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Shooting victims — fatal and non-fatal</h3>
+        <div class="chart-box"><canvas id="cShootStack"></canvas></div>
+        <p class="caption">2,250 victims · 373 fatal · 2020 is the spike</p>
+      </div>
+      <div>
+        <h3>Shots fired</h3>
+        <div class="chart-box"><canvas id="cShots"></canvas></div>
+        <p class="caption">9,533 incidents 2015–mid-Aug 2026 · 2020 = 1,209 · 2025 = 604</p>
+      </div>
+    </div>
+    <h2>Where the victims still are</h2>
+    <p>Paper moved to D4. Guns did not. B2, B3, and C11 are 72% of shooting victims across 11 years. That share was 80% in 2016 and 70% in 2025.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Shooting victims by district</h3>
+        <div class="chart-box"><canvas id="cShootArea"></canvas></div>
+      </div>
+      <div>
+        <h3>Share of victims in B2 + B3 + C11</h3>
+        <div class="chart-box"><canvas id="cCore"></canvas></div>
+        <p class="caption">Never below 66% · 2020 COVID year was 70%, same geography</p>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>District</th><th class="num">Victims 2015–2025</th><th class="num">Share</th><th class="num">Shots fired</th></tr></thead>
+      <tbody>
+        <tr><td>B2 Roxbury</td><td class="num">666</td><td class="num">30%</td><td class="num">2,714</td></tr>
+        <tr><td>B3 Mattapan</td><td class="num">573</td><td class="num">25%</td><td class="num">2,503</td></tr>
+        <tr><td>C11 Dorchester</td><td class="num">384</td><td class="num">17%</td><td class="num">1,908</td></tr>
+        <tr><td>E13 Jamaica Plain</td><td class="num">170</td><td class="num">8%</td><td class="num">562</td></tr>
+        <tr><td>E18 Hyde Park</td><td class="num">119</td><td class="num">5%</td><td class="num">472</td></tr>
+        <tr><td>D4 South End / Back Bay</td><td class="num">104</td><td class="num">5%</td><td class="num">405</td></tr>
+        <tr><td>A1 Downtown</td><td class="num">40</td><td class="num">2%</td><td class="num">90</td></tr>
+      </tbody>
+    </table>
+    <h3>Core vs rest, year by year</h3>
+    <table>
+      <thead><tr><th>Year</th><th class="num">Victims</th><th class="num">In B2+B3+C11</th><th class="num">Share</th></tr></thead>
+      <tbody>
+        <tr><td>2015</td><td class="num">245</td><td class="num">171</td><td class="num">70%</td></tr>
+        <tr><td>2016</td><td class="num">226</td><td class="num">181</td><td class="num">80%</td></tr>
+        <tr><td>2017</td><td class="num">260</td><td class="num">196</td><td class="num">75%</td></tr>
+        <tr><td>2018</td><td class="num">203</td><td class="num">145</td><td class="num">71%</td></tr>
+        <tr><td>2019 pre-COVID</td><td class="num">190</td><td class="num">137</td><td class="num">72%</td></tr>
+        <tr><td>2020 COVID</td><td class="num">274</td><td class="num">192</td><td class="num">70%</td></tr>
+        <tr><td>2021</td><td class="num">196</td><td class="num">149</td><td class="num">76%</td></tr>
+        <tr><td>2022</td><td class="num">180</td><td class="num">124</td><td class="num">69%</td></tr>
+        <tr><td>2023</td><td class="num">143</td><td class="num">103</td><td class="num">72%</td></tr>
+        <tr><td>2024</td><td class="num">127</td><td class="num">84</td><td class="num">66%</td></tr>
+        <tr><td>2025</td><td class="num">120</td><td class="num">84</td><td class="num">70%</td></tr>
+      </tbody>
+    </table>
+    <h2>Guns recovered did not fall with shootings</h2>
+    <p>Crime-gun takeoffs are still ~590 a year. Safeguard rose. Buybacks essentially stopped. The street is not disarmed — fewer of those guns are being fired at people.</p>
+    <div class="chart-box"><canvas id="cGuns"></canvas></div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">590</div><div class="stat-label">Crime guns, 2025 · 578 in 2016</div></div>
+      <div class="stat"><div class="stat-val">281</div><div class="stat-label">Safeguard, 2025 · 178 in 2016</div></div>
+      <div class="stat warn"><div class="stat-val">0</div><div class="stat-label">Buyback, 2025 · 97 in 2015</div></div>
+    </div>
+    <h2>Who was shot</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Victims by race, 2015–2025</h3>
+        <div class="chart-box"><canvas id="cRace"></canvas></div>
+        <p class="caption">2,250 victims · Black 77% · White 17%</p>
+      </div>
+      <div>
+        <h3>Victims by gender</h3>
+        <table>
+          <thead><tr><th></th><th class="num">Victims</th><th class="num">Share</th></tr></thead>
+          <tbody>
+            <tr><td>Male</td><td class="num">1,999</td><td class="num">89%</td></tr>
+            <tr><td>Female</td><td class="num">240</td><td class="num">11%</td></tr>
+            <tr><td>Multi-victim incidents (flag)</td><td class="num">693</td><td class="num">31% of victims</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h2>2026 year-to-date</h2>
+    <p>Through mid-August 2026: 86 shooting victims (13 fatal) and 278 shots-fired incidents. Crime guns recovered: 362 through 28 August. That is not a full year — do not annualize it against 2025 yet.</p>
+    <table>
+      <thead><tr><th></th><th class="num">2025 full year</th><th class="num">2026 through mid-August</th></tr></thead>
+      <tbody>
+        <tr><td>Shooting victims</td><td class="num">120</td><td class="num">86</td></tr>
+        <tr><td>Fatal</td><td class="num">19</td><td class="num">13</td></tr>
+        <tr><td>Shots fired</td><td class="num">604</td><td class="num">278</td></tr>
+        <tr><td>Crime guns recovered</td><td class="num">590</td><td class="num">362 (through 28 Aug)</td></tr>
+      </tbody>
+    </table>
     <div class="callout warn">
       <strong>Do not thin B2 / B3 / C11 because the citywide shooting count fell.</strong>
-      72% of 2025 shooting victims were in those three districts.
+      2025 is safer than 2019. The map is the same map. 84 of 120 victims were still in three districts. Crime-gun recoveries did not fall.
     </div>
-    <h2>Shooting victims</h2>
-    <div class="chart-box"><canvas id="cShoot"></canvas></div>
-    <p class="caption">2019 is the pre-COVID comparison year, not 2020</p>
-    <h2>Fatal shootings</h2>
-    <div class="chart-box"><canvas id="cFatal"></canvas></div>
-    <h2>Shooting victims by area</h2>
-    <div class="chart-box"><canvas id="cArea"></canvas></div>
-    <h2>Crime-gun recoveries</h2>
-    <div class="chart-box"><canvas id="cGuns"></canvas></div>
-    <p class="caption">Shootings fell vs 2019; recoveries did not. Trace work still has a supply.</p>
+  </div>
+
+  <div id="city" class="tab-panel">
+    <p class="tab-blurb">What the Mayor and Council need: safety trend, equity, overtime, and decisions.</p>
+    <div class="callout warn">
+      <strong>For the Mayor: safer on guns than 2019, more expensive on everything else.</strong>
+      Boston had 37% fewer shooting victims than in 2019 and 41% less serious violence than in 2016. The department still closed 81,162 incidents in 2025 because service and shoplifting took over the tape. Police overtime is $102 million — 56% of all city overtime.
+    </div>
+    <div class="stats">
+      <div class="stat ok"><div class="stat-val">−41%</div><div class="stat-label">Serious violence since 2016</div></div>
+      <div class="stat"><div class="stat-val">−8%</div><div class="stat-label">Total incidents since 2016</div></div>
+      <div class="stat warn"><div class="stat-val">$102M</div><div class="stat-label">BPD overtime, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">72%</div><div class="stat-label">Shooting victims in 3 districts</div></div>
+    </div>
+    <h2>The paper moved. The guns did not.</h2>
+    <p>Roxbury (B2) led incident volume every year 2015–2022. In 2023 the South End / Back Bay district (D4) took over — shoplifting on Boylston and Newbury. Gun violence never left B2, B3, and C11.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Incident volume by district</h3>
+        <div class="chart-box"><canvas id="cAreaVol"></canvas></div>
+        <p class="caption">D4 passes B2 in 2023</p>
+      </div>
+      <div>
+        <h3>Shooting victims by district</h3>
+        <div class="chart-box"><canvas id="cAreaShoot2"></canvas></div>
+      </div>
+    </div>
+    <h3>Who was #1 each year</h3>
+    <table>
+      <thead><tr><th>Year</th><th>#1 volume</th><th class="num">Reports</th><th>#1 shootings (B2 every year)</th></tr></thead>
+      <tbody>
+        <tr><td>2016</td><td>B2 Roxbury</td><td class="num">13,644</td><td>B2 · 76 victims</td></tr>
+        <tr><td>2017</td><td>B2 Roxbury</td><td class="num">13,833</td><td>B2 · 81</td></tr>
+        <tr><td>2018</td><td>B2 Roxbury</td><td class="num">13,332</td><td>B2 · 65</td></tr>
+        <tr><td>2019</td><td>B2 Roxbury</td><td class="num">13,030</td><td>B2 · 61</td></tr>
+        <tr><td>2020 COVID</td><td>B2 Roxbury</td><td class="num">10,442</td><td>B2 · 78</td></tr>
+        <tr><td>2021</td><td>B2 Roxbury</td><td class="num">9,929</td><td>B2 · 61</td></tr>
+        <tr><td>2022</td><td>B2 Roxbury</td><td class="num">10,031</td><td>B2 · 39</td></tr>
+        <tr><td>2023</td><td>D4 South End / Back Bay</td><td class="num">10,408</td><td>B2 · 34</td></tr>
+        <tr><td>2024</td><td>D4 South End / Back Bay</td><td class="num">11,319</td><td>B2 · 35</td></tr>
+        <tr><td>2025</td><td>D4 South End / Back Bay</td><td class="num">12,762</td><td>B2 · 30</td></tr>
+      </tbody>
+    </table>
+    <h3>Roxbury’s mix over time</h3>
+    <div class="chart-box"><canvas id="cB2Mix"></canvas></div>
+    <h2>Decisions for the Mayor and Council</h2>
+    <div class="callout warn"><strong>1. Do not trade B2 / B3 / C11 strength for D4 paper</strong> Shootings are down, not gone: 120 victims in 2025, 72% still in three districts. D4’s volume is shoplifting and sick-assist. A 2.7% serious-violence rate is not a staffing formula.</div>
+    <div class="callout warn"><strong>2. Take sick-assist and investigate-person off the sworn tape</strong> 18,653 of those two in 2025. Co-response, EMS, and civilian report-takers. Each one still leaves a sector car unavailable in the district that still has the guns.</div>
+    <div class="callout info"><strong>3. Treat Back Bay shoplifting as a retail problem, not a reason to strip Roxbury</strong> 4,340 shoplifting incidents in 2025. D4 is 34% of the 2024 count. Store security, civilian larceny teams, and online reporting — not B2 overtime.</div>
+    <div class="callout ok"><strong>4. Keep focused deterrence where the victims actually are</strong> B2, B3, C11, then E13. That map has not moved in 11 years. Crime-gun recoveries are still ~590 a year.</div>
+  </div>
+
+  <div id="public" class="tab-panel">
+    <p class="tab-blurb">Plain language: is Boston safer, why officers still roll, what to watch in your neighborhood.</p>
+    <h2>What Boston residents should know</h2>
+    <p>These are Boston Police’s official incident records, 2016 through 2025, plus the separate shootings, shots-fired, and gun-recovery files. One report is not always one crime — officers also write up sick people, towed cars, and “investigate person.”</p>
+    <div class="callout ok">
+      <strong>Serious violence is down — measure it against 2019, not 2020.</strong>
+      Shooting victims went from 190 in 2019 to 120 in 2025 (−37%). 2020 was COVID: 274 victims, the peak, not the baseline. Fatal shootings went from 28 (2019) to 19 (2025).
+    </div>
+    <div class="callout warn">
+      <strong>If you see police a lot, it is often not a shooting.</strong>
+      In 2024, only about 3 in 100 reports were serious violence. Almost half were non-crime work: checking on a person, helping someone who is sick, towing a car, a verbal dispute, or lost property.
+    </div>
+    <div class="stats">
+      <div class="stat ok"><div class="stat-val">3 of 100</div><div class="stat-label">Reports that were serious violence in 2024</div></div>
+      <div class="stat warn"><div class="stat-val">23 of 100</div><div class="stat-label">2025 reports that were investigate-person or sick assist</div></div>
+      <div class="stat warn"><div class="stat-val">3 districts</div><div class="stat-label">Where 7 in 10 shooting victims still are</div></div>
+    </div>
+    <h3>The report that happens in every neighborhood</h3>
+    <p>Investigate-person and sick-assist are the number-one and number-two workloads citywide. Shoplifting is the growth crime, concentrated on Boylston, Newbury, and Downtown Crossing, not on Blue Hill Avenue.</p>
+    <div class="chart-box"><canvas id="cPublicMix"></canvas></div>
+    <p class="caption">79,124 unique incidents, 2024</p>
+    <h3>Where shootings concentrate</h3>
+    <table>
+      <thead><tr><th>Neighborhood (district)</th><th class="num">Shooting victims, 2015–2025</th></tr></thead>
+      <tbody>
+        <tr><td>Roxbury (B2)</td><td class="num">666</td></tr>
+        <tr><td>Mattapan (B3)</td><td class="num">573</td></tr>
+        <tr><td>Dorchester (C11)</td><td class="num">384</td></tr>
+        <tr><td>Jamaica Plain (E13)</td><td class="num">170</td></tr>
+        <tr><td>South End / Back Bay (D4)</td><td class="num">104</td></tr>
+      </tbody>
+    </table>
+    <h3>What you can do</h3>
+    <table>
+      <thead><tr><th>If you live here</th><th>Know this</th></tr></thead>
+      <tbody>
+        <tr><td>Any neighborhood</td><td>Most police responses are not shootings. Call 911 for violence. Use 311 / online for lost property and many larcenies.</td></tr>
+        <tr><td>Roxbury, Mattapan, Dorchester</td><td>This is still where gun violence concentrates. Group-violence work belongs here, not a citywide pamphlet.</td></tr>
+        <tr><td>Back Bay / Downtown Crossing</td><td>You will see more police for shoplifting than for shootings. That is the data.</td></tr>
+        <tr><td>Near a hospital or district station</td><td>Some streets look busy on the map because reports are written there, not because every incident happened on that block.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="efficiency" class="tab-panel">
+    <p class="tab-blurb">What peer departments do that Boston can copy. 2025 incidents + 2025 overtime and headcount.</p>
+    <div class="callout warn">
+      <strong>Efficient police departments do not run fewer officers in the gun districts. They run fewer wasted assignments.</strong>
+      Send a civilian or co-responder when the call is not a crime, take volume property crime off the sworn tape, and stop covering vacancies with overtime as the default.
+    </div>
+    <div class="stats">
+      <div class="stat warn"><div class="stat-val">$102M</div><div class="stat-label">BPD overtime, 2025 (19% of pay)</div></div>
+      <div class="stat"><div class="stat-val">3,094</div><div class="stat-label">BPD people on the 2025 earnings file</div></div>
+      <div class="stat warn"><div class="stat-val">18,653</div><div class="stat-label">Investigate-person + sick assist, 2025</div></div>
+      <div class="stat"><div class="stat-val">56%</div><div class="stat-label">Share of all city overtime, 2025</div></div>
+    </div>
+    <h2>What the efficient services actually do</h2>
+    <table>
+      <thead><tr><th>Service</th><th>Practice</th><th>Why it matches Boston’s tape</th></tr></thead>
+      <tbody>
+        <tr><td>NYPD / many US PDs — online reporting</td><td>Theft, shoplifting, lost property, and many MV leaving-scene reports can be taken online or by a civilian, not a sector car.</td><td>4,340 shoplifting + 2,796 lost-property + 4,687 leaving-scene in 2024. That is a report factory, not a radio car problem.</td></tr>
+        <tr><td>CAHOOTS / NYC B-HEARD / STAR (Denver)</td><td>Behavioral-health and sick-person calls get a medic + clinician. Police only if there is a weapon or crime.</td><td>Sick assist 9,718 in 2025. B3 is 49% service. Every one of those cars is not sitting on Blue Hill Avenue for a shots-fired.</td></tr>
+        <tr><td>London Met / UK volume-crime units</td><td>Dedicated civilian investigators for theft and fraud. Patrol stays on harm.</td><td>Property crime is 23% of 2024. Serious violence is 3%.</td></tr>
+        <tr><td>Boston’s own history — Operation Ceasefire / GVI</td><td>Focus on the small number of groups that produce shootings.</td><td>72% of victims in three districts, every year. The map has not moved. The volume map has.</td></tr>
+        <tr><td>Vacancy math (same as Fire)</td><td>Most OT is empty seats and a wrong relief factor — not extra crime. Hire into a relief pool.</td><td>BPD 2025: 3,094 people, $102M OT, 18.8% attrition. 2024’s 3,491 roster was a bulge, not a new normal.</td></tr>
+      </tbody>
+    </table>
+    <h2>Boston vs that model — using our files</h2>
+    <table>
+      <thead><tr><th>Boston fact</th><th>Efficient-department move</th><th>Staff and OT</th></tr></thead>
+      <tbody>
+        <tr><td>9,718 sick assist (2025). B3 49% service.</td><td>Co-responder / EMS for sick and behavioral calls unless a weapon or crime is reported.</td><td>If half of sick-assist leaves the sworn tape, that is ~4,800 car-hours a year back — concentrated in B2/B3/C11.</td></tr>
+        <tr><td>8,935 investigate-person + 3,515 investigate-property (2025).</td><td>Triage: crime or welfare check with a threat stays sworn. The rest goes to a civilian report desk or 311 callback.</td><td>Together with sick-assist these are 23% of 2025.</td></tr>
+        <tr><td>4,340 shoplifting, 34% of 2024 in D4. Boylston 634, Newbury 293.</td><td>Retail liaison + civilian larceny teams + online reporting.</td><td>D4 volume is not a reason to move bodies out of B2.</td></tr>
+        <tr><td>$102M overtime, 18.8% attrition, median $179k. All 20 highest-paid 2025 city employees are BPD.</td><td>Hire to the relief factor in B2/B3/C11. Stop using OT as the default empty-seat filler.</td><td>2024’s 3,491 headcount was retro/roster bulge. 2025 is 3,094. OT did not fall in proportion to shootings.</td></tr>
+      </tbody>
+    </table>
+    <h3>Shift work off Police</h3>
+    <table>
+      <thead><tr><th>2025 work</th><th class="num">Count</th><th>Move to</th><th>What Police keeps</th></tr></thead>
+      <tbody>
+        <tr><td>Sick assist</td><td class="num">9,718</td><td>Boston EMS / co-responder</td><td>Weapon, crime, or no EMS unit</td></tr>
+        <tr><td>Investigate person</td><td class="num">8,935</td><td>Civilian report desk / 311 callback</td><td>Threat, missing child, or crime in progress</td></tr>
+        <tr><td>Shoplifting</td><td class="num">4,340</td><td>Online report + retail liaison; repeat-offender squad</td><td>Force, organized retail, weapon</td></tr>
+        <tr><td>Towed motor vehicle</td><td class="num">3,771</td><td>Tow contractor / Parking</td><td>Stolen car or crime scene</td></tr>
+        <tr><td>Investigate property</td><td class="num">3,515</td><td>Civilian report / online</td><td>Burglary in progress or open door with suspect</td></tr>
+        <tr><td>Verbal dispute</td><td class="num">1,743</td><td>311 / community dispute, unless it is becoming an assault</td><td>Any weapon or injury</td></tr>
+      </tbody>
+    </table>
+    <h3>Hours we can give back without a study committee</h3>
+    <div class="chart-box"><canvas id="cGiveBack"></canvas></div>
+    <p class="caption">First three bars are the efficiency target · last two are what we must keep staffing for</p>
+    <div class="callout warn">
+      <strong>Do not ‘save’ OT by thinning the gun districts.</strong>
+      Shootings fell vs 2019, not just vs the 2020 COVID spike, and still sit in the same three districts. Efficient departments cut wasted assignments and fill vacancies — not the districts that produce 72% of the victims.
+    </div>
+  </div>
+
+  <div id="notes" class="tab-panel">
+    <h2>What we counted</h2>
+    <table>
+      <thead><tr><th>Quality check</th><th class="num">Records</th></tr></thead>
+      <tbody>
+        <tr><td>Raw RMS rows (all files)</td><td class="num">947,034</td></tr>
+        <tr><td>Unique incidents after collapse</td><td class="num">904,961</td></tr>
+        <tr><td>2015–2018 multi-offense incidents</td><td class="num">31,269</td></tr>
+        <tr><td>2015 (partial: 15 Jun–31 Dec)</td><td class="num">46,966</td></tr>
+        <tr><td>2016–2025 complete years</td><td class="num">806,206</td></tr>
+        <tr><td>2024 incidents</td><td class="num">79,124</td></tr>
+        <tr><td>2025 incidents</td><td class="num">81,162</td></tr>
+        <tr><td>2026 YTD through mid-August</td><td class="num">51,789</td></tr>
+        <tr><td>Shooting victims (separate file)</td><td class="num">2,250</td></tr>
+        <tr><td>Shots-fired incidents</td><td class="num">9,533</td></tr>
+      </tbody>
+    </table>
+    <p>2015–2018 files list one row per offense; we keep one incident and assign the most serious offense. 2019+ is already one row per incident. UCR Part and offense-group fields go blank after 2018, so mix is classified from description and code. Midnight hour is inflated by unknown times. Some high-count streets (Gibson St C11, Harrison Ave D4) include district / hospital reporting. Shootings are victims; one incident can have several. Crime-gun recoveries are daily citywide totals, not geocoded.</p>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -90,27 +505,90 @@
 <script src="data.js"></script>
 <script>
 const C = window.CRIME;
+const pal = ["#c45c5c","#d08770","#599ce7","#7bafe9","#aaa"];
 lineChart("cVol", C.years, [{ label: "Incidents", data: C.volume }]);
-lineChart("cSer", C.years, [{ label: "Serious violence", data: C.serious, color: "#3fa266" }]);
-barChart("cHour", C.hours, [
-  { label: "All reports", data: C.hourAll },
-  { label: "Violence", data: C.hourViol, color: "#c45c5c" },
+lineChart("cViol", C.years, [
+  { label: "All violence", data: C.violence, color: "#d08770" },
+  { label: "Serious violence", data: C.serious, color: "#c45c5c" },
 ]);
 barChart("cMix", C.years, [
   { label: "Service", data: C.service, color: "#599ce7" },
   { label: "Property", data: C.property, color: "#7bafe9" },
   { label: "MV", data: C.mv, color: "#888" },
   { label: "Violence", data: C.violence, color: "#d08770" },
+  { label: "Drugs", data: C.drugs, color: "#f1b467" },
 ], { stacked: true });
-lineChart("cShop", C.years, [{ label: "Shoplifting", data: C.shop, color: "#d08770" }]);
-lineChart("cShoot", C.shootYears, [{ label: "Shooting victims", data: C.shoot, color: "#c45c5c" }]);
-lineChart("cFatal", C.shootYears, [{ label: "Fatal", data: C.fatal, color: "#c45c5c" }]);
-lineChart("cArea", C.shootYears, [
-  { label: "Roxbury", data: C.shootArea.Roxbury, color: "#c45c5c" },
-  { label: "Mattapan", data: C.shootArea.Mattapan, color: "#d08770" },
-  { label: "Dorchester", data: C.shootArea.Dorchester, color: "#599ce7" },
+pieChart("cMixPie", [
+  { label: "Non-crime service", value: 38197, color: "#599ce7" },
+  { label: "Property crime", value: 17584, color: "#d08770" },
+  { label: "Motor vehicle", value: 13138, color: "#888" },
+  { label: "Violence", value: 8101, color: "#c45c5c" },
+  { label: "Drugs", value: 2688, color: "#f1b467" },
+  { label: "Other", value: 1454, color: "#555" },
 ]);
-lineChart("cGuns", C.years, [{ label: "Crime-gun recoveries", data: C.gunsCrime, color: "#f1b467" }]);
+lineChart("cHourAll", C.hours, [{ label: "All reports", data: C.hourAll }]);
+lineChart("cHourViol", C.hours, [{ label: "Violence", data: C.hourViol, color: "#c45c5c" }]);
+barChart("cWeek", C.weekdays, [{ label: "Incidents", data: C.weekday2025 }]);
+barChart("cMonth", C.months, [{ label: "Incidents", data: C.month2025 }]);
+barChart("cWorkload", C.years, [
+  { label: "Sick assist", data: C.sick, color: "#599ce7" },
+  { label: "Investigate person", data: C.investP, color: "#888" },
+  { label: "Shoplifting", data: C.shop, color: "#d08770" },
+  { label: "Serious violence", data: C.serious, color: "#c45c5c" },
+]);
+barChart("cShopSt", ["Boylston (D4)","Washington (A1)","Newbury (D4)","Washington (C11)","Allstate (C6)","Cambridge (A1)","Huntington (D4)"], [
+  { label: "2024 shoplifting", data: [634,353,293,182,154,151,145], color: "#d08770" },
+], { horizontal: true });
+barChart("cShootStack", C.shootYears, [
+  { label: "Non-fatal", data: C.nonfatal, color: "#d08770" },
+  { label: "Fatal", data: C.fatal, color: "#c45c5c" },
+], { stacked: true });
+lineChart("cShots", C.shootYears, [{ label: "Shots fired", data: C.shots, color: "#d08770" }]);
+lineChart("cShootArea", C.shootYears, [
+  { label: "B2 Roxbury", data: C.shootArea.Roxbury, color: "#c45c5c" },
+  { label: "B3 Mattapan", data: C.shootArea.Mattapan, color: "#d08770" },
+  { label: "C11 Dorchester", data: C.shootArea.Dorchester, color: "#599ce7" },
+  { label: "E13 Jamaica Plain", data: C.shootArea.JP, color: "#7bafe9" },
+  { label: "D4 South End", data: C.shootArea.SouthEnd, color: "#aaa" },
+]);
+lineChart("cCore", C.shootYears, [{ label: "Core-district share %", data: C.coreShare, color: "#c45c5c" }]);
+barChart("cGuns", C.years, [
+  { label: "Crime guns", data: C.gunsCrime, color: "#c45c5c" },
+  { label: "Safeguard", data: C.gunsSafe, color: "#599ce7" },
+  { label: "Buyback", data: C.gunsBuyback, color: "#888" },
+], { stacked: true });
+pieChart("cRace", [
+  { label: "Black or African American", value: 1742, color: "#c45c5c" },
+  { label: "White", value: 382, color: "#888" },
+  { label: "Unknown", value: 114, color: "#555" },
+  { label: "Asian", value: 12, color: "#599ce7" },
+]);
+lineChart("cAreaVol", C.years, [
+  { label: "B2 Roxbury", data: C.areaVol.Roxbury, color: "#c45c5c" },
+  { label: "D4 South End / Back Bay", data: C.areaVol.SouthEnd, color: "#d08770" },
+  { label: "C11 Dorchester", data: C.areaVol.Dorchester, color: "#599ce7" },
+  { label: "B3 Mattapan", data: C.areaVol.Mattapan, color: "#7bafe9" },
+  { label: "A1 Downtown", data: C.areaVol.Downtown, color: "#aaa" },
+]);
+lineChart("cAreaShoot2", C.shootYears, [
+  { label: "B2 Roxbury", data: C.shootArea.Roxbury, color: "#c45c5c" },
+  { label: "B3 Mattapan", data: C.shootArea.Mattapan, color: "#d08770" },
+  { label: "C11 Dorchester", data: C.shootArea.Dorchester, color: "#599ce7" },
+  { label: "E13 Jamaica Plain", data: C.shootArea.JP, color: "#7bafe9" },
+  { label: "D4 South End", data: C.shootArea.SouthEnd, color: "#aaa" },
+]);
+barChart("cB2Mix", C.years, [
+  { label: "Service", data: C.b2Mix.service, color: "#599ce7" },
+  { label: "Property", data: C.b2Mix.property, color: "#d08770" },
+  { label: "MV", data: C.b2Mix.mv, color: "#888" },
+  { label: "Violence", data: C.b2Mix.violence, color: "#c45c5c" },
+], { stacked: true });
+barChart("cPublicMix", ["Non-crime service","Property crime","Motor vehicle","Violence (all)","Drugs"], [
+  { label: "2024 incidents", data: [35358,18403,13069,8794,1998], color: "#599ce7" },
+], { horizontal: true });
+barChart("cGiveBack", ["Sick assist 2025","Investigate person","Shoplifting","Serious violence","Shooting victims"], [
+  { label: "2025 counts", data: [9718,8935,4340,2213,120], color: "#d08770" },
+], { horizontal: true });
 </script>
 </body>
 </html>

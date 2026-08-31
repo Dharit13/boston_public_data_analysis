@@ -18,16 +18,21 @@
   <p class="subtitle">
     Eleven calendar-year payroll files, cleaned onto one schema (257,457 rows).
     Teaching is combined into Education. Dollars are calendar-year gross, not FTE or W-2.
+    There is no employee ID — people are matched on a normalized name.
   </p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="summary">Summary</button>
     <button class="tab-btn" data-tab="citywide">Citywide</button>
     <button class="tab-btn" data-tab="depts">Departments</button>
+    <button class="tab-btn" data-tab="people">Who gets paid</button>
     <button class="tab-btn" data-tab="earners">Top earners</button>
-    <button class="tab-btn" data-tab="hires">Hires</button>
+    <button class="tab-btn" data-tab="hires">New hires</button>
+    <button class="tab-btn" data-tab="overtime">Overtime</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
   </div>
 
   <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Numbers a reader can take into a meeting. Re-audited 28 August 2026.</p>
     <div class="stats">
       <div class="stat"><div class="stat-val">$2.46B</div><div class="stat-label">2025 gross payroll</div></div>
       <div class="stat"><div class="stat-val">25,397</div><div class="stat-label">people on the 2025 file</div></div>
@@ -49,6 +54,7 @@
       <div>
         <h3>How the city pays people</h3>
         <p>Education is the teaching rollup (12,806 people, $1.09B, median $92.5k, almost no OT). Police + Fire are 19% of people and 35% of pay, and 83% of overtime. All 20 citywide top earners are BPD.</p>
+        <p>Education + Police + Fire = <strong>79% of 2025 payroll</strong>. Food, Transportation, Facilities, and BPS police stay outside Education. The city’s “Transportation” row is mostly BPS cab monitors (median $33.7k), not the MBTA.</p>
       </div>
       <div>
         <h3>2015 to 2025</h3>
@@ -64,29 +70,85 @@
         </table>
       </div>
     </div>
+    <h3>People, place, and pay mix</h3>
+    <table>
+      <thead><tr><th>Topic</th><th>Finding</th></tr></thead>
+      <tbody>
+        <tr><td>Hires</td><td>No employee ID — names only. 2025: 2,985 new (11.8%), 3,112 left (12.2%), replacement 0.96. Education 1,415 in / 1,299 out. Police attrition 18.8% after the 2024 bulge.</td></tr>
+        <tr><td>Tenure</td><td>10,240 of 21,793 unique 2015 names are still on the 2025 file (47%). 9,733 appear in all 11 years: 38% of 2025 people, 52% of pay. Fire retains 65% of its 2015 roster; Education 45%.</td></tr>
+        <tr><td>Where they live</td><td>25,376 of 25,397 rows have a ZIP. 67% Boston proper. Dorchester (02121/22/24/25) is 5,097 people, 20%. Quincy (02169/70/71) is the largest suburb (629).</td></tr>
+        <tr><td>Concentration</td><td>Top 1% take 3.6% of payroll; top 10% take 24.7%; bottom 50% take 22.1%. Gini ≈ 0.39 — a mix of $30k part-time school jobs and $300k police lieutenants.</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div id="citywide" class="tab-panel">
+    <p class="tab-blurb">Citywide payroll, headcount, median, and paycheck mix, 2015–2025.</p>
     <h2>Payroll</h2>
     <div class="chart-box"><canvas id="cPayroll"></canvas></div>
-    <p class="caption">Source: City of Boston earnings files · CPI-U for 2024-dollar series</p>
+    <p class="caption">Nominal vs CPI-U 2024 dollars. Real payroll was essentially flat 2019–2023, then stepped up with 2024 contracts.</p>
     <div class="grid-2">
       <div>
         <h3>Headcount</h3>
         <div class="chart-box"><canvas id="cHead"></canvas></div>
+        <p class="caption">2020 is the COVID roster (−6.2%). 2023–25 sit near 25,000.</p>
       </div>
       <div>
         <h3>Median gross ($k)</h3>
         <div class="chart-box"><canvas id="cMed"></canvas></div>
+        <p class="caption">Median jumped in 2020 because more remaining jobs were full-time, then again with 2024–25 contracts.</p>
       </div>
     </div>
-    <h2>What the paycheck is made of</h2>
+    <h2>Year by year</h2>
+    <table>
+      <thead><tr><th>Year</th><th class="num">People</th><th class="num">Payroll</th><th class="num">Median</th><th class="num">Overtime</th><th class="num">Retro</th></tr></thead>
+      <tbody>
+        <tr><td>2015</td><td class="num">21,902</td><td class="num">$1.55B</td><td class="num">$67.2k</td><td class="num">$102M</td><td class="num">$0.1M</td></tr>
+        <tr><td>2016</td><td class="num">22,046</td><td class="num">$1.58B</td><td class="num">$66.1k</td><td class="num">$100M</td><td class="num">$21M</td></tr>
+        <tr><td>2017</td><td class="num">22,245</td><td class="num">$1.59B</td><td class="num">$66.2k</td><td class="num">$107M</td><td class="num">$9M</td></tr>
+        <tr><td>2018</td><td class="num">23,605</td><td class="num">$1.72B</td><td class="num">$66.3k</td><td class="num">$120M</td><td class="num">$30M</td></tr>
+        <tr><td>2019</td><td class="num">23,312</td><td class="num">$1.80B</td><td class="num">$70.8k</td><td class="num">$127M</td><td class="num">$34M</td></tr>
+        <tr><td>2020</td><td class="num">21,858</td><td class="num">$1.82B</td><td class="num">$78.9k</td><td class="num">$127M</td><td class="num">$0.4M</td></tr>
+        <tr><td>2021</td><td class="num">22,546</td><td class="num">$1.87B</td><td class="num">$78.4k</td><td class="num">$131M</td><td class="num">$7M</td></tr>
+        <tr><td>2022</td><td class="num">23,204</td><td class="num">$1.93B</td><td class="num">$79.2k</td><td class="num">$141M</td><td class="num">$9M</td></tr>
+        <tr><td>2023</td><td class="num">25,812</td><td class="num">$2.14B</td><td class="num">$79.5k</td><td class="num">$153M</td><td class="num">$51M</td></tr>
+        <tr><td>2024</td><td class="num">25,530</td><td class="num">$2.42B</td><td class="num">$84.0k</td><td class="num">$177M</td><td class="num">$114M</td></tr>
+        <tr><td>2025</td><td class="num">25,397</td><td class="num">$2.46B</td><td class="num">$90.6k</td><td class="num">$183M</td><td class="num">$33M</td></tr>
+      </tbody>
+    </table>
+    <h2>What a 2025 paycheck is made of</h2>
+    <p>Regular wages are about 83% of 2025 gross ($2.03B). The rest is overtime, detail, other, Quinn, injured, and retro.</p>
     <div class="chart-box tall"><canvas id="cMix"></canvas></div>
-    <p class="caption">Billions of dollars · regular is ~83% of 2025 gross</p>
+    <p class="caption">Billions of dollars · stacked mix by year</p>
+    <table>
+      <thead><tr><th>Component</th><th class="num">2025</th></tr></thead>
+      <tbody>
+        <tr><td>Regular</td><td class="num">$2.026B</td></tr>
+        <tr><td>Overtime</td><td class="num">$183M</td></tr>
+        <tr><td>Paid detail</td><td class="num">$79M</td></tr>
+        <tr><td>Other (settlements, buyouts, unused leave)</td><td class="num">$66M</td></tr>
+        <tr><td>Quinn / education incentive</td><td class="num">$35M</td></tr>
+        <tr><td>Injured</td><td class="num">$33M</td></tr>
+        <tr><td>Retro</td><td class="num">$33M</td></tr>
+      </tbody>
+    </table>
+    <h2>2024 is not the new baseline</h2>
+    <table>
+      <thead><tr><th></th><th class="num">2023</th><th class="num">2024</th><th class="num">2025</th></tr></thead>
+      <tbody>
+        <tr><td>Retro</td><td class="num">$51M</td><td class="num">$114M</td><td class="num">$33M</td></tr>
+        <tr><td>Share ≥ $200k</td><td class="num">3.3%</td><td class="num">9.1%</td><td class="num">7.6%</td></tr>
+        <tr><td>Police headcount</td><td class="num">3,011</td><td class="num">3,491</td><td class="num">3,094</td></tr>
+        <tr><td>Police payroll</td><td class="num">$417M</td><td class="num">$578M</td><td class="num">$534M</td></tr>
+        <tr><td>Paid detail (city)</td><td class="num">$36M</td><td class="num">$62M</td><td class="num">$79M</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Year-over-year “raises” that run through 2024 overstate the underlying trend.</p>
   </div>
 
   <div id="depts" class="tab-panel">
-    <p>85 departments after combining teaching into Education. Search filters the table.</p>
+    <p class="tab-blurb">85 departments after combining teaching into Education. Search filters the table.</p>
+    <p>Education is 144 instructional units (school sites, Teaching &amp; Learning, Special Education, adult/alternative, substitutes). Food &amp; Nutrition, Transportation, Facilities, and BPS police stay outside that rollup.</p>
     <input id="deptQ" type="search" placeholder="Filter departments…">
     <table>
       <thead>
@@ -96,16 +158,97 @@
           <th class="num">Payroll</th>
           <th class="num">Share</th>
           <th class="num">Median</th>
+          <th class="num">OT $</th>
           <th class="num">OT % of pay</th>
+          <th class="num">Share of city OT</th>
         </tr>
       </thead>
       <tbody id="deptBody"></tbody>
     </table>
-    <p class="caption">Source: 2025 earnings file · Education is combined teaching</p>
+    <p class="caption">Source: 2025 earnings file · Education is combined teaching · 85 canonical departments</p>
+    <h3>Department names, 2015 vs 2025</h3>
+    <p>After combining teaching: 44 same name, 18 renamed / successor, 23 new on the 2025 file, 6 closed or unmatched 2015 shops.</p>
+    <table>
+      <thead><tr><th>2025 name</th><th>2015 name on the file</th><th>What changed</th></tr></thead>
+      <tbody>
+        <tr><td>Age Strong</td><td>Elderly Commission</td><td>Rebrand, 2019</td></tr>
+        <tr><td>Office of Housing</td><td>Neighborhood Development</td><td>DND renamed, 2021</td></tr>
+        <tr><td>Facilities Management</td><td>BPS Facility Management</td><td>BPS prefix dropped</td></tr>
+        <tr><td>Safety Services</td><td>BPS School Safety Service</td><td>School police → OSS, 2021</td></tr>
+        <tr><td>Food &amp; Nutrition Services</td><td>Food &amp; Nutrition Svc</td><td>Abbreviation expanded</td></tr>
+        <tr><td>Immigrant Advancement</td><td>Office of New Bostonians</td><td>Rebrand</td></tr>
+        <tr><td>Procurement</td><td>ASD Purchasing Division</td><td>Label change</td></tr>
+        <tr><td>Consumer Affairs &amp; Licensing</td><td>Licensing Board</td><td>Merger</td></tr>
+        <tr><td>Planning</td><td>—</td><td>BPDA staff onto city payroll, 2024</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="people" class="tab-panel">
+    <p class="tab-blurb">Where 2025 employees live, how pay is concentrated, and who the large titles are.</p>
+    <h2>Where 2025 employees live</h2>
+    <p>25,376 of 25,397 rows have a ZIP. <strong>67%</strong> live in Boston proper. Quincy (02169 / 02170 / 02171) is the largest suburb at 629.</p>
+    <table>
+      <thead><tr><th>Neighborhood</th><th>ZIPs</th><th class="num">Employees</th><th class="num">Share of known ZIPs</th></tr></thead>
+      <tbody>
+        <tr><td>Dorchester</td><td>02121, 02122, 02124, 02125</td><td class="num">5,097</td><td class="num">20.1%</td></tr>
+        <tr><td>Hyde Park</td><td>02136</td><td class="num">1,873</td><td class="num">7.4%</td></tr>
+        <tr><td>West Roxbury</td><td>02132</td><td class="num">1,403</td><td class="num">5.5%</td></tr>
+        <tr><td>Roslindale</td><td>02131</td><td class="num">1,267</td><td class="num">5.0%</td></tr>
+        <tr><td>Roxbury</td><td>02119, 02120</td><td class="num">1,144</td><td class="num">4.5%</td></tr>
+        <tr><td>Jamaica Plain</td><td>02130</td><td class="num">1,001</td><td class="num">3.9%</td></tr>
+        <tr><td>East Boston</td><td>02128</td><td class="num">964</td><td class="num">3.8%</td></tr>
+        <tr><td>Allston-Brighton</td><td>02134, 02135, 02163</td><td class="num">947</td><td class="num">3.7%</td></tr>
+        <tr><td>Mattapan</td><td>02126</td><td class="num">940</td><td class="num">3.7%</td></tr>
+        <tr><td>South Boston / Seaport</td><td>02127, 02210</td><td class="num">860</td><td class="num">3.4%</td></tr>
+        <tr><td>Quincy (suburb)</td><td>02169, 02170, 02171</td><td class="num">629</td><td class="num">2.5%</td></tr>
+      </tbody>
+    </table>
+    <h2>Pay concentration (2025)</h2>
+    <table>
+      <thead><tr><th>Slice</th><th class="num">Share of payroll</th></tr></thead>
+      <tbody>
+        <tr><td>Top 1% of earners</td><td class="num">3.6%</td></tr>
+        <tr><td>Top 10%</td><td class="num">24.7%</td></tr>
+        <tr><td>Bottom 50%</td><td class="num">22.1%</td></tr>
+        <tr><td>Approx. Gini</td><td class="num">0.39</td></tr>
+      </tbody>
+    </table>
+    <p>The top tenth takes more payroll than the entire bottom half. That is a workforce that mixes $30k part-time school jobs with $300k police lieutenants — not a finance-industry Gini.</p>
+    <h2>Education</h2>
+    <p>12,806 people, $1.09B, median $92.5k, almost no overtime. 5,368 Teachers: $592M, median $123k (42% of Education people, 54% of Education pay).</p>
+    <table>
+      <thead><tr><th>Title</th><th class="num">People</th><th class="num">Median</th><th class="num">Payroll</th></tr></thead>
+      <tbody>
+        <tr><td>Teacher</td><td class="num">5,368</td><td class="num">$122,848</td><td class="num">$592M</td></tr>
+        <tr><td>Paraprofessional</td><td class="num">1,541</td><td class="num">$54,696</td><td class="num">$76M</td></tr>
+        <tr><td>Lunch Hour Monitors</td><td class="num">375</td><td class="num">$12,192</td><td class="num">$4.6M</td></tr>
+        <tr><td>Substitute Teacher</td><td class="num">327</td><td class="num">$6,737</td><td class="num">$5.2M</td></tr>
+        <tr><td>One to One Para</td><td class="num">293</td><td class="num">$59,832</td><td class="num">$16.5M</td></tr>
+        <tr><td>Social Worker/Coordinator</td><td class="num">253</td><td class="num">$114,514</td><td class="num">$27.4M</td></tr>
+        <tr><td>Instructional Coach</td><td class="num">198</td><td class="num">$142,165</td><td class="num">$25.8M</td></tr>
+        <tr><td>Speech &amp; Language Pathologist</td><td class="num">187</td><td class="num">$123,192</td><td class="num">$19.7M</td></tr>
+        <tr><td>Nurse</td><td class="num">184</td><td class="num">$119,955</td><td class="num">$19.7M</td></tr>
+      </tbody>
+    </table>
+    <div class="callout info">
+      <strong>MBTA is not on this file.</strong>
+      City “Transportation” is mostly BPS Cab Monitor / Cab Monitor HE (682 of 761 people), which is why the median is $33.7k. MBTA is a state authority. Public 2025 MBTA figures sit near a ~$90–92k median, in line with the citywide median, not with BPS cab monitors.
+    </div>
+    <h2>Police and Fire</h2>
+    <table>
+      <thead><tr><th></th><th class="num">People</th><th class="num">Payroll</th><th class="num">Median</th><th class="num">Overtime</th></tr></thead>
+      <tbody>
+        <tr><td>Boston Police</td><td class="num">3,094</td><td class="num">$534M</td><td class="num">$179k</td><td class="num">$102M (19% of BPD pay, 56% of city OT)</td></tr>
+        <tr><td>Boston Fire</td><td class="num">1,805</td><td class="num">$317M</td><td class="num">$175k</td><td class="num">$50M (16% of BFD pay, 27% of city OT)</td></tr>
+      </tbody>
+    </table>
+    <p>Together they write 83% of the $183M overtime check. 41% of BPD earn ≥ $200k. Median gross by inferred role (≥50 people): police lieutenant $312k · fire chief+ $289k · police sergeant $268k · fire company officer $218k · detective $213k · police officer $182k · firefighter $166k · educator $97k · nurse $66k.</p>
   </div>
 
   <div id="earners" class="tab-panel">
-    <p>Ranked by 2025 total gross. Citywide top 20 are all Boston Police. Pick Education, any department, or a school site.</p>
+    <p class="tab-blurb">Ranked by 2025 total gross. Citywide top 20 are all Boston Police. Pick Education, any department, or a school site.</p>
+    <p>Regular pay for the citywide top 20 is $145–194k; overtime, paid detail, and Quinn push totals to $420–498k. Education #1 is Skipper, Mary E, Superintendent, $377,789. Fire #1 is Osgood, Troy T, Fire Lieutenant Administration, $373,465.</p>
     <input id="earnQ" type="search" placeholder="Filter the list, then pick…">
     <select id="earnDept"></select>
     <div class="stats" id="earnStats"></div>
@@ -113,13 +256,18 @@
       <thead id="earnHead"></thead>
       <tbody id="earnBody"></tbody>
     </table>
-    <p class="caption">Source: 2025 earnings file · ranked by total gross</p>
+    <p class="caption">Source: 2025 earnings file · ranked by total gross · ~230 department and school-site lists</p>
+    <div class="callout warn">
+      <strong>Lump “other” payments are not salary.</strong>
+      Two 2021 police officers show ~$1.25M each in OTHER and $0 regular. Other large OTHER rows include 2022 Gavin ($1.05M other), 2018 Williams ($503k), 2024 Sordillo / Calobrisi, 2018 Chang. Do not put these on “highest paid” lists without context.
+    </div>
   </div>
 
   <div id="hires" class="tab-panel">
+    <p class="tab-blurb">A new hire is a normalized name on this year’s file that was not on last year’s. Attrition is the reverse.</p>
     <div class="callout warn">
       <strong>No employee ID — this is a name match</strong>
-      A new hire is a normalized name on this year’s file that was not on last year’s. Attrition is the reverse.
+      Returning after a gap counts as a hire (248 of 2,985 in 2025). Marriage, spelling, and remaining department-name changes inflate both rates. Substitutes, food service, and BPS Transportation are seasonal churn, not career turnover.
     </div>
     <div class="stats">
       <div class="stat"><div class="stat-val">2,985</div><div class="stat-label">new names in 2025</div></div>
@@ -131,7 +279,101 @@
     <div class="chart-box"><canvas id="cHires"></canvas></div>
     <h2>Hire rate vs attrition</h2>
     <div class="chart-box"><canvas id="cRates"></canvas></div>
-    <p>Of 21,793 unique 2015 names, 10,240 (47%) are still on the 2025 file. 9,733 appear in all 11 years and take 52% of 2025 pay.</p>
+    <p>Citywide attrition usually sits next to the hire rate, around 11–13%. 2020 is the only year attrition (13.8%) far exceeded hiring (8.0%) — replacement 0.55. 2018 and 2023 look like expansion (1.93 and 2.71). 2025 is roughly in balance.</p>
+    <h2>Tenure of the 2015 cohort</h2>
+    <p>Of 21,793 unique 2015 names, 10,240 (47%) are still on the 2025 file. 9,733 appear in all 11 years and take 52% of 2025 pay. Retention of the 2015 roster (still employed anywhere in the city): Fire 65% · Police 55% · Facilities 53% · Education 45%.</p>
+    <div class="grid-2">
+      <div>
+        <h3>People remaining</h3>
+        <div class="chart-box"><canvas id="cCohortN"></canvas></div>
+      </div>
+      <div>
+        <h3>Share of 2015 names still on file</h3>
+        <div class="chart-box"><canvas id="cCohortP"></canvas></div>
+      </div>
+    </div>
+    <h2>2025 hires and attrition by department</h2>
+    <input id="hireQ" type="search" placeholder="Filter departments…">
+    <table>
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th class="num">2025 people</th>
+          <th class="num">New</th>
+          <th class="num">Hire %</th>
+          <th class="num">Left</th>
+          <th class="num">Attrition %</th>
+          <th class="num">Replacement</th>
+        </tr>
+      </thead>
+      <tbody id="hireBody"></tbody>
+    </table>
+    <p class="caption">Education 1,415 new / 1,299 left, 10.3% attrition. Police 253 / 652, 18.8% after the 2024 roster bulge. Fire 73 / 192, 10.0%.</p>
+  </div>
+
+  <div id="overtime" class="tab-panel">
+    <p class="tab-blurb">Overtime grew 79% from 2015 to 2025, faster than headcount (+16%) and total payroll (+58%).</p>
+    <div class="stats">
+      <div class="stat warn"><div class="stat-val">$183M</div><div class="stat-label">City overtime, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">83%</div><div class="stat-label">Police + Fire share of OT</div></div>
+      <div class="stat"><div class="stat-val">93</div><div class="stat-label">People with OT above regular pay</div></div>
+      <div class="stat"><div class="stat-val">$79M</div><div class="stat-label">Paid details, 2025</div></div>
+    </div>
+    <p>Police $102M + Fire $50M = 83%. Public Works has the highest OT intensity (27% of that department’s pay) but only $9M of dollars. The old “80 people with OT above regular” used an unpublished $50k OT floor; the full count is 93.</p>
+    <h2>Police overtime, detail, median, and headcount</h2>
+    <div class="grid-2">
+      <div>
+        <h3>Police overtime and detail ($M)</h3>
+        <div class="chart-box"><canvas id="cPolOt"></canvas></div>
+      </div>
+      <div>
+        <h3>Police headcount</h3>
+        <div class="chart-box"><canvas id="cPolHead"></canvas></div>
+      </div>
+    </div>
+    <p class="caption">Police overtime and detail both jump in 2024 with the retro year; median $142k (2023) → $175k (2024) → $179k (2025). Headcount 3,011 → 3,491 → 3,094 — treat 2024 as an outlier, not a hiring wave.</p>
+    <h2>Overtime dollars, every department (2025)</h2>
+    <input id="otQ" type="search" placeholder="Filter departments…">
+    <table>
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th class="num">People</th>
+          <th class="num">OT dollars</th>
+          <th class="num">OT % of dept pay</th>
+          <th class="num">Share of city OT</th>
+        </tr>
+      </thead>
+      <tbody id="otBody"></tbody>
+    </table>
+  </div>
+
+  <div id="notes" class="tab-panel">
+    <p class="tab-blurb">What was cleaned, what the files cannot support, and the source reports.</p>
+    <div class="callout info">
+      <strong>What was cleaned</strong>
+      Eleven files (ten CSVs plus the 2023 workbook). Column names, money formats, encodings, and ZIP codes were normalized. Re-audit on 28 August 2026 reproduced citywide totals, the Education rollup (144 instructional units), hire/tenure counts, and Police series. Two display labels were corrected: overtime above regular pay is 93 people, and Boston-proper ZIP share is 67%.
+    </div>
+    <h2>Issues found in the raw files</h2>
+    <table>
+      <thead><tr><th>Year</th><th class="num">Rows</th><th>Encoding</th><th class="num">ZIP blanks</th><th class="num">Total ≠ parts</th><th class="num">Name dupes</th><th class="num">Lump (no regular, ≥$200k)</th></tr></thead>
+      <tbody>
+        <tr><td>2015</td><td class="num">21,902</td><td>UTF-8</td><td class="num">17</td><td class="num">0</td><td class="num">4</td><td class="num">1</td></tr>
+        <tr><td>2016</td><td class="num">22,046</td><td>Windows-1252</td><td class="num">22</td><td class="num">0</td><td class="num">4</td><td class="num">0</td></tr>
+        <tr><td>2017</td><td class="num">22,245</td><td>UTF-8</td><td class="num">49</td><td class="num">0</td><td class="num">4</td><td class="num">1</td></tr>
+        <tr><td>2018</td><td class="num">23,605</td><td>Windows-1252</td><td class="num">2</td><td class="num">0</td><td class="num">5</td><td class="num">3</td></tr>
+        <tr><td>2019</td><td class="num">23,312</td><td>UTF-8</td><td class="num">0</td><td class="num">0</td><td class="num">5</td><td class="num">3</td></tr>
+        <tr><td>2020</td><td class="num">21,858</td><td>Windows-1252</td><td class="num">93</td><td class="num">115 (&gt;$1)</td><td class="num">4</td><td class="num">2</td></tr>
+        <tr><td>2021</td><td class="num">22,546</td><td>Windows-1252</td><td class="num">1</td><td class="num">0</td><td class="num">6</td><td class="num">9</td></tr>
+        <tr><td>2022</td><td class="num">23,204</td><td>UTF-8</td><td class="num">0</td><td class="num">0</td><td class="num">3</td><td class="num">5</td></tr>
+        <tr><td>2023</td><td class="num">25,812</td><td>xlsx</td><td class="num">63</td><td class="num">0</td><td class="num">2</td><td class="num">2</td></tr>
+        <tr><td>2024</td><td class="num">25,530</td><td>UTF-8</td><td class="num">31</td><td class="num">1</td><td class="num">5</td><td class="num">7</td></tr>
+        <tr><td>2025</td><td class="num">25,397</td><td>UTF-8</td><td class="num">21</td><td class="num">1</td><td class="num">3</td><td class="num">5</td></tr>
+      </tbody>
+    </table>
+    <h3>What this data cannot support</h3>
+    <p>These files are calendar-year gross rows. A person who worked 3 months and a person who worked 12 months both appear as one row. Overtime hours are not reported — only dollars. “Other” is a junk drawer. 2024’s retro spike will distort any naive year-over-year raise. MBTA pay is a different employer and is not in this dataset.</p>
+    <p>Column names were not stable (<code>TOTAL EARNINGS</code> vs <code>TOTAL GROSS</code>; four Quinn spellings). Money used four formats. 2017 stored some ZIPs as integers; all were padded to five digits. 2020 is the messiest file: 93 missing ZIPs, 115 rows where published total disagrees with the sum of parts by more than $1, and a non-breaking space that is not valid UTF-8.</p>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -142,7 +384,20 @@ const E = window.EARNINGS;
 function renderDepts(q) {
   const rows = E.y25.filter((r) => r.d.toLowerCase().includes((q || "").toLowerCase()));
   document.getElementById("deptBody").innerHTML = rows.map((r) =>
-    `<tr><td>${r.d}</td><td class="num">${num(r.n)}</td><td class="num">${moneyM(r.p)}</td><td class="num">${pct(r.s)}</td><td class="num">${dollars(r.m)}</td><td class="num">${pct(r.op)}</td></tr>`
+    `<tr><td>${r.d}</td><td class="num">${num(r.n)}</td><td class="num">${moneyM(r.p)}</td><td class="num">${pct(r.s)}</td><td class="num">${dollars(r.m)}</td><td class="num">${moneyM(r.o)}</td><td class="num">${pct(r.op)}</td><td class="num">${r.otShareCity == null ? "—" : pct(r.otShareCity)}</td></tr>`
+  ).join("");
+}
+function renderOt(q) {
+  const rows = E.y25.filter((r) => (r.o || 0) > 0 && r.d.toLowerCase().includes((q || "").toLowerCase()))
+    .slice().sort((a, b) => (b.o || 0) - (a.o || 0));
+  document.getElementById("otBody").innerHTML = rows.map((r) =>
+    `<tr><td>${r.d}</td><td class="num">${num(r.n)}</td><td class="num">${moneyM(r.o)}</td><td class="num">${pct(r.op)}</td><td class="num">${r.otShareCity == null ? "—" : pct(r.otShareCity)}</td></tr>`
+  ).join("");
+}
+function renderHires(q) {
+  const rows = E.hire25.filter((r) => r.d.toLowerCase().includes((q || "").toLowerCase()));
+  document.getElementById("hireBody").innerHTML = rows.map((r) =>
+    `<tr><td>${r.d}</td><td class="num">${num(r.n)}</td><td class="num">${num(r.nw)}</td><td class="num">${r.hp == null ? "—" : pct(r.hp)}</td><td class="num">${num(r.lf)}</td><td class="num">${r.at == null ? "—" : pct(r.at)}</td><td class="num">${r.rp == null ? "—" : r.rp.toFixed(2)}</td></tr>`
   ).join("");
 }
 function fillEarnSelect(q) {
@@ -177,9 +432,13 @@ function renderEarners() {
     : "";
 }
 document.getElementById("deptQ").addEventListener("input", (e) => renderDepts(e.target.value));
+document.getElementById("otQ").addEventListener("input", (e) => renderOt(e.target.value));
+document.getElementById("hireQ").addEventListener("input", (e) => renderHires(e.target.value));
 document.getElementById("earnQ").addEventListener("input", (e) => { fillEarnSelect(e.target.value); renderEarners(); });
 document.getElementById("earnDept").addEventListener("change", renderEarners);
 renderDepts("");
+renderOt("");
+renderHires("");
 fillEarnSelect("");
 renderEarners();
 lineChart("cPayroll", E.years, [
@@ -205,6 +464,13 @@ lineChart("cRates", E.hireYears, [
   { label: "Hire rate %", data: E.hireRate, color: "#599ce7" },
   { label: "Attrition %", data: E.attrition, color: "#d08770" },
 ]);
+lineChart("cCohortN", E.years, [{ label: "2015 names still on file", data: E.cohortRemaining, color: "#599ce7" }]);
+lineChart("cCohortP", E.years, [{ label: "Share remaining %", data: E.cohortPct, color: "#d08770" }]);
+barChart("cPolOt", E.years, [
+  { label: "Police OT ($M)", data: E.policeOt, color: "#d08770" },
+  { label: "Police detail ($M)", data: E.policeDetail, color: "#599ce7" },
+]);
+lineChart("cPolHead", E.years, [{ label: "Police employees", data: E.policeHead, color: "#aaa" }]);
 </script>
 </body>
 </html>

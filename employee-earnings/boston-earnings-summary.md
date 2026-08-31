@@ -280,4 +280,6 @@ These files are calendar-year gross rows. A person who worked 3 months and a per
 | 2024 | `employee_earnings_report_2024.csv` |
 | 2025 | `employee-earnings-report-2025.csv` |
 
-Inflation uses BLS CPI-U; 2025 CPI is an approximate annualized figure (~320). Interactive charts and every-department tables: canvas `boston-employee-earnings.canvas.tsx`.
+Inflation uses BLS CPI-U; 2025 CPI is an approximate annualized figure (~320).
+
+**Live briefing (charts, every-department tables, top earners):** [https://dharit13.github.io/boston_public_data_analysis/earnings/](https://dharit13.github.io/boston_public_data_analysis/earnings/). Project README: [README.md](README.md). Original Cursor canvas: `canvases/boston-employee-earnings.canvas.tsx` (does not render on GitHub).

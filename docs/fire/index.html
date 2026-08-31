@@ -15,15 +15,19 @@
     <a href="../crime/">Police</a>
   </div>
   <h1>Boston Fire Department — incident analysis</h1>
-  <p class="subtitle">Boston primary incidents, 2012–2024. We are busier. Boston is not burning more.</p>
+  <p class="subtitle">Boston primary incidents, 2012–2024. We are busier. Boston is not burning more. 2025 is not a complete incident year (Jan–Feb, 1–10 Mar, 19–31 Dec on file).</p>
   <div class="tabs">
     <button class="tab-btn active" data-tab="summary">Summary</button>
-    <button class="tab-btn" data-tab="demand">Demand</button>
-    <button class="tab-btn" data-tab="mix">Mix</button>
-    <button class="tab-btn" data-tab="places">Neighborhoods</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="department">Department</button>
+    <button class="tab-btn" data-tab="city">City / Mayor</button>
+    <button class="tab-btn" data-tab="public">Public</button>
+    <button class="tab-btn" data-tab="efficiency">Efficiency / OT</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
   </div>
 
   <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Five findings. Numbers a reader can take into a meeting.</p>
     <div class="callout warn">
       <strong>We are busier. Boston is not burning more.</strong>
       Responses +61% since 2012. Fires −34%. Building fires −28%. Four in five 2024 runs were service calls or false alarms.
@@ -49,48 +53,506 @@
       <strong>Cooking fire is the common issue. Building fire is the costly one.</strong>
       Stay in the kitchen. Prevention belongs in multifamily housing, Dorchester first.
     </div>
+    <p>Open Overview for the citywide trend, Department for how to run the houses, City / Mayor for policy, Efficiency / OT for how peer departments cut wasted runs without cutting companies, Public for plain language.</p>
   </div>
 
-  <div id="demand" class="tab-panel">
-    <h2>Primary incidents per year</h2>
-    <div class="chart-box"><canvas id="cVol"></canvas></div>
-    <p class="caption">Source: BFD open files · 2012–2024 · Boston primary incidents</p>
-    <h2>Fires vs building fires</h2>
-    <div class="chart-box"><canvas id="cFire"></canvas></div>
-    <p class="caption">Building fire = NFIRS code 111</p>
-    <h2>When the department runs (2024 hours)</h2>
-    <div class="chart-box"><canvas id="cHour"></canvas></div>
-    <p class="caption">Peak total demand ~11 a.m. Peak fires 6–7 p.m. (cooking hour)</p>
-  </div>
-
-  <div id="mix" class="tab-panel">
+  <div id="overview" class="tab-panel">
+    <p class="tab-blurb">Citywide demand, mix, and data coverage, 2012–2024.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">60,096</div><div class="stat-label">Incidents in 2024</div></div>
+      <div class="stat"><div class="stat-val">164</div><div class="stat-label">Average runs per day</div></div>
+      <div class="stat ok"><div class="stat-val">3,716</div><div class="stat-label">Fires in 2024</div></div>
+      <div class="stat"><div class="stat-val">11,480</div><div class="stat-label">2025 Boston primaries on file</div></div>
+    </div>
+    <h2>Demand is up. Fire is not what grew.</h2>
+    <p>After a 2020 dip, volume climbed through 2024. Service calls nearly tripled. False alarms rose 77%. Fires are at a 13-year low.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Primary incidents per year</h3>
+        <div class="chart-box"><canvas id="cVol"></canvas></div>
+        <p class="caption">Source: BFD open files · 2012–2024 · Boston primary incidents</p>
+      </div>
+      <div>
+        <h3>Fires vs building fires</h3>
+        <div class="chart-box"><canvas id="cFire"></canvas></div>
+        <p class="caption">Building fire = NFIRS code 111</p>
+      </div>
+    </div>
     <h2>What we responded to</h2>
     <div class="chart-box tall"><canvas id="cMix"></canvas></div>
     <p class="caption">Counts by NFIRS series · weather / special / overpressure omitted</p>
+    <div class="grid-2">
+      <div>
+        <h3>2024 mix</h3>
+        <div class="chart-box"><canvas id="cMixPie"></canvas></div>
+        <p class="caption">n = 60,096 Boston primary incidents</p>
+      </div>
+      <div>
+        <h3>How the job changed, 2012 → 2024</h3>
+        <table>
+          <thead><tr><th>Category</th><th class="num">2012</th><th class="num">2024</th><th class="num">Change</th></tr></thead>
+          <tbody>
+            <tr><td>All incidents</td><td class="num">37,290</td><td class="num">60,096</td><td class="num">+61%</td></tr>
+            <tr><td>Service call share</td><td class="num">24.5%</td><td class="num">43.1%</td><td class="num">+183% count</td></tr>
+            <tr><td>False alarm share</td><td class="num">32.9%</td><td class="num">36.2%</td><td class="num">+77% count</td></tr>
+            <tr><td>Fire share</td><td class="num">15.0%</td><td class="num">6.2%</td><td class="num">−34% count</td></tr>
+            <tr><td>Building fire (111)</td><td class="num">491</td><td class="num">354</td><td class="num">−28%</td></tr>
+            <tr><td>Hazardous condition</td><td class="num">10.0%</td><td class="num">3.5%</td><td class="num">−43% count</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h2>2025 vs 2024 — January and February only</h2>
+    <p>2025 is not a complete incident year. The extract has January–February, 1–10 March, and 19–31 December. These two months are complete in both years and use the same NFIRS codes.</p>
     <table>
-      <thead><tr><th>Category</th><th class="num">2012</th><th class="num">2024</th><th class="num">Change</th></tr></thead>
+      <thead><tr><th>Category</th><th class="num">Jan–Feb 2024</th><th class="num">Jan–Feb 2025</th><th class="num">Change</th></tr></thead>
       <tbody>
-        <tr><td>All incidents</td><td class="num">37,290</td><td class="num">60,096</td><td class="num">+61%</td></tr>
-        <tr><td>Service call share</td><td class="num">24.5%</td><td class="num">43.1%</td><td class="num">+183% count</td></tr>
-        <tr><td>False alarm share</td><td class="num">32.9%</td><td class="num">36.2%</td><td class="num">+77% count</td></tr>
-        <tr><td>Fire share</td><td class="num">15.0%</td><td class="num">6.2%</td><td class="num">−34% count</td></tr>
-        <tr><td>Building fire (111)</td><td class="num">491</td><td class="num">354</td><td class="num">−28%</td></tr>
+        <tr><td>Boston primaries</td><td class="num">8,661</td><td class="num">8,521</td><td class="num">−2%</td></tr>
+        <tr><td>Fires</td><td class="num">564 (6.5%)</td><td class="num">601 (7.1%)</td><td class="num">+37</td></tr>
+        <tr><td>False alarm</td><td class="num">3,159 (36.5%)</td><td class="num">3,187 (37.4%)</td><td class="num">same mix</td></tr>
+        <tr><td>Service call</td><td class="num">3,677 (42.5%)</td><td class="num">3,373 (39.6%)</td><td class="num">−8%</td></tr>
+        <tr><td>Public service (553)</td><td class="num">2,382</td><td class="num">2,298</td><td class="num">−4%</td></tr>
+        <tr><td>Building fire (111)</td><td class="num">59</td><td class="num">51</td><td class="num">−8</td></tr>
       </tbody>
     </table>
-    <h2>Estimated loss ($M)</h2>
-    <div class="chart-box"><canvas id="cLoss"></canvas></div>
+    <p class="caption">Same ZIP-filtered Boston primaries as 2012–2024 · 2025 full-year payroll is on Efficiency / OT</p>
   </div>
 
-  <div id="places" class="tab-panel">
+  <div id="department" class="tab-panel">
+    <p class="tab-blurb">What Operations, Prevention, and the houses need: when we run, which districts, which streets, which fire types.</p>
+    <div class="callout info">
+      <strong>For Operations, Prevention, and the district chiefs</strong>
+      Staff to the clock and the houses, not to the 6% fire share. Prevention owns cooking in multifamily. Districts 8 and 12 are the fire-share districts; District 4 is the volume district.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">11 a.m.</div><div class="stat-label">Peak total demand</div></div>
+      <div class="stat warn"><div class="stat-val">6–7 p.m.</div><div class="stat-label">Peak fires (cooking hour)</div></div>
+      <div class="stat"><div class="stat-val">D4 / D8–12</div><div class="stat-label">Busiest vs highest fire share</div></div>
+    </div>
+    <h2>When companies are running</h2>
+    <p>Total demand peaks at 11 a.m. Actual fires peak at 6–7 p.m. (cooking). Sunday is lightest. July–August are heaviest.</p>
+    <div class="grid-2">
+      <div>
+        <h3>2024 incidents by hour</h3>
+        <div class="chart-box short"><canvas id="cHourAll"></canvas></div>
+        <p class="caption">Quietest 4 a.m. (1,033) · peak 11 a.m. (3,645)</p>
+      </div>
+      <div>
+        <h3>2024 fires by hour</h3>
+        <div class="chart-box short"><canvas id="cHourFire"></canvas></div>
+        <p class="caption">Peak 6 p.m. (286) · overnight trough 3–5 a.m.</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2024 by weekday</h3>
+        <div class="chart-box short"><canvas id="cWeek"></canvas></div>
+        <p class="caption">Tuesday 8,911 · Sunday 7,911</p>
+      </div>
+      <div>
+        <h3>2024 by month</h3>
+        <div class="chart-box short"><canvas id="cMonth"></canvas></div>
+        <p class="caption">July 5,717 peak · February 3,953</p>
+      </div>
+    </div>
+    <h2>What the houses actually run on</h2>
+    <p>2024’s top codes are not fires. Public service (553) is 18,214 runs. False alarms are the second workload. Cooking is the first fire type, rank 8 overall.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Most frequent 2024 types</h3>
+        <table>
+          <thead><tr><th>Code</th><th>Type</th><th class="num">Count</th></tr></thead>
+          <tbody>
+            <tr><td>553</td><td>Public service</td><td class="num">18,214</td></tr>
+            <tr><td>745</td><td>Alarm activation, no fire</td><td class="num">5,978</td></tr>
+            <tr><td>600</td><td>Good intent, other</td><td class="num">4,117</td></tr>
+            <tr><td>743</td><td>Smoke detector, no fire</td><td class="num">4,089</td></tr>
+            <tr><td>714</td><td>Malicious false alarm (central st.)</td><td class="num">2,821</td></tr>
+            <tr><td>554</td><td>Assist invalid</td><td class="num">2,593</td></tr>
+            <tr><td>735</td><td>Alarm malfunction</td><td class="num">2,358</td></tr>
+            <tr><td>113</td><td>Cooking fire, confined</td><td class="num">2,180</td></tr>
+            <tr><td>733</td><td>Smoke detector malfunction</td><td class="num">1,379</td></tr>
+            <tr><td>552</td><td>Police matter</td><td class="num">1,177</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>2024 fire types</h3>
+        <div class="chart-box tall"><canvas id="cFireTypes"></canvas></div>
+        <p class="caption">3,716 fires · cooking 59% · 1,030 of cooking fires in multifamily</p>
+      </div>
+    </div>
+    <h3>Repeat false-alarm streets, 2024</h3>
+    <table>
+      <thead><tr><th>Street (ZIP)</th><th class="num">False alarms</th></tr></thead>
+      <tbody>
+        <tr><td>Commonwealth (02215 Fenway)</td><td class="num">215</td></tr>
+        <tr><td>Broadway (02127 South Boston)</td><td class="num">195</td></tr>
+        <tr><td>Huntington (02115 Longwood)</td><td class="num">191</td></tr>
+        <tr><td>Boylston (02116 Back Bay)</td><td class="num">184</td></tr>
+        <tr><td>Centre (02130 Jamaica Plain)</td><td class="num">181</td></tr>
+        <tr><td>Harrison (02118 South End)</td><td class="num">181</td></tr>
+        <tr><td>River (02126 Mattapan)</td><td class="num">168</td></tr>
+        <tr><td>Washington (02135 Brighton)</td><td class="num">167</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Street + ZIP, not a single address</p>
+    <h3>Fire district workload, 2024</h3>
+    <table>
+      <thead><tr><th>District</th><th class="num">Incidents</th><th class="num">Fires</th><th class="num">Fire %</th></tr></thead>
+      <tbody>
+        <tr><td>4 Back Bay / Fenway / South End</td><td class="num">10,737</td><td class="num">605</td><td class="num">5.6%</td></tr>
+        <tr><td>9 Roxbury / Mission Hill</td><td class="num">8,695</td><td class="num">566</td><td class="num">6.5%</td></tr>
+        <tr><td>3 Downtown / North End</td><td class="num">7,790</td><td class="num">274</td><td class="num">3.5%</td></tr>
+        <tr><td>7 Dorchester</td><td class="num">7,545</td><td class="num">496</td><td class="num">6.6%</td></tr>
+        <tr><td>6 South Boston</td><td class="num">5,859</td><td class="num">328</td><td class="num">5.6%</td></tr>
+        <tr><td>11 Allston-Brighton</td><td class="num">4,917</td><td class="num">332</td><td class="num">6.8%</td></tr>
+        <tr><td>8 Mattapan / Dorchester</td><td class="num">4,138</td><td class="num">334</td><td class="num">8.1%</td></tr>
+        <tr><td>12 Hyde Park</td><td class="num">4,135</td><td class="num">369</td><td class="num">8.9%</td></tr>
+        <tr><td>10 West Roxbury / Roslindale</td><td class="num">3,380</td><td class="num">251</td><td class="num">7.4%</td></tr>
+        <tr><td>1 East Boston</td><td class="num">2,899</td><td class="num">161</td><td class="num">5.6%</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">District 4 is busiest. Districts 8 and 12 have the highest fire share. Still in the hazard pile: 425 carbon monoxide incidents and 392 gas leaks in 2024.</p>
+    <h2>What each shop should take from this</h2>
+    <table>
+      <thead><tr><th>Shop</th><th>Use this</th></tr></thead>
+      <tbody>
+        <tr><td>Operations</td><td>11 a.m. peak for all-calls; 6 p.m. for fire. Do not thin nights only because volume is lower — building fires still happen at 3 a.m.</td></tr>
+        <tr><td>District 4</td><td>Highest raw volume (10,737). Alarm and service load from Fenway / Back Bay / South End.</td></tr>
+        <tr><td>Districts 7, 8, 12</td><td>Dorchester–Mattapan–Hyde Park fire share. First-due strength stays.</td></tr>
+        <tr><td>Prevention</td><td>Cooking in multifamily, Dorchester first (1,030 of 2,180 cooking fires citywide were multifamily in 2024).</td></tr>
+        <tr><td>Alarm / FPB</td><td>Repeat corridors: Commonwealth 02215, Huntington 02115, Boylston 02116. 21,752 false alarms.</td></tr>
+        <tr><td>Hazmat / CO</td><td>425 CO incidents and 392 gas leaks in 2024 — still a first-due skill, not a leftover.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="city" class="tab-panel">
+    <p class="tab-blurb">What the Mayor and Council need: safety trend, equity, dollars, and decisions.</p>
+    <div class="callout warn">
+      <strong>For the Mayor: safer on fire, more expensive on everything else.</strong>
+      Boston had 34% fewer fires than in 2012 and 28% fewer building fires. The department still ran 61% more incidents because service calls and false alarms took over the tape. That is a policy mix, not a fire mix.
+    </div>
+    <div class="stats">
+      <div class="stat ok"><div class="stat-val">−34%</div><div class="stat-label">Fires since 2012</div></div>
+      <div class="stat"><div class="stat-val">+61%</div><div class="stat-label">Total runs since 2012</div></div>
+      <div class="stat warn"><div class="stat-val">$572M</div><div class="stat-label">13-year estimated loss</div></div>
+      <div class="stat warn"><div class="stat-val">29%</div><div class="stat-label">Building fires in Dorchester</div></div>
+    </div>
+    <h2>Thirteen years, one neighborhood</h2>
+    <p>ZIP-mapped areas (Dorchester includes 02121 Grove Hall). Ranked every year 2012–2024, and every 2025 window on file. The leader never changed.</p>
     <div class="callout warn">
       <strong>Dorchester is #1 for fires and volume in every year we have.</strong>
-      Staff districts 7, 8, and 12 for fire share. District 4 is volume (Fenway / Back Bay / South End alarms).
+      112,703 incidents and 14,566 fires in 2012–2024 — 18% of runs, 23% of fires, 29% of building fires, $172M estimated loss. Fires there are falling. The rank is not.
     </div>
-    <h2>Fires by neighborhood</h2>
-    <div class="chart-box tall"><canvas id="cArea"></canvas></div>
-    <h2>Cooking fires citywide</h2>
-    <div class="chart-box"><canvas id="cCook"></canvas></div>
-    <p class="caption">Cooking is the number-one fire in all 16 parts of the city</p>
+    <div class="stats">
+      <div class="stat warn"><div class="stat-val">13 / 13</div><div class="stat-label">Years as #1 for fires</div></div>
+      <div class="stat"><div class="stat-val">14,566</div><div class="stat-label">Dorchester fires, 2012–2024</div></div>
+      <div class="stat warn"><div class="stat-val">1,519</div><div class="stat-label">Building fires — 29% of Boston</div></div>
+      <div class="stat"><div class="stat-val">$172M</div><div class="stat-label">Estimated loss in Dorchester</div></div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Fires by neighborhood</h3>
+        <div class="chart-box tall"><canvas id="cAreaFire"></canvas></div>
+      </div>
+      <div>
+        <h3>All incidents by neighborhood</h3>
+        <div class="chart-box tall"><canvas id="cAreaVol"></canvas></div>
+      </div>
+    </div>
+    <h3>Who was #1 each year</h3>
+    <table>
+      <thead><tr><th>Year</th><th>#1 volume</th><th class="num">Runs</th><th>#1 fires</th><th class="num">Fires</th></tr></thead>
+      <tbody>
+        <tr><td>2012</td><td>Dorchester</td><td class="num">6,750</td><td>Dorchester</td><td class="num">1,178</td></tr>
+        <tr><td>2013</td><td>Dorchester</td><td class="num">7,313</td><td>Dorchester</td><td class="num">1,229</td></tr>
+        <tr><td>2014</td><td>Dorchester</td><td class="num">7,332</td><td>Dorchester</td><td class="num">1,294</td></tr>
+        <tr><td>2015</td><td>Dorchester</td><td class="num">8,193</td><td>Dorchester</td><td class="num">1,379</td></tr>
+        <tr><td>2016</td><td>Dorchester</td><td class="num">8,852</td><td>Dorchester</td><td class="num">1,335</td></tr>
+        <tr><td>2017</td><td>Dorchester</td><td class="num">8,544</td><td>Dorchester</td><td class="num">1,247</td></tr>
+        <tr><td>2018</td><td>Dorchester</td><td class="num">8,534</td><td>Dorchester</td><td class="num">1,147</td></tr>
+        <tr><td>2019</td><td>Dorchester</td><td class="num">8,476</td><td>Dorchester</td><td class="num">1,049</td></tr>
+        <tr><td>2020</td><td>Dorchester</td><td class="num">8,093</td><td>Dorchester</td><td class="num">1,107</td></tr>
+        <tr><td>2021</td><td>Dorchester</td><td class="num">9,123</td><td>Dorchester</td><td class="num">892</td></tr>
+        <tr><td>2022</td><td>Dorchester</td><td class="num">9,742</td><td>Dorchester</td><td class="num">990</td></tr>
+        <tr><td>2023</td><td>Dorchester</td><td class="num">10,832</td><td>Dorchester</td><td class="num">889</td></tr>
+        <tr><td>2024</td><td>Dorchester</td><td class="num">10,919</td><td>Dorchester</td><td class="num">830</td></tr>
+        <tr><td>2025 (1 Jan–10 Mar)</td><td>Dorchester</td><td class="num">1,755</td><td>Dorchester</td><td class="num">142</td></tr>
+        <tr><td>2025 (19–31 Dec added)</td><td>Dorchester</td><td class="num">375</td><td>Dorchester</td><td class="num">24</td></tr>
+      </tbody>
+    </table>
+    <h3>Dorchester’s mix over time</h3>
+    <div class="chart-box"><canvas id="cDorchMix"></canvas></div>
+    <p class="caption">ZIPs 02121, 02122, 02124, 02125 · 2012–2024</p>
+    <h2>Common fire issues — every neighborhood, every year</h2>
+    <div class="callout warn">
+      <strong>Cooking fire is the common issue. Building fire is the costly one.</strong>
+      Confined cooking (113) is 38,237 fires — 60% of all fires, and #1 in all 16 neighborhoods. Those stay in the pan ($6.3M). Building fires are 8% of fires and 90% of the dollars.
+    </div>
+    <h3>Fire families citywide, 2012–2024</h3>
+    <div class="chart-box"><canvas id="cFamily"></canvas></div>
+    <p class="caption">NFIRS 100-series · Boston ZIP · n = 63,830 fires</p>
+    <div class="grid-2">
+      <div>
+        <h3>Cooking vs building fire</h3>
+        <div class="chart-box"><canvas id="cCookBldg"></canvas></div>
+        <p class="caption">Cooking 3,319 → 2,174 · building 491 → 354 · rank never flipped</p>
+      </div>
+      <div>
+        <h3>How common across 16 areas</h3>
+        <table>
+          <thead><tr><th>Fire type</th><th class="num">Fires</th><th class="num">Top 3 in</th></tr></thead>
+          <tbody>
+            <tr><td>Cooking, confined (113)</td><td class="num">38,237</td><td class="num">16 of 16 — #1 in all</td></tr>
+            <tr><td>Building fire (111)</td><td class="num">5,210</td><td class="num">15 of 16</td></tr>
+            <tr><td>Outside trash (151)</td><td class="num">3,782</td><td class="num">8 of 16</td></tr>
+            <tr><td>Brush (142)</td><td class="num">3,105</td><td class="num">5 of 16</td></tr>
+            <tr><td>Passenger vehicle (131)</td><td class="num">2,522</td><td class="num">2 of 16</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>Fire family</th><th class="num">Fires 2012–2024</th><th class="num">Share</th><th class="num">Est. loss</th></tr></thead>
+      <tbody>
+        <tr><td>Cooking / confined (mostly 113)</td><td class="num">40,841</td><td class="num">64%</td><td class="num">$6.3M</td></tr>
+        <tr><td>Outside trash / dumpster</td><td class="num">6,474</td><td class="num">10%</td><td class="num">$0.5M</td></tr>
+        <tr><td>Brush / grass / vegetation</td><td class="num">6,136</td><td class="num">10%</td><td class="num">$1.2M</td></tr>
+        <tr><td>Building / structure</td><td class="num">5,548</td><td class="num">9%</td><td class="num">$516M</td></tr>
+        <tr><td>Vehicle</td><td class="num">2,936</td><td class="num">5%</td><td class="num">$33M</td></tr>
+      </tbody>
+    </table>
+    <h2>Building fires by neighborhood</h2>
+    <p>Code 111 — the fires that hold 90% of estimated loss. Dorchester is #1 every year, including 2025 year-to-date (18 of 62).</p>
+    <div class="chart-box"><canvas id="cBldgArea"></canvas></div>
+    <p class="caption">Dorchester never below 92; no other area ever reaches 54</p>
+    <table>
+      <thead><tr><th>Area</th><th class="num">Building fires</th><th class="num">Share</th><th class="num">#1 years</th><th class="num">Est. loss</th></tr></thead>
+      <tbody>
+        <tr><td>Dorchester</td><td class="num">1,519</td><td class="num">29%</td><td class="num">13 of 13</td><td class="num">$162M</td></tr>
+        <tr><td>Roxbury</td><td class="num">509</td><td class="num">10%</td><td class="num">0</td><td class="num">$36M</td></tr>
+        <tr><td>Allston-Brighton</td><td class="num">407</td><td class="num">8%</td><td class="num">0</td><td class="num">$42M</td></tr>
+        <tr><td>Jamaica Plain</td><td class="num">348</td><td class="num">7%</td><td class="num">0</td><td class="num">$15M</td></tr>
+        <tr><td>Downtown core</td><td class="num">336</td><td class="num">6%</td><td class="num">0</td><td class="num">$29M</td></tr>
+        <tr><td>East Boston</td><td class="num">289</td><td class="num">6%</td><td class="num">0</td><td class="num">$50M</td></tr>
+        <tr><td>Fenway / Longwood / Kenmore</td><td class="num">271</td><td class="num">5%</td><td class="num">0</td><td class="num">$42M</td></tr>
+        <tr><td>Mattapan</td><td class="num">261</td><td class="num">5%</td><td class="num">0</td><td class="num">$23M</td></tr>
+        <tr><td>Hyde Park</td><td class="num">223</td><td class="num">4%</td><td class="num">0</td><td class="num">$18M</td></tr>
+        <tr><td>South Boston</td><td class="num">217</td><td class="num">4%</td><td class="num">0</td><td class="num">$19M</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">5,210 building fires 2012–2024 · East Boston is 6% of count and ~10% of dollars</p>
+    <h2>Total loss, 2012–2024</h2>
+    <p>NFIRS estimated property plus content — officer’s figure, not insurance. 18,380 incidents reported any dollars.</p>
+    <div class="stats">
+      <div class="stat warn"><div class="stat-val">$572M</div><div class="stat-label">Total estimated loss, 2012–2024</div></div>
+      <div class="stat"><div class="stat-val">$8.1M</div><div class="stat-label">2025 estimated loss on file</div></div>
+      <div class="stat warn"><div class="stat-val">$514M</div><div class="stat-label">From building fires (90%)</div></div>
+      <div class="stat"><div class="stat-val">$6.3M</div><div class="stat-label">From cooking / confined fires</div></div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Loss by year ($ millions)</h3>
+        <div class="chart-box"><canvas id="cLoss"></canvas></div>
+        <p class="caption">2017 ($75M) is a few large building fires, not a new baseline</p>
+      </div>
+      <div>
+        <h3>Cumulative estimated loss ($ millions)</h3>
+        <div class="chart-box"><canvas id="cCumLoss"></canvas></div>
+        <p class="caption">$572M through 2024 · plus $8.1M in 2025 on file</p>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>Where the $572M sat</th><th class="num">Estimated loss</th><th class="num">Share</th></tr></thead>
+      <tbody>
+        <tr><td>Building fires (111)</td><td class="num">$514M</td><td class="num">90%</td></tr>
+        <tr><td>Vehicle fires</td><td class="num">$33M</td><td class="num">6%</td></tr>
+        <tr><td>Cooking / confined fires</td><td class="num">$6.3M</td><td class="num">1%</td></tr>
+        <tr><td>All other incidents</td><td class="num">$19M</td><td class="num">3%</td></tr>
+        <tr><td>Dorchester (all types)</td><td class="num">$172M</td><td class="num">30%</td></tr>
+        <tr><td>East Boston</td><td class="num">$53M</td><td class="num">9%</td></tr>
+        <tr><td>Allston-Brighton</td><td class="num">$44M</td><td class="num">8%</td></tr>
+        <tr><td>Property (vs contents)</td><td class="num">$483M of $572M</td><td class="num">84%</td></tr>
+      </tbody>
+    </table>
+    <h3>Largest 2024 estimated-loss jobs</h3>
+    <table>
+      <thead><tr><th>Date</th><th>Type</th><th>Neighborhood</th><th>Property</th><th class="num">Est. loss</th></tr></thead>
+      <tbody>
+        <tr><td>2024-04-02</td><td>Building fire</td><td>East Boston</td><td>Multifamily</td><td class="num">$5.1M</td></tr>
+        <tr><td>2024-06-24</td><td>Building fire</td><td>Back Bay</td><td>Other property use</td><td class="num">$4.0M</td></tr>
+        <tr><td>2024-06-15</td><td>Building fire</td><td>Dorchester</td><td>Multifamily</td><td class="num">$2.1M</td></tr>
+        <tr><td>2024-06-26</td><td>Building fire</td><td>Mission Hill</td><td>Bar / nightclub</td><td class="num">$2.0M</td></tr>
+        <tr><td>2024-03-02</td><td>Building fire</td><td>Allston</td><td>Multifamily</td><td class="num">$2.0M</td></tr>
+      </tbody>
+    </table>
+    <h2>Decisions for the Mayor and Council</h2>
+    <div class="callout warn"><strong>1. Do not trade fire companies for the mix shift</strong> Building fires are down, not gone: 354 in 2024, $41.5M that year, $514M over 13 years. Districts 8 and 12 still show the highest fire share. A 6% fire rate is not a staffing formula.</div>
+    <div class="callout warn"><strong>2. Put a price on chronic automatic alarms</strong> 21,752 false alarms in 2024. Fenway, Back Bay, Longwood, and repeat streets (Commonwealth, Huntington, Boylston). Inspection, repair orders, escalating fees after repeated unintentional activations.</div>
+    <div class="callout info"><strong>3. Decide what public service belongs to Fire</strong> 18,214 code-553 runs plus 2,593 assist-invalid calls. Some is life-safety. Much is lockouts, water, and lift assists that 311, EMS, or a community team could take. Each one still leaves a district uncovered.</div>
+    <div class="callout ok"><strong>4. Fund cooking-fire prevention first in Dorchester</strong> #1 fire neighborhood every year since 2012. 8,570 cooking fires in homes there. Then Roxbury, Allston-Brighton, and Mattapan — not a citywide pamphlet drop.</div>
+  </div>
+
+  <div id="public" class="tab-panel">
+    <p class="tab-blurb">Plain language: are fires down, why trucks still roll, what to watch at home.</p>
+    <h2>What Boston residents should know</h2>
+    <p>These are Boston Fire’s official incident records, 2012 through early 2025. EMS ambulance work is a different agency and is not in this file.</p>
+    <div class="callout ok">
+      <strong>Serious fires are down.</strong>
+      The department went to 5,609 fires in 2012 and 3,716 in 2024. Building fires — the kind that destroy homes — went from 491 to 354. That is the safety trend.
+    </div>
+    <div class="callout warn">
+      <strong>If you see fire trucks a lot, it is often not a fire.</strong>
+      In 2024, only about 6 out of every 100 runs were fires. The rest were mostly helping with public-service calls (lockouts, water, lifting someone who fell) and alarms that were not fires — burned toast, system trouble, or a pulled box with no smoke.
+    </div>
+    <div class="stats">
+      <div class="stat ok"><div class="stat-val">6 of 100</div><div class="stat-label">Runs that were fires in 2024</div></div>
+      <div class="stat warn"><div class="stat-val">3 in 5</div><div class="stat-label">Fires that started with cooking</div></div>
+      <div class="stat"><div class="stat-val">$572M</div><div class="stat-label">Estimated damage, 2012–2024</div></div>
+    </div>
+    <h3>The fire that happens in every neighborhood</h3>
+    <p>Cooking is the number-one fire in all 16 parts of the city — not just Dorchester. Most stay in the pan. Stay in the kitchen, use a timer, keep a lid nearby.</p>
+    <div class="chart-box"><canvas id="cPublicFam"></canvas></div>
+    <p class="caption">63,830 Boston fires, 2012–2024</p>
+    <h3>Where building fires concentrate</h3>
+    <p>Dorchester has had the most building fires every year for 13 years — about 3 in 10 citywide. Roxbury and Allston-Brighton are next. Homes, not downtown offices, are where the loss sits ($514 million of $572 million estimated damage was building fire).</p>
+    <table>
+      <thead><tr><th>Neighborhood</th><th class="num">Building fires, 13 years</th></tr></thead>
+      <tbody>
+        <tr><td>Dorchester</td><td class="num">1,519</td></tr>
+        <tr><td>Roxbury</td><td class="num">509</td></tr>
+        <tr><td>Allston-Brighton</td><td class="num">407</td></tr>
+        <tr><td>Jamaica Plain</td><td class="num">348</td></tr>
+        <tr><td>East Boston (fewer fires, high dollar loss)</td><td class="num">289</td></tr>
+      </tbody>
+    </table>
+    <h3>What you can do</h3>
+    <table>
+      <thead><tr><th>If you live here</th><th>Do this</th></tr></thead>
+      <tbody>
+        <tr><td>Any neighborhood</td><td>Working smoke and CO alarms. Stay with food on the stove.</td></tr>
+        <tr><td>Apartment / multifamily</td><td>Most cooking fires are in these buildings. Don’t leave oil unattended.</td></tr>
+        <tr><td>Near campus / hospital corridors</td><td>You will hear more trucks for alarms than for fires. That is the data.</td></tr>
+        <tr><td>Dorchester, Roxbury, Mattapan, Hyde Park</td><td>This is where fire share is highest. Alarms and an escape plan matter most.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="efficiency" class="tab-panel">
+    <p class="tab-blurb">What Tokyo, London, FDNY and UK brigades do that Boston can copy. 2025 overtime and headcount, with January–February 2025 incidents.</p>
+    <div class="callout warn">
+      <strong>Efficient fire departments do not run fewer firefighters. They run fewer wasted assignments.</strong>
+      Tokyo, London, FDNY, and UK brigades that get praised for productivity all do the same three things: send only the force the call type needs, stop going to unconfirmed commercial automatic alarms in daylight, and stop covering vacancies with overtime as the default.
+    </div>
+    <div class="callout info">
+      <strong>This tab is calendar 2025 payroll. Incidents are January–February 2025 — the only complete months on file.</strong>
+      2025 earnings are a full year. The incident extract still has a hole: 11 March–18 December is missing.
+    </div>
+    <div class="stats">
+      <div class="stat warn"><div class="stat-val">$49.9M</div><div class="stat-label">BFD overtime, 2025 (15.8% of pay)</div></div>
+      <div class="stat"><div class="stat-val">1,805</div><div class="stat-label">BFD people on the 2025 earnings file</div></div>
+      <div class="stat warn"><div class="stat-val">3,187</div><div class="stat-label">False alarms, Jan–Feb 2025</div></div>
+      <div class="stat"><div class="stat-val">27%</div><div class="stat-label">Share of all city overtime, 2025</div></div>
+    </div>
+    <h2>What the efficient services actually do</h2>
+    <table>
+      <thead><tr><th>Service</th><th>Practice</th><th>Result they published</th></tr></thead>
+      <tbody>
+        <tr><td>London Fire Brigade (2024–26)</td><td>Do not attend unconfirmed commercial automatic fire alarms 07:00–20:30. Always attend sleeping risk, schools, and any 999 that reports fire.</td><td>~10,000 fewer AFA attendances a year (8% of LFB calls). 23,500 staff-hours returned. Pre-arranged OT overspend £12.5M → ~£7M by filling vacancies, not closing pumps.</td></tr>
+        <tr><td>Greater Manchester / Merseyside / N. Yorkshire</td><td>Call-challenge commercial AFAs. Charge the 4th+ false alarm in 12 months at real appliance cost (~£446 / ~$560).</td><td>Owners fix detectors. UK law bills persistent commercial false alarms. Domestic 999 is never billed.</td></tr>
+        <tr><td>Tokyo Fire Department</td><td>Computer-selected dispatch by incident type. Automatic alarms get a small emergency-confirmation assignment, not a full fire turnout, unless fire is confirmed.</td><td>The company that is not needed stays in its district.</td></tr>
+        <tr><td>FDNY modified response</td><td>Automatic alarms, electrical, odor (not smoke): first-due engine + ladder emergency; extra units no lights/sirens and cancel if nothing showing.</td><td>Fewer collisions, less time out of first-due, less fuel. St. Louis ~90% fewer apparatus crashes after adaptive response.</td></tr>
+        <tr><td>San Diego Fire-Rescue OT audit (2025)</td><td>Most fire OT is vacant seats and a wrong relief factor — not extra fires. Build a relief pool; count all leave in the staffing math.</td><td>Hiring into a relief pool is cheaper than paying time-and-a-half forever.</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">LFB LFC-24-022; North Yorkshire 2024 false-alarm charges; Tokyo Fire Service white paper; FDNY modified-response; San Diego Fire-Rescue overtime audit 2025</p>
+    <h2>Boston vs that model — using our files</h2>
+    <p>2025 earnings: 1,805 people, $317M gross, $49.9M overtime (15.8% of BFD pay, 27% of city OT). Retro is $0.1M — unlike 2024, this OT line is not mixed with contract catch-up. Roster fell from 1,919 in 2024. January–February 2025: 8,521 Boston primaries, 7.1% fire, 37% false alarm. The mix did not change. The seats did.</p>
+    <table>
+      <thead><tr><th>Boston fact</th><th>Efficient-department move</th><th>Staff and OT</th></tr></thead>
+      <tbody>
+        <tr><td>Jan–Feb 2025: 3,187 false alarms (37.4%), vs 3,159 (36.5%) the same months in 2024.</td><td>London rule: no auto-dispatch to unconfirmed commercial AFA 07:00–20:30. Still go to residences, hospitals, dorms, nursing homes, and any human report of fire or smoke.</td><td>If ~40% of these two months’ false alarms are daytime commercial AFA (~1,270), that is on the order of 1,000 company-hours in January and February alone not spent rolling.</td></tr>
+        <tr><td>Ordinance 11-5A.5: fines start on the 4th malfunction in a half-year, $50 then $200. Too small to change a campus system.</td><td>UK cost recovery: ~$560 per appliance-hour from the 4th commercial false alarm in 12 months.</td><td>Behavior change first. Token $50 fines do not buy a single extra tour.</td></tr>
+        <tr><td>Jan–Feb 2025: 2,298 public-service (553) + 403 assist-invalid.</td><td>Lockouts, water, lift-assist without injury go to 311 or a two-person unit. Fire goes only if there is a medical or fire risk.</td><td>A 50% diversion of 553 is ~1,150 fewer engine runs in two winter months, concentrated on the 11 a.m. peak.</td></tr>
+        <tr><td>Peak all-calls 11 a.m. Peak fires 6–7 p.m. Full assignment to morning alarms pulls companies off the dinner-hour fire problem.</td><td>Tokyo / FDNY: small confirmation assignment on alarms; full box only on report of fire.</td><td>Fewer Code-3 miles, fewer wrecks and IOD tours. First-due stays home for cooking fires.</td></tr>
+        <tr><td>2025 Fire earnings: 1,805 people (down from 1,919), $49.9M OT. About 202 people on the 2024 file are gone; 88 names are new.</td><td>2025 is the empty-seat year. OT rose while the roster shrank. Fill vacancies and change the run mix. Do not shrink companies.</td><td>Hiring without AFA/service reform just staffs the same 37% false-alarm load.</td></tr>
+      </tbody>
+    </table>
+    <h2>Hire and shift people — instead of paying time-and-a-half</h2>
+    <p>Median firefighter regular pay that year was $134k; median overtime $26k. Covering a seat with overtime costs about 1.5× regular.</p>
+    <div class="stats">
+      <div class="stat warn"><div class="stat-val">$49.9M</div><div class="stat-label">Overtime, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">$16.0M</div><div class="stat-label">Injured pay, 2025 (people off the line)</div></div>
+      <div class="stat"><div class="stat-val">$134k</div><div class="stat-label">Median firefighter regular, 2025</div></div>
+      <div class="stat"><div class="stat-val">50</div><div class="stat-label">Hires that replace OT seats (~$3.4M premium saved)</div></div>
+    </div>
+    <div class="callout info">
+      <strong>The 2025 math: 50 firefighters cost ~$6.7M regular. The same hours on overtime cost ~$10.1M.</strong>
+      Net to the City: about $3.4M less, and 50 people are not working a second tour. That only works if the new people take seats that are today filled by callback.
+    </div>
+    <h3>Who earned the overtime in 2025</h3>
+    <table>
+      <thead><tr><th>Title</th><th class="num">People</th><th class="num">Overtime</th><th class="num">OT per person</th></tr></thead>
+      <tbody>
+        <tr><td>Fire Fighter</td><td class="num">809</td><td class="num">$21.3M</td><td class="num">$26,400</td></tr>
+        <tr><td>Fire Fighter-Technician</td><td class="num">158</td><td class="num">$4.5M</td><td class="num">$28,200</td></tr>
+        <tr><td>Fire Lieutenant</td><td class="num">138</td><td class="num">$4.3M</td><td class="num">$30,800</td></tr>
+        <tr><td>Fire Fighter-AdvanceTechnician</td><td class="num">55</td><td class="num">$1.9M</td><td class="num">$35,100</td></tr>
+        <tr><td>Fire Captain</td><td class="num">46</td><td class="num">$1.7M</td><td class="num">$37,800</td></tr>
+        <tr><td>Fire Lieutenant Administration</td><td class="num">41</td><td class="num">$1.7M</td><td class="num">$41,900</td></tr>
+        <tr><td>FF Investigator Admin</td><td class="num">19</td><td class="num">$1.1M</td><td class="num">$55,100</td></tr>
+        <tr><td>Dist Fire Chief</td><td class="num">26</td><td class="num">$0.9M</td><td class="num">$35,500</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">1,658 of 1,805 had some overtime · 241 people at $50k+ OT</p>
+    <h3>Where to put people — fire load, not alarm load</h3>
+    <table>
+      <thead><tr><th>Jan–Feb 2025 district</th><th class="num">Incidents</th><th class="num">Fires</th><th class="num">Fire %</th><th>Put people here?</th></tr></thead>
+      <tbody>
+        <tr><td>7 Dorchester</td><td class="num">1,045</td><td class="num">68</td><td class="num">6.5%</td><td>Yes — hire / float. Dorchester is still 29% of city building fires in the complete years.</td></tr>
+        <tr><td>9 Roxbury / Mission Hill</td><td class="num">1,273</td><td class="num">102</td><td class="num">8.0%</td><td>Yes — hire / float.</td></tr>
+        <tr><td>8 Mattapan / Dorchester</td><td class="num">587</td><td class="num">52</td><td class="num">8.9%</td><td>Yes — highest fire share with District 12.</td></tr>
+        <tr><td>12 Hyde Park</td><td class="num">633</td><td class="num">77</td><td class="num">12.2%</td><td>Yes — highest fire share in these two months.</td></tr>
+        <tr><td>11 Allston-Brighton</td><td class="num">738</td><td class="num">45</td><td class="num">6.1%</td><td>Yes — building-fire dollars stay high over the complete years.</td></tr>
+        <tr><td>4 Back Bay / Fenway / South End</td><td class="num">1,491</td><td class="num">129</td><td class="num">8.7%</td><td>Do not add engines for alarms. AFA policy + modified response.</td></tr>
+        <tr><td>3 Downtown / North End</td><td class="num">1,099</td><td class="num">23</td><td class="num">2.1%</td><td>Same as District 4 — alarm/service mix, not a hiring target.</td></tr>
+      </tbody>
+    </table>
+    <h3>Shift work off Fire — other city departments</h3>
+    <p>If the caller reports fire, smoke, flames, or a burning vehicle, Fire goes. Passenger vehicle fires are a separate code (131): 19 of them in these two months.</p>
+    <table>
+      <thead><tr><th>Jan–Feb 2025 work</th><th class="num">Runs</th><th>Move to</th><th>What Fire keeps</th></tr></thead>
+      <tbody>
+        <tr><td>Public service (553)</td><td class="num">2,298</td><td>311 / Public Works / Inspectional</td><td>Only if fire, CO, or medical risk</td></tr>
+        <tr><td>Assist invalid (554)</td><td class="num">403</td><td>Boston EMS</td><td>Fire if a fall with fire/CO or no EMS unit</td></tr>
+        <tr><td>Police matter (552)</td><td class="num">141</td><td>Boston Police — after it is clear there is no fire</td><td>A burning vehicle is a fire (code 131). Flames, smoke, or fuel leak: Fire goes.</td></tr>
+        <tr><td>Water or steam leak (522)</td><td class="num">210</td><td>Water/Sewer or Public Works</td><td>Fire if electrical or structural risk</td></tr>
+        <tr><td>Lock-out (511)</td><td class="num">88</td><td>311 / private locksmith</td><td>Fire if a child/elder/medical inside</td></tr>
+        <tr><td>Alarm malfunction / unintentional (commercial, daytime)</td><td class="num">~1,270 of 3,187</td><td>Building owner + Fire Prevention inspection</td><td>Sleeping risk, hospitals, any report of smoke</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="notes" class="tab-panel">
+    <h2>What was cleaned</h2>
+    <p>Five source files: 2012 and 2013 BFD extracts, the 2014–2025 open-data file, an updated extract that adds 19–31 December 2025, plus NFIRS incident-type and property-use lists. Kept: valid incident number, parseable date, three-digit incident type, non-negative loss under $50M.</p>
+    <table>
+      <thead><tr><th>Quality check</th><th class="num">Records</th></tr></thead>
+      <tbody>
+        <tr><td>Raw rows (all files)</td><td class="num">641,615</td></tr>
+        <tr><td>Kept after cleaning</td><td class="num">631,890</td></tr>
+        <tr><td>Dropped — invalid incident type</td><td class="num">9,706</td></tr>
+        <tr><td>Dropped — duplicate incident + exposure</td><td class="num">19</td></tr>
+        <tr><td>Primary incidents (exposure 0)</td><td class="num">631,585</td></tr>
+        <tr><td>Boston geography used here</td><td class="num">628,291</td></tr>
+        <tr><td>2024 Boston primaries</td><td class="num">60,096</td></tr>
+        <tr><td>2025 Boston primaries on file</td><td class="num">11,480</td></tr>
+        <tr><td>2025 windows on file</td><td class="num">Jan–Feb, 1–10 Mar, 19–31 Dec</td></tr>
+      </tbody>
+    </table>
+    <p>2012–2013 neighborhood field is blank; geography is zip-mapped. City section “BO” was not used because it collapses Back Bay, Fenway, South End, and downtown. Boston EMS is a separate system — almost no 300-series in these files. Estimated loss is not an audited total. 2025 is not a complete year: 11 March–18 December is still missing. Do not annualize 11,480 into a 2025 total.</p>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -98,14 +560,11 @@
 <script src="data.js"></script>
 <script>
 const F = window.FIRE;
+const pal = ["#c45c5c","#d08770","#599ce7","#7bafe9","#aaa","#f1b467","#3fa266"];
 lineChart("cVol", F.years, [{ label: "Incidents", data: F.volume }]);
 lineChart("cFire", F.years, [
   { label: "All fires", data: F.fires, color: "#d08770" },
   { label: "Building fires (111)", data: F.building, color: "#c45c5c" },
-]);
-barChart("cHour", F.hours, [
-  { label: "All incidents", data: F.hourAll, color: "#599ce7" },
-  { label: "Fires", data: F.hourFire, color: "#c45c5c" },
 ]);
 barChart("cMix", F.years, [
   { label: "Service", data: F.service, color: "#599ce7" },
@@ -114,11 +573,50 @@ barChart("cMix", F.years, [
   { label: "Hazard", data: F.hazard, color: "#f1b467" },
   { label: "Fire", data: F.fires, color: "#c45c5c" },
 ], { stacked: true });
-lineChart("cLoss", F.years, [{ label: "Estimated loss ($M)", data: F.lossM, color: "#d08770" }]);
-lineChart("cArea", F.years, Object.entries(F.areaFire).map(([label, data], i) => ({
-  label, data, color: ["#c45c5c","#d08770","#599ce7","#7bafe9","#aaa","#f1b467"][i],
-})));
-lineChart("cCook", F.years, [{ label: "Cooking fires", data: F.cooking, color: "#d08770" }]);
+pieChart("cMixPie", [
+  { label: "Service call", value: 25931, color: "#599ce7" },
+  { label: "False alarm", value: 21752, color: "#d08770" },
+  { label: "Good intent", value: 6326, color: "#888" },
+  { label: "Fire", value: 3716, color: "#c45c5c" },
+  { label: "Hazardous condition", value: 2132, color: "#f1b467" },
+  { label: "Other", value: 239, color: "#555" },
+]);
+lineChart("cHourAll", F.hours, [{ label: "All incidents", data: F.hourAll }]);
+lineChart("cHourFire", F.hours, [{ label: "Fires", data: F.hourFire, color: "#c45c5c" }]);
+barChart("cWeek", F.weekdays, [{ label: "Incidents", data: F.weekday2024 }]);
+barChart("cMonth", F.months, [{ label: "Incidents", data: F.month2024 }]);
+barChart("cFireTypes", ["Cooking (113)","Building (111)","Outside trash","Brush","Passenger vehicle","Contained trash"], [
+  { label: "2024 fires", data: [2180,354,291,167,135,123], color: "#c45c5c" },
+], { horizontal: true });
+lineChart("cAreaFire", F.years, Object.entries(F.areaFire).map(([label, data], i) => ({ label, data, color: pal[i] })));
+lineChart("cAreaVol", F.years, Object.entries(F.areaVolume).map(([label, data], i) => ({ label, data, color: pal[i] })));
+barChart("cDorchMix", F.years, [
+  { label: "Service", data: F.dorchesterMix.service, color: "#599ce7" },
+  { label: "False alarm", data: F.dorchesterMix.falseAlarm, color: "#d08770" },
+  { label: "Good intent", data: F.dorchesterMix.goodIntent, color: "#888" },
+  { label: "Fire", data: F.dorchesterMix.fire, color: "#c45c5c" },
+  { label: "Hazard", data: F.dorchesterMix.hazard, color: "#f1b467" },
+], { stacked: true });
+barChart("cFamily", F.years, [
+  { label: "Cooking / confined", data: F.fireFamily.cooking, color: "#c45c5c" },
+  { label: "Outside trash", data: F.fireFamily.trash, color: "#d08770" },
+  { label: "Vegetation", data: F.fireFamily.vegetation, color: "#3fa266" },
+  { label: "Building", data: F.fireFamily.building, color: "#599ce7" },
+  { label: "Vehicle", data: F.fireFamily.vehicle, color: "#888" },
+], { stacked: true });
+lineChart("cCookBldg", F.years, [
+  { label: "Cooking, confined (113)", data: F.cooking, color: "#d08770" },
+  { label: "Building fire (111)", data: F.building, color: "#c45c5c" },
+]);
+lineChart("cBldgArea", F.years, Object.entries(F.bldgArea).map(([label, data], i) => ({ label, data, color: pal[i] })));
+barChart("cLoss", F.years, [
+  { label: "All estimated loss", data: F.lossM, color: "#888" },
+  { label: "Building-fire loss", data: F.bldgLossM, color: "#c45c5c" },
+]);
+lineChart("cCumLoss", F.years, [{ label: "Running total", data: F.cumLossM, color: "#c45c5c" }]);
+barChart("cPublicFam", ["Cooking (stayed in pan)","Trash / outside","Brush / grass","Building","Car / vehicle"], [
+  { label: "Fires 2012–2024", data: [40841,6474,6136,5548,2936], color: "#c45c5c" },
+], { horizontal: true });
 </script>
 </body>
 </html>

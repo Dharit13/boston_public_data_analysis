@@ -76,6 +76,27 @@ function barChart(id, labels, series, opts) {
   });
 }
 
+function pieChart(id, slices) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: "doughnut",
+    data: {
+      labels: slices.map((s) => s.label),
+      datasets: [{
+        data: slices.map((s) => s.value),
+        backgroundColor: slices.map((s) => s.color || "#599ce7"),
+        borderWidth: 0,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { position: "right" } },
+    },
+  });
+}
+
 function bindTabs() {
   document.querySelectorAll(".tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
