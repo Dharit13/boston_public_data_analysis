@@ -1,6 +1,6 @@
 # Boston public data analysis
 
-Three briefings built from City of Boston open data: **employee earnings** (2015–2025), **fire incidents** (2012–2024), and **police incidents** (2016–2025).
+Four briefings built from City of Boston open data: **employee earnings** (2015–2025), **fire incidents** (2012–2024), **police incidents** (2016–2025), and **311 service requests** (2016–2026 YTD).
 
 **Live site (GitHub Pages):** [https://dharit13.github.io/boston_public_data_analysis/](https://dharit13.github.io/boston_public_data_analysis/)
 
@@ -9,6 +9,7 @@ Three briefings built from City of Boston open data: **employee earnings** (2015
 | Employee earnings, CY 2015–2025 | [Open](https://dharit13.github.io/boston_public_data_analysis/earnings/) | [boston-earnings-summary.md](employee-earnings/boston-earnings-summary.md) | [employee-earnings/](employee-earnings/) |
 | Fire incidents, 2012–2024 | [Open](https://dharit13.github.io/boston_public_data_analysis/fire/) | [boston-fire-summary.md](fire-incidents/boston-fire-summary.md) | [fire-incidents/](fire-incidents/) |
 | Police incidents, 2016–2025 | [Open](https://dharit13.github.io/boston_public_data_analysis/crime/) | [boston-police-summary.md](crime-incidents/boston-police-summary.md) | [crime-incidents/](crime-incidents/) |
+| 311 service requests, 2016–2026 YTD | [Open](https://dharit13.github.io/boston_public_data_analysis/311/) | [boston-311-summary.md](311-service-requests/boston-311-summary.md) | [311-service-requests/](311-service-requests/) |
 
 The Pages site is the briefing you can share. Each project folder has a README (how to reproduce) and a markdown writeup (findings, tables, caveats). Cursor `.canvas.tsx` files are the original working notebooks; they do not render on GitHub.
 
@@ -17,6 +18,7 @@ The Pages site is the briefing you can share. Each project folder has a README (
 - **Earnings (2025):** $2.46B gross · 25,397 people · $90.6k median · $183M overtime. Education (teaching rollup) + Police + Fire are **79% of payroll**. Treat **2024** as a contract-catch-up year ($114M retro), not a new normal. Re-audited 28 August 2026.
 - **Fire (2024):** 60,096 runs · fires **−34%** since 2012 · building fires **−28%**. Dorchester led fires **every year**. Cooking is the common fire; building fires hold **90%** of estimated loss ($572M over 13 years).
 - **Police (2025):** 81,162 reports · serious violence **−41%** since 2016 · 120 shooting victims (−37% vs 2019). **Do not use 2020 as a baseline.** B2 / B3 / C11 still hold **72%** of shooting victims. D4 took volume because of shoplifting, not guns.
+- **311 (2025):** 276,093 legacy cases (+8.8% vs 2019) · 68% on time · 59% sanitation or parking. **Do not add** the Oct 2025 NEW SYSTEM file (46,436). Peak year is 2023 (307,791).
 
 ## How to read this repo
 
@@ -24,7 +26,7 @@ The Pages site is the briefing you can share. Each project folder has a README (
 boston_public_data_analysis/
   README.md                          this file
   docs/                              GitHub Pages site (HTML + charts)
-    earnings/  fire/  crime/
+    earnings/  fire/  crime/  311/
   employee-earnings/
     README.md
     boston-earnings-summary.md       full writeup
@@ -42,6 +44,12 @@ boston_public_data_analysis/
     analyze_crime.py
     outputs/*.json
     canvases/
+  311-service-requests/
+    README.md
+    boston-311-summary.md
+    analyze_311.py
+    outputs/*.json
+    canvases/
 ```
 
 Raw City CSVs are **not** in the repo (they are large and republished by the City). Cleaning scripts read `$BOSTON_DATA_DIR` or `~/Downloads`. Derived JSON lives under each project’s `outputs/` folder.
@@ -54,10 +62,11 @@ Python 3 standard library only (`python3 -m` — no extra packages).
 export BOSTON_DATA_DIR="$HOME/Downloads"   # optional; this is the default
 cd fire-incidents && python3 analyze_fire.py && python3 timeline_areas.py && python3 timeline_fire_loss.py
 cd ../crime-incidents && python3 analyze_crime.py
+cd ../311-service-requests && python3 analyze_311.py
 ```
 
 Earnings figures on the live page were recomputed from the 11 published reports (see [employee-earnings/README.md](employee-earnings/README.md) for file names). Source: [Analyze Boston](https://data.boston.gov/).
 
 ## What the files are not
 
-Calendar-year gross payroll is not FTE, W-2, or budget. Fire estimated loss is the officer’s NFIRS figure, not insurance. Police mix after 2018 is classified from offense text because UCR fields go blank. 2025 fire incidents are incomplete on the extract (March–mid-December hole). MBTA pay is a different employer.
+Calendar-year gross payroll is not FTE, W-2, or budget. Fire estimated loss is the officer’s NFIRS figure, not insurance. Police mix after 2018 is classified from offense text because UCR fields go blank. 2025 fire incidents are incomplete on the extract (March–mid-December hole). MBTA pay is a different employer. 311 2025 legacy and NEW SYSTEM are parallel files — do not add them.

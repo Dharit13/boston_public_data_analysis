@@ -1,0 +1,862 @@
+{
+  "quality": {
+    "legacy_raw": 2819637,
+    "legacy_kept": 2819637,
+    "new_raw": 46436,
+    "new_kept": 46436,
+    "note": "Oct 2025 CRM split. Do not add legacy 2025 + NEW SYSTEM as one citywide total without a footnote. Compare 2025 vs 2019, not vs 2020.",
+    "new_all": 46436,
+    "new_2025": 4132
+  },
+  "date_span": {
+    "min": "2016-01-01",
+    "max": "2026-08-30"
+  },
+  "years": [
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "by_year": [
+    {
+      "year": 2016,
+      "incidents": 210483,
+      "legacy": 210483,
+      "new": 0
+    },
+    {
+      "year": 2017,
+      "incidents": 245475,
+      "legacy": 245475,
+      "new": 0
+    },
+    {
+      "year": 2018,
+      "incidents": 257610,
+      "legacy": 257610,
+      "new": 0
+    },
+    {
+      "year": 2019,
+      "incidents": 253782,
+      "legacy": 253782,
+      "new": 0
+    },
+    {
+      "year": 2020,
+      "incidents": 246165,
+      "legacy": 246165,
+      "new": 0
+    },
+    {
+      "year": 2021,
+      "incidents": 269665,
+      "legacy": 269665,
+      "new": 0
+    },
+    {
+      "year": 2022,
+      "incidents": 272931,
+      "legacy": 272931,
+      "new": 0
+    },
+    {
+      "year": 2023,
+      "incidents": 307791,
+      "legacy": 307791,
+      "new": 0
+    },
+    {
+      "year": 2024,
+      "incidents": 306756,
+      "legacy": 306756,
+      "new": 0
+    },
+    {
+      "year": 2025,
+      "incidents": 276093,
+      "legacy": 276093,
+      "new": 4132
+    },
+    {
+      "year": 2026,
+      "incidents": 172886,
+      "legacy": 172886,
+      "new": 42304
+    }
+  ],
+  "stacked": {
+    "years": [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "series": [
+      {
+        "name": "Parking / vehicles",
+        "data": [
+          30151,
+          41648,
+          44855,
+          47211,
+          43366,
+          62682,
+          62739,
+          61630,
+          68212,
+          65615
+        ]
+      },
+      {
+        "name": "Sanitation / streets",
+        "data": [
+          55889,
+          67038,
+          74718,
+          76662,
+          85692,
+          85796,
+          84718,
+          91500,
+          97358,
+          96796
+        ]
+      },
+      {
+        "name": "Housing / ISD",
+        "data": [
+          5139,
+          4929,
+          4636,
+          4330,
+          5506,
+          5243,
+          4946,
+          5445,
+          5375,
+          5250
+        ]
+      },
+      {
+        "name": "Parks / trees",
+        "data": [
+          15194,
+          15583,
+          15830,
+          15871,
+          16987,
+          17691,
+          16448,
+          18280,
+          19715,
+          14766
+        ]
+      },
+      {
+        "name": "Lights / signs",
+        "data": [
+          22677,
+          23003,
+          23897,
+          21713,
+          16201,
+          17434,
+          17076,
+          17297,
+          16809,
+          17103
+        ]
+      },
+      {
+        "name": "Animals",
+        "data": [
+          8818,
+          9115,
+          9003,
+          9598,
+          11269,
+          12492,
+          14114,
+          14352,
+          17018,
+          15463
+        ]
+      },
+      {
+        "name": "Snow",
+        "data": [
+          1698,
+          5644,
+          4506,
+          2071,
+          1303,
+          531,
+          2025,
+          214,
+          931,
+          819
+        ]
+      },
+      {
+        "name": "Fire / CO",
+        "data": [
+          280,
+          297,
+          535,
+          311,
+          226,
+          221,
+          240,
+          258,
+          304,
+          343
+        ]
+      },
+      {
+        "name": "Road defects",
+        "data": [
+          17822,
+          28019,
+          31404,
+          30155,
+          16658,
+          18741,
+          25429,
+          18351,
+          20461,
+          24725
+        ]
+      },
+      {
+        "name": "Other",
+        "data": [
+          52815,
+          50199,
+          48226,
+          45860,
+          48957,
+          48834,
+          45196,
+          80464,
+          60573,
+          35213
+        ]
+      }
+    ]
+  },
+  "y2019": {
+    "n": 253782,
+    "per_day": 695.3,
+    "peak_hour": 9,
+    "quiet_hour": 3,
+    "families": [
+      {
+        "label": "Sanitation / streets",
+        "value": 76662
+      },
+      {
+        "label": "Parking / vehicles",
+        "value": 47211
+      },
+      {
+        "label": "Other",
+        "value": 45860
+      },
+      {
+        "label": "Road defects",
+        "value": 30155
+      },
+      {
+        "label": "Lights / signs",
+        "value": 21713
+      },
+      {
+        "label": "Parks / trees",
+        "value": 15871
+      },
+      {
+        "label": "Animals",
+        "value": 9598
+      },
+      {
+        "label": "Housing / ISD",
+        "value": 4330
+      },
+      {
+        "label": "Snow",
+        "value": 2071
+      },
+      {
+        "label": "Fire / CO",
+        "value": 311
+      }
+    ]
+  },
+  "y2020": {
+    "n": 246165,
+    "per_day": 672.6,
+    "peak_hour": 9,
+    "quiet_hour": 3,
+    "families": [
+      {
+        "label": "Sanitation / streets",
+        "value": 85692
+      },
+      {
+        "label": "Other",
+        "value": 48957
+      },
+      {
+        "label": "Parking / vehicles",
+        "value": 43366
+      },
+      {
+        "label": "Parks / trees",
+        "value": 16987
+      },
+      {
+        "label": "Road defects",
+        "value": 16658
+      },
+      {
+        "label": "Lights / signs",
+        "value": 16201
+      },
+      {
+        "label": "Animals",
+        "value": 11269
+      },
+      {
+        "label": "Housing / ISD",
+        "value": 5506
+      },
+      {
+        "label": "Snow",
+        "value": 1303
+      },
+      {
+        "label": "Fire / CO",
+        "value": 226
+      }
+    ]
+  },
+  "y2025": {
+    "n": 276093,
+    "per_day": 756.4,
+    "peak_hour": 8,
+    "quiet_hour": 4,
+    "families": [
+      {
+        "label": "Sanitation / streets",
+        "value": 96796
+      },
+      {
+        "label": "Parking / vehicles",
+        "value": 65615
+      },
+      {
+        "label": "Other",
+        "value": 35213
+      },
+      {
+        "label": "Road defects",
+        "value": 24725
+      },
+      {
+        "label": "Lights / signs",
+        "value": 17103
+      },
+      {
+        "label": "Animals",
+        "value": 15463
+      },
+      {
+        "label": "Parks / trees",
+        "value": 14766
+      },
+      {
+        "label": "Housing / ISD",
+        "value": 5250
+      },
+      {
+        "label": "Snow",
+        "value": 819
+      },
+      {
+        "label": "Fire / CO",
+        "value": 343
+      }
+    ]
+  },
+  "y2026_ytd": {
+    "n": 172886,
+    "per_day": 717.4,
+    "peak_hour": 8,
+    "quiet_hour": 4,
+    "families": [
+      {
+        "label": "Sanitation / streets",
+        "value": 47435
+      },
+      {
+        "label": "Parking / vehicles",
+        "value": 46546
+      },
+      {
+        "label": "Road defects",
+        "value": 23992
+      },
+      {
+        "label": "Other",
+        "value": 19871
+      },
+      {
+        "label": "Snow",
+        "value": 13325
+      },
+      {
+        "label": "Lights / signs",
+        "value": 9603
+      },
+      {
+        "label": "Animals",
+        "value": 7186
+      },
+      {
+        "label": "Housing / ISD",
+        "value": 4168
+      },
+      {
+        "label": "Parks / trees",
+        "value": 546
+      },
+      {
+        "label": "Fire / CO",
+        "value": 214
+      }
+    ]
+  },
+  "hour_2025": [
+    3729,
+    2699,
+    2027,
+    1675,
+    1404,
+    2455,
+    8005,
+    17349,
+    23430,
+    22787,
+    21780,
+    20106,
+    19137,
+    17923,
+    16778,
+    16327,
+    15793,
+    14307,
+    13454,
+    10606,
+    8183,
+    6126,
+    5345,
+    4668
+  ],
+  "weekday_2025": [
+    44264,
+    46984,
+    45671,
+    41627,
+    40506,
+    29408,
+    27633
+  ],
+  "month_2025": [
+    19285,
+    21510,
+    22803,
+    22441,
+    24106,
+    25047,
+    25435,
+    28933,
+    28847,
+    22634,
+    18478,
+    16574
+  ],
+  "neighborhoods_2025": [
+    {
+      "label": "Dorchester",
+      "value": 34831
+    },
+    {
+      "label": "Roxbury",
+      "value": 25174
+    },
+    {
+      "label": "South End",
+      "value": 22455
+    },
+    {
+      "label": "South Boston / South Boston Waterfront",
+      "value": 22015
+    },
+    {
+      "label": "Allston / Brighton",
+      "value": 21874
+    },
+    {
+      "label": "East Boston",
+      "value": 17487
+    },
+    {
+      "label": "Downtown / Financial District",
+      "value": 16146
+    },
+    {
+      "label": "Jamaica Plain",
+      "value": 15975
+    },
+    {
+      "label": "Back Bay",
+      "value": 15398
+    },
+    {
+      "label": "Boston",
+      "value": 12442
+    },
+    {
+      "label": "Greater Mattapan",
+      "value": 9955
+    },
+    {
+      "label": "Roslindale",
+      "value": 9601
+    },
+    {
+      "label": "Hyde Park",
+      "value": 9513
+    },
+    {
+      "label": "Beacon Hill",
+      "value": 8755
+    },
+    {
+      "label": "West Roxbury",
+      "value": 8115
+    }
+  ],
+  "families_2025": [
+    {
+      "label": "Sanitation / streets",
+      "value": 96796
+    },
+    {
+      "label": "Parking / vehicles",
+      "value": 65615
+    },
+    {
+      "label": "Other",
+      "value": 35213
+    },
+    {
+      "label": "Road defects",
+      "value": 24725
+    },
+    {
+      "label": "Lights / signs",
+      "value": 17103
+    },
+    {
+      "label": "Animals",
+      "value": 15463
+    },
+    {
+      "label": "Parks / trees",
+      "value": 14766
+    },
+    {
+      "label": "Housing / ISD",
+      "value": 5250
+    },
+    {
+      "label": "Snow",
+      "value": 819
+    },
+    {
+      "label": "Fire / CO",
+      "value": 343
+    }
+  ],
+  "top_types_2025": [
+    {
+      "label": "Parking Enforcement",
+      "value": 60632
+    },
+    {
+      "label": "Requests for Street Cleaning",
+      "value": 20917
+    },
+    {
+      "label": "Improper Storage of Trash (Barrels)",
+      "value": 20083
+    },
+    {
+      "label": "CE Collection",
+      "value": 18653
+    },
+    {
+      "label": "Needle Pickup",
+      "value": 11689
+    },
+    {
+      "label": "Request for Pothole Repair",
+      "value": 11064
+    },
+    {
+      "label": "Missed Trash/Recycling/Yard Waste/Bulk Item",
+      "value": 9972
+    },
+    {
+      "label": "Poor Conditions of Property",
+      "value": 9063
+    },
+    {
+      "label": "Pick up Dead Animal",
+      "value": 8699
+    },
+    {
+      "label": "Sidewalk Repair (Make Safe)",
+      "value": 6707
+    },
+    {
+      "label": "Unshoveled Sidewalk",
+      "value": 6478
+    },
+    {
+      "label": "Sign Repair",
+      "value": 6398
+    },
+    {
+      "label": "Rodent Activity",
+      "value": 5225
+    },
+    {
+      "label": "Tree Maintenance Requests",
+      "value": 4713
+    },
+    {
+      "label": "Abandoned Vehicles",
+      "value": 4706
+    }
+  ],
+  "on_time_2025": {
+    "ontime": 187812,
+    "overdue": 88281,
+    "unknown": 0,
+    "ontime_pct": 68.0
+  },
+  "district_profile_2025": [
+    {
+      "district": "D4 South End",
+      "code": "D4",
+      "incidents": 52999,
+      "overdue": 13930,
+      "overdue_pct": 26.3,
+      "sanitation": 26726
+    },
+    {
+      "district": "A1 Downtown",
+      "code": "A1",
+      "incidents": 33507,
+      "overdue": 10728,
+      "overdue_pct": 32.0,
+      "sanitation": 14852
+    },
+    {
+      "district": "C6 South Boston",
+      "code": "C6",
+      "incidents": 28804,
+      "overdue": 11499,
+      "overdue_pct": 39.9,
+      "sanitation": 6761
+    },
+    {
+      "district": "D14 Brighton",
+      "code": "D14",
+      "incidents": 25379,
+      "overdue": 8027,
+      "overdue_pct": 31.6,
+      "sanitation": 7303
+    },
+    {
+      "district": "C11 Dorchester",
+      "code": "C11",
+      "incidents": 25306,
+      "overdue": 7871,
+      "overdue_pct": 31.1,
+      "sanitation": 7677
+    },
+    {
+      "district": "B2 Roxbury",
+      "code": "B2",
+      "incidents": 23537,
+      "overdue": 6736,
+      "overdue_pct": 28.6,
+      "sanitation": 8025
+    },
+    {
+      "district": "A7 East Boston",
+      "code": "A7",
+      "incidents": 17484,
+      "overdue": 5890,
+      "overdue_pct": 33.7,
+      "sanitation": 5680
+    },
+    {
+      "district": "E13 Jamaica Plain",
+      "code": "E13",
+      "incidents": 16683,
+      "overdue": 5764,
+      "overdue_pct": 34.6,
+      "sanitation": 4930
+    },
+    {
+      "district": "E5 West Roxbury",
+      "code": "E5",
+      "incidents": 16212,
+      "overdue": 5741,
+      "overdue_pct": 35.4,
+      "sanitation": 3957
+    },
+    {
+      "district": "B3 Mattapan",
+      "code": "B3",
+      "incidents": 14973,
+      "overdue": 4431,
+      "overdue_pct": 29.6,
+      "sanitation": 4671
+    },
+    {
+      "district": "E18 Hyde Park",
+      "code": "E18",
+      "incidents": 11697,
+      "overdue": 3840,
+      "overdue_pct": 32.8,
+      "sanitation": 4305
+    },
+    {
+      "district": "A15 Charlestown",
+      "code": "A15",
+      "incidents": 7721,
+      "overdue": 3437,
+      "overdue_pct": 44.5,
+      "sanitation": 1841
+    }
+  ],
+  "repeat_streets_2025": [
+    {
+      "label": "391-397 Congress St (Boston)",
+      "value": 377
+    },
+    {
+      "label": "1138-1138 Washington St (South End)",
+      "value": 360
+    },
+    {
+      "label": "1 City Hall Plz (Boston)",
+      "value": 271
+    },
+    {
+      "label": "77 Chandler St (South End)",
+      "value": 257
+    },
+    {
+      "label": "79 Chandler St (South End)",
+      "value": 173
+    },
+    {
+      "label": "1 City Hall Plz (Downtown / Financial District)",
+      "value": 171
+    },
+    {
+      "label": "4-6 Greendale Rd (Greater Mattapan)",
+      "value": 156
+    },
+    {
+      "label": "62 Kirkwood Rd (Allston / Brighton)",
+      "value": 152
+    },
+    {
+      "label": "544P Massachusetts Ave (Roxbury)",
+      "value": 147
+    },
+    {
+      "label": "Intersection Public Alley No. 414 & Public Alley No. 415 (Back Bay)",
+      "value": 143
+    },
+    {
+      "label": "307 Foster St (Allston / Brighton)",
+      "value": 141
+    },
+    {
+      "label": "446-456 W Broadway (South Boston / South Boston Waterfront)",
+      "value": 138
+    }
+  ],
+  "new_system_2026": {
+    "n": 42304,
+    "per_day": 174.8,
+    "peak_hour": 9,
+    "quiet_hour": 3,
+    "families": [
+      {
+        "label": "Sanitation / streets",
+        "value": 11322
+      },
+      {
+        "label": "Other",
+        "value": 10550
+      },
+      {
+        "label": "Animals",
+        "value": 6511
+      },
+      {
+        "label": "Parks / trees",
+        "value": 5932
+      },
+      {
+        "label": "Road defects",
+        "value": 4076
+      },
+      {
+        "label": "Lights / signs",
+        "value": 3867
+      },
+      {
+        "label": "Parking / vehicles",
+        "value": 44
+      },
+      {
+        "label": "Snow",
+        "value": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston 311 service requests, 2016–2026 YTD</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a href="../earnings/">Earnings</a>
+    <a href="../fire/">Fire</a>
+    <a href="../crime/">Police</a>
+    <a class="active" href="./">311</a>
+  </div>
+  <h1>Boston 311 — city briefing</h1>
+  <p class="subtitle">Cleaned Analyze Boston 311 Service Requests, 1 January 2016 through 30 August 2026. Legacy annual files are the citywide series. A parallel NEW SYSTEM file starts October 2025 — do not add the two. 2020 is COVID.</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="department">Department</button>
+    <button class="tab-btn" data-tab="city">City / Mayor</button>
+    <button class="tab-btn" data-tab="public">Public</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Six findings. Numbers a reader can take into a meeting.</p>
+    <div class="callout warn">
+      <strong>311 is busier than 2019. The 2025 drop is a system change, not fewer complaints.</strong>
+      Legacy cases 253,782 in 2019 → 276,093 in 2025 (+8.8%). Peak year is 2023 (307,791). 59% of 2025 is sanitation or parking. 32% of cases closed overdue.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">276,093</div><div class="stat-label">Legacy cases in 2025 · 756 a day</div></div>
+      <div class="stat warn"><div class="stat-val">68%</div><div class="stat-label">Closed on time in 2025</div></div>
+      <div class="stat"><div class="stat-val">59%</div><div class="stat-label">Sanitation + parking, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">46,436</div><div class="stat-label">NEW SYSTEM cases (Oct 2025–)</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Finding</th><th class="num">Number</th></tr></thead>
+      <tbody>
+        <tr><td>2025 vs 2019 (legacy)</td><td class="num">276,093 vs 253,782 (+8.8%)</td></tr>
+        <tr><td>2023 peak, then 2024</td><td class="num">307,791 → 306,756</td></tr>
+        <tr><td>Parking enforcement, 2025</td><td class="num">60,632 · #1 type</td></tr>
+        <tr><td>On time / overdue, 2025</td><td class="num">187,812 / 88,281 · 68% on time</td></tr>
+        <tr><td>Dorchester cases, 2025</td><td class="num">34,831 · #1 neighborhood</td></tr>
+        <tr><td>2026 YTD (legacy, through 30 Aug)</td><td class="num">172,886 · 717 a day</td></tr>
+      </tbody>
+    </table>
+    <p>Open Overview for the citywide trend, Department for the clock and SLA, City / Mayor for policy, Public for plain language.</p>
+  </div>
+
+  <div id="overview" class="tab-panel">
+    <p class="tab-blurb">Citywide 311 demand, mix, and the Oct 2025 CRM split. 2020 is COVID — not a baseline.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">276,093</div><div class="stat-label">Legacy cases in 2025</div></div>
+      <div class="stat"><div class="stat-val">756</div><div class="stat-label">Average cases per day</div></div>
+      <div class="stat"><div class="stat-val">172,886</div><div class="stat-label">2026 YTD through 30 Aug</div></div>
+      <div class="stat"><div class="stat-val">2.82M</div><div class="stat-label">Legacy rows 2016–2026 YTD</div></div>
+    </div>
+    <h2>Volume peaked in 2023. 2025 is not a collapse — it is a CRM split.</h2>
+    <p>Use 2019 as the last normal pre-COVID year, not 2020. Legacy 311 climbed from 210,483 in 2016 to 307,791 in 2023, then held 306,756 in 2024. 2025 is 276,093 on the legacy file — 8.8% above 2019, 10% below the 2023 peak. December is the lightest month (16,574). The Oct CRM split is part of that drop, not the whole story: NEW SYSTEM 2025 is only 4,132 cases, and seasonal demand falls after August (28,933).</p>
+    <div class="callout warn">
+      <strong>2020 is a COVID year. Do not use it as a baseline.</strong>
+      311 dipped only 3% in 2020 (253,782 → 246,165). Housing / ISD rose (4,330 → 5,506). Compare 2025 to 2019, then show 2020 as the shock.
+    </div>
+    <div class="callout warn">
+      <strong>Oct 2025: two 311 systems. Do not add them.</strong>
+      A NEW SYSTEM file starts in October 2025 (4,132 cases that year, 42,304 in 2026 YTD, 46,436 in all). Parks, trees, and some other types moved. Parking enforcement stayed on the legacy file. Adding 276,093 + 46,436 is not a citywide total.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Legacy 311 cases per year</h3>
+        <div class="chart-box"><canvas id="cVol"></canvas></div>
+        <p class="caption">Source: Analyze Boston 311 Service Requests · legacy annual files · 2016–2025 · 2026 YTD omitted (through 30 Aug, 172,886)</p>
+      </div>
+      <div>
+        <h3>Sanitation vs parking</h3>
+        <div class="chart-box"><canvas id="cSanPark"></canvas></div>
+        <p class="caption">Source: unified type family · 2016–2025 legacy · 2025 sanitation 96,796 · parking 65,615</p>
+      </div>
+    </div>
+    <h3>What people asked for — share of cases by year</h3>
+    <div class="chart-box tall"><canvas id="cMix"></canvas></div>
+    <p class="caption">Source: Analyze Boston 311 · 2016–2025 complete years · legacy file only · snow / fire-CO omitted (under 1% most years; snow is higher in storm winters)</p>
+    <div class="grid-2">
+      <div>
+        <h3>2025 mix (legacy)</h3>
+        <div class="chart-box"><canvas id="cMixPie"></canvas></div>
+        <p class="caption">Source: 2025 legacy 311 (n = 276,093) · snow 819 and fire/CO 343 omitted</p>
+      </div>
+      <div>
+        <h3>How the job changed, 2019 → 2025</h3>
+        <table>
+          <thead><tr><th>Category</th><th class="num">2019</th><th class="num">2025</th><th class="num">Change</th></tr></thead>
+          <tbody>
+            <tr><td>All cases (legacy)</td><td class="num">253,782</td><td class="num">276,093</td><td class="num">+8.8%</td></tr>
+            <tr><td>Sanitation / streets</td><td class="num">76,662</td><td class="num">96,796</td><td class="num">+26%</td></tr>
+            <tr><td>Parking / vehicles</td><td class="num">47,211</td><td class="num">65,615</td><td class="num">+39%</td></tr>
+            <tr><td>Road defects</td><td class="num">30,155</td><td class="num">24,725</td><td class="num">−18%</td></tr>
+            <tr><td>Lights / signs</td><td class="num">21,713</td><td class="num">17,103</td><td class="num">−21%</td></tr>
+            <tr><td>Parks / trees</td><td class="num">15,871</td><td class="num">14,766</td><td class="num">−7% · vs 2024 19,715</td></tr>
+            <tr><td>Housing / ISD</td><td class="num">4,330</td><td class="num">5,250</td><td class="num">+21%</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Source: complete years · parks/trees 2024→2025 drop is the Oct CRM split (NEW SYSTEM 2026 already has 5,932 parks/trees), not fewer trees</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="department" class="tab-panel">
+    <p class="tab-blurb">What 311, Public Works, and Transportation need: when cases open, which districts are overdue, which streets repeat.</p>
+    <div class="callout info">
+      <strong>For 311, Public Works, Transportation, and ISD</strong>
+      Staff the 8 a.m. open. D4 is the volume district; A15 is the SLA district. Needle pickup is a real caseload (11,689). Most parks/trees after October 2025 live on the NEW SYSTEM file.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">8 a.m.</div><div class="stat-label">Peak open hour, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">44.5%</div><div class="stat-label">A15 Charlestown overdue</div></div>
+      <div class="stat ok"><div class="stat-val">26.3%</div><div class="stat-label">D4 South End overdue</div></div>
+    </div>
+    <h2>When 311 opens cases</h2>
+    <p>2025 demand peaks at 8 a.m. (23,430). The overnight trough is 4 a.m. (1,404). Tuesday is heaviest; Sunday is lightest. August is the peak month; December is the lightest — seasonal demand plus the Oct CRM split pulling some work off this file.</p>
+    <div class="grid-2">
+      <div>
+        <h3>2025 cases by hour</h3>
+        <div class="chart-box"><canvas id="cHour"></canvas></div>
+        <p class="caption">Source: 2025 legacy 311 · peak 8 a.m. (23,430) · quietest 4 a.m. (1,404) · Boston, all neighborhoods</p>
+      </div>
+      <div>
+        <h3>On time vs overdue, 2025</h3>
+        <div class="chart-box"><canvas id="cSla"></canvas></div>
+        <p class="caption">Source: 2025 legacy on_time flag · 187,812 ONTIME · 88,281 OVERDUE · 68.0% on time · unknown 0</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 by weekday</h3>
+        <div class="chart-box short"><canvas id="cWeek"></canvas></div>
+        <p class="caption">Source: 2025 legacy 311 · Tuesday 46,984 · Sunday 27,633</p>
+      </div>
+      <div>
+        <h3>2025 by month</h3>
+        <div class="chart-box short"><canvas id="cMonth"></canvas></div>
+        <p class="caption">Source: 2025 legacy 311 · August 28,933 peak · December 16,574 (seasonal + Oct CRM split)</p>
+      </div>
+    </div>
+    <h2>What the desks actually close</h2>
+    <p>Parking enforcement is the #1 type (60,632). Street cleaning, trash barrels, and CE collection follow. Needle pickup is 11,689 cases — not a rounding error.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Most frequent 2025 types</h3>
+        <table>
+          <thead><tr><th>Type</th><th class="num">Count</th></tr></thead>
+          <tbody>
+            <tr><td>Parking Enforcement</td><td class="num">60,632</td></tr>
+            <tr><td>Requests for Street Cleaning</td><td class="num">20,917</td></tr>
+            <tr><td>Improper Storage of Trash (Barrels)</td><td class="num">20,083</td></tr>
+            <tr><td>CE Collection</td><td class="num">18,653</td></tr>
+            <tr><td>Needle Pickup</td><td class="num">11,689</td></tr>
+            <tr><td>Request for Pothole Repair</td><td class="num">11,064</td></tr>
+            <tr><td>Missed Trash/Recycling/Yard Waste/Bulk Item</td><td class="num">9,972</td></tr>
+            <tr><td>Poor Conditions of Property</td><td class="num">9,063</td></tr>
+            <tr><td>Pick up Dead Animal</td><td class="num">8,699</td></tr>
+            <tr><td>Sidewalk Repair (Make Safe)</td><td class="num">6,707</td></tr>
+            <tr><td>Unshoveled Sidewalk</td><td class="num">6,478</td></tr>
+            <tr><td>Sign Repair</td><td class="num">6,398</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Source: 2025 legacy 311 type field · top 12 of 276,093</p>
+      </div>
+      <div>
+        <h3>Repeat streets, 2025</h3>
+        <table>
+          <thead><tr><th>Street (neighborhood)</th><th class="num">Cases</th></tr></thead>
+          <tbody>
+            <tr><td>391-397 Congress St (Boston)</td><td class="num">377</td></tr>
+            <tr><td>1138-1138 Washington St (South End)</td><td class="num">360</td></tr>
+            <tr><td>1 City Hall Plz (Boston)</td><td class="num">271</td></tr>
+            <tr><td>77 Chandler St (South End)</td><td class="num">257</td></tr>
+            <tr><td>79 Chandler St (South End)</td><td class="num">173</td></tr>
+            <tr><td>1 City Hall Plz (Downtown / Financial District)</td><td class="num">171</td></tr>
+            <tr><td>4-6 Greendale Rd (Greater Mattapan)</td><td class="num">156</td></tr>
+            <tr><td>62 Kirkwood Rd (Allston / Brighton)</td><td class="num">152</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Source: 2025 legacy · street + neighborhood as recorded · City Hall Plaza is the intake address, not a cluster of potholes</p>
+        <h3>NEW SYSTEM 2026 mix</h3>
+        <div class="chart-box short"><canvas id="cNew"></canvas></div>
+        <p class="caption">Source: NEW SYSTEM 2026 YTD (n = 42,304) · parking is 44 cases — that work stayed on legacy</p>
+      </div>
+    </div>
+    <h2>What each shop should take from this</h2>
+    <table>
+      <thead><tr><th>Shop</th><th>Use this</th></tr></thead>
+      <tbody>
+        <tr><td>311 intake</td><td>Peak 8 a.m., not evenings. Tuesday is the heavy day. Sunday is 41% below Tuesday.</td></tr>
+        <tr><td>Public Works</td><td>Sanitation is 96,796 of 276,093. Street cleaning, barrels, CE collection, missed trash.</td></tr>
+        <tr><td>Transportation</td><td>Parking enforcement 60,632. Abandoned vehicles 4,706. That work stayed on the legacy file in 2026.</td></tr>
+        <tr><td>ISD / housing</td><td>Housing/ISD 5,250 in 2025, above 2019 (4,330). 2020 was 5,506 — up, not a doubling.</td></tr>
+        <tr><td>Parks</td><td>Do not read the 2025 parks/trees drop as fewer trees. NEW SYSTEM 2026 already has 5,932 parks/trees cases.</td></tr>
+        <tr><td>District A15</td><td>Worst overdue share (44.5%) on the smallest district volume (7,721).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="city" class="tab-panel">
+    <p class="tab-blurb">What the Mayor and Council need: volume vs 2019, SLA, neighborhood load, and the dual-system footnote.</p>
+    <div class="callout warn">
+      <strong>For the Mayor: 311 demand is above 2019. SLA is the policy number.</strong>
+      Boston took 8.8% more 311 cases in 2025 than in 2019. One in three closed overdue. The October CRM cut makes 2025 look smaller than 2023 — do not brief that as a service win until both files are counted, with a footnote.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">+8.8%</div><div class="stat-label">2025 vs 2019 volume</div></div>
+      <div class="stat warn"><div class="stat-val">32%</div><div class="stat-label">Overdue share, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">60,632</div><div class="stat-label">Parking enforcement cases</div></div>
+      <div class="stat warn"><div class="stat-val">11,689</div><div class="stat-label">Needle pickups, 2025</div></div>
+    </div>
+    <h2>Where cases land</h2>
+    <p>Dorchester leads 2025 volume (34,831). D4 South End leads by police district (52,999) because that district covers more than one neighborhood (Police briefing: D4 South End / Back Bay). Charlestown (A15) has the worst overdue share at 44.5%.</p>
+    <div class="grid-2">
+      <div>
+        <h3>2025 neighborhoods</h3>
+        <div class="chart-box tall"><canvas id="cNb"></canvas></div>
+        <p class="caption">Source: 2025 legacy 311 neighborhood field · top 12 · “Boston” catch-all (12,442) omitted</p>
+      </div>
+      <div>
+        <h3>2025 police district</h3>
+        <table>
+          <thead><tr><th>District</th><th class="num">Cases</th><th class="num">Overdue</th><th class="num">Overdue %</th><th class="num">Sanitation</th></tr></thead>
+          <tbody>
+            <tr><td>D4 South End</td><td class="num">52,999</td><td class="num">13,930</td><td class="num">26.3%</td><td class="num">26,726</td></tr>
+            <tr><td>A1 Downtown</td><td class="num">33,507</td><td class="num">10,728</td><td class="num">32.0%</td><td class="num">14,852</td></tr>
+            <tr><td>C6 South Boston</td><td class="num">28,804</td><td class="num">11,499</td><td class="num">39.9%</td><td class="num">6,761</td></tr>
+            <tr><td>D14 Brighton</td><td class="num">25,379</td><td class="num">8,027</td><td class="num">31.6%</td><td class="num">7,303</td></tr>
+            <tr><td>C11 Dorchester</td><td class="num">25,306</td><td class="num">7,871</td><td class="num">31.1%</td><td class="num">7,677</td></tr>
+            <tr><td>B2 Roxbury</td><td class="num">23,537</td><td class="num">6,736</td><td class="num">28.6%</td><td class="num">8,025</td></tr>
+            <tr><td>A7 East Boston</td><td class="num">17,484</td><td class="num">5,890</td><td class="num">33.7%</td><td class="num">5,680</td></tr>
+            <tr><td>E13 Jamaica Plain</td><td class="num">16,683</td><td class="num">5,764</td><td class="num">34.6%</td><td class="num">4,930</td></tr>
+            <tr><td>E5 West Roxbury</td><td class="num">16,212</td><td class="num">5,741</td><td class="num">35.4%</td><td class="num">3,957</td></tr>
+            <tr><td>B3 Mattapan</td><td class="num">14,973</td><td class="num">4,431</td><td class="num">29.6%</td><td class="num">4,671</td></tr>
+            <tr><td>E18 Hyde Park</td><td class="num">11,697</td><td class="num">3,840</td><td class="num">32.8%</td><td class="num">4,305</td></tr>
+            <tr><td>A15 Charlestown</td><td class="num">7,721</td><td class="num">3,437</td><td class="num">44.5%</td><td class="num">1,841</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Source: 2025 legacy 311 · police_district · overdue = OVERDUE flag · A15 worst SLA</p>
+      </div>
+    </div>
+    <h2>Decisions this supports</h2>
+    <table>
+      <thead><tr><th>Ask</th><th>Number</th></tr></thead>
+      <tbody>
+        <tr><td>Do not add 2025 legacy + NEW SYSTEM as one citywide total</td><td>276,093 + 46,436 is a double-count trap</td></tr>
+        <tr><td>SLA is the City metric, not raw volume</td><td>68% on time · A15 44.5% overdue</td></tr>
+        <tr><td>Needle pickup is a public-health 311 load</td><td>11,689 cases in 2025</td></tr>
+        <tr><td>Parking stayed on the old CRM in 2026</td><td>46,546 parking on legacy YTD · 44 on NEW SYSTEM</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="public" class="tab-panel">
+    <p class="tab-blurb">Plain language: what Bostonians ask 311 for, whether cases close on time, what changed in 2025.</p>
+    <h2>What Boston residents should know</h2>
+    <p>These are City of Boston 311 service requests, 2016 through 30 August 2026. This is not 911, and it is not Boston Police or Fire incident records.</p>
+    <div class="callout info">
+      <strong>Most 311 is trash, streets, and parking.</strong>
+      In 2025, 96,796 cases were sanitation or streets and 65,615 were parking or vehicles. Together that is 59% of the file. The single biggest type is parking enforcement (60,632).
+    </div>
+    <div class="callout warn">
+      <strong>About one in three cases closed late.</strong>
+      187,812 of 276,093 cases in 2025 were marked on time (68%). 88,281 were overdue. Charlestown had the highest overdue share.
+    </div>
+    <div class="callout warn">
+      <strong>The city changed 311 systems in October 2025.</strong>
+      Some request types (especially parks and trees) now live in a new system. If a 2025 total looks lower than 2023, ask whether both systems were counted.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 cases by hour</h3>
+        <div class="chart-box"><canvas id="cHourPub"></canvas></div>
+        <p class="caption">Source: 2025 legacy 311 · most opens at 8 a.m. (23,430)</p>
+      </div>
+      <div>
+        <h3>Neighborhoods with the most 2025 cases</h3>
+        <div class="chart-box"><canvas id="cNbPub"></canvas></div>
+        <p class="caption">Source: 2025 legacy 311 neighborhood field · top 5 of 276,093 · names as recorded</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="notes" class="tab-panel">
+    <p class="tab-blurb">What this file is, and is not.</p>
+    <h2>What this file is, and is not</h2>
+    <table>
+      <thead><tr><th>Rule</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Legacy 2016–2026 YTD kept 2,819,637 of 2,819,637 rows</td><td>No date/id drop. Counts match the datastore dumps.</td></tr>
+        <tr><td>NEW SYSTEM kept 46,436 of 46,436</td><td>Parallel CRM from Oct 2025. 4,132 of those are calendar 2025.</td></tr>
+        <tr><td>2026 is YTD through 30 Aug</td><td>Legacy 172,886 · NEW SYSTEM 42,304. Not a full year.</td></tr>
+        <tr><td>Do not add 2025 legacy + NEW SYSTEM</td><td>Oct CRM split. Parks/trees and other types moved.</td></tr>
+        <tr><td>Compare 2025 to 2019, not 2020</td><td>2020 COVID. 311 only dipped 3%; housing/ISD rose 4,330 → 5,506.</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston dataset 311-service-requests · dumps pulled 31 Aug 2026 · date span 2016-01-01 to 2026-08-30</p>
+    <p>Raw City CSVs are not in this repo. Run <code>python3 analyze_311.py</code> from <code>311-service-requests/</code> with files in <code>$BOSTON_DATA_DIR</code> or <code>~/Downloads</code>.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const S = window.SR311;
+lineChart("cVol", S.years, [{ label: "Cases", data: S.volume }]);
+lineChart("cSanPark", S.years, [
+  { label: "Sanitation / streets", data: S.sanitation, color: "#599ce7" },
+  { label: "Parking / vehicles", data: S.parking, color: "#d08770" },
+]);
+barChart("cMix", S.years, [
+  { label: "Sanitation / streets", data: S.sanitation, color: "#599ce7" },
+  { label: "Parking / vehicles", data: S.parking, color: "#d08770" },
+  { label: "Other", data: S.other, color: "#555" },
+  { label: "Road defects", data: S.road, color: "#888" },
+  { label: "Lights / signs", data: S.lights, color: "#f1b467" },
+  { label: "Animals", data: S.animals, color: "#7bafe9" },
+  { label: "Parks / trees", data: S.parks, color: "#3fa266" },
+  { label: "Housing / ISD", data: S.housing, color: "#c45c5c" },
+], { stacked: true });
+pieChart("cMixPie", [
+  { label: "Sanitation / streets", value: 96796, color: "#599ce7" },
+  { label: "Parking / vehicles", value: 65615, color: "#d08770" },
+  { label: "Other", value: 35213, color: "#555" },
+  { label: "Road defects", value: 24725, color: "#888" },
+  { label: "Lights / signs", value: 17103, color: "#f1b467" },
+  { label: "Animals", value: 15463, color: "#7bafe9" },
+  { label: "Parks / trees", value: 14766, color: "#3fa266" },
+  { label: "Housing / ISD", value: 5250, color: "#c45c5c" },
+]);
+lineChart("cHour", S.hours, [{ label: "Cases", data: S.hour2025 }]);
+pieChart("cSla", [
+  { label: "On time", value: 187812, color: "#3fa266" },
+  { label: "Overdue", value: 88281, color: "#c45c5c" },
+]);
+barChart("cWeek", S.weekdays, [{ label: "Cases", data: S.weekday2025 }]);
+barChart("cMonth", S.months, [{ label: "Cases", data: S.month2025 }]);
+barChart("cNew", S.newFamLabels, [{ label: "2026 NEW SYSTEM", data: S.newFam2026 }], { horizontal: true });
+barChart("cNb", S.nbLabels, [{ label: "2025 cases", data: S.nb2025 }], { horizontal: true });
+lineChart("cHourPub", S.hours, [{ label: "Cases", data: S.hour2025 }]);
+barChart("cNbPub", S.nbLabels.slice(0, 5), [{ label: "2025 cases", data: S.nb2025.slice(0, 5) }], { horizontal: true });
+</script>
+</body>
+</html>
