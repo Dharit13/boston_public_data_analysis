@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston food safety, 2006–2026 YTD</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a href="../earnings/">Earnings</a>
+    <a href="../fire/">Fire</a>
+    <a href="../crime/">Police</a>
+    <a href="../311/">311</a>
+    <a href="../vision-zero/">Vision Zero</a>
+    <a href="../building-permits/">Permits</a>
+    <a class="active" href="./">Food</a>
+  </div>
+  <h1>Boston food safety — city briefing</h1>
+  <p class="subtitle">Analyze Boston Food Establishment Inspections, results 4 April 2006 through 28 August 2026, and Active Food Establishment Licenses (3,347). 2012–2025 are complete inspection years. 2026 is not a full year. 2020 is COVID. These two files are not RentSmart and are not building permits.</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="department">Department</button>
+    <button class="tab-btn" data-tab="city">City / Mayor</button>
+    <button class="tab-btn" data-tab="public">Public</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Six findings. Numbers a reader can take into a meeting.</p>
+    <div class="callout warn">
+      <strong>Inspections rose versus 2019. The fail share rose with them.</strong>
+      Collapsed food inspections were 12,414 in 2025 against 10,116 in 2019 (+22.7%). Fail share was 40.3% against 37.0%. Do not add 3,347 licenses into 12,414.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">12,414</div><div class="stat-label">Inspections in 2025 · 34.0 a day</div></div>
+      <div class="stat"><div class="stat-val">+22.7%</div><div class="stat-label">Inspections vs 2019</div></div>
+      <div class="stat warn"><div class="stat-val">40.3%</div><div class="stat-label">Fail share, 2025</div></div>
+      <div class="stat"><div class="stat-val">3,347</div><div class="stat-label">Active licenses (separate file)</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Finding</th><th class="num">Number</th></tr></thead>
+      <tbody>
+        <tr><td>2025 vs 2019 inspections</td><td class="num">12,414 vs 10,116 (+22.7%)</td></tr>
+        <tr><td>2025 vs 2019 fail share</td><td class="num">40.3% vs 37.0%</td></tr>
+        <tr><td>HE_Pass / HE_Fail / HE_FailExt, 2025</td><td class="num">6,191 / 3,867 / 1,134</td></tr>
+        <tr><td>Starred violation rows, 2025</td><td class="num">* 24,219 · ** 11,929 · *** 4,498</td></tr>
+        <tr><td>Peak result hour, 2025</td><td class="num">4 p.m. (2,667) · Wednesday 2,682</td></tr>
+        <tr><td>2026 YTD inspections (through 28 Aug)</td><td class="num">8,894 · 37.1 a day</td></tr>
+      </tbody>
+    </table>
+    <p>Open Overview for the citywide trend, Department for the result clock, City / Mayor for ZIP fail rates, Public for plain language.</p>
+  </div>
+
+  <div id="overview" class="tab-panel">
+    <p class="tab-blurb">Citywide food inspections. 2020 is COVID — not a baseline. 2026 is not a full year. Licenses are a separate file.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">12,414</div><div class="stat-label">Inspections in 2025</div></div>
+      <div class="stat"><div class="stat-val">34.0</div><div class="stat-label">Average inspections per day</div></div>
+      <div class="stat warn"><div class="stat-val">40.3%</div><div class="stat-label">Fail share, 2025</div></div>
+      <div class="stat"><div class="stat-val">217,847</div><div class="stat-label">Inspections 2006–2026 YTD</div></div>
+    </div>
+    <h2>More inspections than 2019. A higher fail share.</h2>
+    <p>Use 2019 as the last normal pre-COVID year, not 2020. Collapsed inspections were 10,116 in 2019 (37.0% fail) and 12,414 in 2025 (40.3% fail) — 34.0 a day, 22.7% above 2019. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR (5,003 of 12,414). Do not count 3,347 active licenses as inspections.</p>
+    <div class="callout warn">
+      <strong>2020 is a COVID year. Do not use it as a baseline.</strong>
+      Inspections fell to 7,932 in 2020 (10,116 → 7,932) and the fail share was 34.3%. Compare 2025 to 2019, then show 2020 as the shock.
+    </div>
+    <div class="callout warn">
+      <strong>2026 is not a full year.</strong>
+      Inspection results in this dump run through 28 August 2026 (8,894 year-to-date, 37.1 a day). Do not annualize that figure, and do not treat 8,894 as a calendar year.
+    </div>
+    <div class="callout warn">
+      <strong>2022 is 19,648 inspections in the file — not a new baseline.</strong>
+      2022 is almost double 2019 (19,648 vs 10,116) and the fail share fell to 24.9%. The file records that jump. This briefing does not invent a program change to explain it.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Collapsed inspections per year</h3>
+        <div class="chart-box"><canvas id="cVol"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · resultdttm · 2012–2025 complete years · one inspection per license number and result timestamp · 2026 YTD omitted (through 28 Aug, 8,894)</p>
+      </div>
+      <div>
+        <h3>Fail share per year</h3>
+        <div class="chart-box"><canvas id="cRate"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · fail share of collapsed inspections · 2012–2025 · Fail = HE_Fail, HE_FailExt, Fail, Failed, HE_FAILNOR · 2025 40.3%</p>
+      </div>
+    </div>
+    <h2>HE_Pass is 49.9% of 2025 inspections. Fail is 40.3%.</h2>
+    <p>HE_Pass is 6,191 of 12,414 (49.9%) — not a majority. HE_Fail is 3,867. HE_FailExt is 1,134. Those two fail codes plus HE_FAILNOR (2) are the 5,003 fails. HE_Filed is 830 and is not a fail. Star levels are violation rows, not inspections: * 24,219 · ** 11,929 · *** 4,498 in 2025.</p>
+    <div class="callout warn">
+      <strong>Do not count a license row as an inspection.</strong>
+      Active Food Establishment Licenses is a different file: 3,347 active places (Eating &amp; Drinking FS 1,766 · Eating &amp; Drinking w/ Take Out FT 1,581). 12,414 inspections is not 3,347, and it is not 900,574 violation rows.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 inspection results</h3>
+        <div class="chart-box"><canvas id="cResult"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · result · 2025 · collapsed inspections n = 12,414 · Other is HE_OutBus 32, HE_NotReq 30, HE_TSOP 17, HE_Misc 3, HE_FAILNOR 2, HE_Closure 1</p>
+      </div>
+      <div>
+        <h3>2025 violation star levels</h3>
+        <div class="chart-box"><canvas id="cStar"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · viol_level exact codes · 2025 · 40,646 starred violation rows · not inspection counts · *** is 4,498</p>
+      </div>
+    </div>
+    <h3>Fail counts beside inspections, 2012–2025</h3>
+    <div class="chart-box"><canvas id="cFail"></canvas></div>
+    <p class="caption">Source: Analyze Boston Food Establishment Inspections · grouped counts · fails are a subset of inspections, not stacked on top · 2012–2025 complete years</p>
+    <h3>Top 2025 violation descriptions</h3>
+    <div class="chart-box"><canvas id="cViol"></canvas></div>
+    <p class="caption">Source: Analyze Boston Food Establishment Inspections · violdesc · 2025 · violation rows, not inspections · Controlling Pests 1,873</p>
+  </div>
+
+  <div id="department" class="tab-panel">
+    <p class="tab-blurb">What ISD Health needs: weekday load, afternoon peak, star-level mix. resultdttm is the result timestamp, not a kitchen clock.</p>
+    <div class="callout info">
+      <strong>For Inspectional Services Health Division</strong>
+      Staff the afternoon peak, not a 311-style 8 a.m. open. Wednesday is the heavy day (2,682). Starred *** violations are 4,498 rows in 2025. Active licenses (3,347) are the licensed-place denominator, not the inspection count.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">4 p.m.</div><div class="stat-label">Peak result hour, 2025 (2,667)</div></div>
+      <div class="stat"><div class="stat-val">Wednesday</div><div class="stat-label">Heaviest weekday (2,682)</div></div>
+      <div class="stat"><div class="stat-val">October</div><div class="stat-label">Peak month (1,316)</div></div>
+    </div>
+    <h2>Results peak at 4 p.m. on weekdays, not on the weekend.</h2>
+    <p>In 2025 the busiest resultdttm hour is 4 p.m. (2,667 inspections). Overnight hours are near zero. Wednesday is heaviest (2,682); Sunday is lightest (29); Saturday is 66. October is the peak month (1,316); June is the lightest (890). This clock is when ISD recorded the result timestamp — not when food was served.</p>
+    <div class="callout info">
+      <strong>resultdttm hour is not kitchen hours.</strong>
+      Health inspections are recorded during the day. Do not read 4 p.m. as a foodborne-illness peak.
+    </div>
+    <div class="callout info">
+      <strong>Weekend result timestamps are rare. That is not an office-hours chart.</strong>
+      Saturday is 66 inspections and Sunday is 29, against 2,000-plus on a weekday. ISD Health’s public office is Monday–Friday. Food inspectors can still visit restaurants when they are open. These 95 weekend stamps stay on the chart as recorded field results — restaurants can be inspected on weekends.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 inspections by result hour</h3>
+        <div class="chart-box"><canvas id="cHour"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · resultdttm hour · 2025 · peak 4 p.m. (2,667)</p>
+      </div>
+      <div>
+        <h3>2025 inspections by weekday</h3>
+        <div class="chart-box"><canvas id="cWeek"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · resultdttm weekday · 2025 · Wednesday 2,682 · Sunday 29 · Saturday 66 · restaurants can be inspected on weekends</p>
+      </div>
+    </div>
+    <h3>2025 inspections by month</h3>
+    <div class="chart-box short"><canvas id="cMonth"></canvas></div>
+    <p class="caption">Source: Analyze Boston Food Establishment Inspections · resultdttm month · 2025 · October 1,316 · June 890 · a complete calendar year</p>
+    <h2>Dorchester leads volume only as three ZIPs rolled together.</h2>
+    <p>Neighborhood is ZIP via the Fire ZIP_NEIGHBORHOOD map — not a neighborhood field on the inspection. Dorchester is 02122 + 02124 + 02125 (1,282). East Boston 02128 is the single-ZIP volume leader (1,025) with a 30.2% fail share. 02125 Dorchester is 517 inspections and a 52.2% fail share. Volume and fail rate are not the same ranking.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Top ZIP neighborhoods, 2025 inspections</h3>
+        <div class="chart-box"><canvas id="cNb"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · ZIP via Fire ZIP_NEIGHBORHOOD · 2025 · top 12 mapped of 12,414 · Dorchester = 02122, 02124, 02125</p>
+      </div>
+      <div>
+        <h3>Highest 2025 fail share (ZIP, n ≥ 80)</h3>
+        <div class="chart-box"><canvas id="cZipFail"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · fail share of collapsed inspections · 2025 · ZIPs with at least 80 inspections · 02125 52.2% (517)</p>
+      </div>
+    </div>
+    <h3>Active licenses by category</h3>
+    <div class="chart-box"><canvas id="cLic"></canvas></div>
+    <p class="caption">Source: Analyze Boston Active Food Establishment Licenses · licensecat · snapshot 3,347 active · denominator of licensed places, not 2025 inspections</p>
+  </div>
+
+  <div id="city" class="tab-panel">
+    <p class="tab-blurb">What the Mayor and Council need: more inspections than 2019, a higher fail share, and ZIP fail rates that are not the same as volume.</p>
+    <h2>Decisions this supports</h2>
+    <div class="callout warn">
+      <strong>Do not brief 3,347 licenses as 12,414 inspections.</strong>
+      The license file is who is allowed to serve food. The inspection file is what ISD recorded after a visit. They will not match.
+    </div>
+    <div class="callout warn">
+      <strong>Do not treat East Boston volume as the worst fail rate.</strong>
+      East Boston 02128 is 1,025 inspections and a 30.2% fail share. 02125 Dorchester is 517 inspections and 52.2%. South End 02118 is 540 and 50.4%.
+    </div>
+    <div class="callout info">
+      <strong>Do not use 2022 as the new normal.</strong>
+      19,648 inspections in 2022 with a 24.9% fail share sits off the 2012–2025 pattern. Compare 2025 to 2019.
+    </div>
+    <table>
+      <thead><tr><th>Ask</th><th>Number</th></tr></thead>
+      <tbody>
+        <tr><td>Do not treat inspection growth as a cleaner city</td><td>12,414 inspections · 40.3% fail in 2025 vs 37.0% in 2019</td></tr>
+        <tr><td>Do not add licenses into inspections</td><td>3,347 vs 12,414 — they will not match</td></tr>
+        <tr><td>Do not annualize 2026</td><td>8,894 inspections through 28 Aug</td></tr>
+        <tr><td>Watch 02125 / 02118 / 02130 fail share</td><td>52.2% · 50.4% · 50.3% (n ≥ 80)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="public" class="tab-panel">
+    <p class="tab-blurb">Plain language: one inspection can have several violation rows. A license is not an inspection.</p>
+    <h2>What Boston residents should know</h2>
+    <p>These are City of Boston food-establishment inspections, results recorded 4 April 2006 through 28 August 2026, plus a snapshot of 3,347 active food licenses. This is not RentSmart, not building permits, and not 311.</p>
+    <div class="callout info">
+      <strong>One inspection can list several problems.</strong>
+      The public file is one row per violation. One 2025 fail can list Nonfood Contact Surfaces and Controlling Pests on the same visit.
+    </div>
+    <div class="callout warn">
+      <strong>HE_Pass is 49.9% of visits, not a majority.</strong>
+      HE_Pass is 6,191 of 12,414 visits in 2025. The same place can fail on a follow-up. Controlling Pests is 1,873 violation rows.
+    </div>
+    <div class="callout warn">
+      <strong>2026 is only part of a year.</strong>
+      Records in this dump run through 28 August 2026 (8,894 so far). 2026 is not a full year.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 inspections by result hour</h3>
+        <div class="chart-box"><canvas id="cHourPub"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · 2025 · most at 4 p.m. (2,667) · resultdttm, not meal hours</p>
+      </div>
+      <div>
+        <h3>ZIP neighborhoods with the most 2025 inspections</h3>
+        <div class="chart-box"><canvas id="cNbPub"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · 2025 · top 5 mapped of 12,414 · Dorchester is 02122 + 02124 + 02125</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="notes" class="tab-panel">
+    <p class="tab-blurb">What these files are, and are not.</p>
+    <h2>What these files are, and are not</h2>
+    <table>
+      <thead><tr><th>Rule</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Inspection rows kept 894,176 of 900,574</td><td>Drop 6,398 with no resultdttm. Span 2006-04-04 to 2026-08-28. Collapse to 217,847 inspections.</td></tr>
+        <tr><td>One dump row is a violation, not an inspection</td><td>Same license number and resultdttm can have several star-coded rows.</td></tr>
+        <tr><td>Do not count 3,347 licenses as inspections</td><td>Active licenses are a snapshot of licensed places. 2025 inspections are 12,414.</td></tr>
+        <tr><td>2026 is not a full year</td><td>Results through 28 Aug (8,894). Do not annualize.</td></tr>
+        <tr><td>Compare 2025 to 2019, not 2020</td><td>2020 COVID. Inspections 10,116 → 7,932.</td></tr>
+        <tr><td>Fail is an exact result code</td><td>HE_Fail, HE_FailExt, Fail, Failed, HE_FAILNOR. HE_Filed is not a fail.</td></tr>
+        <tr><td>2022 volume is as recorded</td><td>19,648 inspections and a 24.9% fail share. Not a baseline.</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston datasets food-establishment-inspections and active-food-establishment-licenses · dumps pulled 31 Aug 2026</p>
+    <p>Raw City CSVs are not in this repo. Run <code>python3 analyze_food.py</code> from <code>food-safety/</code> with files in <code>$BOSTON_DATA_DIR</code> or <code>~/Downloads</code>.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const S = window.FOOD;
+const RESULT_COLORS = ["#a3be8c","#c45c5c","#d08770","#599ce7","#888","#f1b467","#555"];
+const STAR_COLORS = ["#599ce7","#d08770","#c45c5c"];
+const LIC_COLORS = ["#599ce7","#d08770"];
+lineChart("cVol", S.years, [{ label: "Inspections", data: S.inspections }], { zero: true });
+lineChart("cRate", S.years, [{ label: "Fail share", data: S.failRate, color: "#d08770" }], { zero: true });
+pieChart("cResult", S.resultLabels.map((label, i) => ({ label, value: S.result2025[i], color: RESULT_COLORS[i] })));
+pieChart("cStar", S.starLabels.map((label, i) => ({ label, value: S.star2025[i], color: STAR_COLORS[i] })));
+barChart("cFail", S.years, [
+  { label: "Inspections", data: S.inspections },
+  { label: "Fails", data: S.fails, color: "#c45c5c" },
+]);
+barChart("cViol", S.violLabels, [{ label: "2025 violation rows", data: S.viol2025 }], { horizontal: true });
+lineChart("cHour", S.hours, [{ label: "Inspections", data: S.hour2025 }], { zero: true });
+barChart("cWeek", S.weekdays, [{ label: "Inspections", data: S.weekday2025 }]);
+barChart("cMonth", S.months, [{ label: "Inspections", data: S.month2025 }]);
+barChart("cNb", S.nbLabels, [{ label: "2025 inspections", data: S.nb2025 }], { horizontal: true });
+barChart("cZipFail", S.zipFailLabels, [{ label: "Fail share", data: S.zipFailRate, color: "#c45c5c" }], { horizontal: true });
+pieChart("cLic", S.licenseLabels.map((label, i) => ({ label, value: S.license2025[i], color: LIC_COLORS[i] })));
+lineChart("cHourPub", S.hours, [{ label: "Inspections", data: S.hour2025 }], { zero: true });
+barChart("cNbPub", S.nbLabels.slice(0, 5), [{ label: "2025 inspections", data: S.nb2025.slice(0, 5) }], { horizontal: true });
+</script>
+</body>
+</html>

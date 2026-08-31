@@ -1,0 +1,4144 @@
+{
+  "quality": {
+    "insp_raw": 900574,
+    "insp_kept_rows": 894176,
+    "insp_drop": 6398,
+    "insp_kept": 217847,
+    "insp_min": "2006-04-04",
+    "insp_max": "2026-08-28",
+    "lic_raw": 3347,
+    "lic_kept": 3347,
+    "note": "Food establishment inspections and active food licenses are separate files. Do not count a license row as an inspection. The inspection dump is one row per violation; this briefing collapses to one inspection per license number and result timestamp. Drop rows with no resultdttm. Complete years are 2012\u20132025. 2026 is year-to-date through 28 August \u2014 not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR \u2014 not a substring. Star levels are exact *, **, ***."
+  },
+  "years": [
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "by_year": [
+    {
+      "year": 2012,
+      "inspections": 14773,
+      "fails": 3708,
+      "fail_rate": 25.1
+    },
+    {
+      "year": 2013,
+      "inspections": 11444,
+      "fails": 3282,
+      "fail_rate": 28.7
+    },
+    {
+      "year": 2014,
+      "inspections": 9202,
+      "fails": 3436,
+      "fail_rate": 37.3
+    },
+    {
+      "year": 2015,
+      "inspections": 10038,
+      "fails": 3856,
+      "fail_rate": 38.4
+    },
+    {
+      "year": 2016,
+      "inspections": 11090,
+      "fails": 4494,
+      "fail_rate": 40.5
+    },
+    {
+      "year": 2017,
+      "inspections": 10199,
+      "fails": 3561,
+      "fail_rate": 34.9
+    },
+    {
+      "year": 2018,
+      "inspections": 10817,
+      "fails": 4034,
+      "fail_rate": 37.3
+    },
+    {
+      "year": 2019,
+      "inspections": 10116,
+      "fails": 3738,
+      "fail_rate": 37.0
+    },
+    {
+      "year": 2020,
+      "inspections": 7932,
+      "fails": 2723,
+      "fail_rate": 34.3
+    },
+    {
+      "year": 2021,
+      "inspections": 11318,
+      "fails": 4164,
+      "fail_rate": 36.8
+    },
+    {
+      "year": 2022,
+      "inspections": 19648,
+      "fails": 4886,
+      "fail_rate": 24.9
+    },
+    {
+      "year": 2023,
+      "inspections": 13381,
+      "fails": 4131,
+      "fail_rate": 30.9
+    },
+    {
+      "year": 2024,
+      "inspections": 14576,
+      "fails": 4738,
+      "fail_rate": 32.5
+    },
+    {
+      "year": 2025,
+      "inspections": 12414,
+      "fails": 5003,
+      "fail_rate": 40.3
+    }
+  ],
+  "y2019": {
+    "n": 10116,
+    "fails": 3738
+  },
+  "y2020": {
+    "n": 7932,
+    "fails": 2723
+  },
+  "y2025": {
+    "n": 12414,
+    "fails": 5003,
+    "fail_rate": 40.3,
+    "per_day": 34.0
+  },
+  "y2026_ytd": {
+    "n": 8894,
+    "fails": 3925,
+    "per_day": 37.1
+  },
+  "hour_2025": [
+    55,
+    36,
+    2,
+    4,
+    3,
+    0,
+    0,
+    1,
+    0,
+    0,
+    3,
+    35,
+    215,
+    276,
+    1086,
+    2279,
+    2667,
+    2162,
+    2007,
+    1150,
+    224,
+    95,
+    54,
+    60
+  ],
+  "weekday_2025": [
+    2156,
+    2553,
+    2682,
+    2441,
+    2487,
+    66,
+    29
+  ],
+  "month_2025": [
+    1064,
+    905,
+    981,
+    1153,
+    1042,
+    890,
+    967,
+    1039,
+    938,
+    1316,
+    1001,
+    1118
+  ],
+  "results_2025": [
+    {
+      "label": "HE_Pass",
+      "value": 6191
+    },
+    {
+      "label": "HE_Fail",
+      "value": 3867
+    },
+    {
+      "label": "HE_FailExt",
+      "value": 1134
+    },
+    {
+      "label": "HE_Filed",
+      "value": 830
+    },
+    {
+      "label": "HE_Hearing",
+      "value": 199
+    },
+    {
+      "label": "HE_VolClos",
+      "value": 108
+    },
+    {
+      "label": "HE_OutBus",
+      "value": 32
+    },
+    {
+      "label": "HE_NotReq",
+      "value": 30
+    },
+    {
+      "label": "HE_TSOP",
+      "value": 17
+    },
+    {
+      "label": "HE_Misc",
+      "value": 3
+    },
+    {
+      "label": "HE_FAILNOR",
+      "value": 2
+    },
+    {
+      "label": "HE_Closure",
+      "value": 1
+    }
+  ],
+  "levels_2025": [
+    {
+      "label": "*",
+      "value": 24219
+    },
+    {
+      "label": "**",
+      "value": 11929
+    },
+    {
+      "label": "***",
+      "value": 4498
+    }
+  ],
+  "violdesc_2025": [
+    {
+      "label": "Nonfood Contact Surfaces (C)",
+      "value": 1963
+    },
+    {
+      "label": "Controlling Pests (Pf)",
+      "value": 1873
+    },
+    {
+      "label": "Floors  Walls and Ceilings-Cleanability (C)",
+      "value": 1519
+    },
+    {
+      "label": "Cleaning Ventilation Systems  Nuisance and Discharge Prohibition (C)",
+      "value": 1149
+    },
+    {
+      "label": "(A) Equipment  Food-Contact Surfaces  Nonfood-Contact Surfaces  and Utensils (Pf)",
+      "value": 1121
+    },
+    {
+      "label": "Repairing-Premises  Structures  Attachments  and Fixtures-Methods (C)",
+      "value": 1095
+    },
+    {
+      "label": "(A)(2) and (B) Time/Temperature Control for Safety Food  Hot and Cold Holding (P)",
+      "value": 1051
+    },
+    {
+      "label": "System Maintained in Good Repair (C)",
+      "value": 980
+    },
+    {
+      "label": "(A)-(P) Person-In-Charge-Duties (Pf)",
+      "value": 931
+    },
+    {
+      "label": "Using a Handwashing Sink-Operation and Maintenance (Pf)",
+      "value": 866
+    },
+    {
+      "label": "Food Storage Containers Identified with Common Name of Food (C)",
+      "value": 840
+    },
+    {
+      "label": "In-Use Utensils  Between-Use Storage (C)",
+      "value": 777
+    }
+  ],
+  "neighborhoods_2025": [
+    {
+      "label": "Dorchester",
+      "value": 1282
+    },
+    {
+      "label": "East Boston",
+      "value": 1025
+    },
+    {
+      "label": "Back Bay / Bay Village",
+      "value": 982
+    },
+    {
+      "label": "Fenway / Kenmore",
+      "value": 956
+    },
+    {
+      "label": "Seaport / Fort Point",
+      "value": 690
+    },
+    {
+      "label": "Fenway / Longwood",
+      "value": 611
+    },
+    {
+      "label": "South End",
+      "value": 540
+    },
+    {
+      "label": "Allston",
+      "value": 528
+    },
+    {
+      "label": "Chinatown / Leather District",
+      "value": 525
+    },
+    {
+      "label": "Brighton",
+      "value": 491
+    },
+    {
+      "label": "Jamaica Plain",
+      "value": 463
+    },
+    {
+      "label": "South Boston",
+      "value": 442
+    }
+  ],
+  "fail_rate_zip_year": [
+    {
+      "year": 2012,
+      "zip": "00000",
+      "neighborhood": "",
+      "inspections": 5,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2012,
+      "zip": "02050",
+      "neighborhood": "",
+      "inspections": 2,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2012,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 518,
+      "fails": 145,
+      "fail_rate": 28.0
+    },
+    {
+      "year": 2012,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 696,
+      "fails": 216,
+      "fail_rate": 31.0
+    },
+    {
+      "year": 2012,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 574,
+      "fails": 144,
+      "fail_rate": 25.1
+    },
+    {
+      "year": 2012,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 556,
+      "fails": 69,
+      "fail_rate": 12.4
+    },
+    {
+      "year": 2012,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 443,
+      "fails": 132,
+      "fail_rate": 29.8
+    },
+    {
+      "year": 2012,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 646,
+      "fails": 165,
+      "fail_rate": 25.5
+    },
+    {
+      "year": 2012,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 701,
+      "fails": 162,
+      "fail_rate": 23.1
+    },
+    {
+      "year": 2012,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 1174,
+      "fails": 317,
+      "fail_rate": 27.0
+    },
+    {
+      "year": 2012,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 612,
+      "fails": 177,
+      "fail_rate": 28.9
+    },
+    {
+      "year": 2012,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 577,
+      "fails": 216,
+      "fail_rate": 37.4
+    },
+    {
+      "year": 2012,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 232,
+      "fails": 99,
+      "fail_rate": 42.7
+    },
+    {
+      "year": 2012,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 275,
+      "fails": 59,
+      "fail_rate": 21.5
+    },
+    {
+      "year": 2012,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 434,
+      "fails": 85,
+      "fail_rate": 19.6
+    },
+    {
+      "year": 2012,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 496,
+      "fails": 80,
+      "fail_rate": 16.1
+    },
+    {
+      "year": 2012,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 497,
+      "fails": 115,
+      "fail_rate": 23.1
+    },
+    {
+      "year": 2012,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 232,
+      "fails": 50,
+      "fail_rate": 21.6
+    },
+    {
+      "year": 2012,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 427,
+      "fails": 96,
+      "fail_rate": 22.5
+    },
+    {
+      "year": 2012,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 1277,
+      "fails": 284,
+      "fail_rate": 22.2
+    },
+    {
+      "year": 2012,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 241,
+      "fails": 71,
+      "fail_rate": 29.5
+    },
+    {
+      "year": 2012,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 602,
+      "fails": 202,
+      "fail_rate": 33.6
+    },
+    {
+      "year": 2012,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 355,
+      "fails": 95,
+      "fail_rate": 26.8
+    },
+    {
+      "year": 2012,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 294,
+      "fails": 94,
+      "fail_rate": 32.0
+    },
+    {
+      "year": 2012,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 588,
+      "fails": 132,
+      "fail_rate": 22.4
+    },
+    {
+      "year": 2012,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 498,
+      "fails": 104,
+      "fail_rate": 20.9
+    },
+    {
+      "year": 2012,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 272,
+      "fails": 61,
+      "fail_rate": 22.4
+    },
+    {
+      "year": 2012,
+      "zip": "02145",
+      "neighborhood": "",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2012,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 15,
+      "fails": 2,
+      "fail_rate": 13.3
+    },
+    {
+      "year": 2012,
+      "zip": "02188",
+      "neighborhood": "",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2012,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 188,
+      "fails": 45,
+      "fail_rate": 23.9
+    },
+    {
+      "year": 2012,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 29,
+      "fails": 6,
+      "fail_rate": 20.7
+    },
+    {
+      "year": 2012,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 54,
+      "fails": 4,
+      "fail_rate": 7.4
+    },
+    {
+      "year": 2012,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 263,
+      "fails": 46,
+      "fail_rate": 17.5
+    },
+    {
+      "year": 2012,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 862,
+      "fails": 212,
+      "fail_rate": 24.6
+    },
+    {
+      "year": 2012,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 75,
+      "fails": 17,
+      "fail_rate": 22.7
+    },
+    {
+      "year": 2013,
+      "zip": "00000",
+      "neighborhood": "",
+      "inspections": 2,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2013,
+      "zip": "02050",
+      "neighborhood": "",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2013,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 408,
+      "fails": 130,
+      "fail_rate": 31.9
+    },
+    {
+      "year": 2013,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 525,
+      "fails": 178,
+      "fail_rate": 33.9
+    },
+    {
+      "year": 2013,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 453,
+      "fails": 133,
+      "fail_rate": 29.4
+    },
+    {
+      "year": 2013,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 398,
+      "fails": 43,
+      "fail_rate": 10.8
+    },
+    {
+      "year": 2013,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 326,
+      "fails": 104,
+      "fail_rate": 31.9
+    },
+    {
+      "year": 2013,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 567,
+      "fails": 173,
+      "fail_rate": 30.5
+    },
+    {
+      "year": 2013,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 499,
+      "fails": 134,
+      "fail_rate": 26.9
+    },
+    {
+      "year": 2013,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 841,
+      "fails": 221,
+      "fail_rate": 26.3
+    },
+    {
+      "year": 2013,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 436,
+      "fails": 144,
+      "fail_rate": 33.0
+    },
+    {
+      "year": 2013,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 388,
+      "fails": 146,
+      "fail_rate": 37.6
+    },
+    {
+      "year": 2013,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 182,
+      "fails": 82,
+      "fail_rate": 45.1
+    },
+    {
+      "year": 2013,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 197,
+      "fails": 63,
+      "fail_rate": 32.0
+    },
+    {
+      "year": 2013,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 331,
+      "fails": 106,
+      "fail_rate": 32.0
+    },
+    {
+      "year": 2013,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 371,
+      "fails": 82,
+      "fail_rate": 22.1
+    },
+    {
+      "year": 2013,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 386,
+      "fails": 131,
+      "fail_rate": 33.9
+    },
+    {
+      "year": 2013,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 200,
+      "fails": 64,
+      "fail_rate": 32.0
+    },
+    {
+      "year": 2013,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 340,
+      "fails": 77,
+      "fail_rate": 22.6
+    },
+    {
+      "year": 2013,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 1061,
+      "fails": 256,
+      "fail_rate": 24.1
+    },
+    {
+      "year": 2013,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 179,
+      "fails": 58,
+      "fail_rate": 32.4
+    },
+    {
+      "year": 2013,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 510,
+      "fails": 208,
+      "fail_rate": 40.8
+    },
+    {
+      "year": 2013,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 314,
+      "fails": 111,
+      "fail_rate": 35.4
+    },
+    {
+      "year": 2013,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 261,
+      "fails": 93,
+      "fail_rate": 35.6
+    },
+    {
+      "year": 2013,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 475,
+      "fails": 134,
+      "fail_rate": 28.2
+    },
+    {
+      "year": 2013,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 391,
+      "fails": 93,
+      "fail_rate": 23.8
+    },
+    {
+      "year": 2013,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 205,
+      "fails": 63,
+      "fail_rate": 30.7
+    },
+    {
+      "year": 2013,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 16,
+      "fails": 4,
+      "fail_rate": 25.0
+    },
+    {
+      "year": 2013,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 134,
+      "fails": 35,
+      "fail_rate": 26.1
+    },
+    {
+      "year": 2013,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 15,
+      "fails": 5,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2013,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 55,
+      "fails": 3,
+      "fail_rate": 5.5
+    },
+    {
+      "year": 2013,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 239,
+      "fails": 42,
+      "fail_rate": 17.6
+    },
+    {
+      "year": 2013,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 656,
+      "fails": 153,
+      "fail_rate": 23.3
+    },
+    {
+      "year": 2013,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 61,
+      "fails": 9,
+      "fail_rate": 14.8
+    },
+    {
+      "year": 2014,
+      "zip": "02050",
+      "neighborhood": "",
+      "inspections": 2,
+      "fails": 1,
+      "fail_rate": 50.0
+    },
+    {
+      "year": 2014,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 347,
+      "fails": 129,
+      "fail_rate": 37.2
+    },
+    {
+      "year": 2014,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 420,
+      "fails": 144,
+      "fail_rate": 34.3
+    },
+    {
+      "year": 2014,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 348,
+      "fails": 113,
+      "fail_rate": 32.5
+    },
+    {
+      "year": 2014,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 437,
+      "fails": 185,
+      "fail_rate": 42.3
+    },
+    {
+      "year": 2014,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 307,
+      "fails": 142,
+      "fail_rate": 46.3
+    },
+    {
+      "year": 2014,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 385,
+      "fails": 110,
+      "fail_rate": 28.6
+    },
+    {
+      "year": 2014,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 447,
+      "fails": 171,
+      "fail_rate": 38.3
+    },
+    {
+      "year": 2014,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 729,
+      "fails": 289,
+      "fail_rate": 39.6
+    },
+    {
+      "year": 2014,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 378,
+      "fails": 176,
+      "fail_rate": 46.6
+    },
+    {
+      "year": 2014,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 272,
+      "fails": 132,
+      "fail_rate": 48.5
+    },
+    {
+      "year": 2014,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 111,
+      "fails": 45,
+      "fail_rate": 40.5
+    },
+    {
+      "year": 2014,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 115,
+      "fails": 50,
+      "fail_rate": 43.5
+    },
+    {
+      "year": 2014,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 306,
+      "fails": 122,
+      "fail_rate": 39.9
+    },
+    {
+      "year": 2014,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 342,
+      "fails": 135,
+      "fail_rate": 39.5
+    },
+    {
+      "year": 2014,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 323,
+      "fails": 115,
+      "fail_rate": 35.6
+    },
+    {
+      "year": 2014,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 121,
+      "fails": 36,
+      "fail_rate": 29.8
+    },
+    {
+      "year": 2014,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 286,
+      "fails": 118,
+      "fail_rate": 41.3
+    },
+    {
+      "year": 2014,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 811,
+      "fails": 276,
+      "fail_rate": 34.0
+    },
+    {
+      "year": 2014,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 172,
+      "fails": 70,
+      "fail_rate": 40.7
+    },
+    {
+      "year": 2014,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 351,
+      "fails": 117,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2014,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 240,
+      "fails": 85,
+      "fail_rate": 35.4
+    },
+    {
+      "year": 2014,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 244,
+      "fails": 93,
+      "fail_rate": 38.1
+    },
+    {
+      "year": 2014,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 310,
+      "fails": 119,
+      "fail_rate": 38.4
+    },
+    {
+      "year": 2014,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 280,
+      "fails": 109,
+      "fail_rate": 38.9
+    },
+    {
+      "year": 2014,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 121,
+      "fails": 22,
+      "fail_rate": 18.2
+    },
+    {
+      "year": 2014,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 7,
+      "fails": 1,
+      "fail_rate": 14.3
+    },
+    {
+      "year": 2014,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 180,
+      "fails": 84,
+      "fail_rate": 46.7
+    },
+    {
+      "year": 2014,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 6,
+      "fails": 3,
+      "fail_rate": 50.0
+    },
+    {
+      "year": 2014,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 56,
+      "fails": 22,
+      "fail_rate": 39.3
+    },
+    {
+      "year": 2014,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 179,
+      "fails": 41,
+      "fail_rate": 22.9
+    },
+    {
+      "year": 2014,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 532,
+      "fails": 177,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2014,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 30,
+      "fails": 2,
+      "fail_rate": 6.7
+    },
+    {
+      "year": 2015,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 279,
+      "fails": 91,
+      "fail_rate": 32.6
+    },
+    {
+      "year": 2015,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 322,
+      "fails": 96,
+      "fail_rate": 29.8
+    },
+    {
+      "year": 2015,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 264,
+      "fails": 73,
+      "fail_rate": 27.7
+    },
+    {
+      "year": 2015,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 286,
+      "fails": 115,
+      "fail_rate": 40.2
+    },
+    {
+      "year": 2015,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 291,
+      "fails": 137,
+      "fail_rate": 47.1
+    },
+    {
+      "year": 2015,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 422,
+      "fails": 115,
+      "fail_rate": 27.3
+    },
+    {
+      "year": 2015,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 638,
+      "fails": 250,
+      "fail_rate": 39.2
+    },
+    {
+      "year": 2015,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 966,
+      "fails": 409,
+      "fail_rate": 42.3
+    },
+    {
+      "year": 2015,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 334,
+      "fails": 146,
+      "fail_rate": 43.7
+    },
+    {
+      "year": 2015,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 343,
+      "fails": 149,
+      "fail_rate": 43.4
+    },
+    {
+      "year": 2015,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 126,
+      "fails": 38,
+      "fail_rate": 30.2
+    },
+    {
+      "year": 2015,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 177,
+      "fails": 77,
+      "fail_rate": 43.5
+    },
+    {
+      "year": 2015,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 320,
+      "fails": 128,
+      "fail_rate": 40.0
+    },
+    {
+      "year": 2015,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 358,
+      "fails": 153,
+      "fail_rate": 42.7
+    },
+    {
+      "year": 2015,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 371,
+      "fails": 139,
+      "fail_rate": 37.5
+    },
+    {
+      "year": 2015,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 168,
+      "fails": 74,
+      "fail_rate": 44.0
+    },
+    {
+      "year": 2015,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 330,
+      "fails": 135,
+      "fail_rate": 40.9
+    },
+    {
+      "year": 2015,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 915,
+      "fails": 320,
+      "fail_rate": 35.0
+    },
+    {
+      "year": 2015,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 207,
+      "fails": 96,
+      "fail_rate": 46.4
+    },
+    {
+      "year": 2015,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 386,
+      "fails": 138,
+      "fail_rate": 35.8
+    },
+    {
+      "year": 2015,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 279,
+      "fails": 117,
+      "fail_rate": 41.9
+    },
+    {
+      "year": 2015,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 246,
+      "fails": 98,
+      "fail_rate": 39.8
+    },
+    {
+      "year": 2015,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 405,
+      "fails": 164,
+      "fail_rate": 40.5
+    },
+    {
+      "year": 2015,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 330,
+      "fails": 140,
+      "fail_rate": 42.4
+    },
+    {
+      "year": 2015,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 181,
+      "fails": 71,
+      "fail_rate": 39.2
+    },
+    {
+      "year": 2015,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 8,
+      "fails": 1,
+      "fail_rate": 12.5
+    },
+    {
+      "year": 2015,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 143,
+      "fails": 66,
+      "fail_rate": 46.2
+    },
+    {
+      "year": 2015,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 5,
+      "fails": 2,
+      "fail_rate": 40.0
+    },
+    {
+      "year": 2015,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 30,
+      "fails": 10,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2015,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 198,
+      "fails": 52,
+      "fail_rate": 26.3
+    },
+    {
+      "year": 2015,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 665,
+      "fails": 244,
+      "fail_rate": 36.7
+    },
+    {
+      "year": 2015,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 40,
+      "fails": 11,
+      "fail_rate": 27.5
+    },
+    {
+      "year": 2016,
+      "zip": "02050",
+      "neighborhood": "",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2016,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 402,
+      "fails": 162,
+      "fail_rate": 40.3
+    },
+    {
+      "year": 2016,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 503,
+      "fails": 226,
+      "fail_rate": 44.9
+    },
+    {
+      "year": 2016,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 339,
+      "fails": 114,
+      "fail_rate": 33.6
+    },
+    {
+      "year": 2016,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 435,
+      "fails": 177,
+      "fail_rate": 40.7
+    },
+    {
+      "year": 2016,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 229,
+      "fails": 84,
+      "fail_rate": 36.7
+    },
+    {
+      "year": 2016,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 565,
+      "fails": 208,
+      "fail_rate": 36.8
+    },
+    {
+      "year": 2016,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 573,
+      "fails": 237,
+      "fail_rate": 41.4
+    },
+    {
+      "year": 2016,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 826,
+      "fails": 359,
+      "fail_rate": 43.5
+    },
+    {
+      "year": 2016,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 478,
+      "fails": 212,
+      "fail_rate": 44.4
+    },
+    {
+      "year": 2016,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 419,
+      "fails": 170,
+      "fail_rate": 40.6
+    },
+    {
+      "year": 2016,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 192,
+      "fails": 89,
+      "fail_rate": 46.4
+    },
+    {
+      "year": 2016,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 191,
+      "fails": 65,
+      "fail_rate": 34.0
+    },
+    {
+      "year": 2016,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 298,
+      "fails": 133,
+      "fail_rate": 44.6
+    },
+    {
+      "year": 2016,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 325,
+      "fails": 155,
+      "fail_rate": 47.7
+    },
+    {
+      "year": 2016,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 400,
+      "fails": 166,
+      "fail_rate": 41.5
+    },
+    {
+      "year": 2016,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 234,
+      "fails": 114,
+      "fail_rate": 48.7
+    },
+    {
+      "year": 2016,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 442,
+      "fails": 208,
+      "fail_rate": 47.1
+    },
+    {
+      "year": 2016,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 851,
+      "fails": 296,
+      "fail_rate": 34.8
+    },
+    {
+      "year": 2016,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 170,
+      "fails": 55,
+      "fail_rate": 32.4
+    },
+    {
+      "year": 2016,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 446,
+      "fails": 186,
+      "fail_rate": 41.7
+    },
+    {
+      "year": 2016,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 325,
+      "fails": 139,
+      "fail_rate": 42.8
+    },
+    {
+      "year": 2016,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 272,
+      "fails": 114,
+      "fail_rate": 41.9
+    },
+    {
+      "year": 2016,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 415,
+      "fails": 178,
+      "fail_rate": 42.9
+    },
+    {
+      "year": 2016,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 347,
+      "fails": 135,
+      "fail_rate": 38.9
+    },
+    {
+      "year": 2016,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 242,
+      "fails": 96,
+      "fail_rate": 39.7
+    },
+    {
+      "year": 2016,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 8,
+      "fails": 1,
+      "fail_rate": 12.5
+    },
+    {
+      "year": 2016,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 123,
+      "fails": 49,
+      "fail_rate": 39.8
+    },
+    {
+      "year": 2016,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 12,
+      "fails": 7,
+      "fail_rate": 58.3
+    },
+    {
+      "year": 2016,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 56,
+      "fails": 19,
+      "fail_rate": 33.9
+    },
+    {
+      "year": 2016,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 263,
+      "fails": 68,
+      "fail_rate": 25.9
+    },
+    {
+      "year": 2016,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 664,
+      "fails": 263,
+      "fail_rate": 39.6
+    },
+    {
+      "year": 2016,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 34,
+      "fails": 4,
+      "fail_rate": 11.8
+    },
+    {
+      "year": 2017,
+      "zip": "02050",
+      "neighborhood": "",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2017,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 405,
+      "fails": 147,
+      "fail_rate": 36.3
+    },
+    {
+      "year": 2017,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 457,
+      "fails": 188,
+      "fail_rate": 41.1
+    },
+    {
+      "year": 2017,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 338,
+      "fails": 113,
+      "fail_rate": 33.4
+    },
+    {
+      "year": 2017,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 415,
+      "fails": 132,
+      "fail_rate": 31.8
+    },
+    {
+      "year": 2017,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 198,
+      "fails": 59,
+      "fail_rate": 29.8
+    },
+    {
+      "year": 2017,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 503,
+      "fails": 171,
+      "fail_rate": 34.0
+    },
+    {
+      "year": 2017,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 603,
+      "fails": 223,
+      "fail_rate": 37.0
+    },
+    {
+      "year": 2017,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 782,
+      "fails": 292,
+      "fail_rate": 37.3
+    },
+    {
+      "year": 2017,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 444,
+      "fails": 168,
+      "fail_rate": 37.8
+    },
+    {
+      "year": 2017,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 375,
+      "fails": 151,
+      "fail_rate": 40.3
+    },
+    {
+      "year": 2017,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 153,
+      "fails": 61,
+      "fail_rate": 39.9
+    },
+    {
+      "year": 2017,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 175,
+      "fails": 55,
+      "fail_rate": 31.4
+    },
+    {
+      "year": 2017,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 313,
+      "fails": 123,
+      "fail_rate": 39.3
+    },
+    {
+      "year": 2017,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 308,
+      "fails": 121,
+      "fail_rate": 39.3
+    },
+    {
+      "year": 2017,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 384,
+      "fails": 135,
+      "fail_rate": 35.2
+    },
+    {
+      "year": 2017,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 203,
+      "fails": 75,
+      "fail_rate": 36.9
+    },
+    {
+      "year": 2017,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 353,
+      "fails": 118,
+      "fail_rate": 33.4
+    },
+    {
+      "year": 2017,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 810,
+      "fails": 252,
+      "fail_rate": 31.1
+    },
+    {
+      "year": 2017,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 158,
+      "fails": 48,
+      "fail_rate": 30.4
+    },
+    {
+      "year": 2017,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 358,
+      "fails": 144,
+      "fail_rate": 40.2
+    },
+    {
+      "year": 2017,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 263,
+      "fails": 88,
+      "fail_rate": 33.5
+    },
+    {
+      "year": 2017,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 211,
+      "fails": 79,
+      "fail_rate": 37.4
+    },
+    {
+      "year": 2017,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 354,
+      "fails": 141,
+      "fail_rate": 39.8
+    },
+    {
+      "year": 2017,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 282,
+      "fails": 98,
+      "fail_rate": 34.8
+    },
+    {
+      "year": 2017,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 213,
+      "fails": 69,
+      "fail_rate": 32.4
+    },
+    {
+      "year": 2017,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 14,
+      "fails": 1,
+      "fail_rate": 7.1
+    },
+    {
+      "year": 2017,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 124,
+      "fails": 48,
+      "fail_rate": 38.7
+    },
+    {
+      "year": 2017,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 8,
+      "fails": 4,
+      "fail_rate": 50.0
+    },
+    {
+      "year": 2017,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 57,
+      "fails": 13,
+      "fail_rate": 22.8
+    },
+    {
+      "year": 2017,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 325,
+      "fails": 60,
+      "fail_rate": 18.5
+    },
+    {
+      "year": 2017,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 578,
+      "fails": 179,
+      "fail_rate": 31.0
+    },
+    {
+      "year": 2017,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 33,
+      "fails": 4,
+      "fail_rate": 12.1
+    },
+    {
+      "year": 2018,
+      "zip": "02050",
+      "neighborhood": "",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2018,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 427,
+      "fails": 160,
+      "fail_rate": 37.5
+    },
+    {
+      "year": 2018,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 439,
+      "fails": 167,
+      "fail_rate": 38.0
+    },
+    {
+      "year": 2018,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 418,
+      "fails": 112,
+      "fail_rate": 26.8
+    },
+    {
+      "year": 2018,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 398,
+      "fails": 130,
+      "fail_rate": 32.7
+    },
+    {
+      "year": 2018,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 291,
+      "fails": 123,
+      "fail_rate": 42.3
+    },
+    {
+      "year": 2018,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 509,
+      "fails": 177,
+      "fail_rate": 34.8
+    },
+    {
+      "year": 2018,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 593,
+      "fails": 215,
+      "fail_rate": 36.3
+    },
+    {
+      "year": 2018,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 850,
+      "fails": 332,
+      "fail_rate": 39.1
+    },
+    {
+      "year": 2018,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 425,
+      "fails": 166,
+      "fail_rate": 39.1
+    },
+    {
+      "year": 2018,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 378,
+      "fails": 161,
+      "fail_rate": 42.6
+    },
+    {
+      "year": 2018,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 171,
+      "fails": 76,
+      "fail_rate": 44.4
+    },
+    {
+      "year": 2018,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 151,
+      "fails": 66,
+      "fail_rate": 43.7
+    },
+    {
+      "year": 2018,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 369,
+      "fails": 161,
+      "fail_rate": 43.6
+    },
+    {
+      "year": 2018,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 369,
+      "fails": 152,
+      "fail_rate": 41.2
+    },
+    {
+      "year": 2018,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 386,
+      "fails": 145,
+      "fail_rate": 37.6
+    },
+    {
+      "year": 2018,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 188,
+      "fails": 85,
+      "fail_rate": 45.2
+    },
+    {
+      "year": 2018,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 277,
+      "fails": 90,
+      "fail_rate": 32.5
+    },
+    {
+      "year": 2018,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 903,
+      "fails": 257,
+      "fail_rate": 28.5
+    },
+    {
+      "year": 2018,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 200,
+      "fails": 73,
+      "fail_rate": 36.5
+    },
+    {
+      "year": 2018,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 355,
+      "fails": 144,
+      "fail_rate": 40.6
+    },
+    {
+      "year": 2018,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 249,
+      "fails": 110,
+      "fail_rate": 44.2
+    },
+    {
+      "year": 2018,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 255,
+      "fails": 101,
+      "fail_rate": 39.6
+    },
+    {
+      "year": 2018,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 412,
+      "fails": 166,
+      "fail_rate": 40.3
+    },
+    {
+      "year": 2018,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 373,
+      "fails": 155,
+      "fail_rate": 41.6
+    },
+    {
+      "year": 2018,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 191,
+      "fails": 89,
+      "fail_rate": 46.6
+    },
+    {
+      "year": 2018,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 4,
+      "fails": 2,
+      "fail_rate": 50.0
+    },
+    {
+      "year": 2018,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 18,
+      "fails": 4,
+      "fail_rate": 22.2
+    },
+    {
+      "year": 2018,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 147,
+      "fails": 62,
+      "fail_rate": 42.2
+    },
+    {
+      "year": 2018,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 7,
+      "fails": 3,
+      "fail_rate": 42.9
+    },
+    {
+      "year": 2018,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 58,
+      "fails": 15,
+      "fail_rate": 25.9
+    },
+    {
+      "year": 2018,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 353,
+      "fails": 110,
+      "fail_rate": 31.2
+    },
+    {
+      "year": 2018,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 610,
+      "fails": 217,
+      "fail_rate": 35.6
+    },
+    {
+      "year": 2018,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 35,
+      "fails": 4,
+      "fail_rate": 11.4
+    },
+    {
+      "year": 2019,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 400,
+      "fails": 130,
+      "fail_rate": 32.5
+    },
+    {
+      "year": 2019,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 412,
+      "fails": 148,
+      "fail_rate": 35.9
+    },
+    {
+      "year": 2019,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 383,
+      "fails": 98,
+      "fail_rate": 25.6
+    },
+    {
+      "year": 2019,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 390,
+      "fails": 114,
+      "fail_rate": 29.2
+    },
+    {
+      "year": 2019,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 268,
+      "fails": 111,
+      "fail_rate": 41.4
+    },
+    {
+      "year": 2019,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 521,
+      "fails": 192,
+      "fail_rate": 36.9
+    },
+    {
+      "year": 2019,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 535,
+      "fails": 197,
+      "fail_rate": 36.8
+    },
+    {
+      "year": 2019,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 849,
+      "fails": 337,
+      "fail_rate": 39.7
+    },
+    {
+      "year": 2019,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 416,
+      "fails": 160,
+      "fail_rate": 38.5
+    },
+    {
+      "year": 2019,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 329,
+      "fails": 136,
+      "fail_rate": 41.3
+    },
+    {
+      "year": 2019,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 152,
+      "fails": 63,
+      "fail_rate": 41.4
+    },
+    {
+      "year": 2019,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 151,
+      "fails": 70,
+      "fail_rate": 46.4
+    },
+    {
+      "year": 2019,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 326,
+      "fails": 149,
+      "fail_rate": 45.7
+    },
+    {
+      "year": 2019,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 337,
+      "fails": 142,
+      "fail_rate": 42.1
+    },
+    {
+      "year": 2019,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 334,
+      "fails": 154,
+      "fail_rate": 46.1
+    },
+    {
+      "year": 2019,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 134,
+      "fails": 65,
+      "fail_rate": 48.5
+    },
+    {
+      "year": 2019,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 235,
+      "fails": 80,
+      "fail_rate": 34.0
+    },
+    {
+      "year": 2019,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 763,
+      "fails": 191,
+      "fail_rate": 25.0
+    },
+    {
+      "year": 2019,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 168,
+      "fails": 62,
+      "fail_rate": 36.9
+    },
+    {
+      "year": 2019,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 367,
+      "fails": 156,
+      "fail_rate": 42.5
+    },
+    {
+      "year": 2019,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 218,
+      "fails": 98,
+      "fail_rate": 45.0
+    },
+    {
+      "year": 2019,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 250,
+      "fails": 103,
+      "fail_rate": 41.2
+    },
+    {
+      "year": 2019,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 422,
+      "fails": 163,
+      "fail_rate": 38.6
+    },
+    {
+      "year": 2019,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 333,
+      "fails": 119,
+      "fail_rate": 35.7
+    },
+    {
+      "year": 2019,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 148,
+      "fails": 71,
+      "fail_rate": 48.0
+    },
+    {
+      "year": 2019,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 2,
+      "fails": 1,
+      "fail_rate": 50.0
+    },
+    {
+      "year": 2019,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 13,
+      "fails": 4,
+      "fail_rate": 30.8
+    },
+    {
+      "year": 2019,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 135,
+      "fails": 63,
+      "fail_rate": 46.7
+    },
+    {
+      "year": 2019,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 3,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2019,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 44,
+      "fails": 11,
+      "fail_rate": 25.0
+    },
+    {
+      "year": 2019,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 330,
+      "fails": 101,
+      "fail_rate": 30.6
+    },
+    {
+      "year": 2019,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 713,
+      "fails": 245,
+      "fail_rate": 34.4
+    },
+    {
+      "year": 2019,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 32,
+      "fails": 4,
+      "fail_rate": 12.5
+    },
+    {
+      "year": 2020,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 237,
+      "fails": 65,
+      "fail_rate": 27.4
+    },
+    {
+      "year": 2020,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 287,
+      "fails": 75,
+      "fail_rate": 26.1
+    },
+    {
+      "year": 2020,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 288,
+      "fails": 64,
+      "fail_rate": 22.2
+    },
+    {
+      "year": 2020,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 336,
+      "fails": 120,
+      "fail_rate": 35.7
+    },
+    {
+      "year": 2020,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 184,
+      "fails": 65,
+      "fail_rate": 35.3
+    },
+    {
+      "year": 2020,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 294,
+      "fails": 67,
+      "fail_rate": 22.8
+    },
+    {
+      "year": 2020,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 355,
+      "fails": 130,
+      "fail_rate": 36.6
+    },
+    {
+      "year": 2020,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 536,
+      "fails": 182,
+      "fail_rate": 34.0
+    },
+    {
+      "year": 2020,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 304,
+      "fails": 105,
+      "fail_rate": 34.5
+    },
+    {
+      "year": 2020,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 263,
+      "fails": 93,
+      "fail_rate": 35.4
+    },
+    {
+      "year": 2020,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 124,
+      "fails": 50,
+      "fail_rate": 40.3
+    },
+    {
+      "year": 2020,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 148,
+      "fails": 63,
+      "fail_rate": 42.6
+    },
+    {
+      "year": 2020,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 263,
+      "fails": 102,
+      "fail_rate": 38.8
+    },
+    {
+      "year": 2020,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 347,
+      "fails": 142,
+      "fail_rate": 40.9
+    },
+    {
+      "year": 2020,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 221,
+      "fails": 76,
+      "fail_rate": 34.4
+    },
+    {
+      "year": 2020,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 164,
+      "fails": 75,
+      "fail_rate": 45.7
+    },
+    {
+      "year": 2020,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 254,
+      "fails": 88,
+      "fail_rate": 34.6
+    },
+    {
+      "year": 2020,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 570,
+      "fails": 177,
+      "fail_rate": 31.1
+    },
+    {
+      "year": 2020,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 117,
+      "fails": 37,
+      "fail_rate": 31.6
+    },
+    {
+      "year": 2020,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 324,
+      "fails": 146,
+      "fail_rate": 45.1
+    },
+    {
+      "year": 2020,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 276,
+      "fails": 125,
+      "fail_rate": 45.3
+    },
+    {
+      "year": 2020,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 250,
+      "fails": 107,
+      "fail_rate": 42.8
+    },
+    {
+      "year": 2020,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 451,
+      "fails": 171,
+      "fail_rate": 37.9
+    },
+    {
+      "year": 2020,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 322,
+      "fails": 105,
+      "fail_rate": 32.6
+    },
+    {
+      "year": 2020,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 211,
+      "fails": 103,
+      "fail_rate": 48.8
+    },
+    {
+      "year": 2020,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 3,
+      "fails": 1,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2020,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 6,
+      "fails": 1,
+      "fail_rate": 16.7
+    },
+    {
+      "year": 2020,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 70,
+      "fails": 19,
+      "fail_rate": 27.1
+    },
+    {
+      "year": 2020,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 2,
+      "fails": 1,
+      "fail_rate": 50.0
+    },
+    {
+      "year": 2020,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 41,
+      "fails": 15,
+      "fail_rate": 36.6
+    },
+    {
+      "year": 2020,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 217,
+      "fails": 41,
+      "fail_rate": 18.9
+    },
+    {
+      "year": 2020,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 437,
+      "fails": 110,
+      "fail_rate": 25.2
+    },
+    {
+      "year": 2020,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 30,
+      "fails": 2,
+      "fail_rate": 6.7
+    },
+    {
+      "year": 2021,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 305,
+      "fails": 103,
+      "fail_rate": 33.8
+    },
+    {
+      "year": 2021,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 343,
+      "fails": 88,
+      "fail_rate": 25.7
+    },
+    {
+      "year": 2021,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 325,
+      "fails": 73,
+      "fail_rate": 22.5
+    },
+    {
+      "year": 2021,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 501,
+      "fails": 214,
+      "fail_rate": 42.7
+    },
+    {
+      "year": 2021,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 294,
+      "fails": 131,
+      "fail_rate": 44.6
+    },
+    {
+      "year": 2021,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 438,
+      "fails": 100,
+      "fail_rate": 22.8
+    },
+    {
+      "year": 2021,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 554,
+      "fails": 227,
+      "fail_rate": 41.0
+    },
+    {
+      "year": 2021,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 693,
+      "fails": 249,
+      "fail_rate": 35.9
+    },
+    {
+      "year": 2021,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 451,
+      "fails": 157,
+      "fail_rate": 34.8
+    },
+    {
+      "year": 2021,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 340,
+      "fails": 111,
+      "fail_rate": 32.6
+    },
+    {
+      "year": 2021,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 167,
+      "fails": 63,
+      "fail_rate": 37.7
+    },
+    {
+      "year": 2021,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 237,
+      "fails": 97,
+      "fail_rate": 40.9
+    },
+    {
+      "year": 2021,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 409,
+      "fails": 161,
+      "fail_rate": 39.4
+    },
+    {
+      "year": 2021,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 504,
+      "fails": 225,
+      "fail_rate": 44.6
+    },
+    {
+      "year": 2021,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 442,
+      "fails": 180,
+      "fail_rate": 40.7
+    },
+    {
+      "year": 2021,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 232,
+      "fails": 110,
+      "fail_rate": 47.4
+    },
+    {
+      "year": 2021,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 383,
+      "fails": 161,
+      "fail_rate": 42.0
+    },
+    {
+      "year": 2021,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 847,
+      "fails": 226,
+      "fail_rate": 26.7
+    },
+    {
+      "year": 2021,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 183,
+      "fails": 65,
+      "fail_rate": 35.5
+    },
+    {
+      "year": 2021,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 478,
+      "fails": 214,
+      "fail_rate": 44.8
+    },
+    {
+      "year": 2021,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 394,
+      "fails": 175,
+      "fail_rate": 44.4
+    },
+    {
+      "year": 2021,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 305,
+      "fails": 129,
+      "fail_rate": 42.3
+    },
+    {
+      "year": 2021,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 578,
+      "fails": 228,
+      "fail_rate": 39.4
+    },
+    {
+      "year": 2021,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 460,
+      "fails": 185,
+      "fail_rate": 40.2
+    },
+    {
+      "year": 2021,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 261,
+      "fails": 123,
+      "fail_rate": 47.1
+    },
+    {
+      "year": 2021,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 3,
+      "fails": 1,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2021,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 10,
+      "fails": 4,
+      "fail_rate": 40.0
+    },
+    {
+      "year": 2021,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 137,
+      "fails": 52,
+      "fail_rate": 38.0
+    },
+    {
+      "year": 2021,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 36,
+      "fails": 9,
+      "fail_rate": 25.0
+    },
+    {
+      "year": 2021,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 408,
+      "fails": 106,
+      "fail_rate": 26.0
+    },
+    {
+      "year": 2021,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 558,
+      "fails": 190,
+      "fail_rate": 34.1
+    },
+    {
+      "year": 2021,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 35,
+      "fails": 4,
+      "fail_rate": 11.4
+    },
+    {
+      "year": 2022,
+      "zip": "02050",
+      "neighborhood": "",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2022,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 636,
+      "fails": 130,
+      "fail_rate": 20.4
+    },
+    {
+      "year": 2022,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 614,
+      "fails": 120,
+      "fail_rate": 19.5
+    },
+    {
+      "year": 2022,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 759,
+      "fails": 105,
+      "fail_rate": 13.8
+    },
+    {
+      "year": 2022,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 872,
+      "fails": 262,
+      "fail_rate": 30.0
+    },
+    {
+      "year": 2022,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 392,
+      "fails": 68,
+      "fail_rate": 17.3
+    },
+    {
+      "year": 2022,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 918,
+      "fails": 163,
+      "fail_rate": 17.8
+    },
+    {
+      "year": 2022,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 865,
+      "fails": 207,
+      "fail_rate": 23.9
+    },
+    {
+      "year": 2022,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 1458,
+      "fails": 397,
+      "fail_rate": 27.2
+    },
+    {
+      "year": 2022,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 806,
+      "fails": 245,
+      "fail_rate": 30.4
+    },
+    {
+      "year": 2022,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 644,
+      "fails": 195,
+      "fail_rate": 30.3
+    },
+    {
+      "year": 2022,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 292,
+      "fails": 85,
+      "fail_rate": 29.1
+    },
+    {
+      "year": 2022,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 384,
+      "fails": 106,
+      "fail_rate": 27.6
+    },
+    {
+      "year": 2022,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 543,
+      "fails": 159,
+      "fail_rate": 29.3
+    },
+    {
+      "year": 2022,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 643,
+      "fails": 200,
+      "fail_rate": 31.1
+    },
+    {
+      "year": 2022,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 679,
+      "fails": 228,
+      "fail_rate": 33.6
+    },
+    {
+      "year": 2022,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 358,
+      "fails": 113,
+      "fail_rate": 31.6
+    },
+    {
+      "year": 2022,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 682,
+      "fails": 210,
+      "fail_rate": 30.8
+    },
+    {
+      "year": 2022,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 1736,
+      "fails": 231,
+      "fail_rate": 13.3
+    },
+    {
+      "year": 2022,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 274,
+      "fails": 37,
+      "fail_rate": 13.5
+    },
+    {
+      "year": 2022,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 734,
+      "fails": 206,
+      "fail_rate": 28.1
+    },
+    {
+      "year": 2022,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 438,
+      "fails": 114,
+      "fail_rate": 26.0
+    },
+    {
+      "year": 2022,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 409,
+      "fails": 127,
+      "fail_rate": 31.1
+    },
+    {
+      "year": 2022,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 859,
+      "fails": 229,
+      "fail_rate": 26.7
+    },
+    {
+      "year": 2022,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 781,
+      "fails": 197,
+      "fail_rate": 25.2
+    },
+    {
+      "year": 2022,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 376,
+      "fails": 132,
+      "fail_rate": 35.1
+    },
+    {
+      "year": 2022,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 3,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2022,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 36,
+      "fails": 7,
+      "fail_rate": 19.4
+    },
+    {
+      "year": 2022,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 229,
+      "fails": 67,
+      "fail_rate": 29.3
+    },
+    {
+      "year": 2022,
+      "zip": "02201",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 8,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2022,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 91,
+      "fails": 19,
+      "fail_rate": 20.9
+    },
+    {
+      "year": 2022,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 803,
+      "fails": 194,
+      "fail_rate": 24.2
+    },
+    {
+      "year": 2022,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 1240,
+      "fails": 325,
+      "fail_rate": 26.2
+    },
+    {
+      "year": 2022,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 65,
+      "fails": 7,
+      "fail_rate": 10.8
+    },
+    {
+      "year": 2023,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 387,
+      "fails": 103,
+      "fail_rate": 26.6
+    },
+    {
+      "year": 2023,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 407,
+      "fails": 96,
+      "fail_rate": 23.6
+    },
+    {
+      "year": 2023,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 478,
+      "fails": 91,
+      "fail_rate": 19.0
+    },
+    {
+      "year": 2023,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 600,
+      "fails": 203,
+      "fail_rate": 33.8
+    },
+    {
+      "year": 2023,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 252,
+      "fails": 47,
+      "fail_rate": 18.7
+    },
+    {
+      "year": 2023,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 716,
+      "fails": 136,
+      "fail_rate": 19.0
+    },
+    {
+      "year": 2023,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 582,
+      "fails": 169,
+      "fail_rate": 29.0
+    },
+    {
+      "year": 2023,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 1014,
+      "fails": 351,
+      "fail_rate": 34.6
+    },
+    {
+      "year": 2023,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 581,
+      "fails": 218,
+      "fail_rate": 37.5
+    },
+    {
+      "year": 2023,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 420,
+      "fails": 168,
+      "fail_rate": 40.0
+    },
+    {
+      "year": 2023,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 207,
+      "fails": 75,
+      "fail_rate": 36.2
+    },
+    {
+      "year": 2023,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 220,
+      "fails": 89,
+      "fail_rate": 40.5
+    },
+    {
+      "year": 2023,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 427,
+      "fails": 179,
+      "fail_rate": 41.9
+    },
+    {
+      "year": 2023,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 434,
+      "fails": 188,
+      "fail_rate": 43.3
+    },
+    {
+      "year": 2023,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 498,
+      "fails": 191,
+      "fail_rate": 38.4
+    },
+    {
+      "year": 2023,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 218,
+      "fails": 94,
+      "fail_rate": 43.1
+    },
+    {
+      "year": 2023,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 449,
+      "fails": 161,
+      "fail_rate": 35.9
+    },
+    {
+      "year": 2023,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 1112,
+      "fails": 200,
+      "fail_rate": 18.0
+    },
+    {
+      "year": 2023,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 222,
+      "fails": 45,
+      "fail_rate": 20.3
+    },
+    {
+      "year": 2023,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 465,
+      "fails": 173,
+      "fail_rate": 37.2
+    },
+    {
+      "year": 2023,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 273,
+      "fails": 107,
+      "fail_rate": 39.2
+    },
+    {
+      "year": 2023,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 223,
+      "fails": 81,
+      "fail_rate": 36.3
+    },
+    {
+      "year": 2023,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 558,
+      "fails": 179,
+      "fail_rate": 32.1
+    },
+    {
+      "year": 2023,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 537,
+      "fails": 152,
+      "fail_rate": 28.3
+    },
+    {
+      "year": 2023,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 248,
+      "fails": 107,
+      "fail_rate": 43.1
+    },
+    {
+      "year": 2023,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 3,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2023,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 30,
+      "fails": 7,
+      "fail_rate": 23.3
+    },
+    {
+      "year": 2023,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 176,
+      "fails": 64,
+      "fail_rate": 36.4
+    },
+    {
+      "year": 2023,
+      "zip": "02203",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 2,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2023,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 39,
+      "fails": 6,
+      "fail_rate": 15.4
+    },
+    {
+      "year": 2023,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 665,
+      "fails": 200,
+      "fail_rate": 30.1
+    },
+    {
+      "year": 2023,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 872,
+      "fails": 247,
+      "fail_rate": 28.3
+    },
+    {
+      "year": 2023,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 54,
+      "fails": 2,
+      "fail_rate": 3.7
+    },
+    {
+      "year": 2024,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 374,
+      "fails": 105,
+      "fail_rate": 28.1
+    },
+    {
+      "year": 2024,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 385,
+      "fails": 107,
+      "fail_rate": 27.8
+    },
+    {
+      "year": 2024,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 415,
+      "fails": 68,
+      "fail_rate": 16.4
+    },
+    {
+      "year": 2024,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 623,
+      "fails": 254,
+      "fail_rate": 40.8
+    },
+    {
+      "year": 2024,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 362,
+      "fails": 123,
+      "fail_rate": 34.0
+    },
+    {
+      "year": 2024,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 693,
+      "fails": 138,
+      "fail_rate": 19.9
+    },
+    {
+      "year": 2024,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 715,
+      "fails": 290,
+      "fail_rate": 40.6
+    },
+    {
+      "year": 2024,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 1087,
+      "fails": 390,
+      "fail_rate": 35.9
+    },
+    {
+      "year": 2024,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 540,
+      "fails": 210,
+      "fail_rate": 38.9
+    },
+    {
+      "year": 2024,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 482,
+      "fails": 171,
+      "fail_rate": 35.5
+    },
+    {
+      "year": 2024,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 232,
+      "fails": 93,
+      "fail_rate": 40.1
+    },
+    {
+      "year": 2024,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 245,
+      "fails": 90,
+      "fail_rate": 36.7
+    },
+    {
+      "year": 2024,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 433,
+      "fails": 175,
+      "fail_rate": 40.4
+    },
+    {
+      "year": 2024,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 384,
+      "fails": 123,
+      "fail_rate": 32.0
+    },
+    {
+      "year": 2024,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 520,
+      "fails": 235,
+      "fail_rate": 45.2
+    },
+    {
+      "year": 2024,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 246,
+      "fails": 93,
+      "fail_rate": 37.8
+    },
+    {
+      "year": 2024,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 483,
+      "fails": 158,
+      "fail_rate": 32.7
+    },
+    {
+      "year": 2024,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 1273,
+      "fails": 279,
+      "fail_rate": 21.9
+    },
+    {
+      "year": 2024,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 265,
+      "fails": 45,
+      "fail_rate": 17.0
+    },
+    {
+      "year": 2024,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 540,
+      "fails": 213,
+      "fail_rate": 39.4
+    },
+    {
+      "year": 2024,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 382,
+      "fails": 156,
+      "fail_rate": 40.8
+    },
+    {
+      "year": 2024,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 366,
+      "fails": 154,
+      "fail_rate": 42.1
+    },
+    {
+      "year": 2024,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 605,
+      "fails": 198,
+      "fail_rate": 32.7
+    },
+    {
+      "year": 2024,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 606,
+      "fails": 182,
+      "fail_rate": 30.0
+    },
+    {
+      "year": 2024,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 280,
+      "fails": 110,
+      "fail_rate": 39.3
+    },
+    {
+      "year": 2024,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 3,
+      "fails": 1,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2024,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 23,
+      "fails": 4,
+      "fail_rate": 17.4
+    },
+    {
+      "year": 2024,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 157,
+      "fails": 63,
+      "fail_rate": 40.1
+    },
+    {
+      "year": 2024,
+      "zip": "02203",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 3,
+      "fails": 1,
+      "fail_rate": 33.3
+    },
+    {
+      "year": 2024,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 47,
+      "fails": 12,
+      "fail_rate": 25.5
+    },
+    {
+      "year": 2024,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 756,
+      "fails": 183,
+      "fail_rate": 24.2
+    },
+    {
+      "year": 2024,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 970,
+      "fails": 303,
+      "fail_rate": 31.2
+    },
+    {
+      "year": 2024,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 70,
+      "fails": 11,
+      "fail_rate": 15.7
+    },
+    {
+      "year": 2025,
+      "zip": "02108",
+      "neighborhood": "Beacon Hill / Downtown",
+      "inspections": 330,
+      "fails": 144,
+      "fail_rate": 43.6
+    },
+    {
+      "year": 2025,
+      "zip": "02109",
+      "neighborhood": "Downtown / North End",
+      "inspections": 356,
+      "fails": 149,
+      "fail_rate": 41.9
+    },
+    {
+      "year": 2025,
+      "zip": "02110",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 335,
+      "fails": 129,
+      "fail_rate": 38.5
+    },
+    {
+      "year": 2025,
+      "zip": "02111",
+      "neighborhood": "Chinatown / Leather District",
+      "inspections": 525,
+      "fails": 245,
+      "fail_rate": 46.7
+    },
+    {
+      "year": 2025,
+      "zip": "02113",
+      "neighborhood": "North End",
+      "inspections": 272,
+      "fails": 97,
+      "fail_rate": 35.7
+    },
+    {
+      "year": 2025,
+      "zip": "02114",
+      "neighborhood": "West End / Beacon Hill",
+      "inspections": 432,
+      "fails": 117,
+      "fail_rate": 27.1
+    },
+    {
+      "year": 2025,
+      "zip": "02115",
+      "neighborhood": "Fenway / Longwood",
+      "inspections": 611,
+      "fails": 257,
+      "fail_rate": 42.1
+    },
+    {
+      "year": 2025,
+      "zip": "02116",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 868,
+      "fails": 334,
+      "fail_rate": 38.5
+    },
+    {
+      "year": 2025,
+      "zip": "02118",
+      "neighborhood": "South End",
+      "inspections": 540,
+      "fails": 272,
+      "fail_rate": 50.4
+    },
+    {
+      "year": 2025,
+      "zip": "02119",
+      "neighborhood": "Roxbury",
+      "inspections": 396,
+      "fails": 171,
+      "fail_rate": 43.2
+    },
+    {
+      "year": 2025,
+      "zip": "02120",
+      "neighborhood": "Mission Hill / Roxbury",
+      "inspections": 207,
+      "fails": 104,
+      "fail_rate": 50.2
+    },
+    {
+      "year": 2025,
+      "zip": "02121",
+      "neighborhood": "Roxbury / Dorchester",
+      "inspections": 175,
+      "fails": 77,
+      "fail_rate": 44.0
+    },
+    {
+      "year": 2025,
+      "zip": "02122",
+      "neighborhood": "Dorchester",
+      "inspections": 399,
+      "fails": 189,
+      "fail_rate": 47.4
+    },
+    {
+      "year": 2025,
+      "zip": "02124",
+      "neighborhood": "Dorchester",
+      "inspections": 366,
+      "fails": 159,
+      "fail_rate": 43.4
+    },
+    {
+      "year": 2025,
+      "zip": "02125",
+      "neighborhood": "Dorchester",
+      "inspections": 517,
+      "fails": 270,
+      "fail_rate": 52.2
+    },
+    {
+      "year": 2025,
+      "zip": "02126",
+      "neighborhood": "Mattapan",
+      "inspections": 208,
+      "fails": 93,
+      "fail_rate": 44.7
+    },
+    {
+      "year": 2025,
+      "zip": "02127",
+      "neighborhood": "South Boston",
+      "inspections": 442,
+      "fails": 178,
+      "fail_rate": 40.3
+    },
+    {
+      "year": 2025,
+      "zip": "02128",
+      "neighborhood": "East Boston",
+      "inspections": 1025,
+      "fails": 310,
+      "fail_rate": 30.2
+    },
+    {
+      "year": 2025,
+      "zip": "02129",
+      "neighborhood": "Charlestown",
+      "inspections": 207,
+      "fails": 43,
+      "fail_rate": 20.8
+    },
+    {
+      "year": 2025,
+      "zip": "02130",
+      "neighborhood": "Jamaica Plain",
+      "inspections": 463,
+      "fails": 233,
+      "fail_rate": 50.3
+    },
+    {
+      "year": 2025,
+      "zip": "02131",
+      "neighborhood": "Roslindale",
+      "inspections": 301,
+      "fails": 132,
+      "fail_rate": 43.9
+    },
+    {
+      "year": 2025,
+      "zip": "02132",
+      "neighborhood": "West Roxbury",
+      "inspections": 297,
+      "fails": 147,
+      "fail_rate": 49.5
+    },
+    {
+      "year": 2025,
+      "zip": "02134",
+      "neighborhood": "Allston",
+      "inspections": 515,
+      "fails": 207,
+      "fail_rate": 40.2
+    },
+    {
+      "year": 2025,
+      "zip": "02135",
+      "neighborhood": "Brighton",
+      "inspections": 491,
+      "fails": 165,
+      "fail_rate": 33.6
+    },
+    {
+      "year": 2025,
+      "zip": "02136",
+      "neighborhood": "Hyde Park",
+      "inspections": 272,
+      "fails": 133,
+      "fail_rate": 48.9
+    },
+    {
+      "year": 2025,
+      "zip": "02148",
+      "neighborhood": "",
+      "inspections": 2,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2025,
+      "zip": "02163",
+      "neighborhood": "Allston",
+      "inspections": 13,
+      "fails": 3,
+      "fail_rate": 23.1
+    },
+    {
+      "year": 2025,
+      "zip": "02199",
+      "neighborhood": "Back Bay / Bay Village",
+      "inspections": 114,
+      "fails": 41,
+      "fail_rate": 36.0
+    },
+    {
+      "year": 2025,
+      "zip": "02203",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 1,
+      "fails": 0,
+      "fail_rate": 0.0
+    },
+    {
+      "year": 2025,
+      "zip": "02205",
+      "neighborhood": "Financial District / Waterfront",
+      "inspections": 44,
+      "fails": 14,
+      "fail_rate": 31.8
+    },
+    {
+      "year": 2025,
+      "zip": "02210",
+      "neighborhood": "Seaport / Fort Point",
+      "inspections": 690,
+      "fails": 240,
+      "fail_rate": 34.8
+    },
+    {
+      "year": 2025,
+      "zip": "02215",
+      "neighborhood": "Fenway / Kenmore",
+      "inspections": 956,
+      "fails": 345,
+      "fail_rate": 36.1
+    },
+    {
+      "year": 2025,
+      "zip": "02467",
+      "neighborhood": "",
+      "inspections": 37,
+      "fails": 5,
+      "fail_rate": 13.5
+    }
+  ],
+  "active_licenses": 3347,
+  "license_cats": [
+    {
+      "label": "FS",
+      "value": 1766
+    },
+    {
+      "label": "FT",
+      "value": 1581
+    }
+  ],
+  "license_nb": [
+    {
+      "label": "Back Bay / Bay Village",
+      "value": 294
+    },
+    {
+      "label": "Fenway / Kenmore",
+      "value": 272
+    },
+    {
+      "label": "East Boston",
+      "value": 249
+    },
+    {
+      "label": "Dorchester",
+      "value": 229
+    },
+    {
+      "label": "Seaport / Fort Point",
+      "value": 229
+    },
+    {
+      "label": "West End / Beacon Hill",
+      "value": 202
+    },
+    {
+      "label": "Financial District / Waterfront",
+      "value": 174
+    },
+    {
+      "label": "Allston",
+      "value": 164
+    },
+    {
+      "label": "Fenway / Longwood",
+      "value": 161
+    },
+    {
+      "label": "Brighton",
+      "value": 144
+    },
+    {
+      "label": "Chinatown / Leather District",
+      "value": 140
+    },
+    {
+      "label": "South End",
+      "value": 114
+    }
+  ],
+  "vs_2019": {
+    "n2019": 10116,
+    "n2025": 12414,
+    "insp_pct": 22.7,
+    "fail_pct": 3.3
+  }
+}
