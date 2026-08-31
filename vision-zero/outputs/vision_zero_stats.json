@@ -1,0 +1,395 @@
+{
+  "quality": {
+    "crash_raw": 44343,
+    "crash_kept": 44343,
+    "fat_raw": 161,
+    "fat_kept": 161,
+    "note": "Vision Zero crashes and fatalities are separate files. 2026 crashes run through 1 July \u2014 not a full year. Compare 2025 to 2019, not 2020. BPD RMS MV crash/traffic is a different count and will not match."
+  },
+  "date_span": {
+    "crashes": {
+      "min": "2015-01-01",
+      "max": "2026-07-01"
+    },
+    "fatalities": {
+      "min": "2015-01-22",
+      "max": "2026-05-15"
+    }
+  },
+  "years": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "by_year": [
+    {
+      "year": 2015,
+      "crashes": 4098,
+      "deaths": 20
+    },
+    {
+      "year": 2016,
+      "crashes": 4362,
+      "deaths": 21
+    },
+    {
+      "year": 2017,
+      "crashes": 4529,
+      "deaths": 14
+    },
+    {
+      "year": 2018,
+      "crashes": 4372,
+      "deaths": 10
+    },
+    {
+      "year": 2019,
+      "crashes": 4354,
+      "deaths": 11
+    },
+    {
+      "year": 2020,
+      "crashes": 3346,
+      "deaths": 14
+    },
+    {
+      "year": 2021,
+      "crashes": 3913,
+      "deaths": 15
+    },
+    {
+      "year": 2022,
+      "crashes": 3302,
+      "deaths": 10
+    },
+    {
+      "year": 2023,
+      "crashes": 3536,
+      "deaths": 11
+    },
+    {
+      "year": 2024,
+      "crashes": 3459,
+      "deaths": 16
+    },
+    {
+      "year": 2025,
+      "crashes": 3411,
+      "deaths": 14
+    },
+    {
+      "year": 2026,
+      "crashes": 1661,
+      "deaths": 5
+    }
+  ],
+  "stacked": {
+    "years": [
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "series": [
+      {
+        "name": "Motor vehicle",
+        "data": [
+          2814,
+          3045,
+          3366,
+          3265,
+          3292,
+          2653,
+          3318,
+          2610,
+          2558,
+          2628,
+          2584
+        ]
+      },
+      {
+        "name": "Pedestrian",
+        "data": [
+          782,
+          894,
+          772,
+          682,
+          697,
+          398,
+          356,
+          449,
+          588,
+          465,
+          571
+        ]
+      },
+      {
+        "name": "Bicycle",
+        "data": [
+          502,
+          423,
+          391,
+          425,
+          365,
+          295,
+          239,
+          243,
+          390,
+          366,
+          256
+        ]
+      }
+    ]
+  },
+  "y2019": {
+    "n": 4354,
+    "per_day": 11.9,
+    "peak_hour": 21,
+    "quiet_hour": 8,
+    "modes": [
+      {
+        "label": "Motor vehicle",
+        "value": 3292
+      },
+      {
+        "label": "Pedestrian",
+        "value": 697
+      },
+      {
+        "label": "Bicycle",
+        "value": 365
+      }
+    ]
+  },
+  "y2020": {
+    "n": 3346,
+    "per_day": 9.1,
+    "peak_hour": 22,
+    "quiet_hour": 9,
+    "modes": [
+      {
+        "label": "Motor vehicle",
+        "value": 2653
+      },
+      {
+        "label": "Pedestrian",
+        "value": 398
+      },
+      {
+        "label": "Bicycle",
+        "value": 295
+      }
+    ]
+  },
+  "y2025": {
+    "n": 3411,
+    "per_day": 9.3,
+    "peak_hour": 21,
+    "quiet_hour": 9,
+    "modes": [
+      {
+        "label": "Motor vehicle",
+        "value": 2584
+      },
+      {
+        "label": "Pedestrian",
+        "value": 571
+      },
+      {
+        "label": "Bicycle",
+        "value": 256
+      }
+    ]
+  },
+  "y2026_ytd": {
+    "n": 1661,
+    "per_day": 9.1,
+    "peak_hour": 21,
+    "quiet_hour": 9,
+    "modes": [
+      {
+        "label": "Motor vehicle",
+        "value": 1322
+      },
+      {
+        "label": "Pedestrian",
+        "value": 246
+      },
+      {
+        "label": "Bicycle",
+        "value": 93
+      }
+    ]
+  },
+  "deaths_2019": 11,
+  "deaths_2020": 14,
+  "deaths_2025": 14,
+  "deaths_2026_ytd": 5,
+  "hour_2025": [
+    174,
+    176,
+    131,
+    131,
+    113,
+    108,
+    80,
+    67,
+    53,
+    52,
+    85,
+    104,
+    156,
+    158,
+    148,
+    181,
+    154,
+    178,
+    177,
+    208,
+    188,
+    212,
+    202,
+    175
+  ],
+  "weekday_2025": [
+    487,
+    469,
+    488,
+    457,
+    535,
+    518,
+    457
+  ],
+  "month_2025": [
+    233,
+    217,
+    237,
+    282,
+    309,
+    254,
+    307,
+    355,
+    321,
+    314,
+    298,
+    284
+  ],
+  "modes_2025": [
+    {
+      "label": "Motor vehicle",
+      "value": 2584
+    },
+    {
+      "label": "Pedestrian",
+      "value": 571
+    },
+    {
+      "label": "Bicycle",
+      "value": 256
+    }
+  ],
+  "deaths_modes_2025": [
+    {
+      "label": "Pedestrian",
+      "value": 11
+    },
+    {
+      "label": "Motor vehicle",
+      "value": 3
+    }
+  ],
+  "deaths_modes": [
+    {
+      "label": "Pedestrian",
+      "value": 92
+    },
+    {
+      "label": "Motor vehicle",
+      "value": 53
+    },
+    {
+      "label": "Bicycle",
+      "value": 11
+    }
+  ],
+  "streets_2025": [
+    {
+      "label": "Washington St",
+      "value": 111
+    },
+    {
+      "label": "Interstate 93",
+      "value": 106
+    },
+    {
+      "label": "Blue Hill Ave",
+      "value": 78
+    },
+    {
+      "label": "Dorchester Ave",
+      "value": 47
+    },
+    {
+      "label": "Hyde Park Ave",
+      "value": 37
+    },
+    {
+      "label": "Massachusetts Ave",
+      "value": 34
+    },
+    {
+      "label": "River St",
+      "value": 34
+    },
+    {
+      "label": "Centre St",
+      "value": 33
+    },
+    {
+      "label": "Columbia Rd",
+      "value": 32
+    },
+    {
+      "label": "William T Morrissey Blvd",
+      "value": 30
+    },
+    {
+      "label": "Tremont St",
+      "value": 29
+    }
+  ],
+  "location_2025": [
+    {
+      "label": "Street",
+      "value": 1858
+    },
+    {
+      "label": "Intersection",
+      "value": 1384
+    },
+    {
+      "label": "Other",
+      "value": 169
+    }
+  ],
+  "vs_2019": {
+    "crashes_pct": -21.7,
+    "deaths_2019": 11,
+    "deaths_2025": 14
+  }
+}

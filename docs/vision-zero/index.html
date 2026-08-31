@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston Vision Zero, 2015–2026 YTD</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a href="../earnings/">Earnings</a>
+    <a href="../fire/">Fire</a>
+    <a href="../crime/">Police</a>
+    <a href="../311/">311</a>
+    <a class="active" href="./">Vision Zero</a>
+  </div>
+  <h1>Boston Vision Zero — city briefing</h1>
+  <p class="subtitle">Analyze Boston Vision Zero Crash Records, 1 January 2015 through 1 July 2026, and Vision Zero Fatality Records, 22 January 2015 through 15 May 2026. 2015–2025 are complete years. 2026 is not a full year. 2020 is COVID. These two files are not Boston Police RMS.</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="department">Department</button>
+    <button class="tab-btn" data-tab="city">City / Mayor</button>
+    <button class="tab-btn" data-tab="public">Public</button>
+    <button class="tab-btn" data-tab="notes">Notes</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Six findings. Numbers a reader can take into a meeting.</p>
+    <div class="callout warn">
+      <strong>Crashes are down versus 2019. Traffic deaths are not.</strong>
+      Vision Zero recorded 3,411 crashes in 2025 against 4,354 in 2019 (−21.7%). Deaths were 14 against 11. Pedestrians were 16.7% of crashes and 11 of 14 deaths.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">3,411</div><div class="stat-label">Crashes in 2025 · 9.3 a day</div></div>
+      <div class="stat warn"><div class="stat-val">14</div><div class="stat-label">Deaths in 2025</div></div>
+      <div class="stat"><div class="stat-val">−21.7%</div><div class="stat-label">Crashes vs 2019</div></div>
+      <div class="stat warn"><div class="stat-val">11 of 14</div><div class="stat-label">2025 deaths were pedestrians</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Finding</th><th class="num">Number</th></tr></thead>
+      <tbody>
+        <tr><td>2025 vs 2019 crashes</td><td class="num">3,411 vs 4,354 (−21.7%)</td></tr>
+        <tr><td>2025 vs 2019 deaths</td><td class="num">14 vs 11</td></tr>
+        <tr><td>Pedestrians, 2025</td><td class="num">571 crashes · 11 of 14 deaths</td></tr>
+        <tr><td>Peak hour, 2025</td><td class="num">9 p.m. (212) · quietest 9 a.m. (52)</td></tr>
+        <tr><td>2026 YTD crashes (through 1 Jul)</td><td class="num">1,661 · 9.1 a day</td></tr>
+        <tr><td>BPD RMS MV vs Vision Zero, 2025</td><td class="num">13,138 vs 3,411 — different files</td></tr>
+      </tbody>
+    </table>
+    <p>Open Overview for the citywide trend, Department for the clock and streets, City / Mayor for policy, Public for plain language.</p>
+  </div>
+
+  <div id="overview" class="tab-panel">
+    <p class="tab-blurb">Citywide Vision Zero crashes and deaths. 2020 is COVID — not a baseline. 2026 is not a full year.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">3,411</div><div class="stat-label">Crashes in 2025</div></div>
+      <div class="stat"><div class="stat-val">9.3</div><div class="stat-label">Average crashes per day</div></div>
+      <div class="stat warn"><div class="stat-val">14</div><div class="stat-label">Deaths in 2025</div></div>
+      <div class="stat"><div class="stat-val">44,343</div><div class="stat-label">Crash rows 2015–2026 YTD</div></div>
+    </div>
+    <h2>Crashes fell versus 2019. Deaths did not.</h2>
+    <p>Use 2019 as the last normal pre-COVID year, not 2020. Vision Zero crashes peaked at 4,529 in 2017, then 4,372 in 2018 and 4,354 in 2019. 2025 is 3,411 — 9.3 a day, 21.7% below 2019. Fatalities in the companion file were 11 in 2019 and 14 in 2025. Those are not the same series: do not add 14 deaths into 3,411 crashes.</p>
+    <div class="callout warn">
+      <strong>2020 is a COVID year. Do not use it as a baseline.</strong>
+      Crashes fell 23.2% in 2020 (4,354 → 3,346) while deaths rose (11 → 14). Compare 2025 to 2019, then show 2020 as the shock.
+    </div>
+    <div class="callout warn">
+      <strong>2026 is not a full year. Fatalities and crashes end on different dates.</strong>
+      Crashes run through 1 July 2026 (1,661 year-to-date, 9.1 a day). Fatalities run through 15 May 2026 (5 deaths). Do not annualize either figure, and do not treat them as the same cutoff.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Vision Zero crashes per year</h3>
+        <div class="chart-box"><canvas id="cVol"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2015–2025 complete years · 2026 YTD omitted (through 1 Jul, 1,661)</p>
+      </div>
+      <div>
+        <h3>Traffic deaths per year</h3>
+        <div class="chart-box"><canvas id="cDeaths"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Fatality Records · 2015–2025 · a separate file from crashes · 2026 YTD omitted (5 through 15 May)</p>
+      </div>
+    </div>
+    <h2>Most crashes are motor vehicles. Most deaths are people walking.</h2>
+    <p>In 2025, motor vehicles were 2,584 of 3,411 crashes (75.8%). Pedestrians were 571 (16.7%) and bicycles 256 (7.5%). Of 14 deaths that year, 11 were pedestrians and 3 were motor-vehicle mode (mode_type mv — the file does not split drivers, passengers, or motorcyclists). Across complete years 2015–2025, pedestrians are 92 of 156 deaths.</p>
+    <div class="callout warn">
+      <strong>Do not mix deaths into the crash total.</strong>
+      3,411 crashes and 14 deaths in 2025 come from two files. Brief them side by side. Adding them is not a citywide total.
+    </div>
+    <h3>Crash mix by year (share)</h3>
+    <div class="chart-box tall"><canvas id="cMix"></canvas></div>
+    <p class="caption">Source: Analyze Boston Vision Zero Crash Records · mode_type · 2015–2025 complete years · 2025: motor vehicle 2,584 · pedestrian 571 · bicycle 256</p>
+    <div class="grid-2">
+      <div>
+        <h3>2025 crash mix</h3>
+        <div class="chart-box"><canvas id="cMixPie"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 (n = 3,411)</p>
+      </div>
+      <div>
+        <h3>How the mix changed, 2019 → 2025</h3>
+        <table>
+          <thead><tr><th>Measure</th><th class="num">2019</th><th class="num">2025</th><th class="num">Change</th></tr></thead>
+          <tbody>
+            <tr><td>All crashes</td><td class="num">4,354</td><td class="num">3,411</td><td class="num">−21.7%</td></tr>
+            <tr><td>Deaths</td><td class="num">11</td><td class="num">14</td><td class="num">+3</td></tr>
+            <tr><td>Motor vehicle crashes</td><td class="num">3,292</td><td class="num">2,584</td><td class="num">−21.5%</td></tr>
+            <tr><td>Pedestrian crashes</td><td class="num">697</td><td class="num">571</td><td class="num">−18.1%</td></tr>
+            <tr><td>Bicycle crashes</td><td class="num">365</td><td class="num">256</td><td class="num">−29.9%</td></tr>
+            <tr><td>Pedestrian share of deaths</td><td class="num">8 of 11</td><td class="num">11 of 14</td><td class="num">still most</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records and Fatality Records · complete years 2019 and 2025</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 deaths by mode</h3>
+        <div class="chart-box"><canvas id="cDeathPie25"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Fatality Records · 2025 (n = 14) · no bicycle deaths that year</p>
+      </div>
+      <div>
+        <h3>Deaths by mode, 2015–2025</h3>
+        <div class="chart-box"><canvas id="cDeathPieAll"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Fatality Records · complete years 2015–2025 (n = 156) · 2026 YTD omitted</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="department" class="tab-panel">
+    <p class="tab-blurb">What BTD, BPD, and Public Works need: when crashes happen, which streets repeat, how the clock differs from 311.</p>
+    <div class="callout info">
+      <strong>For BTD, BPD, and Public Works</strong>
+      Staff the evening peak, not the 311 morning open. Friday is the heavy crash day. Washington Street, Interstate 93, and Blue Hill Avenue lead 2025 volume. 1,384 of 3,411 crashes are intersections.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">9 p.m.</div><div class="stat-label">Peak crash hour, 2025</div></div>
+      <div class="stat"><div class="stat-val">Friday</div><div class="stat-label">Heaviest weekday (535)</div></div>
+      <div class="stat"><div class="stat-val">August</div><div class="stat-label">Peak month (355)</div></div>
+    </div>
+    <h2>Crashes peak at 9 p.m., not the morning commute.</h2>
+    <p>In 2025 the busiest hour is 9 p.m. (212 crashes). The quietest is 9 a.m. (52). Friday is heaviest (535); Thursday and Sunday are lightest (457). Tuesday is 469. August is the peak month (355); February is the lightest (217). This is the opposite clock from 311, which opens most cases at 8 a.m.</p>
+    <div class="grid-2">
+      <div>
+        <h3>2025 crashes by hour</h3>
+        <div class="chart-box"><canvas id="cHour"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 · peak 9 p.m. (212) · quietest 9 a.m. (52)</p>
+      </div>
+      <div>
+        <h3>2025 crashes by weekday</h3>
+        <div class="chart-box"><canvas id="cWeek"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 · Friday 535 · Thursday and Sunday 457</p>
+      </div>
+    </div>
+    <h3>2025 crashes by month</h3>
+    <div class="chart-box short"><canvas id="cMonth"></canvas></div>
+    <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 · August 355 · February 217 · a complete calendar year</p>
+    <h2>Washington Street, I-93, and Blue Hill Avenue lead 2025 volume.</h2>
+    <p>Street names are as recorded. Blank street fields at intersections are filled from the two cross streets. Interstate 93 is in this file as a named location — it is highway crashes the Vision Zero extract kept, not a neighborhood street.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Top streets, 2025 crashes</h3>
+        <div class="chart-box"><canvas id="cStreet"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 · street / xstreet1 &amp; xstreet2 · top 8 of 3,411 · names as recorded</p>
+      </div>
+      <div>
+        <h3>Where 2025 crashes were recorded</h3>
+        <div class="chart-box"><canvas id="cLoc"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 location_type as recorded · street 1,858 · intersection 1,384 · other 169</p>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>Street</th><th class="num">2025 crashes</th></tr></thead>
+      <tbody>
+        <tr><td>Washington St</td><td class="num">111</td></tr>
+        <tr><td>Interstate 93</td><td class="num">106</td></tr>
+        <tr><td>Blue Hill Ave</td><td class="num">78</td></tr>
+        <tr><td>Dorchester Ave</td><td class="num">47</td></tr>
+        <tr><td>Hyde Park Ave</td><td class="num">37</td></tr>
+        <tr><td>Massachusetts Ave</td><td class="num">34</td></tr>
+        <tr><td>River St</td><td class="num">34</td></tr>
+        <tr><td>Centre St</td><td class="num">33</td></tr>
+        <tr><td>Columbia Rd</td><td class="num">32</td></tr>
+        <tr><td>William T Morrissey Blvd</td><td class="num">30</td></tr>
+        <tr><td>Tremont St</td><td class="num">29</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 · remaining streets not shown · names as recorded</p>
+    <h2>What each shop should take from this</h2>
+    <table>
+      <thead><tr><th>Shop</th><th>Use this</th></tr></thead>
+      <tbody>
+        <tr><td>BTD / Vision Zero</td><td>Crashes −21.7% vs 2019 is not the same as fewer deaths (14 vs 11).</td></tr>
+        <tr><td>BPD</td><td>RMS MV crash / traffic 13,138 is not the Vision Zero crash count (3,411).</td></tr>
+        <tr><td>Public Works / streets</td><td>Washington St 111, I-93 106, Blue Hill Ave 78. Intersections 1,384.</td></tr>
+        <tr><td>EMS / hospitals</td><td>Evening peak (9 p.m.), not 8 a.m. Friday is heaviest.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="city" class="tab-panel">
+    <p class="tab-blurb">What the Mayor and Council need: crashes are down vs 2019; deaths are not. Do not mix the two files.</p>
+    <div class="callout warn">
+      <strong>For the Mayor: fewer crashes than 2019 is not Vision Zero success if deaths are up.</strong>
+      Boston recorded 21.7% fewer Vision Zero crashes in 2025 than in 2019, and 3 more traffic deaths (14 vs 11). Pedestrians remain most of the people killed. Do not brief RMS traffic incidents as Vision Zero crashes.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">−21.7%</div><div class="stat-label">2025 vs 2019 crashes</div></div>
+      <div class="stat warn"><div class="stat-val">14 vs 11</div><div class="stat-label">2025 vs 2019 deaths</div></div>
+      <div class="stat warn"><div class="stat-val">11 of 14</div><div class="stat-label">2025 deaths who were walking</div></div>
+      <div class="stat"><div class="stat-val">4,529</div><div class="stat-label">Peak crash year (2017)</div></div>
+    </div>
+    <h2>BPD MV crash / traffic incidents are not Vision Zero crashes.</h2>
+    <div class="callout warn">
+      <strong>RMS MV crash / traffic is a different file. The two counts will not match.</strong>
+      BPD recorded 13,138 MV crash / traffic incidents in 2025 (leaving-scene, OUI, crash, and other traffic). Analyze Boston Vision Zero recorded 3,411 crashes the same year. Brief them as two numbers. Do not substitute one for the other.
+    </div>
+    <table>
+      <thead><tr><th>Source</th><th class="num">2025 count</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><td>Vision Zero Crash Records</td><td class="num">3,411</td><td>Traffic crashes in the Vision Zero extract</td></tr>
+        <tr><td>BPD RMS MV crash / traffic</td><td class="num">13,138</td><td>Police incidents: crash, leaving-scene, OUI, other traffic</td></tr>
+        <tr><td>Vision Zero Fatality Records</td><td class="num">14</td><td>People killed — a third file, not a subset you can add</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: BPD RMS unique incidents 2025 · MV crash / traffic family 13,138 · Analyze Boston Vision Zero Crash Records 2025 · 3,411 crashes and 14 deaths</p>
+    <h2>Decisions this supports</h2>
+    <table>
+      <thead><tr><th>Ask</th><th>Number</th></tr></thead>
+      <tbody>
+        <tr><td>Do not treat crash decline as a death decline</td><td>3,411 crashes · 14 deaths in 2025</td></tr>
+        <tr><td>Protect people walking first</td><td>11 of 14 deaths · 92 of 156 in 2015–2025</td></tr>
+        <tr><td>Do not add RMS MV to Vision Zero</td><td>13,138 vs 3,411 — they will not match</td></tr>
+        <tr><td>Do not annualize 2026</td><td>1,661 crashes through 1 Jul · 5 deaths through 15 May</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="public" class="tab-panel">
+    <p class="tab-blurb">Plain language: most crashes are motor vehicles; most people who die are walking.</p>
+    <h2>What Boston residents should know</h2>
+    <p>These are City of Boston Vision Zero crash and fatality records, 2015 through mid-2026. This is not 911, and it is not the Boston Police incident file.</p>
+    <div class="callout info">
+      <strong>Most recorded crashes are motor vehicles.</strong>
+      In 2025, 2,584 of 3,411 crashes were motor-vehicle mode, 571 were pedestrian mode, and 256 were bicycle mode.
+    </div>
+    <div class="callout warn">
+      <strong>Most people who die in this file were walking.</strong>
+      11 of 14 traffic deaths in 2025 were pedestrians. From 2015 through 2025, 92 of 156 deaths were pedestrians.
+    </div>
+    <div class="callout warn">
+      <strong>2026 is only part of a year.</strong>
+      Crash records in this dump run through 1 July 2026 (1,661 so far). Fatality records run through 15 May (5 deaths). 2026 is not a full year.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 crashes by hour</h3>
+        <div class="chart-box"><canvas id="cHourPub"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 · most at 9 p.m. (212)</p>
+      </div>
+      <div>
+        <h3>Streets with the most 2025 crashes</h3>
+        <div class="chart-box"><canvas id="cStreetPub"></canvas></div>
+        <p class="caption">Source: Analyze Boston Vision Zero Crash Records · 2025 · top 5 of 3,411 · names as recorded</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="notes" class="tab-panel">
+    <p class="tab-blurb">What this file is, and is not.</p>
+    <h2>What this file is, and is not</h2>
+    <table>
+      <thead><tr><th>Rule</th><th>Why it matters</th></tr></thead>
+      <tbody>
+        <tr><td>Crashes kept 44,343 of 44,343 rows</td><td>No timestamp drop. Span 2015-01-01 to 2026-07-01.</td></tr>
+        <tr><td>Fatalities kept 161 of 161 rows</td><td>A separate file. Span 2015-01-22 to 2026-05-15.</td></tr>
+        <tr><td>2026 is not a full year</td><td>Crashes through 1 Jul (1,661). Deaths through 15 May (5).</td></tr>
+        <tr><td>Compare 2025 to 2019, not 2020</td><td>2020 COVID. Crashes −23.2%; deaths 11 → 14.</td></tr>
+        <tr><td>Do not add RMS 13,138 to Vision Zero 3,411</td><td>Different files. They will not match.</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: Analyze Boston datasets vision-zero-crash-records and vision-zero-fatality-records · dumps pulled 31 Aug 2026</p>
+    <p>Raw City CSVs are not in this repo. Run <code>python3 analyze_vision_zero.py</code> from <code>vision-zero/</code> with files in <code>$BOSTON_DATA_DIR</code> or <code>~/Downloads</code>.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const S = window.VZ;
+lineChart("cVol", S.years, [{ label: "Crashes", data: S.crashes }]);
+lineChart("cDeaths", S.years, [{ label: "Deaths", data: S.deaths, color: "#c45c5c" }]);
+barChart("cMix", S.years, [
+  { label: "Motor vehicle", data: S.mv, color: "#888" },
+  { label: "Pedestrian", data: S.ped, color: "#c45c5c" },
+  { label: "Bicycle", data: S.bike, color: "#599ce7" },
+], { stacked: true });
+pieChart("cMixPie", [
+  { label: "Motor vehicle", value: 2584, color: "#888" },
+  { label: "Pedestrian", value: 571, color: "#c45c5c" },
+  { label: "Bicycle", value: 256, color: "#599ce7" },
+]);
+pieChart("cDeathPie25", [
+  { label: "Pedestrian", value: 11, color: "#c45c5c" },
+  { label: "Motor vehicle", value: 3, color: "#888" },
+]);
+pieChart("cDeathPieAll", [
+  { label: "Pedestrian", value: 92, color: "#c45c5c" },
+  { label: "Motor vehicle", value: 53, color: "#888" },
+  { label: "Bicycle", value: 11, color: "#599ce7" },
+]);
+lineChart("cHour", S.hours, [{ label: "Crashes", data: S.hour2025 }]);
+barChart("cWeek", S.weekdays, [{ label: "Crashes", data: S.weekday2025 }]);
+barChart("cMonth", S.months, [{ label: "Crashes", data: S.month2025 }]);
+barChart("cStreet", S.streetLabels, [{ label: "2025 crashes", data: S.street2025 }], { horizontal: true });
+pieChart("cLoc", [
+  { label: "Street", value: 1858, color: "#599ce7" },
+  { label: "Intersection", value: 1384, color: "#d08770" },
+  { label: "Other", value: 169, color: "#555" },
+]);
+lineChart("cHourPub", S.hours, [{ label: "Crashes", data: S.hour2025 }]);
+barChart("cStreetPub", S.streetLabels.slice(0, 5), [{ label: "2025 crashes", data: S.street2025.slice(0, 5) }], { horizontal: true });
+</script>
+</body>
+</html>
