@@ -273,18 +273,19 @@ function SectionMix() {
             ]}
           />
           <Callout tone="info" title="One permit, one occupancytype code.">
-            The City data dictionary lists occupancytype as the type of
-            occupancy of the property, belonging to a coded set. 1-2FAM,
-            1-3FAM, 1-4FAM, and Multi are mutually exclusive choices, not
-            nested unit counts. A 1-2FAM permit is not also counted as
-            1-3FAM or 1-4FAM. 2025: 1-2FAM 14,501 · 1-3FAM 3,693 ·
-            1-4FAM 1,181 · Multi 4,480.
+            The City data dictionary defines occupancytype as “Type of
+            occupancy of the property” and lists a coded set. It does not
+            define unit counts for 1-2FAM, 1-3FAM, 1-4FAM, or Multi. Those
+            are mutually exclusive dropdown choices, not nested unit counts.
+            A 1-2FAM permit is not also counted as 1-3FAM or 1-4FAM. 2025:
+            1-2FAM 14,501 · 1-3FAM 3,693 · 1-4FAM 1,181 · Multi 4,480.
           </Callout>
           <Caption>
             Source: Analyze Boston Approved Building Permits · occupancytype
-            · 2025 (n = 36,801) · mutually exclusive City codes · not nested
-            unit counts · 1-2FAM 14,501 · 1-3FAM 3,693 · 1-4FAM 1,181 ·
-            Multi 4,480
+            · City dictionary: Type of occupancy of the property · 2025
+            (n = 36,801) · mutually exclusive City codes · does not define
+            unit counts · not nested unit counts · 1-2FAM 14,501 · 1-3FAM
+            3,693 · 1-4FAM 1,181 · Multi 4,480
           </Caption>
         </Stack>
       </Grid>
@@ -614,7 +615,7 @@ function SectionQuality() {
           ],
           [
             "occupancytype is one code per permit",
-            "1-2FAM, 1-3FAM, 1-4FAM, Multi are mutually exclusive City codes, not nested unit counts.",
+            "Dictionary: Type of occupancy of the property. 1-2FAM, 1-3FAM, 1-4FAM, Multi are mutually exclusive; the City does not define unit counts for each.",
           ],
         ]}
         rowTone={["success", "info", "warning", "warning", "danger", "warning", "info"]}

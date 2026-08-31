@@ -44,7 +44,7 @@ Do not add 906 into 36,801.
 
 ## Most 2025 permits are short-form and trades, not Erect/New Construction
 
-Short Form Bldg Permit is **11,442** of 36,801 (**31.1%**). Electrical, plumbing, and gas add **16,553**. Erect/New Construction is **210 (0.57%)**. Occupancy is one City `occupancytype` code per permit, not nested unit counts: **1–2 family** is the code `1-2FAM` (**14,501** permits, 39.4%) but only **$797 million** of declared value (6.4%). **1–3 family** is `1-3FAM` (3,693). **1–4 family** is `1-4FAM` (1,181). **Multifamily** is `Multi` (4,480). A `1-2FAM` permit is not also counted as `1-3FAM` or `1-4FAM`. Commercial is `Comm` (9,924 permits and **$6.08 billion**, 48.8% of value).
+Short Form Bldg Permit is **11,442** of 36,801 (**31.1%**). Electrical, plumbing, and gas add **16,553**. Erect/New Construction is **210 (0.57%)**. Occupancy is one City `occupancytype` code per permit. The data dictionary defines that field as **“Type of occupancy of the property”** and lists a coded set; it **does not define unit counts** for `1-2FAM`, `1-3FAM`, `1-4FAM`, or `Multi`. Those are mutually exclusive dropdown values, not nested buckets: **1–2 family** is `1-2FAM` (**14,501** permits, 39.4%) but only **$797 million** of declared value (6.4%). **1–3 family** is `1-3FAM` (3,693). **1–4 family** is `1-4FAM` (1,181). **Multifamily** is `Multi` (4,480). A `1-2FAM` permit is not also counted as `1-3FAM` or `1-4FAM`. Commercial is `Comm` (9,924 permits and **$6.08 billion**, 48.8% of value).
 
 ---
 
@@ -83,4 +83,4 @@ Classified decisions (all dated cases with a recorded decision): Approved **13,0
 
 ## What these files are not
 
-After-hours construction. 311. Fire. A complete 2026 calendar year. A “new buildings” count (use `permittypedescr` Erect/New Construction). A native neighborhood field (ZIP rollup). Nested occupancy buckets: `1-2FAM`, `1-3FAM`, `1-4FAM`, and `Multi` are mutually exclusive City codes, one per permit.
+After-hours construction. 311. Fire. A complete 2026 calendar year. A “new buildings” count (use `permittypedescr` Erect/New Construction). A native neighborhood field (ZIP rollup). Nested occupancy buckets: `1-2FAM`, `1-3FAM`, `1-4FAM`, and `Multi` are mutually exclusive City codes, one per permit. The City lists those codes; it does not define the unit split.
