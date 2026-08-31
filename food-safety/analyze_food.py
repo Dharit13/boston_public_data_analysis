@@ -26,7 +26,7 @@ FAIL_RESULTS = frozenset({
 })
 STAR_LEVELS = ("*", "**", "***")
 ALWAYS_PASS_MIN = 3
-REPEAT_FAIL_MIN = 2
+REPEAT_YEAR_MIN = 2
 PLACE_DETAIL_YEARS = (2019, 2024, 2025)
 
 CAT_FOOD_DRINKS = "Food and drinks"
@@ -177,8 +177,6 @@ def _window_payload(by: dict[str, dict], ytd: bool) -> dict:
         if p["fails"] == 0 and p["inspections"] >= ALWAYS_PASS_MIN
     ]
     always.sort(key=lambda p: (-p["inspections"], p["name"].lower()))
-    repeats = [p for p in places if p["fails"] >= REPEAT_FAIL_MIN]
-    repeats.sort(key=lambda p: (-p["fails"], -p["fail_rate"], p["name"].lower()))
     cat_n: Counter = Counter()
     cat_fail: Counter = Counter()
     for p in places:
@@ -189,15 +187,33 @@ def _window_payload(by: dict[str, dict], ytd: bool) -> dict:
         for lab in OVERLAY_ORDER
         if cat_n[lab]
     ]
+    by_category: dict[str, dict] = {}
+    for lab in OVERLAY_ORDER:
+        subset = [p for p in places if p["category"] == lab]
+        cat_always = [
+            p
+            for p in subset
+            if p["fails"] == 0 and p["inspections"] >= ALWAYS_PASS_MIN
+        ]
+        cat_always.sort(key=lambda p: (-p["inspections"], p["name"].lower()))
+        if not cat_always:
+            continue
+        by_category[lab] = {
+            "always_pass": [_public_place(p) for p in cat_always[:10]],
+            "places_to_avoid": [],
+            "always_pass_n": len(cat_always),
+            "repeat_n": 0,
+        }
     return {
         "ytd": ytd,
         "min_pass_inspections": ALWAYS_PASS_MIN,
         "always_pass": [_public_place(p) for p in always[:10]],
-        "repeat_offenders": [_public_place(p) for p in repeats[:15]],
-        "places_to_avoid": [_public_place(p) for p in repeats[:10]],
+        "repeat_offenders": [],
+        "places_to_avoid": [],
         "always_pass_n": len(always),
-        "repeat_n": len(repeats),
+        "repeat_n": 0,
         "category_n": category_n,
+        "by_category": by_category,
     }
 
 
@@ -375,7 +391,7 @@ def briefing_from_rows(
     years_failed: dict[str, set[int]] = defaultdict(set)
     across_roll: dict[str, dict] = {}
     for row in inspections:
-        if row["year"] not in COMPLETE_YEARS:
+        if not (2012 <= row["year"] <= YEAR_MAX):
             continue
         key = _place_key(row)
         rec = across_roll.get(key)
@@ -396,7 +412,7 @@ def briefing_from_rows(
     across_places = []
     for key, rec in across_roll.items():
         nyears = len(years_failed.get(key, ()))
-        if nyears < 2:
+        if nyears < REPEAT_YEAR_MIN:
             continue
         rec["years_failed"] = nyears
         rec["fail_rate"] = round(
@@ -406,12 +422,25 @@ def briefing_from_rows(
     across_places.sort(
         key=lambda p: (-p["years_failed"], -p["fails"], p["name"].lower())
     )
+    across_by_cat: dict[str, dict] = {}
+    for lab in OVERLAY_ORDER:
+        subset = [p for p in across_places if p["category"] == lab]
+        if not subset:
+            continue
+        across_by_cat[lab] = {
+            "places_to_avoid": [
+                _public_place(p, extra=("years_failed",)) for p in subset[:10]
+            ],
+            "repeat_n": len(subset),
+        }
     repeat_across = {
-        "window": "2012–2025 complete years",
-        "years": list(COMPLETE_YEARS),
+        "window": "2012–2026 · fail in ≥2 calendar years",
+        "years": list(range(YEAR_MIN, YEAR_MAX + 1)),
+        "repeat_n": len(across_places),
         "places": [
             _public_place(p, extra=("years_failed",)) for p in across_places[:15]
         ],
+        "by_category": across_by_cat,
     }
 
     category_by_year = []

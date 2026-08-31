@@ -74,19 +74,19 @@ Food inspections and active licenses are **not** RentSmart, **not** building per
 
 ---
 
-## Places — not 2025-only
+## Places — always-pass by year, repeats across years
 
-Always-pass, repeat offenders, and places to avoid are computed **inside each window**: complete years **2019, 2024, 2025**, plus **2026 YTD through 28 August**. Always-pass needs **at least 3 inspections** in that window and **zero** fail codes (`HE_Filed` is not a fail). Repeat offenders failed **at least two visits** in that window. Places to avoid are the worst of those within-window repeats.
+Always-pass is computed **inside each window**: complete years **2019, 2024, 2025**, plus **2026 YTD through 28 August**. Always-pass needs **at least 3 inspections** in that window and **zero** fail codes (`HE_Filed` is not a fail).
 
-A separate list is places that failed in **multiple complete years 2012–2025** (2026 excluded). That is not the same as two fails inside one year.
+A **repeat offender** failed in **at least two calendar years** from **2012 through 2026**. Two fails in the same year count as one year, not a repeat. 2026 YTD counts as one calendar year if it has a fail. Places to avoid are the top of those multi-year repeats, including by category (Ice cream, Cultural / attraction, Hospital, Hotel, School, Cafe, then licensecat FS/FT/RF/MFW).
 
-| Window | Always-pass | Repeat offenders |
-| --- | ---: | ---: |
-| 2019 | 60 | 1,010 |
-| 2024 | 328 | 1,296 |
-| 2025 | 92 | 1,349 |
-| 2026 YTD | 49 | 999 |
+| Window | Always-pass |
+| --- | ---: |
+| 2019 | 60 |
+| 2024 | 328 |
+| 2025 | 92 |
+| 2026 YTD | 49 |
 
-2025 worst within-year repeat: **Dans Mini Dogs** (23 fails / 29 visits). Across complete years: **Go Fresh 365** (failed in all 14 years).
+5,945 places met the multi-year repeat rule. Across 2012–2026: **Go Fresh 365** failed in all 15 years. Ice cream has no 2025 always-pass list (omit empty).
 
 Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays with word-boundary matching add Ice cream, Cafe, School, Hotel, Hospital, and Cultural / attraction. The City has no cafe or ice-cream license code. `ice` does not match ICE Auto Services.

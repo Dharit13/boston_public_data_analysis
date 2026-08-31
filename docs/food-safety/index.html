@@ -13,6 +13,7 @@
 }
 .year-btn:hover { color: #e4e4e4; border-color: #555; }
 .year-btn.active { color: #599ce7; border-color: #599ce7; background: #1e2a38; }
+[hidden] { display: none !important; }
 </style>
 </head>
 <body>
@@ -62,7 +63,7 @@
         <tr><td>2026 YTD inspections (through 28 Aug)</td><td class="num">8,894 · 37.1 a day</td></tr>
       </tbody>
     </table>
-    <p>Open Overview for the citywide trend, Department for the result clock, City / Mayor for ZIP fail rates, Public for plain language, Places for always-pass and repeat-offender lists by year (2019, 2024, 2025, 2026 YTD).</p>
+    <p>Open Overview for the citywide trend, Department for the result clock, City / Mayor for ZIP fail rates, Public for plain language, Places for always-pass by year and category, and repeat offenders who failed in at least two calendar years.</p>
   </div>
 
   <div id="overview" class="tab-panel">
@@ -223,8 +224,8 @@
       Records in this dump run through 28 August 2026 (8,894 so far). 2026 is not a full year.
     </div>
     <div class="callout info">
-      <strong>Always-pass and repeats are not 2025-only.</strong>
-      Open Places for lists in 2019, 2024, 2025, and 2026 YTD, plus places that failed in multiple years from 2012 through 2025. Always-pass needs at least 3 inspections in that window.
+      <strong>Always-pass is by year. Repeats are by calendar year.</strong>
+      Open Places. Always-pass uses 2019 / 2024 / 2025 / 2026 YTD with a category pill. Repeat offenders failed in at least two calendar years from 2012 through 2026 — two fails in 2025 are not enough. Category pills cover ice cream, cafe, museums, food and drinks, take-out, and the rest.
     </div>
     <div class="grid-2">
       <div>
@@ -241,22 +242,26 @@
   </div>
 
   <div id="places" class="tab-panel">
-    <p class="tab-blurb">Always-pass, repeat offenders, and places to avoid for 2019, 2024, 2025, and 2026 YTD — not a 2025-only list. Repeat across years is 2012–2025 complete years.</p>
-    <h2>Always-pass, repeats, and places to avoid — by year</h2>
-    <p>These lists are not 2025-only. Always-pass requires at least 3 inspections in that window and zero fails. Repeat offenders failed at least two visits in that window. Places to avoid are the worst of those within-window repeats. A second list counts places that failed in multiple years across 2012–2025 complete years. Do not count 3,347 licenses as inspections.</p>
+    <p class="tab-blurb">Always-pass lists by year and category. Repeat offenders failed in at least two calendar years — two fails in the same year do not count.</p>
+    <h2>Always-pass by year. Repeat offenders across years.</h2>
+    <p>Always-pass is still a year window (2019, 2024, 2025, 2026 YTD): at least 3 inspections in that window and zero fails. Repeat offender means a fail in at least two calendar years from 2012 through 2026. Two failed inspections in 2025 count as one year — that place is not a repeat offender unless it also failed in another year. Places to avoid are the top of those multi-year repeats. Use the category pills for ice cream, cafe, museums / attractions, food and drinks, take-out, and the rest. Do not count 3,347 licenses as inspections.</p>
+    <div class="callout warn">
+      <strong>Two fails in the same year are not a repeat.</strong>
+      Repeat offender = distinct calendar years with a fail. Children&apos;s Museum Shop with three 2025 fails and no other year is not on this list. Go Fresh 365 failed in 15 years. 2026 YTD counts as one calendar year if it has a fail.
+    </div>
     <table>
-      <thead><tr><th>Window</th><th class="num">Always-pass (≥3 inspections, 0 fails)</th><th class="num">Repeat offenders (≥2 failed visits)</th></tr></thead>
+      <thead><tr><th>Window</th><th class="num">Always-pass (≥3 inspections, 0 fails)</th></tr></thead>
       <tbody>
-        <tr><td>2019 complete</td><td class="num">60</td><td class="num">1,010</td></tr>
-        <tr><td>2024 complete</td><td class="num">328</td><td class="num">1,296</td></tr>
-        <tr><td>2025 complete</td><td class="num">92</td><td class="num">1,349</td></tr>
-        <tr><td>2026 YTD through 28 Aug</td><td class="num">49</td><td class="num">999</td></tr>
+        <tr><td>2019 complete</td><td class="num">60</td></tr>
+        <tr><td>2024 complete</td><td class="num">328</td></tr>
+        <tr><td>2025 complete</td><td class="num">92</td></tr>
+        <tr><td>2026 YTD through 28 Aug</td><td class="num">49</td></tr>
       </tbody>
     </table>
     <p class="caption">Source: Analyze Boston Food Establishment Inspections · collapsed visits · 2024 always-pass is larger because 2024 had more inspections (14,576) and a lower fail share (32.5%) than 2025 (12,414 · 40.3%). 2026 is not a full year. 2020 is COVID and is not a list window here.</p>
-    <h3>Always-pass vs repeat offenders by window</h3>
+    <h3>Always-pass places by window</h3>
     <div class="chart-box"><canvas id="cPlaceCounts"></canvas></div>
-    <p class="caption">Source: Analyze Boston Food Establishment Inspections · place counts · always-pass min 3 inspections in the window · repeat ≥2 failed visits in the window · 2026 YTD not a full year</p>
+    <p class="caption">Source: Analyze Boston Food Establishment Inspections · always-pass min 3 inspections in the window · 2026 YTD not a full year</p>
     <h3>Coded license category mix, 2012–2025</h3>
     <div class="chart-box tall"><canvas id="cCodedMix"></canvas></div>
     <p class="caption">Source: Analyze Boston Food Establishment Inspections · licensecat on the inspection row · FS Food and drinks · FT Take-out (Eating &amp; Drinking w/ Take Out) · RF Retail food · MFW Mobile food · 2012–2025 complete years · Other / unclassified is 0 every year because every collapsed inspection has one of those four codes · not a 2025 pie · licenses are a separate file</p>
@@ -266,38 +271,39 @@
       <tbody id="overlayBody"></tbody>
     </table>
     <p class="caption">Source: Analyze Boston Food Establishment Inspections · collapsed inspections · Ice cream, Cafe, School, Hotel, Hospital, and Cultural / attraction are name overlays with word-boundary matching (ice cream, gelato, frozen yogurt — not the substring ice). ICE Auto Services and All Spice are not ice cream. FT is Take-out, not Food. City has no cafe or ice-cream license code. Other / unclassified is 0 on this dump. 2026 YTD is not a full year.</p>
+    <h3>Year for always-pass lists</h3>
     <div class="year-btns" id="placeYearBtns">
       <button type="button" class="year-btn" data-place-year="2019">2019</button>
       <button type="button" class="year-btn" data-place-year="2024">2024</button>
       <button type="button" class="year-btn active" data-place-year="2025">2025</button>
       <button type="button" class="year-btn" data-place-year="2026_ytd">2026 YTD</button>
     </div>
+    <h3>Category — always-pass and places to avoid</h3>
+    <div class="year-btns" id="placeCatBtns"></div>
     <div id="placeYtdCallout" class="callout warn" hidden>
       <strong>2026 is not a full year.</strong>
-      Always-pass and places to avoid below are 2026 year-to-date through 28 August. Do not treat them as a calendar year.
+      Always-pass below is 2026 year-to-date through 28 August. Repeat offenders still use whole calendar years (2026 counts as one year if there was a fail).
     </div>
     <div class="stats">
       <div class="stat ok"><div class="stat-val" id="placeAlwaysN"></div><div class="stat-label" id="placeAlwaysLabel"></div></div>
       <div class="stat warn"><div class="stat-val" id="placeRepeatN"></div><div class="stat-label" id="placeRepeatLabel"></div></div>
     </div>
-    <h3 id="alwaysHead">Always-pass</h3>
-    <table>
-      <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Inspections</th></tr></thead>
-      <tbody id="alwaysBody"></tbody>
-    </table>
-    <p class="caption" id="alwaysCaption"></p>
-    <h3 id="avoidHead">Places to avoid — worst repeat offenders</h3>
-    <table>
-      <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Fails</th><th class="num">Inspections</th><th class="num">Fail share</th></tr></thead>
-      <tbody id="avoidBody"></tbody>
-    </table>
-    <p class="caption" id="avoidCaption"></p>
-    <h3>Repeat offenders across years — 2012–2025 complete years</h3>
-    <table>
-      <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Years with a fail</th><th class="num">Fails</th><th class="num">Inspections</th></tr></thead>
-      <tbody id="acrossBody"></tbody>
-    </table>
-    <p class="caption">Source: Analyze Boston Food Establishment Inspections · 2012–2025 complete years · failed in multiple years (at least 2 distinct complete years) · 2026 YTD is excluded from this list · this is not the same as two fails inside one year</p>
+    <div id="alwaysSection">
+      <h3 id="alwaysHead">Always-pass</h3>
+      <table>
+        <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Inspections</th></tr></thead>
+        <tbody id="alwaysBody"></tbody>
+      </table>
+      <p class="caption" id="alwaysCaption"></p>
+    </div>
+    <div id="avoidSection">
+      <h3 id="avoidHead">Places to avoid</h3>
+      <table>
+        <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Years with a fail</th><th class="num">Fails</th><th class="num">Inspections</th></tr></thead>
+        <tbody id="avoidBody"></tbody>
+      </table>
+      <p class="caption" id="avoidCaption"></p>
+    </div>
   </div>
 
   <div id="notes" class="tab-panel">
@@ -313,7 +319,7 @@
         <tr><td>Compare 2025 to 2019, not 2020</td><td>2020 COVID. Inspections 10,116 → 7,932.</td></tr>
         <tr><td>Fail is an exact result code</td><td>HE_Fail, HE_FailExt, Fail, Failed, HE_FAILNOR. HE_Filed is not a fail.</td></tr>
         <tr><td>2022 volume is as recorded</td><td>19,648 inspections and a 24.9% fail share. Not a baseline.</td></tr>
-        <tr><td>Always-pass needs ≥3 inspections in the window</td><td>Zero fail codes. One lucky pass is not on the top-10 list.</td></tr>
+        <tr><td>Repeat offender = fail in ≥2 calendar years</td><td>Two fails in the same year count as one year. Always-pass still uses the year window (≥3 inspections, 0 fails). 2026 YTD is one calendar year if it has a fail.</td></tr>
       </tbody>
     </table>
     <p class="caption">Source: Analyze Boston datasets food-establishment-inspections and active-food-establishment-licenses · dumps pulled 31 Aug 2026</p>
@@ -347,7 +353,6 @@ lineChart("cHourPub", S.hours, [{ label: "Inspections", data: S.hour2025 }], { z
 barChart("cNbPub", S.nbLabels.slice(0, 5), [{ label: "2025 inspections", data: S.nb2025.slice(0, 5) }], { horizontal: true });
 barChart("cPlaceCounts", S.placeYearLabels, [
   { label: "Always-pass places", data: S.alwaysPassN, color: "#3fa266" },
-  { label: "Repeat offenders", data: S.repeatN, color: "#c45c5c" },
 ]);
 barChart("cCodedMix", S.years, [
   { label: "Food and drinks", data: S.codedFoodDrinks, color: "#599ce7" },
@@ -377,42 +382,86 @@ function fillOverlay() {
     `<tr><td>${esc(lab)}</td><td class="num">${num(S.overlay2019[i])}</td><td class="num">${num(S.overlay2024[i])}</td><td class="num">${num(S.overlay2025[i])}</td><td class="num">${num(S.overlay2026[i])}</td></tr>`
   ).join("");
 }
-function fillAcross() {
-  document.getElementById("acrossBody").innerHTML = S.repeatAcross.map((p) =>
-    `<tr><td>${esc(p.name)}</td><td>${esc(p.address)}, ${esc(p.zip)}</td><td>${esc(p.category)}</td><td class="num">${num(p.yearsFailed)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td></tr>`
+let placeYear = "2025";
+let placeCat = "all";
+function catListForYear(key) {
+  const w = S.placeWindows[key];
+  const byCat = w.byCategory || {};
+  const byRepeat = S.repeatByCategory || {};
+  return S.overlayLabels.filter((lab) => byCat[lab] || byRepeat[lab]);
+}
+function renderCatPills() {
+  const labs = catListForYear(placeYear);
+  if (placeCat !== "all" && labs.indexOf(placeCat) < 0) placeCat = "all";
+  const pills = [{ id: "all", label: "All categories" }].concat(
+    labs.map((lab) => ({ id: lab, label: lab }))
+  );
+  document.getElementById("placeCatBtns").innerHTML = pills.map((p) =>
+    `<button type="button" class="year-btn${p.id === placeCat ? " active" : ""}" data-place-cat="${esc(p.id)}">${esc(p.label)}</button>`
   ).join("");
 }
-function renderPlaces(key) {
-  const w = S.placeWindows[key];
-  const cap = windowCaption(key, w);
+function renderPlaces() {
+  const w = S.placeWindows[placeYear];
+  const cap = windowCaption(placeYear, w);
+  const catLabel = placeCat === "all" ? "all categories" : placeCat;
+  const catBlock = placeCat === "all" ? null : (w.byCategory || {})[placeCat];
+  const catAlways = placeCat === "all" ? w.alwaysPass : ((catBlock && catBlock.alwaysPass) || []);
+  const catAlwaysN = placeCat === "all" ? w.alwaysPassN : ((catBlock && catBlock.alwaysPassN) || 0);
+  const catAvoid = placeCat === "all"
+    ? S.repeatAcross
+    : (((S.repeatByCategory || {})[placeCat] || {}).avoid || []);
+  const catRepeatN = placeCat === "all"
+    ? S.repeatNTotal
+    : (((S.repeatByCategory || {})[placeCat] || {}).repeatN || 0);
   document.getElementById("placeYtdCallout").hidden = !w.ytd;
-  document.getElementById("placeAlwaysN").textContent = num(w.alwaysPassN);
-  document.getElementById("placeRepeatN").textContent = num(w.repeatN);
-  document.getElementById("placeAlwaysLabel").textContent = "Always-pass places, " + cap;
-  document.getElementById("placeRepeatLabel").textContent = "Repeat offenders, " + cap;
-  document.getElementById("alwaysHead").textContent = "Always-pass — " + yearLabel(key) + " (at least 3 inspections, 0 fails)";
-  document.getElementById("avoidHead").textContent = "Places to avoid — worst repeat offenders, " + yearLabel(key);
-  document.getElementById("alwaysBody").innerHTML = w.alwaysPass.map((p) =>
-    `<tr><td>${esc(p.name)}</td><td>${esc(p.address)}, ${esc(p.zip)}</td><td>${esc(p.category)}</td><td class="num">${num(p.inspections)}</td></tr>`
-  ).join("");
-  document.getElementById("avoidBody").innerHTML = w.avoid.map((p) =>
-    `<tr><td>${esc(p.name)}</td><td>${esc(p.address)}, ${esc(p.zip)}</td><td>${esc(p.category)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td><td class="num">${p.failRate}%</td></tr>`
-  ).join("");
-  document.getElementById("alwaysCaption").textContent =
-    "Source: Analyze Boston Food Establishment Inspections · " + cap + " · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · names as recorded · mobile rows often use 1 CITYWIDE ST";
-  document.getElementById("avoidCaption").textContent =
-    "Source: Analyze Boston Food Establishment Inspections · " + cap + " · within-window repeat offenders (≥2 failed visits) ranked by fail count, then fail rate · top 10 · KMB(TEST) is as the City recorded it · not licenses";
+  document.getElementById("placeAlwaysN").textContent = num(catAlwaysN);
+  document.getElementById("placeRepeatN").textContent = num(catRepeatN);
+  document.getElementById("placeAlwaysLabel").textContent = "Always-pass, " + catLabel + ", " + cap;
+  document.getElementById("placeRepeatLabel").textContent = "Repeat offenders, " + catLabel + " (fail in ≥2 years)";
+  const alwaysSec = document.getElementById("alwaysSection");
+  if (catAlways.length) {
+    alwaysSec.hidden = false;
+    document.getElementById("alwaysHead").textContent =
+      "Always-pass — " + catLabel + ", " + yearLabel(placeYear) + " (at least 3 inspections, 0 fails)";
+    document.getElementById("alwaysBody").innerHTML = catAlways.map((p) =>
+      `<tr><td>${esc(p.name)}</td><td>${esc(p.address)}, ${esc(p.zip)}</td><td>${esc(p.category)}</td><td class="num">${num(p.inspections)}</td></tr>`
+    ).join("");
+    document.getElementById("alwaysCaption").textContent =
+      "Source: Analyze Boston Food Establishment Inspections · " + cap + " · " + catLabel + " · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · names as recorded · mobile rows often use 1 CITYWIDE ST";
+  } else {
+    alwaysSec.hidden = true;
+  }
+  const avoidSec = document.getElementById("avoidSection");
+  if (catAvoid.length) {
+    avoidSec.hidden = false;
+    document.getElementById("avoidHead").textContent =
+      "Places to avoid — " + catLabel + " (failed in ≥2 calendar years)";
+    document.getElementById("avoidBody").innerHTML = catAvoid.map((p) =>
+      `<tr><td>${esc(p.name)}</td><td>${esc(p.address)}, ${esc(p.zip)}</td><td>${esc(p.category)}</td><td class="num">${num(p.yearsFailed)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td></tr>`
+    ).join("");
+    document.getElementById("avoidCaption").textContent =
+      "Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeat offender = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · " + catLabel + " · " + num(S.repeatNTotal) + " places citywide met this rule · 2026 YTD counts as one calendar year if it has a fail · not licenses";
+  } else {
+    avoidSec.hidden = true;
+  }
   document.querySelectorAll("#placeYearBtns .year-btn").forEach((btn) => {
-    btn.classList.toggle("active", btn.getAttribute("data-place-year") === key);
+    btn.classList.toggle("active", btn.getAttribute("data-place-year") === placeYear);
   });
+  renderCatPills();
 }
 fillOverlay();
-fillAcross();
-renderPlaces("2025");
+renderPlaces();
 document.getElementById("placeYearBtns").addEventListener("click", (e) => {
   const btn = e.target.closest("[data-place-year]");
   if (!btn) return;
-  renderPlaces(btn.getAttribute("data-place-year"));
+  placeYear = btn.getAttribute("data-place-year");
+  renderPlaces();
+});
+document.getElementById("placeCatBtns").addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-place-cat]");
+  if (!btn) return;
+  placeCat = btn.getAttribute("data-place-cat");
+  renderPlaces();
 });
 </script>
 </body>
