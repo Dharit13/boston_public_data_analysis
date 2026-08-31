@@ -69,8 +69,16 @@ h3 { font-size: 0.95rem; color: #ccc; margin: 16px 0 8px; }
 td { vertical-align: top; }
 table { width: 100%; border-collapse: collapse; font-size: 0.84rem; margin: 8px 0 18px; }
 th, td { padding: 7px 8px; border-bottom: 1px solid #2a2a2a; text-align: left; }
-th { color: #888; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3px; }
+th {
+  color: #888; font-weight: 600; font-size: 0.75rem; text-transform: uppercase;
+  letter-spacing: 0.3px; cursor: pointer; user-select: none; white-space: nowrap;
+}
+th:hover { color: #e4e4e4; }
+th.sort-asc, th.sort-desc { color: #599ce7; }
+th.sort-asc::after { content: " ▲"; font-size: 0.65em; }
+th.sort-desc::after { content: " ▼"; font-size: 0.65em; }
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.sort-hint { font-size: 0.75rem; color: #777; margin: -12px 0 18px; }
 tr:hover td { background: #202020; }
 input, select {
   background: #222; color: #e4e4e4; border: 1px solid #333;
