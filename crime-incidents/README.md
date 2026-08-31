@@ -1,5 +1,7 @@
 # Boston Police incidents (2016–2025)
 
+**Live briefing:** https://dharit13.github.io/boston_public_data_analysis/crime/
+
 Cleaned Boston Police RMS incident reports. One row per incident number. 2025 is the last complete year. Shootings, shots fired, and gun recoveries run through mid-August 2026 on the briefing canvas.
 
 Headline: the department is still busy; Boston is not more violent than 2019. Do not use 2020 as a baseline. Do not thin B2 / B3 / C11 because the citywide shooting count fell.

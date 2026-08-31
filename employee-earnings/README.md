@@ -1,5 +1,7 @@
 # Employee earnings (CY 2015–2025)
 
+**Live briefing:** https://dharit13.github.io/boston_public_data_analysis/earnings/
+
 City of Boston employee earnings reports, cleaned onto one schema (257,457 rows). Teaching and school sites are rolled into **Education**. There is no employee ID; people are matched on a normalized name.
 
 **2025:** $2.46B gross · 25,397 people · $90.6k median · $183M overtime. Education + Police + Fire are 79% of payroll.

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston Fire incidents, 2012–2024</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a href="../earnings/">Earnings</a>
+    <a class="active" href="./">Fire</a>
+    <a href="../crime/">Police</a>
+  </div>
+  <h1>Boston Fire Department — incident analysis</h1>
+  <p class="subtitle">Boston primary incidents, 2012–2024. We are busier. Boston is not burning more.</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="demand">Demand</button>
+    <button class="tab-btn" data-tab="mix">Mix</button>
+    <button class="tab-btn" data-tab="places">Neighborhoods</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <div class="callout warn">
+      <strong>We are busier. Boston is not burning more.</strong>
+      Responses +61% since 2012. Fires −34%. Building fires −28%. Four in five 2024 runs were service calls or false alarms.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">60,096</div><div class="stat-label">Incidents in 2024 · 164 a day</div></div>
+      <div class="stat ok"><div class="stat-val">6.2%</div><div class="stat-label">Share that were fires</div></div>
+      <div class="stat warn"><div class="stat-val">$572M</div><div class="stat-label">Estimated loss, 2012–2024</div></div>
+      <div class="stat warn"><div class="stat-val">13 / 13</div><div class="stat-label">Years Dorchester led fires</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Finding</th><th class="num">Number</th></tr></thead>
+      <tbody>
+        <tr><td>Fires citywide, 2012 → 2024</td><td class="num">5,609 → 3,716 (−34%)</td></tr>
+        <tr><td>Cooking share of all fires</td><td class="num">60% · #1 in all 16 neighborhoods</td></tr>
+        <tr><td>Building fires, 13 years</td><td class="num">5,210 · $514M (90% of loss)</td></tr>
+        <tr><td>Dorchester building fires</td><td class="num">1,519 · 29% of the city · $162M</td></tr>
+        <tr><td>False alarms, 2024</td><td class="num">21,752 · 36% of all runs</td></tr>
+        <tr><td>Public service (553), 2024</td><td class="num">18,214 runs</td></tr>
+      </tbody>
+    </table>
+    <div class="callout ok">
+      <strong>Cooking fire is the common issue. Building fire is the costly one.</strong>
+      Stay in the kitchen. Prevention belongs in multifamily housing, Dorchester first.
+    </div>
+  </div>
+
+  <div id="demand" class="tab-panel">
+    <h2>Primary incidents per year</h2>
+    <div class="chart-box"><canvas id="cVol"></canvas></div>
+    <p class="caption">Source: BFD open files · 2012–2024 · Boston primary incidents</p>
+    <h2>Fires vs building fires</h2>
+    <div class="chart-box"><canvas id="cFire"></canvas></div>
+    <p class="caption">Building fire = NFIRS code 111</p>
+    <h2>When the department runs (2024 hours)</h2>
+    <div class="chart-box"><canvas id="cHour"></canvas></div>
+    <p class="caption">Peak total demand ~11 a.m. Peak fires 6–7 p.m. (cooking hour)</p>
+  </div>
+
+  <div id="mix" class="tab-panel">
+    <h2>What we responded to</h2>
+    <div class="chart-box tall"><canvas id="cMix"></canvas></div>
+    <p class="caption">Counts by NFIRS series · weather / special / overpressure omitted</p>
+    <table>
+      <thead><tr><th>Category</th><th class="num">2012</th><th class="num">2024</th><th class="num">Change</th></tr></thead>
+      <tbody>
+        <tr><td>All incidents</td><td class="num">37,290</td><td class="num">60,096</td><td class="num">+61%</td></tr>
+        <tr><td>Service call share</td><td class="num">24.5%</td><td class="num">43.1%</td><td class="num">+183% count</td></tr>
+        <tr><td>False alarm share</td><td class="num">32.9%</td><td class="num">36.2%</td><td class="num">+77% count</td></tr>
+        <tr><td>Fire share</td><td class="num">15.0%</td><td class="num">6.2%</td><td class="num">−34% count</td></tr>
+        <tr><td>Building fire (111)</td><td class="num">491</td><td class="num">354</td><td class="num">−28%</td></tr>
+      </tbody>
+    </table>
+    <h2>Estimated loss ($M)</h2>
+    <div class="chart-box"><canvas id="cLoss"></canvas></div>
+  </div>
+
+  <div id="places" class="tab-panel">
+    <div class="callout warn">
+      <strong>Dorchester is #1 for fires and volume in every year we have.</strong>
+      Staff districts 7, 8, and 12 for fire share. District 4 is volume (Fenway / Back Bay / South End alarms).
+    </div>
+    <h2>Fires by neighborhood</h2>
+    <div class="chart-box tall"><canvas id="cArea"></canvas></div>
+    <h2>Cooking fires citywide</h2>
+    <div class="chart-box"><canvas id="cCook"></canvas></div>
+    <p class="caption">Cooking is the number-one fire in all 16 parts of the city</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const F = window.FIRE;
+lineChart("cVol", F.years, [{ label: "Incidents", data: F.volume }]);
+lineChart("cFire", F.years, [
+  { label: "All fires", data: F.fires, color: "#d08770" },
+  { label: "Building fires (111)", data: F.building, color: "#c45c5c" },
+]);
+barChart("cHour", F.hours, [
+  { label: "All incidents", data: F.hourAll, color: "#599ce7" },
+  { label: "Fires", data: F.hourFire, color: "#c45c5c" },
+]);
+barChart("cMix", F.years, [
+  { label: "Service", data: F.service, color: "#599ce7" },
+  { label: "False alarm", data: F.falseAlarms, color: "#d08770" },
+  { label: "Good intent", data: F.goodIntent, color: "#888" },
+  { label: "Hazard", data: F.hazard, color: "#f1b467" },
+  { label: "Fire", data: F.fires, color: "#c45c5c" },
+], { stacked: true });
+lineChart("cLoss", F.years, [{ label: "Estimated loss ($M)", data: F.lossM, color: "#d08770" }]);
+lineChart("cArea", F.years, Object.entries(F.areaFire).map(([label, data], i) => ({
+  label, data, color: ["#c45c5c","#d08770","#599ce7","#7bafe9","#aaa","#f1b467"][i],
+})));
+lineChart("cCook", F.years, [{ label: "Cooking fires", data: F.cooking, color: "#d08770" }]);
+</script>
+</body>
+</html>

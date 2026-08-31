@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston employee earnings, 2015–2025</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a class="active" href="./">Earnings</a>
+    <a href="../fire/">Fire</a>
+    <a href="../crime/">Police</a>
+  </div>
+  <h1>City of Boston employee earnings, 2015–2025</h1>
+  <p class="subtitle">
+    Eleven calendar-year payroll files, cleaned onto one schema (257,457 rows).
+    Teaching is combined into Education. Dollars are calendar-year gross, not FTE or W-2.
+  </p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="citywide">Citywide</button>
+    <button class="tab-btn" data-tab="depts">Departments</button>
+    <button class="tab-btn" data-tab="earners">Top earners</button>
+    <button class="tab-btn" data-tab="hires">Hires</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <div class="stats">
+      <div class="stat"><div class="stat-val">$2.46B</div><div class="stat-label">2025 gross payroll</div></div>
+      <div class="stat"><div class="stat-val">25,397</div><div class="stat-label">people on the 2025 file</div></div>
+      <div class="stat"><div class="stat-val">$90.6k</div><div class="stat-label">median gross</div></div>
+      <div class="stat warn"><div class="stat-val">$183M</div><div class="stat-label">overtime</div></div>
+    </div>
+    <div class="bar" title="2025 payroll mix">
+      <span style="width:44.6%;background:#599ce7"></span>
+      <span style="width:21.8%;background:#d08770"></span>
+      <span style="width:12.9%;background:#c45c5c"></span>
+      <span style="width:20.7%;background:#555"></span>
+    </div>
+    <p class="legend">Education $1.09B (45%) · Police $534M (22%) · Fire $317M (13%) · all other $510M (21%)</p>
+    <div class="callout warn">
+      <strong>Treat 2024 as a contract-catch-up year, not a new normal</strong>
+      Retro hit $114M in 2024 (vs $51M in 2023 and $33M in 2025). Share of people above $200k jumped 3.3% → 9.1% → 7.6%. Police headcount 3,011 → 3,491 → 3,094.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>How the city pays people</h3>
+        <p>Education is the teaching rollup (12,806 people, $1.09B, median $92.5k, almost no OT). Police + Fire are 19% of people and 35% of pay, and 83% of overtime. All 20 citywide top earners are BPD.</p>
+      </div>
+      <div>
+        <h3>2015 to 2025</h3>
+        <table>
+          <thead><tr><th></th><th class="num">2015</th><th class="num">2025</th><th class="num">Change</th></tr></thead>
+          <tbody>
+            <tr><td>People</td><td class="num">21,902</td><td class="num">25,397</td><td class="num">+16%</td></tr>
+            <tr><td>Gross payroll</td><td class="num">$1.55B</td><td class="num">$2.46B</td><td class="num">+58%</td></tr>
+            <tr><td>In 2024 dollars</td><td class="num">$2.05B</td><td class="num">$2.41B</td><td class="num">+17%</td></tr>
+            <tr><td>Median</td><td class="num">$67.2k</td><td class="num">$90.6k</td><td class="num">+35%</td></tr>
+            <tr><td>Overtime</td><td class="num">$102M</td><td class="num">$183M</td><td class="num">+79%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="citywide" class="tab-panel">
+    <h2>Payroll</h2>
+    <div class="chart-box"><canvas id="cPayroll"></canvas></div>
+    <p class="caption">Source: City of Boston earnings files · CPI-U for 2024-dollar series</p>
+    <div class="grid-2">
+      <div>
+        <h3>Headcount</h3>
+        <div class="chart-box"><canvas id="cHead"></canvas></div>
+      </div>
+      <div>
+        <h3>Median gross ($k)</h3>
+        <div class="chart-box"><canvas id="cMed"></canvas></div>
+      </div>
+    </div>
+    <h2>What the paycheck is made of</h2>
+    <div class="chart-box tall"><canvas id="cMix"></canvas></div>
+    <p class="caption">Billions of dollars · regular is ~83% of 2025 gross</p>
+  </div>
+
+  <div id="depts" class="tab-panel">
+    <p>85 departments after combining teaching into Education. Search filters the table.</p>
+    <input id="deptQ" type="search" placeholder="Filter departments…">
+    <table>
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th class="num">People</th>
+          <th class="num">Payroll</th>
+          <th class="num">Share</th>
+          <th class="num">Median</th>
+          <th class="num">OT % of pay</th>
+        </tr>
+      </thead>
+      <tbody id="deptBody"></tbody>
+    </table>
+    <p class="caption">Source: 2025 earnings file · Education is combined teaching</p>
+  </div>
+
+  <div id="earners" class="tab-panel">
+    <p>Ranked by 2025 total gross. Citywide top 20 are all Boston Police. Pick Education, any department, or a school site.</p>
+    <input id="earnQ" type="search" placeholder="Filter the list, then pick…">
+    <select id="earnDept"></select>
+    <div class="stats" id="earnStats"></div>
+    <table>
+      <thead id="earnHead"></thead>
+      <tbody id="earnBody"></tbody>
+    </table>
+    <p class="caption">Source: 2025 earnings file · ranked by total gross</p>
+  </div>
+
+  <div id="hires" class="tab-panel">
+    <div class="callout warn">
+      <strong>No employee ID — this is a name match</strong>
+      A new hire is a normalized name on this year’s file that was not on last year’s. Attrition is the reverse.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">2,985</div><div class="stat-label">new names in 2025</div></div>
+      <div class="stat"><div class="stat-val">11.8%</div><div class="stat-label">hire rate</div></div>
+      <div class="stat warn"><div class="stat-val">12.2%</div><div class="stat-label">attrition</div></div>
+      <div class="stat"><div class="stat-val">0.96</div><div class="stat-label">replacement ratio</div></div>
+    </div>
+    <h2>Arrivals vs departures</h2>
+    <div class="chart-box"><canvas id="cHires"></canvas></div>
+    <h2>Hire rate vs attrition</h2>
+    <div class="chart-box"><canvas id="cRates"></canvas></div>
+    <p>Of 21,793 unique 2015 names, 10,240 (47%) are still on the 2025 file. 9,733 appear in all 11 years and take 52% of 2025 pay.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const E = window.EARNINGS;
+function renderDepts(q) {
+  const rows = E.y25.filter((r) => r.d.toLowerCase().includes((q || "").toLowerCase()));
+  document.getElementById("deptBody").innerHTML = rows.map((r) =>
+    `<tr><td>${r.d}</td><td class="num">${num(r.n)}</td><td class="num">${moneyM(r.p)}</td><td class="num">${pct(r.s)}</td><td class="num">${dollars(r.m)}</td><td class="num">${pct(r.op)}</td></tr>`
+  ).join("");
+}
+function fillEarnSelect(q) {
+  const keys = Object.keys(E.top20);
+  const qn = (q || "").toLowerCase();
+  const prefer = ["Citywide", "Education", "Boston Police Department", "Boston Fire Department"];
+  const rest = keys.filter((k) => !prefer.includes(k)).sort();
+  const ordered = [...prefer.filter((k) => keys.includes(k)), ...rest].filter((k) =>
+    k.toLowerCase().includes(qn) || k === document.getElementById("earnDept").value
+  );
+  const sel = document.getElementById("earnDept");
+  const cur = sel.value || "Citywide";
+  sel.innerHTML = ordered.map((k) => `<option value="${k.replace(/"/g, "&quot;")}">${k}</option>`).join("");
+  if (ordered.includes(cur)) sel.value = cur;
+}
+function renderEarners() {
+  const dept = document.getElementById("earnDept").value || "Citywide";
+  const rows = E.top20[dept] || [];
+  const showU = rows.some((r) => r.u);
+  document.getElementById("earnHead").innerHTML = showU
+    ? `<tr><th>#</th><th>Name</th><th>Title</th><th>Unit</th><th class="num">Regular</th><th class="num">OT</th><th class="num">Detail</th><th class="num">Quinn</th><th class="num">Total</th></tr>`
+    : `<tr><th>#</th><th>Name</th><th>Title</th><th class="num">Regular</th><th class="num">OT</th><th class="num">Detail</th><th class="num">Quinn</th><th class="num">Total</th></tr>`;
+  document.getElementById("earnBody").innerHTML = rows.map((r, i) => showU
+    ? `<tr><td class="num">${i + 1}</td><td>${r.n}</td><td>${r.t}</td><td>${r.u || "—"}</td><td class="num">${dollars(r.rg)}</td><td class="num">${dollars(r.ot)}</td><td class="num">${dollars(r.dt)}</td><td class="num">${dollars(r.qn)}</td><td class="num">${dollars(r.tot)}</td></tr>`
+    : `<tr><td class="num">${i + 1}</td><td>${r.n}</td><td>${r.t}</td><td class="num">${dollars(r.rg)}</td><td class="num">${dollars(r.ot)}</td><td class="num">${dollars(r.dt)}</td><td class="num">${dollars(r.qn)}</td><td class="num">${dollars(r.tot)}</td></tr>`
+  ).join("");
+  const top = rows[0];
+  document.getElementById("earnStats").innerHTML = top
+    ? `<div class="stat"><div class="stat-val">${dollars(top.tot)}</div><div class="stat-label">#1 · ${top.n}</div></div>
+       <div class="stat"><div class="stat-val">${rows.length}</div><div class="stat-label">${rows.length < 20 ? "people listed (whole shop)" : "top 20"}</div></div>
+       <div class="stat"><div class="stat-val">${top.t}</div><div class="stat-label">top title</div></div>`
+    : "";
+}
+document.getElementById("deptQ").addEventListener("input", (e) => renderDepts(e.target.value));
+document.getElementById("earnQ").addEventListener("input", (e) => { fillEarnSelect(e.target.value); renderEarners(); });
+document.getElementById("earnDept").addEventListener("change", renderEarners);
+renderDepts("");
+fillEarnSelect("");
+renderEarners();
+lineChart("cPayroll", E.years, [
+  { label: "Nominal payroll ($B)", data: E.payrollNominal, color: "#599ce7" },
+  { label: "Payroll in 2024 $ ($B)", data: E.payrollReal, color: "#7bafe9" },
+]);
+lineChart("cHead", E.years, [{ label: "Employees", data: E.headcount, color: "#aaa" }]);
+lineChart("cMed", E.years, [{ label: "Median ($k)", data: E.median, color: "#3fa266" }]);
+barChart("cMix", E.years, [
+  { label: "Regular", data: E.mixRegular, color: "#599ce7" },
+  { label: "Overtime", data: E.mixOt, color: "#d08770" },
+  { label: "Detail", data: E.mixDetail, color: "#c45c5c" },
+  { label: "Other", data: E.mixOther, color: "#888" },
+  { label: "Quinn", data: E.mixQuinn, color: "#9386f2" },
+  { label: "Injured", data: E.mixInjured, color: "#f1b467" },
+  { label: "Retro", data: E.mixRetro, color: "#3fa266" },
+], { stacked: true });
+barChart("cHires", E.hireYears, [
+  { label: "New to city payroll", data: E.cityNew, color: "#599ce7" },
+  { label: "Left city payroll", data: E.cityLeft, color: "#c45c5c" },
+]);
+lineChart("cRates", E.hireYears, [
+  { label: "Hire rate %", data: E.hireRate, color: "#599ce7" },
+  { label: "Attrition %", data: E.attrition, color: "#d08770" },
+]);
+</script>
+</body>
+</html>

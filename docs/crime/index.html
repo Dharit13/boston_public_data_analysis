@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston Police incidents, 2016–2025</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a href="../earnings/">Earnings</a>
+    <a href="../fire/">Fire</a>
+    <a class="active" href="./">Police</a>
+  </div>
+  <h1>Boston Police Department — incident analysis</h1>
+  <p class="subtitle">Cleaned RMS records, 2016–2025. One incident per report number. 2025 is the last complete year.</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="demand">Demand</button>
+    <button class="tab-btn" data-tab="mix">Mix</button>
+    <button class="tab-btn" data-tab="guns">Guns</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <div class="callout warn">
+      <strong>We are still busy. Boston is not more violent.</strong>
+      Incidents −8% since 2016. Serious violence −41%. Shooting victims 190 (2019) → 120 (2025). 2020 is COVID: fewer reports, more shootings — do not use it as the before picture.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">81,162</div><div class="stat-label">Incidents in 2025 · 222 a day</div></div>
+      <div class="stat ok"><div class="stat-val">2.7%</div><div class="stat-label">Share that were serious violence</div></div>
+      <div class="stat ok"><div class="stat-val">120</div><div class="stat-label">Shooting victims, 2025</div></div>
+      <div class="stat warn"><div class="stat-val">72%</div><div class="stat-label">Victims in B2+B3+C11</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Finding</th><th class="num">Number</th></tr></thead>
+      <tbody>
+        <tr><td>Incidents, 2016 → 2025 (skip 2020)</td><td class="num">87,994 → 81,162 (−8%)</td></tr>
+        <tr><td>Serious violence, 2016 → 2025</td><td class="num">3,756 → 2,213 (−41%)</td></tr>
+        <tr><td>Shooting victims, 2019 → 2025</td><td class="num">190 → 120 (−37%)</td></tr>
+        <tr><td>2020 COVID: reports / shootings</td><td class="num">70,894 (−19%) · 274 victims (+44%)</td></tr>
+        <tr><td>Investigate person + sick assist, 2025</td><td class="num">18,653 · 23% of all reports</td></tr>
+        <tr><td>Shoplifting, 2016 → 2025</td><td class="num">2,453 → 4,340 (+77%)</td></tr>
+        <tr><td>BPD overtime, 2025</td><td class="num">$102M · 56% of all city OT</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="demand" class="tab-panel">
+    <h2>Incidents per year</h2>
+    <div class="chart-box"><canvas id="cVol"></canvas></div>
+    <p class="caption">Source: BPD RMS · 2020 is the COVID-year roster of reports</p>
+    <h2>Serious violence</h2>
+    <div class="chart-box"><canvas id="cSer"></canvas></div>
+    <h2>Hour of day, 2025</h2>
+    <div class="chart-box"><canvas id="cHour"></canvas></div>
+    <p class="caption">4–5 p.m. is the peak for all-calls and violence. Midnight dump is unknown times, not a real peak.</p>
+  </div>
+
+  <div id="mix" class="tab-panel">
+    <h2>What the tape is made of</h2>
+    <div class="chart-box tall"><canvas id="cMix"></canvas></div>
+    <p class="caption">Non-crime service is the growth story. Serious violence is not.</p>
+    <h2>Shoplifting</h2>
+    <div class="chart-box"><canvas id="cShop"></canvas></div>
+    <p class="caption">D4 (South End / Back Bay) owns retail theft volume — not a reason to pull cars from B2</p>
+  </div>
+
+  <div id="guns" class="tab-panel">
+    <div class="callout warn">
+      <strong>Do not thin B2 / B3 / C11 because the citywide shooting count fell.</strong>
+      72% of 2025 shooting victims were in those three districts.
+    </div>
+    <h2>Shooting victims</h2>
+    <div class="chart-box"><canvas id="cShoot"></canvas></div>
+    <p class="caption">2019 is the pre-COVID comparison year, not 2020</p>
+    <h2>Fatal shootings</h2>
+    <div class="chart-box"><canvas id="cFatal"></canvas></div>
+    <h2>Shooting victims by area</h2>
+    <div class="chart-box"><canvas id="cArea"></canvas></div>
+    <h2>Crime-gun recoveries</h2>
+    <div class="chart-box"><canvas id="cGuns"></canvas></div>
+    <p class="caption">Shootings fell vs 2019; recoveries did not. Trace work still has a supply.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const C = window.CRIME;
+lineChart("cVol", C.years, [{ label: "Incidents", data: C.volume }]);
+lineChart("cSer", C.years, [{ label: "Serious violence", data: C.serious, color: "#3fa266" }]);
+barChart("cHour", C.hours, [
+  { label: "All reports", data: C.hourAll },
+  { label: "Violence", data: C.hourViol, color: "#c45c5c" },
+]);
+barChart("cMix", C.years, [
+  { label: "Service", data: C.service, color: "#599ce7" },
+  { label: "Property", data: C.property, color: "#7bafe9" },
+  { label: "MV", data: C.mv, color: "#888" },
+  { label: "Violence", data: C.violence, color: "#d08770" },
+], { stacked: true });
+lineChart("cShop", C.years, [{ label: "Shoplifting", data: C.shop, color: "#d08770" }]);
+lineChart("cShoot", C.shootYears, [{ label: "Shooting victims", data: C.shoot, color: "#c45c5c" }]);
+lineChart("cFatal", C.shootYears, [{ label: "Fatal", data: C.fatal, color: "#c45c5c" }]);
+lineChart("cArea", C.shootYears, [
+  { label: "Roxbury", data: C.shootArea.Roxbury, color: "#c45c5c" },
+  { label: "Mattapan", data: C.shootArea.Mattapan, color: "#d08770" },
+  { label: "Dorchester", data: C.shootArea.Dorchester, color: "#599ce7" },
+]);
+lineChart("cGuns", C.years, [{ label: "Crime-gun recoveries", data: C.gunsCrime, color: "#f1b467" }]);
+</script>
+</body>
+</html>

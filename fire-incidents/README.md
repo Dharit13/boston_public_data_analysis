@@ -1,5 +1,7 @@
 # Boston Fire incidents (2012–2024)
 
+**Live briefing:** https://dharit13.github.io/boston_public_data_analysis/fire/
+
 Cleaned Boston Fire Department incident files. Headline: volume is up; structure fires are not. Dorchester is first for fires and for total volume in every year on file. Cooking fires are the common issue; building fires are the costly ones.
 
 ## Files
