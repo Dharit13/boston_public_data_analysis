@@ -262,9 +262,9 @@ function SectionMix() {
             donut
             size={220}
             data={[
-              { label: "1–2 family", value: 14501, tone: "info" },
-              { label: "Commercial", value: 9924, tone: "warning" },
-              { label: "Multifamily", value: 4480, tone: "neutral" },
+              { label: "1–2 family", value: 14501 },
+              { label: "Commercial", value: 9924 },
+              { label: "Multifamily", value: 4480 },
               { label: "1–3 family", value: 3693 },
               { label: "Mixed", value: 1511 },
               { label: "Other", value: 1284 },
@@ -272,9 +272,19 @@ function SectionMix() {
               { label: "Vacant land", value: 227 },
             ]}
           />
+          <Callout tone="info" title="One permit, one occupancytype code.">
+            The City data dictionary lists occupancytype as the type of
+            occupancy of the property, belonging to a coded set. 1-2FAM,
+            1-3FAM, 1-4FAM, and Multi are mutually exclusive choices, not
+            nested unit counts. A 1-2FAM permit is not also counted as
+            1-3FAM or 1-4FAM. 2025: 1-2FAM 14,501 · 1-3FAM 3,693 ·
+            1-4FAM 1,181 · Multi 4,480.
+          </Callout>
           <Caption>
             Source: Analyze Boston Approved Building Permits · occupancytype
-            exact codes · 2025 (n = 36,801)
+            · 2025 (n = 36,801) · mutually exclusive City codes · not nested
+            unit counts · 1-2FAM 14,501 · 1-3FAM 3,693 · 1-4FAM 1,181 ·
+            Multi 4,480
           </Caption>
         </Stack>
       </Grid>
@@ -312,7 +322,8 @@ function SectionMix() {
           />
           <Caption>
             Source: Analyze Boston Approved Building Permits · occupancytype
-            · 2025 · 1–2 family 14,501
+            · 2025 · 1–2 family 14,501 · mutually exclusive City codes ·
+            not nested unit counts
           </Caption>
         </Stack>
         <Stack gap={8}>
@@ -368,6 +379,12 @@ function SectionClock() {
         not in this briefing (junk dates include 1753 and 2202). Do not
         read 3 p.m. as a job-site peak.
       </Callout>
+      <Callout tone="warning" title="Saturday and Sunday are not ISD public-counter days.">
+        The permit counter is not a Saturday–Sunday public office. 309
+        Saturday and 174 Sunday issued_date stamps stay on the chart. Do
+        not read those bars as office-open days. This is issued_date, not
+        a staffing roster.
+      </Callout>
       <Grid columns={2} gap={24}>
         <Stack gap={8}>
           <H3>2025 permits by issued hour</H3>
@@ -393,7 +410,8 @@ function SectionClock() {
           />
           <Caption>
             Source: Analyze Boston Approved Building Permits · issued_date
-            weekday · 2025 · Tuesday 8,115 · Sunday 174 · Saturday 309
+            weekday · 2025 · Tuesday 8,115 · Sunday 174 · Saturday 309 ·
+            not office-open days
           </Caption>
         </Stack>
       </Grid>
@@ -594,8 +612,12 @@ function SectionQuality() {
             "After-hours construction is not in this briefing",
             "That dump has junk dates (1753, 2202). issued_date hour is ISD issuance.",
           ],
+          [
+            "occupancytype is one code per permit",
+            "1-2FAM, 1-3FAM, 1-4FAM, Multi are mutually exclusive City codes, not nested unit counts.",
+          ],
         ]}
-        rowTone={["success", "info", "warning", "warning", "danger", "warning"]}
+        rowTone={["success", "info", "warning", "warning", "danger", "warning", "info"]}
       />
       <Caption>
         Source: Analyze Boston datasets approved-building-permits and

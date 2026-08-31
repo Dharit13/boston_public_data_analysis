@@ -99,7 +99,11 @@
       <div>
         <h3>2025 occupancy mix</h3>
         <div class="chart-box"><canvas id="cOccPie"></canvas></div>
-        <p class="caption">Source: Analyze Boston Approved Building Permits · occupancytype exact codes · 2025 (n = 36,801)</p>
+        <div class="callout info">
+          <strong>One permit, one occupancytype code.</strong>
+          The City data dictionary lists occupancytype as the type of occupancy of the property, belonging to a coded set. 1-2FAM, 1-3FAM, 1-4FAM, and Multi are mutually exclusive choices, not nested unit counts. A 1-2FAM permit is not also counted as 1-3FAM or 1-4FAM. 2025: 1-2FAM 14,501 · 1-3FAM 3,693 · 1-4FAM 1,181 · Multi 4,480.
+        </div>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · occupancytype · 2025 (n = 36,801) · mutually exclusive City codes · not nested unit counts · 1-2FAM 14,501 · 1-3FAM 3,693 · 1-4FAM 1,181 · Multi 4,480</p>
       </div>
     </div>
     <h3>Permit type mix, 2012–2025</h3>
@@ -109,7 +113,7 @@
       <div>
         <h3>2025 permits by occupancy</h3>
         <div class="chart-box"><canvas id="cOcc"></canvas></div>
-        <p class="caption">Source: Analyze Boston Approved Building Permits · occupancytype · 2025 · 1–2 family 14,501</p>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · occupancytype · 2025 · 1–2 family 14,501 · mutually exclusive City codes · not nested unit counts</p>
       </div>
       <div>
         <h3>2025 declared valuation by occupancy</h3>
@@ -147,6 +151,10 @@
       <strong>issued_date hour is not construction hours.</strong>
       After-hours construction is a different Analyze Boston file and is not in this briefing (junk dates include 1753 and 2202). Do not read 3 p.m. as a job-site peak.
     </div>
+    <div class="callout warn">
+      <strong>Saturday and Sunday are not ISD public-counter days.</strong>
+      The permit counter is not a Saturday–Sunday public office. 309 Saturday and 174 Sunday issued_date stamps stay on the chart. Do not read those bars as office-open days. This is issued_date, not a staffing roster.
+    </div>
     <div class="grid-2">
       <div>
         <h3>2025 permits by issued hour</h3>
@@ -156,7 +164,7 @@
       <div>
         <h3>2025 permits by weekday</h3>
         <div class="chart-box"><canvas id="cWeek"></canvas></div>
-        <p class="caption">Source: Analyze Boston Approved Building Permits · issued_date weekday · 2025 · Tuesday 8,115 · Sunday 174 · Saturday 309</p>
+        <p class="caption">Source: Analyze Boston Approved Building Permits · issued_date weekday · 2025 · Tuesday 8,115 · Sunday 174 · Saturday 309 · not office-open days</p>
       </div>
     </div>
     <h3>2025 permits by month</h3>
@@ -304,6 +312,7 @@
         <tr><td>Compare 2025 to 2019, not 2020</td><td>2020 COVID. Permits −29.1% (45,291 → 32,112).</td></tr>
         <tr><td>Do not add ZBA 906 to permits 36,801</td><td>Different files. Occupancy and ZBA decisions are exact codes, not substrings.</td></tr>
         <tr><td>After-hours construction is not in this briefing</td><td>That dump has junk dates (1753, 2202). issued_date hour is ISD issuance.</td></tr>
+        <tr><td>occupancytype is one code per permit</td><td>1-2FAM, 1-3FAM, 1-4FAM, Multi are mutually exclusive City codes, not nested unit counts.</td></tr>
       </tbody>
     </table>
     <p class="caption">Source: Analyze Boston datasets approved-building-permits and zoning-board-of-appeal-decisions · dumps pulled 31 Aug 2026</p>
@@ -331,7 +340,11 @@ const mix = share5(S.shortForm, S.electrical, S.plumbing, S.gas, S.longForm);
 lineChart("cVol", S.years, [{ label: "Permits", data: S.permits }], { zero: true });
 lineChart("cVal", S.years, [{ label: "Declared valuation", data: S.valuation, color: "#d08770" }]);
 barChart("cType", S.typeLabels, [{ label: "2025 permits", data: S.type2025 }], { horizontal: true });
-pieChart("cOccPie", S.occLabels.map((label, i) => ({ label, value: S.occ2025[i] })));
+pieChart("cOccPie", S.occLabels.map((label, i) => ({
+  label,
+  value: S.occ2025[i],
+  color: ["#599ce7","#d08770","#555","#888","#f1b467","#7bafe9","#3fa266","#c45c5c"][i],
+})));
 barChart("cMix", S.years, [
   { label: "Short Form Bldg Permit", data: mix[0] },
   { label: "Electrical Permit", data: mix[1], color: "#888" },
