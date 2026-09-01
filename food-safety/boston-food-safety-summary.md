@@ -78,9 +78,9 @@ Food inspections and active licenses are **not** RentSmart, **not** building per
 
 Always-pass is computed **inside each window**: complete years **2019, 2024, 2025**, plus **2026 YTD through 28 August**. Always-pass needs **at least 3 inspections** in that window and **zero** fail codes (`HE_Filed` is not a fail).
 
-A **repeat offender** failed in **at least two calendar years** from **2012 through 2026**. Two fails in the same year count as one year, not a repeat. 2026 YTD counts as one calendar year if it has a fail. Places to avoid are the top of those multi-year repeats, including by category (Ice cream, Cultural / attraction, Hospital, Hotel, School, Cafe, then licensecat FS/FT/RF/MFW).
+A **repeat offender** failed in **at least two calendar years** from **2012 through 2026**. Two fails in the same year count as one year, not a repeat. 2026 YTD counts as one calendar year if it has a fail. **Be cautious — repeated fails** lists the top of those multi-year repeats, including by category (Ice cream, Cultural / attraction, Hospital, Hotel, School, Cafe, Pharmacy, Grocery, then licensecat FS/FT/RF/MFW). This is inspection history, not a skip list: museums, hospitals, schools, and hotels are often destinations people still use.
 
-Display names strip trailing Inc/LLC/Corp/Ltd, not Company in Atlantic Fish Company. `@` is a location only after a street/hospital/hotel/college. Ice cream is **not** a City cuisine or license field: word-boundary matching (ice cream, gelato, frozen yogurt, creamery) plus public ice-cream roundups and official scoop-shop pages joined on brand key. **J.P. Licks** and **Ben & Jerry’s** are Ice cream from that join. `1 CITYWIDE ST` is ISD’s mobile-license placeholder, shown as **Mobile (citywide) · License …**.
+Display names strip trailing Inc/LLC/Corp/Ltd, not Company in Atlantic Fish Company. `@` is a location only after a street/hospital/hotel/college. Ice cream, Pharmacy, and Grocery are **not** City license types. Ice cream: word-boundary matching plus public scoop-shop pages joined on brand key (**J.P. Licks**, **Ben & Jerry’s**). Pharmacy: pharmacy/drugstore and chains (CVS, Walgreens, Rite Aid) on the normalized name — **CVS/Pharmacy No. 10517** (77 Seaport) and **No. 1900** (218 Hanover) are Pharmacy, not generic Retail food. Grocery: grocery/supermarket in the name plus sourced supermarket roundups joined on brand key (Trader Joe’s, Whole Foods, Stop & Shop, Star Market). 7-Eleven is not grocery. Leftover RF is other packaged retail. `1 CITYWIDE ST` is ISD’s mobile-license placeholder, shown as **Mobile (citywide) · License …**.
 
 | Window | Always-pass |
 | --- | ---: |
@@ -89,6 +89,6 @@ Display names strip trailing Inc/LLC/Corp/Ltd, not Company in Atlantic Fish Comp
 | 2025 | 92 |
 | 2026 YTD | 49 |
 
-5,945 places met the multi-year repeat rule. Across 2012–2026: **Go Fresh 365** failed in all 15 years. Ice cream has **45** multi-year repeats (J.P. Licks leads). 2025 ice cream always-pass is **Crescent Ridge Dairy**.
+5,945 places met the multi-year repeat rule. Across 2012–2026: **Go Fresh 365** failed in all 15 years (Grocery). Ice cream has **45** multi-year repeats (J.P. Licks leads). 2025 ice cream always-pass is **Crescent Ridge Dairy**. 2025 Pharmacy always-pass includes **CVS/Pharmacy No. 10517** and **No. 1900**.
 
-Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays add Ice cream, Cafe, School, Hotel, Hospital, and Cultural / attraction. The City has no cafe or ice-cream license code. `ice` does not match ICE Auto Services.
+Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays add Ice cream, Cafe, School, Hotel, Hospital, Cultural / attraction, Pharmacy, and Grocery before those codes. The City has no cafe, ice-cream, pharmacy, or grocery license code. `ice` does not match ICE Auto Services. RF remainder after overlays is other packaged retail.

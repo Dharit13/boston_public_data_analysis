@@ -24,7 +24,7 @@ The Pages site is the briefing you can share. Each project folder has a README (
 - **311 (2025):** 276,093 legacy cases (+8.8% vs 2019) · 68% on time · 59% sanitation or parking. **Do not add** the Oct 2025 NEW SYSTEM file (46,436). Peak year is 2023 (307,791).
 - **Vision Zero (2025):** 3,411 crashes (−21.7% vs 2019) · 14 deaths (11 in 2019). Pedestrians were 16.7% of crashes and **11 of 14** deaths. **2026 is not a full year.** BPD RMS MV crash / traffic (13,138) is a different file.
 - **Building permits (2025):** 36,801 issued (−18.7% vs 2019) · declared value **$12.46B (+12.4%)**. Erect/New Construction is **210**. **Do not add ZBA (906).** **2026 is not a full year.**
-- **Food safety (2025):** 12,414 inspections (+22.7% vs 2019) · fail share **40.3%**. HE_Pass is **49.9%**, not a majority. Always-pass lists for **2019, 2024, 2025, and 2026 YTD**; repeat offenders failed in **≥2 calendar years** 2012–2026. Ice cream overlays use sourced shop lists (J.P. Licks, Ben & Jerry’s). **Do not add 3,347 licenses.** **2026 is not a full year.**
+- **Food safety (2025):** 12,414 inspections (+22.7% vs 2019) · fail share **40.3%**. HE_Pass is **49.9%**, not a majority. Always-pass lists for **2019, 2024, 2025, and 2026 YTD**; repeated fails in **≥2 calendar years** are **Be cautious**, not a skip list. Ice cream / Pharmacy / Grocery overlays use sourced lists (J.P. Licks, CVS, Trader Joe’s). **Do not add 3,347 licenses.** **2026 is not a full year.**
 
 ## How to read this repo
 

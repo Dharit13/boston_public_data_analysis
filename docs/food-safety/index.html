@@ -225,7 +225,7 @@
     </div>
     <div class="callout info">
       <strong>Always-pass is by year. Repeats are by calendar year.</strong>
-      Open Places. Always-pass uses 2019 / 2024 / 2025 / 2026 YTD with a category pill. Repeat offenders failed in at least two calendar years from 2012 through 2026 — two fails in 2025 are not enough. Category pills cover ice cream, cafe, museums, food and drinks, take-out, and the rest.
+      Open Places. Always-pass uses 2019 / 2024 / 2025 / 2026 YTD with a category pill. Repeat offenders failed in at least two calendar years from 2012 through 2026 — two fails in 2025 are not enough. Category pills cover ice cream, pharmacy, grocery, cafe, museums, food and drinks, take-out, and the rest. Repeated fails are a reason to be cautious, not a skip list.
     </div>
     <div class="grid-2">
       <div>
@@ -244,7 +244,7 @@
   <div id="places" class="tab-panel">
     <p class="tab-blurb">Always-pass lists by year and category. Repeat offenders failed in at least two calendar years — two fails in the same year do not count.</p>
     <h2>Always-pass by year. Repeat offenders across years.</h2>
-    <p>Always-pass is still a year window (2019, 2024, 2025, 2026 YTD): at least 3 inspections in that window and zero fails. Repeat offender means a fail in at least two calendar years from 2012 through 2026. Two failed inspections in 2025 count as one year — that place is not a repeat offender unless it also failed in another year. Places to avoid are the top of those multi-year repeats. Use the category pills for ice cream, cafe, museums / attractions, food and drinks, take-out, and the rest. Do not count 3,347 licenses as inspections.</p>
+    <p>Always-pass is still a year window (2019, 2024, 2025, 2026 YTD): at least 3 inspections in that window and zero fails. Repeat offender means a fail in at least two calendar years from 2012 through 2026. Two failed inspections in 2025 count as one year — that place is not a repeat offender unless it also failed in another year. Be cautious lists the top of those multi-year repeats — inspection history, not a skip list. Museums, the aquarium, hospitals, schools, hotels, and cultural attractions are often destinations or institutions people still use. Use the category pills for ice cream, pharmacy, grocery, cafe, museums / attractions, food and drinks, take-out, and the rest. Do not count 3,347 licenses as inspections.</p>
     <div class="callout warn">
       <strong>Two fails in the same year are not a repeat.</strong>
       Repeat offender = distinct calendar years with a fail. Children&apos;s Museum Shop with three 2025 fails and no other year is not on this list. Go Fresh 365 failed in 15 years. 2026 YTD counts as one calendar year if it has a fail.
@@ -270,7 +270,7 @@
       <thead><tr><th>Category</th><th class="num">2019</th><th class="num">2024</th><th class="num">2025</th><th class="num">2026 YTD</th></tr></thead>
       <tbody id="overlayBody"></tbody>
     </table>
-    <p class="caption">Source: Analyze Boston Food Establishment Inspections · collapsed inspections · names are cleaned for matching and display: trailing Inc/LLC/Corp/Ltd only — not Company in Atlantic Fish Company; @ is a location suffix when the tail is a street, hospital, hotel, or college, not a trade name (A @ Time, EAST @ WEST). Licenses are not merged. Ice cream, Cafe, School, Hotel, Hospital, and Cultural / attraction are name overlays — not a City cuisine or license field — with word-boundary matching (ice cream, gelato, frozen yogurt, creamery) plus public ice-cream roundups and official scoop-shop pages joined on brand key. Ben &amp; Jerry&apos;s is Ice cream from those sourced pages, not from a handwritten brand list. ICE Auto Services and All Spice are not ice cream. School Street is not School. A coffee shop @ a hotel is Cafe, not Hotel; generic dining @ a hospital is Hospital. FT is Take-out, not Food. 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address. Other / unclassified is 0 on this dump. 2026 YTD is not a full year.</p>
+    <p class="caption">Source: Analyze Boston Food Establishment Inspections · collapsed inspections · names are cleaned for matching and display: trailing Inc/LLC/Corp/Ltd only — not Company in Atlantic Fish Company; @ is a location suffix when the tail is a street, hospital, hotel, or college, not a trade name (A @ Time, EAST @ WEST). Licenses are not merged. Ice cream, Pharmacy, Grocery, Cafe, School, Hotel, Hospital, and Cultural / attraction are name overlays — not a City cuisine, not extra ISD license types — with word-boundary matching (ice cream, gelato, frozen yogurt, creamery; pharmacy / drugstore / CVS / Walgreens / Rite Aid; grocery / supermarket) plus public ice-cream and grocery roundups joined on brand key. Ben &amp; Jerry&apos;s is Ice cream from those sourced pages, not from a handwritten brand list. CVS/Pharmacy stays Pharmacy even when licensecat is RF. Leftover Retail food is other packaged retail. ICE Auto Services and All Spice are not ice cream. 7-Eleven is not grocery. School Street is not School. A coffee shop @ a hotel is Cafe, not Hotel; generic dining @ a hospital is Hospital. FT is Take-out, not Food. 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address. Other / unclassified is 0 on this dump. 2026 YTD is not a full year.</p>
     <h3>Year for always-pass lists</h3>
     <div class="year-btns" id="placeYearBtns">
       <button type="button" class="year-btn" data-place-year="2019">2019</button>
@@ -278,7 +278,7 @@
       <button type="button" class="year-btn active" data-place-year="2025">2025</button>
       <button type="button" class="year-btn" data-place-year="2026_ytd">2026 YTD</button>
     </div>
-    <h3>Category — always-pass and places to avoid</h3>
+    <h3>Category — always-pass and repeated fails</h3>
     <div class="year-btns" id="placeCatBtns"></div>
     <div id="placeYtdCallout" class="callout warn" hidden>
       <strong>2026 is not a full year.</strong>
@@ -297,7 +297,7 @@
       <p class="caption" id="alwaysCaption"></p>
     </div>
     <div id="avoidSection">
-      <h3 id="avoidHead">Places to avoid</h3>
+      <h3 id="avoidHead">Be cautious — repeated fails</h3>
       <table>
         <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Years with a fail</th><th class="num">Fails</th><th class="num">Inspections</th></tr></thead>
         <tbody id="avoidBody"></tbody>
@@ -320,7 +320,7 @@
         <tr><td>Fail is an exact result code</td><td>HE_Fail, HE_FailExt, Fail, Failed, HE_FAILNOR. HE_Filed is not a fail.</td></tr>
         <tr><td>2022 volume is as recorded</td><td>19,648 inspections and a 24.9% fail share. Not a baseline.</td></tr>
         <tr><td>Repeat offender = fail in ≥2 calendar years</td><td>Two fails in the same year count as one year. Always-pass still uses the year window (≥3 inspections, 0 fails). 2026 YTD is one calendar year if it has a fail.</td></tr>
-        <tr><td>Names: strip Inc/LLC/Corp/Ltd, not Company</td><td>Atlantic Fish Company keeps Company. @ is a location only after a street/hospital/hotel/college. A @ Time is a trade name. Ice cream is not a City license type.</td></tr>
+        <tr><td>Names: strip Inc/LLC/Corp/Ltd, not Company</td><td>Atlantic Fish Company keeps Company. @ is a location only after a street/hospital/hotel/college. A @ Time is a trade name. Ice cream, Pharmacy, and Grocery are not City license types.</td></tr>
       </tbody>
     </table>
     <p class="caption">Source: Analyze Boston datasets food-establishment-inspections and active-food-establishment-licenses · dumps pulled 31 Aug 2026</p>
@@ -441,7 +441,7 @@ function renderPlaces() {
       `<tr><td>${esc(placeName(p))}</td><td>${esc(placeAddress(p))}</td><td>${esc(p.category)}</td><td class="num">${num(p.inspections)}</td></tr>`
     ).join("");
     document.getElementById("alwaysCaption").textContent =
-      "Source: Analyze Boston Food Establishment Inspections · " + cap + " · " + catLabel + " · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd and @ location suffixes · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address · BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year avoid because the windows differ";
+      "Source: Analyze Boston Food Establishment Inspections · " + cap + " · " + catLabel + " · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd and @ location suffixes · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address · BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year repeated fails because the windows differ";
   } else {
     alwaysSec.hidden = true;
   }
@@ -449,12 +449,16 @@ function renderPlaces() {
   if (catAvoid.length) {
     avoidSec.hidden = false;
     document.getElementById("avoidHead").textContent =
-      "Places to avoid — " + catLabel + " (failed in ≥2 calendar years)";
+      "Be cautious — repeated fails — " + catLabel + " (failed in ≥2 calendar years)";
     document.getElementById("avoidBody").innerHTML = catAvoid.map((p) =>
       `<tr><td>${esc(placeName(p))}</td><td>${esc(placeAddress(p))}</td><td>${esc(p.category)}</td><td class="num">${num(p.yearsFailed)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td></tr>`
     ).join("");
+    const instCats = ["Cultural / attraction", "Hospital", "School", "Hotel"];
+    const instNote = (catLabel === "all categories" || instCats.indexOf(catLabel) >= 0)
+      ? " Cultural / attraction, Hospital, School, and Hotel are often destinations or institutions people still use — this is inspection history, not “skip this museum.”"
+      : "";
     document.getElementById("avoidCaption").textContent =
-      "Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeat offender = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · " + catLabel + " · " + num(S.repeatNTotal) + " places citywide met this rule · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address";
+      "Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeated inspection fails = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · " + catLabel + " · " + num(S.repeatNTotal) + " places citywide met this rule · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address. This is our reconstruction from ISD result codes, not an official ISD list. Letter grade is on the door / Mayor’s Food Court." + instNote;
   } else {
     avoidSec.hidden = true;
   }

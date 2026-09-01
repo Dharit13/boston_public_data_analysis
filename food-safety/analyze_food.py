@@ -35,6 +35,8 @@ CAT_RETAIL = "Retail food"
 CAT_MOBILE = "Mobile food"
 CAT_ICE = "Ice cream"
 CAT_CAFE = "Cafe"
+CAT_PHARMACY = "Pharmacy"
+CAT_GROCERY = "Grocery"
 CAT_CULTURAL = "Cultural / attraction"
 CAT_SCHOOL = "School"
 CAT_HOSPITAL = "Hospital"
@@ -53,6 +55,8 @@ OVERLAY_ORDER = (
     CAT_HOTEL,
     CAT_SCHOOL,
     CAT_CAFE,
+    CAT_PHARMACY,
+    CAT_GROCERY,
     CAT_FOOD_DRINKS,
     CAT_TAKEOUT,
     CAT_RETAIL,
@@ -109,8 +113,11 @@ _HOSPITAL_HOST_RE = re.compile(
     r"(?i)\b(bidmc|mgh|bmc|spaulding|faulkner|children'?s)\b"
 )
 WEB_ICE_PATH = Path(__file__).resolve().parent / "ice_cream_web_matches.json"
+WEB_GROCERY_PATH = Path(__file__).resolve().parent / "grocery_web_matches.json"
 _web_ice_override: set[str] | None = None
 _web_ice_file_cache: set[str] | None = None
+_web_grocery_override: set[str] | None = None
+_web_grocery_file_cache: set[str] | None = None
 _CULTURAL_RE = re.compile(
     r"\b(museum|aquarium|zoo|botanical\s+gardens?|stadium|fenway\s+park)\b",
     re.I,
@@ -130,6 +137,14 @@ _CAFE_RE = re.compile(
     r"\b(caf[eé]|coffeehouse|coffee\s+bar|coffee\s+shop|espresso|coffee)\b",
     re.I,
 )
+_PHARMACY_RE = re.compile(
+    r"\b(pharmacy|drugstore|drug\s+store|walgreens?|rite\s+aid|cvs)\b",
+    re.I,
+)
+_GROCERY_RE = re.compile(
+    r"\b(grocery|supermarket|super\s+market)\b",
+    re.I,
+)
 
 QUALITY_NOTE = (
     "Food establishment inspections and active food licenses are separate "
@@ -141,8 +156,10 @@ QUALITY_NOTE = (
     "HE_FailExt, Fail, Failed, and HE_FAILNOR — not a substring. Star levels "
     "are exact *, **, ***. Display names strip trailing Inc/LLC/Corp/Ltd, "
     "not Company/Co in a trade name, and strip @ only when it is a location "
-    "suffix (street, hospital, hotel, college). Ice cream overlays are not a "
-    "City license type."
+    "suffix (street, hospital, hotel, college). Ice cream, pharmacy, and "
+    "grocery overlays are not City license types. ISD licensecat RF remains "
+    "Retail Food (packaged food); leftover Retail food after overlays is "
+    "other packaged retail, not pharmacy or grocery."
 )
 
 
@@ -244,6 +261,7 @@ def normalize_name(business: str) -> str:
     text = text.replace("&", " ").replace("+", " ")
     text = re.sub(r"\band\b", " ", text)
     text = text.replace("'", "").replace("’", "")
+    text = re.sub(r"(?<=[a-z0-9])no\.\s*(?=\d)", " no ", text)
     text = re.sub(r"[^a-z0-9]+", " ", text)
     tokens = [tok for tok in text.split() if tok]
     if tokens and tokens[0] == "the":
@@ -328,6 +346,76 @@ def _web_ice_compact() -> set[str]:
     return _web_ice_file_cache
 
 
+def set_web_grocery_names(names: list[str] | None) -> None:
+    global _web_grocery_override, _web_grocery_file_cache
+    if names is None:
+        _web_grocery_override = None
+        _web_grocery_file_cache = None
+    else:
+        _web_grocery_override = {brand_key(n) for n in names if n.strip()}
+
+
+def _load_web_grocery_keys(path: Path) -> set[str]:
+    if not path.is_file():
+        return set()
+    raw = json.loads(path.read_text())
+    names = raw.get("names", [])
+    keys: set[str] = set()
+    for item in names:
+        label = item.get("name", "") if isinstance(item, dict) else str(item)
+        key = brand_key(label)
+        if key:
+            keys.add(key)
+    return keys
+
+
+def _web_grocery_keys() -> set[str]:
+    global _web_grocery_file_cache
+    if _web_grocery_override is not None:
+        return _web_grocery_override
+    if _web_grocery_file_cache is None:
+        _web_grocery_file_cache = _load_web_grocery_keys(WEB_GROCERY_PATH)
+    return _web_grocery_file_cache
+
+
+def _consecutive_tokens(hay: str, needle: str) -> bool:
+    h = hay.split()
+    n = needle.split()
+    if not n or not h or len(n) > len(h):
+        return False
+    span = len(n)
+    for i in range(len(h) - span + 1):
+        if h[i : i + span] == n:
+            return True
+    return False
+
+
+def _web_brand_key_hit(key: str, keys: set[str]) -> bool:
+    if not key:
+        return False
+    for web in keys:
+        if not web:
+            continue
+        if key == web or key.startswith(web + " "):
+            return True
+        if _consecutive_tokens(key, web):
+            return True
+        if web.endswith("s"):
+            stem = web[:-1].rstrip()
+            if stem and (key == stem or key.startswith(stem + " ")):
+                return True
+        if key.endswith("s"):
+            stem = key[:-1].rstrip()
+            if stem and (stem == web or stem.startswith(web + " ")):
+                return True
+    return False
+
+
+def _is_pharmacy(norm: str) -> bool:
+    text = re.sub(r"\bcvsno\b", "cvs no", norm)
+    return bool(_PHARMACY_RE.search(text))
+
+
 def categorize(business: str, licensecat: str) -> str:
     name = strip_null(business)
     trade, loc = split_at_location(name)
@@ -366,6 +454,12 @@ def categorize(business: str, licensecat: str) -> str:
         return CAT_SCHOOL
     if _CAFE_RE.search(norm):
         return CAT_CAFE
+    if _is_pharmacy(norm):
+        return CAT_PHARMACY
+    if _GROCERY_RE.search(norm) or _web_brand_key_hit(
+        brand_key(name), _web_grocery_keys()
+    ):
+        return CAT_GROCERY
     return coded
 
 

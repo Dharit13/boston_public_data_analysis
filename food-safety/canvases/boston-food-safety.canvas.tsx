@@ -111,6 +111,8 @@ const OVERLAY_LABELS = [
   "Hotel",
   "School",
   "Cafe",
+  "Pharmacy",
+  "Grocery",
   "Food and drinks",
   "Take-out",
   "Retail food",
@@ -118,16 +120,64 @@ const OVERLAY_LABELS = [
   "Other / unclassified",
 ];
 const OVERLAY_2019 = [
-  78, 31, 44, 188, 86, 1039, 4059, 3070, 1302, 219, 0,
+  78,
+  31,
+  44,
+  188,
+  86,
+  1039,
+  131,
+  248,
+  4041,
+  3061,
+  950,
+  219,
+  0,
 ];
 const OVERLAY_2024 = [
-  147, 49, 67, 218, 138, 1441, 5721, 4787, 1665, 343, 0,
+  147,
+  49,
+  67,
+  218,
+  138,
+  1441,
+  155,
+  293,
+  5721,
+  4787,
+  1217,
+  343,
+  0,
 ];
 const OVERLAY_2025 = [
-  119, 30, 55, 210, 104, 1208, 4866, 4093, 1472, 257, 0,
+  119,
+  30,
+  55,
+  210,
+  104,
+  1208,
+  155,
+  306,
+  4864,
+  4093,
+  1013,
+  257,
+  0,
 ];
 const OVERLAY_2026 = [
-  69, 25, 35, 161, 56, 861, 3488, 2849, 1082, 268, 0,
+  69,
+  25,
+  35,
+  161,
+  56,
+  861,
+  71,
+  214,
+  3486,
+  2849,
+  799,
+  268,
+  0,
 ];
 
 type PlaceYearKey = "2019" | "2024" | "2025" | "2026_ytd";
@@ -153,6 +203,25 @@ function placeAddress(p: PlaceRow): string {
   }
   return p.zip ? `${p.address}, ${p.zip}` : p.address;
 }
+const INSTITUTION_CATS = new Set([
+  "Cultural / attraction",
+  "Hospital",
+  "School",
+  "Hotel",
+]);
+function cautionHeadline(catLabel: string): string {
+  return `Be cautious — repeated fails — ${catLabel} (failed in ≥2 calendar years)`;
+}
+function cautionNote(catLabel: string): string {
+  const inst =
+    catLabel === "all categories" || INSTITUTION_CATS.has(catLabel)
+      ? " Cultural / attraction, Hospital, School, and Hotel are often destinations or institutions people still use — this is inspection history, not “skip this museum.”"
+      : "";
+  return (
+    " This is our reconstruction from ISD result codes, not an official ISD list. Letter grade is on the door / Mayor’s Food Court." +
+    inst
+  );
+}
 const PLACE_YEAR_PILLS: { id: PlaceYearKey; label: string }[] = [
   { id: "2019", label: "2019" },
   { id: "2024", label: "2024" },
@@ -174,26 +243,26 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       { name: "Roxy's Gourmet Grilled Cheese No. 2", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 74860", zip: "02128", license: "74860", category: "Mobile food", inspections: 6, fails: 0, failRate: 0.0 },
       { name: "The Bacon Truck No. 2", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 389249", zip: "02128", license: "389249", category: "Mobile food", inspections: 6, fails: 0, failRate: 0.0 },
       { name: "Emmanuel College", address: "400  FENWAY", addressDisplay: "400  FENWAY, 02115", zip: "02115", license: "20052", category: "School", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "Hilton Boston Logan Airport", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "HILTON BOSTON LOGAN AIRPORT", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Mama Ana", address: "197  EIGHTH ST", addressDisplay: "197  EIGHTH ST, 02129", zip: "02129", license: "84994", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Mcdonalds", address: "315  WASHINGTON ST", addressDisplay: "315  WASHINGTON ST, 02108", zip: "02108", license: "76336", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "The Barking Crab", address: "88  SLEEPER ST", addressDisplay: "88  SLEEPER ST, 02210", zip: "02210", license: "20104", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "AFC Sushi", address: "10  SCHOOL ST", addressDisplay: "10  SCHOOL ST, 02108", zip: "02108", license: "90461", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
-      { name: "AFC Sushi", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "374652", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
-      { name: "Bella Luna Restaurant", address: "284  AMORY ST", addressDisplay: "284  AMORY ST, 02130", zip: "02130", license: "31331", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 }
+      { name: "THE BARKING CRAB", address: "88  SLEEPER ST", addressDisplay: "88  SLEEPER ST, 02210", zip: "02210", license: "20104", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "AFC Sushi @ Walgreens No. 15390", address: "10  SCHOOL ST", addressDisplay: "10  SCHOOL ST, 02108", zip: "02108", license: "90461", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "AFC Sushi @Liberty Mutual Ins.", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "374652", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "Bella Luna Restaurant @ the Brewery", address: "284  AMORY ST", addressDisplay: "284  AMORY ST, 02130", zip: "02130", license: "31331", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 }
     ],
     byCategory: {
       "Hospital": {
         alwaysN: 2,
         alwaysPass: [
-          { name: "Childrens Hospital Main Caf", address: "300  LONGWOOD AV", addressDisplay: "300  LONGWOOD AV, 02115", zip: "02115", license: "18886", category: "Hospital", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "CHILDRENS HOSPITAL MAIN CAF", address: "300  LONGWOOD AV", addressDisplay: "300  LONGWOOD AV, 02115", zip: "02115", license: "18886", category: "Hospital", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Spaulding Rehabilitation Hospital", address: "300  FIRST AV", addressDisplay: "300  FIRST AV, 02129", zip: "02129", license: "77115", category: "Hospital", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Hotel": {
         alwaysN: 1,
         alwaysPass: [
-          { name: "Hilton Boston Logan Airport", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 }
+          { name: "HILTON BOSTON LOGAN AIRPORT", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 }
         ]
       },
       "School": {
@@ -205,12 +274,12 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       "Cafe": {
         alwaysN: 9,
         alwaysPass: [
-          { name: "Boston News Cafe", address: "90  ARCH ST", addressDisplay: "90  ARCH ST, 02110", zip: "02110", license: "77595", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Globe Bar & Cafe", address: "384  BOYLSTON ST", addressDisplay: "384  BOYLSTON ST, 02116", zip: "02116", license: "353804", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Boston News Cafe (90 Arch St.)", address: "90  ARCH ST", addressDisplay: "90  ARCH ST, 02110", zip: "02110", license: "77595", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "GLOBE BAR & CAFE", address: "384  BOYLSTON ST", addressDisplay: "384  BOYLSTON ST, 02116", zip: "02116", license: "353804", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Solid Ground Cafe", address: "742  HUNTINGTON AV", addressDisplay: "742  HUNTINGTON AV, 02115", zip: "02115", license: "364838", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Starbucks Coffee Co. No. 875", address: "228  WASHINGTON ST", addressDisplay: "228  WASHINGTON ST, 02109", zip: "02109", license: "25657", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Starbucks Coffee No. 7224", address: "364  BROOKLINE AV", addressDisplay: "364  BROOKLINE AV, 02115", zip: "02115", license: "26636", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Starbucks Coffee No. 7805", address: "90  OLIVER ST", addressDisplay: "90  OLIVER ST, 02110", zip: "02110", license: "26659", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Starbucks Coffee No.  7224", address: "364  BROOKLINE AV", addressDisplay: "364  BROOKLINE AV, 02115", zip: "02115", license: "26636", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Starbucks Coffee No.  7805", address: "90  OLIVER ST", addressDisplay: "90  OLIVER ST, 02110", zip: "02110", license: "26659", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Starbucks Coffee No. 22566", address: "48  NORTHERN AV", addressDisplay: "48  NORTHERN AV, 02210", zip: "02210", license: "127085", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Sunny Cafe", address: "1000  BENNINGTON ST", addressDisplay: "1000  BENNINGTON ST, 02128", zip: "02128", license: "201545", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Tatte Bakery & Cafe", address: "70  CHARLES ST", addressDisplay: "70  CHARLES ST, 02114", zip: "02114", license: "134181", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 }
@@ -220,22 +289,22 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
         alwaysN: 21,
         alwaysPass: [
           { name: "Mama Ana", address: "197  EIGHTH ST", addressDisplay: "197  EIGHTH ST, 02129", zip: "02129", license: "84994", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "The Barking Crab", address: "88  SLEEPER ST", addressDisplay: "88  SLEEPER ST, 02210", zip: "02210", license: "20104", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "AFC Sushi", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "374652", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Bella Luna Restaurant", address: "284  AMORY ST", addressDisplay: "284  AMORY ST, 02130", zip: "02130", license: "31331", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "THE BARKING CRAB", address: "88  SLEEPER ST", addressDisplay: "88  SLEEPER ST, 02210", zip: "02210", license: "20104", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "AFC Sushi @Liberty Mutual Ins.", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "374652", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Bella Luna Restaurant @ the Brewery", address: "284  AMORY ST", addressDisplay: "284  AMORY ST, 02130", zip: "02130", license: "31331", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Boston Chops", address: "1375  WASHINGTON ST", addressDisplay: "1375  WASHINGTON ST, 02118", zip: "02118", license: "86604", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Canary Square", address: "435 S HUNTINGTON AV", addressDisplay: "435 S HUNTINGTON AV, 02130", zip: "02130", license: "68719", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Chipotle Mexican Grill", address: "1924  BEACON ST", addressDisplay: "1924  BEACON ST, 02135", zip: "02135", license: "27303", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Dorchester Brewing", address: "1246  MASSACHUSETTS AV", addressDisplay: "1246  MASSACHUSETTS AV, 02125", zip: "02125", license: "166847", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "EL Penol Restaurant", address: "54  BENNINGTON ST", addressDisplay: "54  BENNINGTON ST, 02128", zip: "02128", license: "23581", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Grasshopper Vegetarian", address: "1 N BEACON ST", addressDisplay: "1 N BEACON ST, 02134", zip: "02134", license: "23973", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 }
+          { name: "Dorchester Brewing Company", address: "1246  MASSACHUSETTS AV", addressDisplay: "1246  MASSACHUSETTS AV, 02125", zip: "02125", license: "166847", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "EL PENOL RESTAURANT", address: "54  BENNINGTON ST", addressDisplay: "54  BENNINGTON ST, 02128", zip: "02128", license: "23581", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "GRASSHOPPER VEGETARIAN", address: "1 N BEACON ST", addressDisplay: "1 N BEACON ST, 02134", zip: "02134", license: "23973", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Take-out": {
         alwaysN: 18,
         alwaysPass: [
           { name: "Mcdonalds", address: "315  WASHINGTON ST", addressDisplay: "315  WASHINGTON ST, 02108", zip: "02108", license: "76336", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "AFC Sushi", address: "10  SCHOOL ST", addressDisplay: "10  SCHOOL ST, 02108", zip: "02108", license: "90461", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "AFC Sushi @ Walgreens No. 15390", address: "10  SCHOOL ST", addressDisplay: "10  SCHOOL ST, 02108", zip: "02108", license: "90461", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Boloco", address: "48  CONGRESS ST", addressDisplay: "48  CONGRESS ST, 02109", zip: "02109", license: "27549", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Burger King", address: "1  MAVERICK SQ", addressDisplay: "1  MAVERICK SQ, 02128", zip: "02128", license: "73889", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "C11", address: "4  JERSEY ST", addressDisplay: "4  JERSEY ST, 02215", zip: "02215", license: "31653", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
@@ -264,7 +333,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
           { name: "The Bacon Truck", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 97097", zip: "02128", license: "97097", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       }
-    },
+    }
   },
   "2024": {
     ytd: false,
@@ -273,12 +342,12 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     alwaysPass: [
       { name: "Limani Grille", address: "100  NORTHERN AV", addressDisplay: "100  NORTHERN AV, 02210", zip: "02210", license: "490013", category: "Food and drinks", inspections: 6, fails: 0, failRate: 0.0 },
       { name: "Zaaki", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 353809", zip: "02128", license: "353809", category: "Mobile food", inspections: 6, fails: 0, failRate: 0.0 },
-      { name: "Checkmate Cafe", address: "900  SOUTH ST", addressDisplay: "900  SOUTH ST, 02131", zip: "02131", license: "160958", category: "Cafe", inspections: 5, fails: 0, failRate: 0.0 },
+      { name: "CHECKMATE CAFE", address: "900  SOUTH ST", addressDisplay: "900  SOUTH ST, 02131", zip: "02131", license: "160958", category: "Cafe", inspections: 5, fails: 0, failRate: 0.0 },
       { name: "Dave's Hot Chicken", address: "123  STUART ST", addressDisplay: "123  STUART ST, 02116", zip: "02116", license: "539852", category: "Food and drinks", inspections: 5, fails: 0, failRate: 0.0 },
       { name: "Lincoln Tavern", address: "425 W BROADWAY", addressDisplay: "425 W BROADWAY, 02127", zip: "02127", license: "79301", category: "Food and drinks", inspections: 5, fails: 0, failRate: 0.0 },
-      { name: "Salsas Mexican Grill", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "90395", category: "Take-out", inspections: 5, fails: 0, failRate: 0.0 },
+      { name: "SALSAS MEXICAN GRILL", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "90395", category: "Take-out", inspections: 5, fails: 0, failRate: 0.0 },
       { name: "311", address: "605  TREMONT ST", addressDisplay: "605  TREMONT ST, 02118", zip: "02118", license: "488587", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "A & N Pizza", address: "1409  CENTRE ST", addressDisplay: "1409  CENTRE ST, 02132", zip: "02132", license: "23626", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "A & N PIZZA", address: "1409  CENTRE ST", addressDisplay: "1409  CENTRE ST, 02132", zip: "02132", license: "23626", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Burger King", address: "100  WASHINGTON ST", addressDisplay: "100  WASHINGTON ST, 02121", zip: "02121", license: "18425", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Chubby Chickpea Mobile", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 77929", zip: "02128", license: "77929", category: "Mobile food", inspections: 4, fails: 0, failRate: 0.0 }
     ],
@@ -303,13 +372,13 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       "Hotel": {
         alwaysN: 9,
         alwaysPass: [
-          { name: "Hyatt Conf. & Hotel", address: "101  HARBORSIDE DR", addressDisplay: "101  HARBORSIDE DR, 02128", zip: "02128", license: "19765", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "HYATT CONF. & HOTEL (FS)", address: "101  HARBORSIDE DR", addressDisplay: "101  HARBORSIDE DR, 02128", zip: "02128", license: "19765", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "The Westin Boston Waterfront", address: "425  SUMMER ST", addressDisplay: "425  SUMMER ST, 02210", zip: "02210", license: "26427", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "The Westin Boston Waterfront/Starbucks", address: "425  SUMMER ST", addressDisplay: "425  SUMMER ST, 02210", zip: "02210", license: "28965", category: "Hotel", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Battery Wharf Hotel/Grille", address: "3  BATTERY WH", addressDisplay: "3  BATTERY WH, 02109", zip: "02109", license: "331775", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Canopy Hotel", address: "99  BLACKSTONE ST", addressDisplay: "99  BLACKSTONE ST, 02109", zip: "02109", license: "415043", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Four Seasons Hotel Boston", address: "200  BOYLSTON ST", addressDisplay: "200  BOYLSTON ST, 02116", zip: "02116", license: "18140", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Hilton Boston Logan Airport", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "HILTON BOSTON LOGAN AIRPORT", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Residence Inn by Marriott", address: "370  CONGRESS ST", addressDisplay: "370  CONGRESS ST, 02210", zip: "02210", license: "380877", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Roof Top Pool at The Colonnade Hotel", address: "120  HUNTINGTON AV", addressDisplay: "120  HUNTINGTON AV, 02116", zip: "02116", license: "480768", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 }
         ]
@@ -318,7 +387,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
         alwaysN: 4,
         alwaysPass: [
           { name: "Suffolk University Sawyer Cafe", address: "8  ASHBURTON PL", addressDisplay: "8  ASHBURTON PL, 02108", zip: "02108", license: "456494", category: "School", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "BU 4thfl School OF Mgmt", address: "595  COMMONWEALTH AV", addressDisplay: "595  COMMONWEALTH AV, 02215", zip: "02215", license: "22460", category: "School", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "BU 4thFl SCHOOL OF MGMT", address: "595  COMMONWEALTH AV", addressDisplay: "595  COMMONWEALTH AV, 02215", zip: "02215", license: "22460", category: "School", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Northeastern University Belvidere", address: "39  DALTON ST", addressDisplay: "39  DALTON ST, 02199", zip: "02199", license: "537896", category: "School", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "University Club of Boston-Rooftop Bar", address: "426  STUART ST", addressDisplay: "426  STUART ST, 02116", zip: "02116", license: "526306", category: "School", inspections: 3, fails: 0, failRate: 0.0 }
         ]
@@ -326,16 +395,38 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       "Cafe": {
         alwaysN: 32,
         alwaysPass: [
-          { name: "Checkmate Cafe", address: "900  SOUTH ST", addressDisplay: "900  SOUTH ST, 02131", zip: "02131", license: "160958", category: "Cafe", inspections: 5, fails: 0, failRate: 0.0 },
+          { name: "CHECKMATE CAFE", address: "900  SOUTH ST", addressDisplay: "900  SOUTH ST, 02131", zip: "02131", license: "160958", category: "Cafe", inspections: 5, fails: 0, failRate: 0.0 },
           { name: "The Well Coffee House Boston", address: "62  WILLIAM C KELLY SQ", addressDisplay: "62  WILLIAM C KELLY SQ, 02128", zip: "02128", license: "372405", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Unidine Cafe Coffee Bar", address: "529  MAIN ST", addressDisplay: "529  MAIN ST, 02129", zip: "02129", license: "144284", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "960 Cafe", address: "960  MASSACHUSETTS AV", addressDisplay: "960  MASSACHUSETTS AV, 02118", zip: "02118", license: "534002", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "B I Deaconess/west End Cafe", address: "1  DEACONESS RD", addressDisplay: "1  DEACONESS RD, 02215", zip: "02215", license: "21931", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "B I DEACONESS/WEST END CAFE", address: "1  DEACONESS RD", addressDisplay: "1  DEACONESS RD, 02215", zip: "02215", license: "21931", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Blank Street Coffee", address: "489 E BROADWAY", addressDisplay: "489 E BROADWAY, 02127", zip: "02127", license: "542405", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Boston News Cafe", address: "90  ARCH ST", addressDisplay: "90  ARCH ST, 02110", zip: "02110", license: "77595", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Boston News Cafe (90 Arch St.)", address: "90  ARCH ST", addressDisplay: "90  ARCH ST, 02110", zip: "02110", license: "77595", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Capital One Cafe", address: "795  BOYLSTON ST", addressDisplay: "795  BOYLSTON ST, 02116", zip: "02116", license: "479008", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Capital One Cafe", address: "55  SEAPORT BL", addressDisplay: "55  SEAPORT BL, 02210", zip: "02210", license: "515362", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Dug Out Cafe", address: "722  COMMONWEALTH AV", addressDisplay: "722  COMMONWEALTH AV, 02115", zip: "02115", license: "18360", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 }
+          { name: "Dug Out Cafe Inc", address: "722  COMMONWEALTH AV", addressDisplay: "722  COMMONWEALTH AV, 02115", zip: "02115", license: "18360", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 }
+        ]
+      },
+      "Pharmacy": {
+        alwaysN: 3,
+        alwaysPass: [
+          { name: "CVS/Pharmacy No. 1889", address: "427  WASHINGTON ST", addressDisplay: "427  WASHINGTON ST, 02135", zip: "02135", license: "20759", category: "Pharmacy", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "Walgreens No.  05756", address: "1  WM C KELLY SQ", addressDisplay: "1  WM C KELLY SQ, 02128", zip: "02128", license: "25352", category: "Pharmacy", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Walgreens No. 11797", address: "465  CAMBRIDGE ST", addressDisplay: "465  CAMBRIDGE ST, 02134", zip: "02134", license: "33162", category: "Pharmacy", inspections: 3, fails: 0, failRate: 0.0 }
+        ]
+      },
+      "Grocery": {
+        alwaysN: 9,
+        alwaysPass: [
+          { name: "Daily Table", address: "450  WASHINGTON ST", addressDisplay: "450  WASHINGTON ST, 02124", zip: "02124", license: "129653", category: "Grocery", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "Star Market No. 4572", address: "370  WESTERN AV", addressDisplay: "370  WESTERN AV, 02135", zip: "02135", license: "25692", category: "Grocery", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "Tropical Food Mart", address: "4545  WASHINGTON ST", addressDisplay: "4545  WASHINGTON ST, 02131", zip: "02131", license: "89935", category: "Grocery", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "Bob's Grocery", address: "160  ENDICOTT ST", addressDisplay: "160  ENDICOTT ST, 02113", zip: "02113", license: "19919", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Star Market Company", address: "50  CAUSEWAY ST", addressDisplay: "50  CAUSEWAY ST, 02114", zip: "02114", license: "359367", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "TRADER JOE'S No. 510", address: "893  BOYLSTON ST", addressDisplay: "893  BOYLSTON ST, 02115", zip: "02115", license: "25622", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Trader Joe's No. 561", address: "199 N HARVARD ST", addressDisplay: "199 N HARVARD ST, 02134", zip: "02134", license: "334435", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Trader Joe's No. 566", address: "44  THOMSON PL", addressDisplay: "44  THOMSON PL, 02210", zip: "02210", license: "398730", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "WHOLE FOODS MARKET", address: "310  HARRISON AV", addressDisplay: "310  HARRISON AV, 02118", zip: "02118", license: "127863", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Food and drinks": {
@@ -356,31 +447,31 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       "Take-out": {
         alwaysN: 118,
         alwaysPass: [
-          { name: "Salsas Mexican Grill", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "90395", category: "Take-out", inspections: 5, fails: 0, failRate: 0.0 },
-          { name: "A & N Pizza", address: "1409  CENTRE ST", addressDisplay: "1409  CENTRE ST, 02132", zip: "02132", license: "23626", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "SALSAS MEXICAN GRILL", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "90395", category: "Take-out", inspections: 5, fails: 0, failRate: 0.0 },
+          { name: "A & N PIZZA", address: "1409  CENTRE ST", addressDisplay: "1409  CENTRE ST, 02132", zip: "02132", license: "23626", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Burger King", address: "100  WASHINGTON ST", addressDisplay: "100  WASHINGTON ST, 02121", zip: "02121", license: "18425", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Dunkin Donuts", address: "1931  DORCHESTER AV", addressDisplay: "1931  DORCHESTER AV, 02124", zip: "02124", license: "480908", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Dunkin Donuts", address: "210  HARVARD AV", addressDisplay: "210  HARVARD AV, 02134", zip: "02134", license: "32504", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Dunkin Donuts", address: "100  TERMINAL RD", addressDisplay: "100  TERMINAL RD, 02128", zip: "02128", license: "23670", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "DUNKIN DONUTS(ARRIVAL)", address: "100  TERMINAL RD", addressDisplay: "100  TERMINAL RD, 02128", zip: "02128", license: "23670", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Dunkin Donuts-Amer Airlines/Landside", address: "200  LOGAN AIRPORT TRMNL B", addressDisplay: "200  LOGAN AIRPORT TRMNL B, 02128", zip: "02128", license: "25854", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Frio Rico", address: "360  BENNINGTON ST", addressDisplay: "360  BENNINGTON ST, 02128", zip: "02128", license: "28731", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Jimmy John's", address: "100  TERMINAL RD", addressDisplay: "100  TERMINAL RD, 02128", zip: "02128", license: "536728", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "JIMMY JOHN'S", address: "100  TERMINAL RD", addressDisplay: "100  TERMINAL RD, 02128", zip: "02128", license: "536728", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Shanti Express", address: "49  WARREN ST", addressDisplay: "49  WARREN ST, 02119", zip: "02119", license: "446731", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 }
         ]
       },
       "Retail food": {
-        alwaysN: 26,
+        alwaysN: 14,
         alwaysPass: [
-          { name: "CVS/Pharmacy No. 1889", address: "427  WASHINGTON ST", addressDisplay: "427  WASHINGTON ST, 02135", zip: "02135", license: "20759", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Daily Table", address: "450  WASHINGTON ST", addressDisplay: "450  WASHINGTON ST, 02124", zip: "02124", license: "129653", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Star Market No. 4572", address: "370  WESTERN AV", addressDisplay: "370  WESTERN AV, 02135", zip: "02135", license: "25692", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Tropical Food Mart", address: "4545  WASHINGTON ST", addressDisplay: "4545  WASHINGTON ST, 02131", zip: "02131", license: "89935", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "AFC Zenshi", address: "1065  COMMONWEALTH AV", addressDisplay: "1065  COMMONWEALTH AV, 02215", zip: "02215", license: "378993", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "AFC Zenshi", address: "370  WESTERN AV", addressDisplay: "370  WESTERN AV, 02135", zip: "02135", license: "21946", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Bob's Grocery", address: "160  ENDICOTT ST", addressDisplay: "160  ENDICOTT ST, 02113", zip: "02113", license: "19919", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Bob's Pita Market.", address: "4198  WASHINGTON ST", addressDisplay: "4198  WASHINGTON ST, 02131", zip: "02131", license: "91975", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "AFC Zenshi @ Shaw's 3588", address: "1065  COMMONWEALTH AV", addressDisplay: "1065  COMMONWEALTH AV, 02215", zip: "02215", license: "378993", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "AFC Zenshi @ Shaw's 4572", address: "370  WESTERN AV", addressDisplay: "370  WESTERN AV, 02135", zip: "02135", license: "21946", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "BOB'S PITA MARKET.", address: "4198  WASHINGTON ST", addressDisplay: "4198  WASHINGTON ST, 02131", zip: "02131", license: "91975", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Cibao Market", address: "3936  WASHINGTON ST", addressDisplay: "3936  WASHINGTON ST, 02131", zip: "02131", license: "30694", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Donna's Cakes", address: "100  SPRING ST", addressDisplay: "100  SPRING ST, 02132", zip: "02132", license: "460716", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 }
+          { name: "Donna's Cakes", address: "100  SPRING ST", addressDisplay: "100  SPRING ST, 02132", zip: "02132", license: "460716", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Eagle Hill Convenience Store", address: "215  TRENTON ST", addressDisplay: "215  TRENTON ST, 02128", zip: "02128", license: "80141", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "HENRY'S MARKET", address: "892  SOUTH ST", addressDisplay: "892  SOUTH ST, 02131", zip: "02131", license: "21759", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Lilly Boston-Retail", address: "15  NECCO ST", addressDisplay: "15  NECCO ST, 02210", zip: "02210", license: "568808", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Obrian's Market", address: "1660  DORCHESTER AV", addressDisplay: "1660  DORCHESTER AV, 02122", zip: "02122", license: "521061", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Philips Candy House", address: "818  WM T MORRISSEY BL", addressDisplay: "818  WM T MORRISSEY BL, 02122", zip: "02122", license: "18262", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Mobile food": {
@@ -389,7 +480,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
           { name: "Zaaki", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 353809", zip: "02128", license: "353809", category: "Mobile food", inspections: 6, fails: 0, failRate: 0.0 },
           { name: "Chubby Chickpea Mobile", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 77929", zip: "02128", license: "77929", category: "Mobile food", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Berry Sweets No. 1", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 396032", zip: "02128", license: "396032", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Bm3:bon ME Red", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 86676", zip: "02128", license: "86676", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "BM3:BON ME RED", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 86676", zip: "02128", license: "86676", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Boston Trolley DogsNo. 2", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 531943", zip: "02128", license: "531943", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Chicken and Rice Guys No. 1", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 523270", zip: "02128", license: "523270", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Dezz Kitchen", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 481891", zip: "02128", license: "481891", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
@@ -398,7 +489,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
           { name: "Moyzilla No. 4", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 401890", zip: "02128", license: "401890", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       }
-    },
+    }
   },
   "2025": {
     ytd: false,
@@ -407,13 +498,13 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     alwaysPass: [
       { name: "Dunkin Donuts", address: "1627  TREMONT ST", addressDisplay: "1627  TREMONT ST, 02120", zip: "02120", license: "548628", category: "Take-out", inspections: 6, fails: 0, failRate: 0.0 },
       { name: "Blue Ribbon Barbecue", address: "401  PARK DR", addressDisplay: "401  PARK DR, 02215", zip: "02215", license: "539029", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "CVS/Pharmacy No. 10517", address: "77  SEAPORT BL", addressDisplay: "77  SEAPORT BL, 02210", zip: "02210", license: "301882", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "CVS/Pharmacy No. 1900", address: "218  HANOVER ST", addressDisplay: "218  HANOVER ST, 02113", zip: "02113", license: "19949", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "CVS/Pharmacy No. 10517", address: "77  SEAPORT BL", addressDisplay: "77  SEAPORT BL, 02210", zip: "02210", license: "301882", category: "Pharmacy", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "CVS/Pharmacy No. 1900", address: "218  HANOVER ST", addressDisplay: "218  HANOVER ST, 02113", zip: "02113", license: "19949", category: "Pharmacy", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Honeygrow", address: "100  NORTHERN AV", addressDisplay: "100  NORTHERN AV, 02210", zip: "02210", license: "333091", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Lala's Neapolitan-ish Pizza", address: "401  PARK DR", addressDisplay: "401  PARK DR, 02215", zip: "02215", license: "517981", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Shake Shack", address: "234  NEWBURY ST", addressDisplay: "234  NEWBURY ST, 02116", zip: "02116", license: "134172", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "Sodexo", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "465753", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
-      { name: "Starbucks Coffee NO 7823", address: "470  WASHINGTON ST", addressDisplay: "470  WASHINGTON ST, 02135", zip: "02135", license: "26054", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "Sodexo @ Liberty Mutual Fl. 2", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "465753", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+      { name: "STARBUCKS COFFEE No.  7823", address: "470  WASHINGTON ST", addressDisplay: "470  WASHINGTON ST, 02135", zip: "02135", license: "26054", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Taco Bell", address: "74  SUMMER ST", addressDisplay: "74  SUMMER ST, 02110", zip: "02110", license: "409207", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 }
     ],
     byCategory: {
@@ -435,8 +526,8 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
         alwaysPass: [
           { name: "Aloft Boston Seaport Hotel Refuel", address: "401  D ST", addressDisplay: "401  D ST, 02210", zip: "02210", license: "465167", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "CitizenM Hotel Boston Back Bay", address: "1001  BOYLSTON ST", addressDisplay: "1001  BOYLSTON ST, 02215", zip: "02215", license: "519755", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Hilton Boston Logan Airport", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Hyatt Conf. & Hotel", address: "101  HARBORSIDE DR", addressDisplay: "101  HARBORSIDE DR, 02128", zip: "02128", license: "19765", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 }
+          { name: "HILTON BOSTON LOGAN AIRPORT", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "21184", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "HYATT CONF. & HOTEL (FS)", address: "101  HARBORSIDE DR", addressDisplay: "101  HARBORSIDE DR, 02128", zip: "02128", license: "19765", category: "Hotel", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "School": {
@@ -448,15 +539,33 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       "Cafe": {
         alwaysN: 9,
         alwaysPass: [
-          { name: "Starbucks Coffee NO 7823", address: "470  WASHINGTON ST", addressDisplay: "470  WASHINGTON ST, 02135", zip: "02135", license: "26054", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "STARBUCKS COFFEE No.  7823", address: "470  WASHINGTON ST", addressDisplay: "470  WASHINGTON ST, 02135", zip: "02135", license: "26054", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Anna's Cafe", address: "267  MEDFORD ST", addressDisplay: "267  MEDFORD ST, 02129", zip: "02129", license: "135886", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Cafe Presto", address: "1  HOTEL DR", addressDisplay: "1  HOTEL DR, 02128", zip: "02128", license: "308963", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Code 10 Restaurant Cafe", address: "2 E CONCORD ST", addressDisplay: "2 E CONCORD ST, 02118", zip: "02118", license: "125523", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Courtyard Cafe", address: "200  LONGWOOD AV", addressDisplay: "200  LONGWOOD AV, 02115", zip: "02115", license: "23923", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "COURTYARD CAFE", address: "200  LONGWOOD AV", addressDisplay: "200  LONGWOOD AV, 02115", zip: "02115", license: "23923", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Pressed Cafe Seaport", address: "43-61  PIER 4 BL", addressDisplay: "43-61  PIER 4 BL, 02210", zip: "02210", license: "580589", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Revival Cafe & Kitchen", address: "15  NECCO ST", addressDisplay: "15  NECCO ST, 02210", zip: "02210", license: "568855", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Tatte Bakery & Cafe", address: "70  CHARLES ST", addressDisplay: "70  CHARLES ST, 02114", zip: "02114", license: "134181", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Tatte Bakery & Cafe", address: "201  WASHINGTON ST", addressDisplay: "201  WASHINGTON ST, 02108", zip: "02108", license: "385584", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 }
+        ]
+      },
+      "Pharmacy": {
+        alwaysN: 3,
+        alwaysPass: [
+          { name: "CVS/Pharmacy No. 10517", address: "77  SEAPORT BL", addressDisplay: "77  SEAPORT BL, 02210", zip: "02210", license: "301882", category: "Pharmacy", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "CVS/Pharmacy No. 1900", address: "218  HANOVER ST", addressDisplay: "218  HANOVER ST, 02113", zip: "02113", license: "19949", category: "Pharmacy", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "Walgreens No.  06349", address: "583  WASHINGTON ST", addressDisplay: "583  WASHINGTON ST, 02124", zip: "02124", license: "25360", category: "Pharmacy", inspections: 3, fails: 0, failRate: 0.0 }
+        ]
+      },
+      "Grocery": {
+        alwaysN: 5,
+        alwaysPass: [
+          { name: "Trader Joe's No. 566", address: "44  THOMSON PL", addressDisplay: "44  THOMSON PL, 02210", zip: "02210", license: "398730", category: "Grocery", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "WHOLE FOODS MARKET", address: "15  WASHINGTON ST", addressDisplay: "15  WASHINGTON ST, 02135", zip: "02135", license: "24017", category: "Grocery", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "Star Market Company", address: "50  CAUSEWAY ST", addressDisplay: "50  CAUSEWAY ST, 02114", zip: "02114", license: "359367", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "TRADER JOE'S No. 510", address: "893  BOYLSTON ST", addressDisplay: "893  BOYLSTON ST, 02115", zip: "02115", license: "25622", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "WHOLE FOODS MARKET(Cambridge St.)", address: "181  CAMBRIDGE ST", addressDisplay: "181  CAMBRIDGE ST, 02114", zip: "02114", license: "24001", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Food and drinks": {
@@ -464,7 +573,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
         alwaysPass: [
           { name: "Honeygrow", address: "100  NORTHERN AV", addressDisplay: "100  NORTHERN AV, 02210", zip: "02210", license: "333091", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Shake Shack", address: "234  NEWBURY ST", addressDisplay: "234  NEWBURY ST, 02116", zip: "02116", license: "134172", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Sodexo", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "465753", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
+          { name: "Sodexo @ Liberty Mutual Fl. 2", address: "157  BERKELEY ST", addressDisplay: "157  BERKELEY ST, 02116", zip: "02116", license: "465753", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Taco Bell", address: "74  SUMMER ST", addressDisplay: "74  SUMMER ST, 02110", zip: "02110", license: "409207", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Vejigantes Restaurant", address: "57 W DEDHAM ST", addressDisplay: "57 W DEDHAM ST, 02118", zip: "02118", license: "77974", category: "Food and drinks", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Ali Baba", address: "99A  CAMBRIDGE ST", addressDisplay: "99A  CAMBRIDGE ST, 02129", zip: "02129", license: "422123", category: "Food and drinks", inspections: 3, fails: 0, failRate: 0.0 },
@@ -481,7 +590,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
           { name: "Blue Ribbon Barbecue", address: "401  PARK DR", addressDisplay: "401  PARK DR, 02215", zip: "02215", license: "539029", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Lala's Neapolitan-ish Pizza", address: "401  PARK DR", addressDisplay: "401  PARK DR, 02215", zip: "02215", license: "517981", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "The Monkey Bar", address: "200  FANEUIL HALL MARKET PL", addressDisplay: "200  FANEUIL HALL MARKET PL, 02109", zip: "02109", license: "582964", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "AFC Zenshi", address: "246  BORDER ST", addressDisplay: "246  BORDER ST, 02128", zip: "02128", license: "364776", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "AFC Zenshi @ Shaws No. 1208", address: "246  BORDER ST", addressDisplay: "246  BORDER ST, 02128", zip: "02128", license: "364776", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Alamo Drafthouse", address: "23  NORTHERN AV", addressDisplay: "23  NORTHERN AV, 02210", zip: "02210", license: "522086", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "B. Good Burger", address: "200  TERMINAL RD", addressDisplay: "200  TERMINAL RD, 02128", zip: "02128", license: "371852", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Beantown Pastrami", address: "100  HANOVER ST", addressDisplay: "100  HANOVER ST, 02114", zip: "02114", license: "140128", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
@@ -490,18 +599,14 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
         ]
       },
       "Retail food": {
-        alwaysN: 14,
+        alwaysN: 6,
         alwaysPass: [
-          { name: "CVS/Pharmacy No. 10517", address: "77  SEAPORT BL", addressDisplay: "77  SEAPORT BL, 02210", zip: "02210", license: "301882", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "CVS/Pharmacy No. 1900", address: "218  HANOVER ST", addressDisplay: "218  HANOVER ST, 02113", zip: "02113", license: "19949", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Trader Joe's No. 566", address: "44  THOMSON PL", addressDisplay: "44  THOMSON PL, 02210", zip: "02210", license: "398730", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Whole Foods Market", address: "15  WASHINGTON ST", addressDisplay: "15  WASHINGTON ST, 02135", zip: "02135", license: "24017", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Adams Convenience Store", address: "114  BLACKSTONE ST", addressDisplay: "114  BLACKSTONE ST, 02108", zip: "02108", license: "139414", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Alba Produce", address: "18  PARMENTER ST", addressDisplay: "18  PARMENTER ST, 02113", zip: "02113", license: "21026", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "ADAMS CONVENIENCE STORE", address: "114  BLACKSTONE ST", addressDisplay: "114  BLACKSTONE ST, 02108", zip: "02108", license: "139414", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "ALBA PRODUCE", address: "18  PARMENTER ST", addressDisplay: "18  PARMENTER ST, 02113", zip: "02113", license: "21026", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Dollar General Store No. 19117", address: "500  GENEVA AV", addressDisplay: "500  GENEVA AV, 02122", zip: "02122", license: "344417", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Karen Market", address: "41  BENNINGTON ST", addressDisplay: "41  BENNINGTON ST, 02128", zip: "02128", license: "24070", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Mass. Ave. Sunoco Mart", address: "895  MASSACHUSETTS AV", addressDisplay: "895  MASSACHUSETTS AV, 02118", zip: "02118", license: "20073", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Star Market", address: "50  CAUSEWAY ST", addressDisplay: "50  CAUSEWAY ST, 02114", zip: "02114", license: "359367", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 }
+          { name: "KAREN MARKET", address: "41  BENNINGTON ST", addressDisplay: "41  BENNINGTON ST, 02128", zip: "02128", license: "24070", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "MASS. AVE. SUNOCO MART", address: "895  MASSACHUSETTS AV", addressDisplay: "895  MASSACHUSETTS AV, 02118", zip: "02118", license: "20073", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "Walden Local Butcher", address: "316  SHAWMUT AV", addressDisplay: "316  SHAWMUT AV, 02118", zip: "02118", license: "332174", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Mobile food": {
@@ -515,7 +620,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
           { name: "Zaz Food Truck", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 482060", zip: "02128", license: "482060", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       }
-    },
+    }
   },
   "2026_ytd": {
     ytd: true,
@@ -528,7 +633,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       { name: "Grace Note Coffee", address: "100  HIGH ST", addressDisplay: "100  HIGH ST, 02110", zip: "02110", license: "413549", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Olu's African Market", address: "4400  WASHINGTON ST", addressDisplay: "4400  WASHINGTON ST, 02131", zip: "02131", license: "607074", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Ashmont Convenience Store", address: "1996  DORCHESTER AV", addressDisplay: "1996  DORCHESTER AV, 02124", zip: "02124", license: "76483", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-      { name: "B/spoke", address: "54  OLD COLONY AV", addressDisplay: "54  OLD COLONY AV, 02127", zip: "02127", license: "467384", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+      { name: "B/SPOKE", address: "54  OLD COLONY AV", addressDisplay: "54  OLD COLONY AV, 02127", zip: "02127", license: "467384", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
       { name: "Bibim Box", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 317902", zip: "02128", license: "317902", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
       { name: "Boston Trolley Dogs", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 139282", zip: "02128", license: "139282", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 },
       { name: "Boston Trolley DogsNo. 2", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 531943", zip: "02128", license: "531943", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 }
@@ -538,7 +643,19 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
         alwaysN: 2,
         alwaysPass: [
           { name: "Grace Note Coffee", address: "100  HIGH ST", addressDisplay: "100  HIGH ST, 02110", zip: "02110", license: "413549", category: "Cafe", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "Flour Bakery & Cafe", address: "1595  WASHINGTON ST", addressDisplay: "1595  WASHINGTON ST, 02118", zip: "02118", license: "21518", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 }
+          { name: "FLOUR BAKERY & CAFE", address: "1595  WASHINGTON ST", addressDisplay: "1595  WASHINGTON ST, 02118", zip: "02118", license: "21518", category: "Cafe", inspections: 3, fails: 0, failRate: 0.0 }
+        ]
+      },
+      "Pharmacy": {
+        alwaysN: 1,
+        alwaysPass: [
+          { name: "CVS  Pharmacy", address: "214  HARVARD AV", addressDisplay: "214  HARVARD AV, 02134", zip: "02134", license: "425214", category: "Pharmacy", inspections: 3, fails: 0, failRate: 0.0 }
+        ]
+      },
+      "Grocery": {
+        alwaysN: 1,
+        alwaysPass: [
+          { name: "WHOLE FOODS MARKET(415 Centre St.)", address: "415  CENTRE ST", addressDisplay: "415  CENTRE ST, 02130", zip: "02130", license: "75480", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Food and drinks": {
@@ -559,27 +676,25 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
         alwaysN: 15,
         alwaysPass: [
           { name: "Dave's Hot Chicken", address: "1260  BOYLSTON ST", addressDisplay: "1260  BOYLSTON ST, 02215", zip: "02215", license: "554038", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
-          { name: "B/spoke", address: "54  OLD COLONY AV", addressDisplay: "54  OLD COLONY AV, 02127", zip: "02127", license: "467384", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "B/SPOKE", address: "54  OLD COLONY AV", addressDisplay: "54  OLD COLONY AV, 02127", zip: "02127", license: "467384", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Burger King", address: "210  BRIGHTON AV", addressDisplay: "210  BRIGHTON AV, 02134", zip: "02134", license: "86902", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Charming Gardener/Dive Bar", address: "100  HIGH ST", addressDisplay: "100  HIGH ST, 02110", zip: "02110", license: "413556", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Cumin Club Indian Kitchen", address: "100  HIGH ST", addressDisplay: "100  HIGH ST, 02110", zip: "02110", license: "577760", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Dunkin", address: "214 N BEACON ST", addressDisplay: "214 N BEACON ST, 02135", zip: "02135", license: "582382", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Dunkin Donuts", address: "210  HARVARD AV", addressDisplay: "210  HARVARD AV, 02134", zip: "02134", license: "32504", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Dunkin Donuts/scnvanos", address: "440  MASSACHUSETTS AV", addressDisplay: "440  MASSACHUSETTS AV, 02118", zip: "02118", license: "23314", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "DUNKIN DONUTS/SCNVANOS", address: "440  MASSACHUSETTS AV", addressDisplay: "440  MASSACHUSETTS AV, 02118", zip: "02118", license: "23314", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Dunkin' Donuts", address: "1131  TREMONT ST", addressDisplay: "1131  TREMONT ST, 02120", zip: "02120", license: "19970", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Gary's Pizza", address: "1744  WASHINGTON ST", addressDisplay: "1744  WASHINGTON ST, 02118", zip: "02118", license: "565935", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
       "Retail food": {
-        alwaysN: 8,
+        alwaysN: 6,
         alwaysPass: [
           { name: "Olu's African Market", address: "4400  WASHINGTON ST", addressDisplay: "4400  WASHINGTON ST, 02131", zip: "02131", license: "607074", category: "Retail food", inspections: 4, fails: 0, failRate: 0.0 },
           { name: "Ashmont Convenience Store", address: "1996  DORCHESTER AV", addressDisplay: "1996  DORCHESTER AV, 02124", zip: "02124", license: "76483", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "CVS Pharmacy", address: "214  HARVARD AV", addressDisplay: "214  HARVARD AV, 02134", zip: "02134", license: "425214", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Dollar Tree", address: "1230  VFW PW", addressDisplay: "1230  VFW PW, 02132", zip: "02132", license: "144741", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Henry's Market", address: "892  SOUTH ST", addressDisplay: "892  SOUTH ST, 02131", zip: "02131", license: "21759", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
+          { name: "HENRY'S MARKET", address: "892  SOUTH ST", addressDisplay: "892  SOUTH ST, 02131", zip: "02131", license: "21759", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Kaba African Market", address: "11  ROXBURY ST", addressDisplay: "11  ROXBURY ST, 02119", zip: "02119", license: "27956", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
-          { name: "Whole Foods Market", address: "415  CENTRE ST", addressDisplay: "415  CENTRE ST, 02130", zip: "02130", license: "75480", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
           { name: "Wild Duck Food Market", address: "362  COMMONWEALTH AV", addressDisplay: "362  COMMONWEALTH AV, 02115", zip: "02115", license: "543772", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       },
@@ -598,41 +713,42 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
           { name: "Gogi On The Block No. 2", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 354104", zip: "02128", license: "354104", category: "Mobile food", inspections: 3, fails: 0, failRate: 0.0 }
         ]
       }
-    },
+    }
   }
 };
+
 const REPEAT_N_TOTAL = 5945;
 const REPEAT_ACROSS: PlaceRow[] = [
-    { name: "Go Fresh 365", address: "1102  WASHINGTON ST", addressDisplay: "1102  WASHINGTON ST, 02118", zip: "02118", license: "34585", category: "Retail food", inspections: 111, fails: 58, failRate: 52.3, yearsFailed: 15 },
-    { name: "Bourbon ST Cafe", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "21201", category: "Cafe", inspections: 118, fails: 57, failRate: 48.3, yearsFailed: 15 },
+    { name: "Go Fresh 365", address: "1102  WASHINGTON ST", addressDisplay: "1102  WASHINGTON ST, 02118", zip: "02118", license: "34585", category: "Grocery", inspections: 111, fails: 58, failRate: 52.3, yearsFailed: 15 },
+    { name: "BOURBON ST. CAFE", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "21201", category: "Cafe", inspections: 118, fails: 57, failRate: 48.3, yearsFailed: 15 },
     { name: "Fan Fan Restaurant", address: "15  HARVARD AV", addressDisplay: "15  HARVARD AV, 02136", zip: "02136", license: "37129", category: "Food and drinks", inspections: 105, fails: 54, failRate: 51.4, yearsFailed: 15 },
     { name: "Bonchon Allston", address: "101  BRIGHTON AV", addressDisplay: "101  BRIGHTON AV, 02134", zip: "02134", license: "78286", category: "Food and drinks", inspections: 109, fails: 53, failRate: 48.6, yearsFailed: 15 },
     { name: "The Real Deal", address: "1882  CENTRE ST", addressDisplay: "1882  CENTRE ST, 02132", zip: "02132", license: "23987", category: "Food and drinks", inspections: 103, fails: 53, failRate: 51.5, yearsFailed: 15 },
     { name: "Nhu Lan Fast Food", address: "1155  DORCHESTER AV", addressDisplay: "1155  DORCHESTER AV, 02125", zip: "02125", license: "74834", category: "Take-out", inspections: 103, fails: 51, failRate: 49.5, yearsFailed: 15 },
     { name: "Yamato Japanese Cuisine", address: "111  CHISWICK RD", addressDisplay: "111  CHISWICK RD, 02135", zip: "02135", license: "74763", category: "Food and drinks", inspections: 99, fails: 49, failRate: 49.5, yearsFailed: 15 },
     { name: "Yely's Coffee Shop", address: "284  CENTRE ST", addressDisplay: "284  CENTRE ST, 02130", zip: "02130", license: "20071", category: "Cafe", inspections: 104, fails: 49, failRate: 47.1, yearsFailed: 15 },
-    { name: "Bale Restaurant", address: "1052  DORCHESTER AV", addressDisplay: "1052  DORCHESTER AV, 02125", zip: "02125", license: "22464", category: "Take-out", inspections: 104, fails: 48, failRate: 46.2, yearsFailed: 15 },
-    { name: "Mckenna's Cafe", address: "109  SAVIN HILL AV", addressDisplay: "109  SAVIN HILL AV, 02125", zip: "02125", license: "23628", category: "Cafe", inspections: 92, fails: 48, failRate: 52.2, yearsFailed: 15 },
-    { name: "New York Fried Chicken & Pizza", address: "531  COLUMBIA RD", addressDisplay: "531  COLUMBIA RD, 02125", zip: "02125", license: "23286", category: "Take-out", inspections: 90, fails: 48, failRate: 53.3, yearsFailed: 15 },
-    { name: "Nicole's Pizza", address: "639  TREMONT ST", addressDisplay: "639  TREMONT ST, 02118", zip: "02118", license: "21851", category: "Take-out", inspections: 83, fails: 48, failRate: 57.8, yearsFailed: 15 },
-    { name: "Bertucci's", address: "633  V F W PK", addressDisplay: "633  V F W PK, 02132", zip: "02132", license: "19320", category: "Food and drinks", inspections: 91, fails: 47, failRate: 51.6, yearsFailed: 15 },
+    { name: "BALE RESTAURANT", address: "1052  DORCHESTER AV", addressDisplay: "1052  DORCHESTER AV, 02125", zip: "02125", license: "22464", category: "Take-out", inspections: 104, fails: 48, failRate: 46.2, yearsFailed: 15 },
+    { name: "MCKENNA'S CAFE", address: "109  SAVIN HILL AV", addressDisplay: "109  SAVIN HILL AV, 02125", zip: "02125", license: "23628", category: "Cafe", inspections: 92, fails: 48, failRate: 52.2, yearsFailed: 15 },
+    { name: "NEW YORK FRIED CHICKEN & PIZZA", address: "531  COLUMBIA RD", addressDisplay: "531  COLUMBIA RD, 02125", zip: "02125", license: "23286", category: "Take-out", inspections: 90, fails: 48, failRate: 53.3, yearsFailed: 15 },
+    { name: "NICOLE'S PIZZA", address: "639  TREMONT ST", addressDisplay: "639  TREMONT ST, 02118", zip: "02118", license: "21851", category: "Take-out", inspections: 83, fails: 48, failRate: 57.8, yearsFailed: 15 },
+    { name: "BERTUCCI'S", address: "633  V F W PK", addressDisplay: "633  V F W PK, 02132", zip: "02132", license: "19320", category: "Food and drinks", inspections: 91, fails: 47, failRate: 51.6, yearsFailed: 15 },
     { name: "Los Amigos Mexican Grill", address: "1741  CENTRE ST", addressDisplay: "1741  CENTRE ST, 02132", zip: "02132", license: "75844", category: "Take-out", inspections: 103, fails: 47, failRate: 45.6, yearsFailed: 15 },
-    { name: "Paramount", address: "44  CHARLES ST", addressDisplay: "44  CHARLES ST, 02114", zip: "02114", license: "20157", category: "Food and drinks", inspections: 95, fails: 47, failRate: 49.5, yearsFailed: 15 }
+    { name: "PARAMOUNT", address: "44  CHARLES ST", addressDisplay: "44  CHARLES ST, 02114", zip: "02114", license: "20157", category: "Food and drinks", inspections: 95, fails: 47, failRate: 49.5, yearsFailed: 15 }
   ];
 const REPEAT_BY_CATEGORY: Record<string, { repeatN: number; avoid: PlaceRow[] }> = {
   "Ice cream": {
-    repeatN: 38,
+    repeatN: 45,
     avoid: [
-      { name: "J.P. Licks", address: "659  CENTRE ST", addressDisplay: "659  CENTRE ST, 02130", zip: "02130", license: "21069", category: "Ice cream", inspections: 59, fails: 26, failRate: 44.1, yearsFailed: 15 },
-      { name: "P & R Ice Cream", address: "1284  BLUE HILL AV", addressDisplay: "1284  BLUE HILL AV, 02126", zip: "02126", license: "18908", category: "Ice cream", inspections: 60, fails: 30, failRate: 50.0, yearsFailed: 14 },
-      { name: "The Boston Ice Cream Factory", address: "777  WILLIAM T MORRISSEY BL", addressDisplay: "777  WILLIAM T MORRISSEY BL, 02122", zip: "02122", license: "21556", category: "Ice cream", inspections: 50, fails: 23, failRate: 46.0, yearsFailed: 13 },
+      { name: "J.P. LICKS INC.", address: "659  CENTRE ST", addressDisplay: "659  CENTRE ST, 02130", zip: "02130", license: "21069", category: "Ice cream", inspections: 59, fails: 26, failRate: 44.1, yearsFailed: 15 },
+      { name: "P & R ICE CREAM", address: "1284  BLUE HILL AV", addressDisplay: "1284  BLUE HILL AV, 02126", zip: "02126", license: "18908", category: "Ice cream", inspections: 60, fails: 30, failRate: 50.0, yearsFailed: 14 },
+      { name: "THE BOSTON ICE CREAM FACTORY", address: "777  WILLIAM T MORRISSEY BL", addressDisplay: "777  WILLIAM T MORRISSEY BL, 02122", zip: "02122", license: "21556", category: "Ice cream", inspections: 50, fails: 23, failRate: 46.0, yearsFailed: 13 },
       { name: "Cold Stone Creamery", address: "800  BOYLSTON ST", addressDisplay: "800  BOYLSTON ST, 02199", zip: "02199", license: "141000", category: "Ice cream", inspections: 68, fails: 36, failRate: 52.9, yearsFailed: 11 },
       { name: "P & R Restaurant & Ice Cream Parlor", address: "208  DUDLEY ST", addressDisplay: "208  DUDLEY ST, 02119", zip: "02119", license: "134804", category: "Ice cream", inspections: 48, fails: 22, failRate: 45.8, yearsFailed: 11 },
-      { name: "J.P. Licks", address: "661  V F W PK", addressDisplay: "661  V F W PK, 02467", zip: "02467", license: "21821", category: "Ice cream", inspections: 55, fails: 20, failRate: 36.4, yearsFailed: 11 },
+      { name: "J.P. LICKS AT W.R.  INC.", address: "661  V F W PK", addressDisplay: "661  V F W PK, 02467", zip: "02467", license: "21821", category: "Ice cream", inspections: 55, fails: 20, failRate: 36.4, yearsFailed: 11 },
       { name: "Emack & Bolio's", address: "290  NEWBURY ST", addressDisplay: "290  NEWBURY ST, 02115", zip: "02115", license: "25678", category: "Ice cream", inspections: 43, fails: 17, failRate: 39.5, yearsFailed: 11 },
       { name: "Emack & Bolio's", address: "1  CHELSEA ST", addressDisplay: "1  CHELSEA ST, 02129", zip: "02129", license: "67656", category: "Ice cream", inspections: 43, fails: 15, failRate: 34.9, yearsFailed: 10 },
-      { name: "J.P. Licks", address: "1106  BOYLSTON ST", addressDisplay: "1106  BOYLSTON ST, 02215", zip: "02215", license: "81090", category: "Ice cream", inspections: 44, fails: 13, failRate: 29.5, yearsFailed: 10 },
-      { name: "Fomu", address: "615  CENTRE ST", addressDisplay: "615  CENTRE ST, 02130", zip: "02130", license: "83800", category: "Ice cream", inspections: 39, fails: 17, failRate: 43.6, yearsFailed: 9 }
+      { name: "J.P. Licks @ Boylston St.", address: "1106  BOYLSTON ST", addressDisplay: "1106  BOYLSTON ST, 02215", zip: "02215", license: "81090", category: "Ice cream", inspections: 44, fails: 13, failRate: 29.5, yearsFailed: 10 },
+      { name: "Ben & Jerry's", address: "174  NEWBURY ST", addressDisplay: "174  NEWBURY ST, 02116", zip: "02116", license: "22630", category: "Ice cream", inspections: 38, fails: 12, failRate: 31.6, yearsFailed: 10 }
     ]
   },
   "Cultural / attraction": {
@@ -641,27 +757,27 @@ const REPEAT_BY_CATEGORY: Record<string, { repeatN: number; avoid: PlaceRow[] }>
       { name: "Museum of Fine Arts Cafeteria", address: "465  HUNTINGTON AV", addressDisplay: "465  HUNTINGTON AV, 02115", zip: "02115", license: "28124", category: "Cultural / attraction", inspections: 53, fails: 23, failRate: 43.4, yearsFailed: 13 },
       { name: "Museum of Science", address: "10  CHARLES RIVER DM", addressDisplay: "10  CHARLES RIVER DM, 02114", zip: "02114", license: "23721", category: "Cultural / attraction", inspections: 49, fails: 21, failRate: 42.9, yearsFailed: 13 },
       { name: "Fenway Park-Aura Club", address: "4  JERSEY ST", addressDisplay: "4  JERSEY ST, 02215", zip: "02215", license: "24578", category: "Cultural / attraction", inspections: 50, fails: 17, failRate: 34.0, yearsFailed: 12 },
-      { name: "Game ON Fenway Park", address: "70  LANSDOWNE", addressDisplay: "70  LANSDOWNE, 02215", zip: "02215", license: "23739", category: "Cultural / attraction", inspections: 55, fails: 28, failRate: 50.9, yearsFailed: 11 },
+      { name: "GAME ON FENWAY PARK", address: "70  LANSDOWNE", addressDisplay: "70  LANSDOWNE, 02215", zip: "02215", license: "23739", category: "Cultural / attraction", inspections: 55, fails: 28, failRate: 50.9, yearsFailed: 11 },
       { name: "Gardner Museum Cafe", address: "2  PALACE RD", addressDisplay: "2  PALACE RD, 02115", zip: "02115", license: "74435", category: "Cultural / attraction", inspections: 42, fails: 16, failRate: 38.1, yearsFailed: 10 },
       { name: "Museum of Fine Arts New American Cafe", address: "465  HUNTINGTON AV", addressDisplay: "465  HUNTINGTON AV, 02115", zip: "02115", license: "73908", category: "Cultural / attraction", inspections: 43, fails: 15, failRate: 34.9, yearsFailed: 10 },
       { name: "Museum of Fine Arts-465 Bar and Restaurant", address: "465  HUNTINGTON AV", addressDisplay: "465  HUNTINGTON AV, 02215", zip: "02215", license: "19405", category: "Cultural / attraction", inspections: 38, fails: 11, failRate: 28.9, yearsFailed: 10 },
-      { name: "New England Aquarium", address: "250  ATLANTIC AV", addressDisplay: "250  ATLANTIC AV, 02110", zip: "02110", license: "20675", category: "Cultural / attraction", inspections: 22, fails: 9, failRate: 40.9, yearsFailed: 6 },
+      { name: "NEW ENGLAND AQUARIUM CORP.", address: "250  ATLANTIC AV", addressDisplay: "250  ATLANTIC AV, 02110", zip: "02110", license: "20675", category: "Cultural / attraction", inspections: 22, fails: 9, failRate: 40.9, yearsFailed: 6 },
       { name: "Museum of Fine Arts-Taste D/B/A No. 19285", address: "465  HUNTINGTON AV", addressDisplay: "465  HUNTINGTON AV, 02115", zip: "02115", license: "19285", category: "Cultural / attraction", inspections: 36, fails: 7, failRate: 19.4, yearsFailed: 6 },
       { name: "Fenway Stadium 13", address: "201  BROOKLINE AV", addressDisplay: "201  BROOKLINE AV, 02215", zip: "02215", license: "24725", category: "Cultural / attraction", inspections: 25, fails: 5, failRate: 20.0, yearsFailed: 5 }
     ]
   },
   "Hospital": {
-    repeatN: 17,
+    repeatN: 19,
     avoid: [
       { name: "Brighams & Womens Hospital - Tower Cafe", address: "75  FRANCIS ST", addressDisplay: "75  FRANCIS ST, 02115", zip: "02115", license: "18544", category: "Hospital", inspections: 82, fails: 29, failRate: 35.4, yearsFailed: 12 },
       { name: "N.E. Deaconess Hospital Cafe", address: "1  DEACONESS RD", addressDisplay: "1  DEACONESS RD, 02215", zip: "02215", license: "26029", category: "Hospital", inspections: 67, fails: 20, failRate: 29.9, yearsFailed: 12 },
       { name: "St. Elizabeth's Medical Center", address: "736  CAMBRIDGE ST", addressDisplay: "736  CAMBRIDGE ST, 02135", zip: "02135", license: "74465", category: "Hospital", inspections: 57, fails: 19, failRate: 33.3, yearsFailed: 12 },
-      { name: "Brigham & Womens Faulkner Hospital", address: "1153  CENTRE", addressDisplay: "1153  CENTRE, 02130", zip: "02130", license: "18286", category: "Hospital", inspections: 43, fails: 13, failRate: 30.2, yearsFailed: 11 },
-      { name: "Childrens Hospital Main Caf", address: "300  LONGWOOD AV", addressDisplay: "300  LONGWOOD AV, 02115", zip: "02115", license: "18886", category: "Hospital", inspections: 70, fails: 18, failRate: 25.7, yearsFailed: 10 },
-      { name: "Carney Hospital", address: "2100  DORCHESTER AV", addressDisplay: "2100  DORCHESTER AV, 02124", zip: "02124", license: "74470", category: "Hospital", inspections: 44, fails: 17, failRate: 38.6, yearsFailed: 8 },
-      { name: "Carter Fuller Mental Hospital", address: "85 E NEWTON ST", addressDisplay: "85 E NEWTON ST, 02118", zip: "02118", license: "145991", category: "Hospital", inspections: 39, fails: 17, failRate: 43.6, yearsFailed: 8 },
+      { name: "BRIGHAM & WOMENS FAULKNER HOSPITAL", address: "1153  CENTRE", addressDisplay: "1153  CENTRE, 02130", zip: "02130", license: "18286", category: "Hospital", inspections: 43, fails: 13, failRate: 30.2, yearsFailed: 11 },
+      { name: "CHILDRENS HOSPITAL MAIN CAF", address: "300  LONGWOOD AV", addressDisplay: "300  LONGWOOD AV, 02115", zip: "02115", license: "18886", category: "Hospital", inspections: 70, fails: 18, failRate: 25.7, yearsFailed: 10 },
+      { name: "CARNEY HOSPITAL", address: "2100  DORCHESTER AV", addressDisplay: "2100  DORCHESTER AV, 02124", zip: "02124", license: "74470", category: "Hospital", inspections: 44, fails: 17, failRate: 38.6, yearsFailed: 8 },
+      { name: "CARTER FULLER MENTAL HOSPITAL", address: "85 E NEWTON ST", addressDisplay: "85 E NEWTON ST, 02118", zip: "02118", license: "145991", category: "Hospital", inspections: 39, fails: 17, failRate: 43.6, yearsFailed: 8 },
       { name: "Mass General Hospital Cafe", address: "55  FRUIT ST", addressDisplay: "55  FRUIT ST, 02114", zip: "02114", license: "18550", category: "Hospital", inspections: 52, fails: 9, failRate: 17.3, yearsFailed: 7 },
-      { name: "Boston Medical Center", address: "830  HARRISON AV", addressDisplay: "830  HARRISON AV, 02118", zip: "02118", license: "67365", category: "Hospital", inspections: 41, fails: 6, failRate: 14.6, yearsFailed: 5 },
+      { name: "Boston Medical Center (Shapiro Bldg.)", address: "830  HARRISON AV", addressDisplay: "830  HARRISON AV, 02118", zip: "02118", license: "67365", category: "Hospital", inspections: 41, fails: 6, failRate: 14.6, yearsFailed: 5 },
       { name: "Brigham & Womens Hospital d/b/a O'Naturals", address: "70  FRANCIS ST", addressDisplay: "70  FRANCIS ST, 02115", zip: "02115", license: "30323", category: "Hospital", inspections: 19, fails: 8, failRate: 42.1, yearsFailed: 4 }
     ]
   },
@@ -671,97 +787,127 @@ const REPEAT_BY_CATEGORY: Record<string, { repeatN: number; avoid: PlaceRow[] }>
       { name: "Seaport Hotel", address: "1  SEAPORT LN", addressDisplay: "1  SEAPORT LN, 02210", zip: "02210", license: "20783", category: "Hotel", inspections: 75, fails: 29, failRate: 38.7, yearsFailed: 15 },
       { name: "Colonnade Hotel", address: "120  HUNTINGTON AV", addressDisplay: "120  HUNTINGTON AV, 02116", zip: "02116", license: "18614", category: "Hotel", inspections: 71, fails: 30, failRate: 42.3, yearsFailed: 13 },
       { name: "The Bostonian Boston - A Millennium Hotel", address: "20  NORTH ST", addressDisplay: "20  NORTH ST, 02109", zip: "02109", license: "18649", category: "Hotel", inspections: 83, fails: 36, failRate: 43.4, yearsFailed: 12 },
-      { name: "Marriott Hotel-copley Place", address: "110  HUNTINGTON AV", addressDisplay: "110  HUNTINGTON AV, 02116", zip: "02116", license: "19114", category: "Hotel", inspections: 59, fails: 27, failRate: 45.8, yearsFailed: 12 },
+      { name: "MARRIOTT HOTEL-COPLEY PLACE", address: "110  HUNTINGTON AV", addressDisplay: "110  HUNTINGTON AV, 02116", zip: "02116", license: "19114", category: "Hotel", inspections: 59, fails: 27, failRate: 45.8, yearsFailed: 12 },
       { name: "Four Seasons Hotel Boston", address: "200  BOYLSTON ST", addressDisplay: "200  BOYLSTON ST, 02116", zip: "02116", license: "18140", category: "Hotel", inspections: 69, fails: 25, failRate: 36.2, yearsFailed: 12 },
-      { name: "Lenox Hotel", address: "704  BOYLSTON ST", addressDisplay: "704  BOYLSTON ST, 02199", zip: "02199", license: "22241", category: "Hotel", inspections: 55, fails: 24, failRate: 43.6, yearsFailed: 12 },
-      { name: "Boston Back Bay Hilton", address: "40  DALTON ST", addressDisplay: "40  DALTON ST, 02115", zip: "02115", license: "21118", category: "Hotel", inspections: 54, fails: 27, failRate: 50.0, yearsFailed: 11 },
-      { name: "Sheraton Boston", address: "39  DALTON ST", addressDisplay: "39  DALTON ST, 02199", zip: "02199", license: "127712", category: "Hotel", inspections: 53, fails: 27, failRate: 50.9, yearsFailed: 11 },
+      { name: "Lenox Hotel (5 Food Serv. Loc.)", address: "704  BOYLSTON ST", addressDisplay: "704  BOYLSTON ST, 02199", zip: "02199", license: "22241", category: "Hotel", inspections: 55, fails: 24, failRate: 43.6, yearsFailed: 12 },
+      { name: "BOSTON BACK BAY HILTON", address: "40  DALTON ST", addressDisplay: "40  DALTON ST, 02115", zip: "02115", license: "21118", category: "Hotel", inspections: 54, fails: 27, failRate: 50.0, yearsFailed: 11 },
+      { name: "SHERATON BOSTON (R.S./CAFE)", address: "39  DALTON ST", addressDisplay: "39  DALTON ST, 02199", zip: "02199", license: "127712", category: "Hotel", inspections: 53, fails: 27, failRate: 50.9, yearsFailed: 11 },
       { name: "The Liberty Hotel", address: "215  CHARLES ST", addressDisplay: "215  CHARLES ST, 02114", zip: "02114", license: "124860", category: "Hotel", inspections: 45, fails: 20, failRate: 44.4, yearsFailed: 11 },
-      { name: "Westin Copley Place -bar 10", address: "10  HUNTINGTON AV", addressDisplay: "10  HUNTINGTON AV, 02116", zip: "02116", license: "23572", category: "Hotel", inspections: 52, fails: 18, failRate: 34.6, yearsFailed: 11 }
+      { name: "WESTIN COPLEY Place -BAR 10", address: "10  HUNTINGTON AV", addressDisplay: "10  HUNTINGTON AV, 02116", zip: "02116", license: "23572", category: "Hotel", inspections: 52, fails: 18, failRate: 34.6, yearsFailed: 11 }
     ]
   },
   "School": {
-    repeatN: 42,
+    repeatN: 45,
     avoid: [
-      { name: "University House OF Pizza", address: "452  HUNTINGTON AV", addressDisplay: "452  HUNTINGTON AV, 02115", zip: "02115", license: "20033", category: "School", inspections: 57, fails: 26, failRate: 45.6, yearsFailed: 15 },
+      { name: "UNIVERSITY HOUSE OF PIZZA", address: "452  HUNTINGTON AV", addressDisplay: "452  HUNTINGTON AV, 02115", zip: "02115", license: "20033", category: "School", inspections: 57, fails: 26, failRate: 45.6, yearsFailed: 15 },
       { name: "Simmons College-Bartol", address: "84  PILGRIM RD", addressDisplay: "84  PILGRIM RD, 02115", zip: "02115", license: "20585", category: "School", inspections: 56, fails: 25, failRate: 44.6, yearsFailed: 13 },
-      { name: "Emmanuel College", address: "400  FENWAY", addressDisplay: "400  FENWAY, 02115", zip: "02115", license: "27926", category: "School", inspections: 48, fails: 20, failRate: 41.7, yearsFailed: 13 },
-      { name: "University Grill & Pizza", address: "712  COMMONWEALTH AV", addressDisplay: "712  COMMONWEALTH AV, 02215", zip: "02215", license: "21100", category: "School", inspections: 37, fails: 14, failRate: 37.8, yearsFailed: 13 },
+      { name: "Emmanuel College (Muddy River Cafe)", address: "400  FENWAY", addressDisplay: "400  FENWAY, 02115", zip: "02115", license: "27926", category: "School", inspections: 48, fails: 20, failRate: 41.7, yearsFailed: 13 },
+      { name: "UNIVERSITY GRILL & PIZZA", address: "712  COMMONWEALTH AV", addressDisplay: "712  COMMONWEALTH AV, 02215", zip: "02215", license: "21100", category: "School", inspections: 37, fails: 14, failRate: 37.8, yearsFailed: 13 },
       { name: "Emmanuel College", address: "400  FENWAY", addressDisplay: "400  FENWAY, 02115", zip: "02115", license: "20052", category: "School", inspections: 62, fails: 27, failRate: 43.5, yearsFailed: 12 },
-      { name: "Simmons College-the Fens", address: "300  FENWAY", addressDisplay: "300  FENWAY, 02115", zip: "02115", license: "20588", category: "School", inspections: 57, fails: 24, failRate: 42.1, yearsFailed: 12 },
+      { name: "SIMMONS COLLEGE-THE FENS", address: "300  FENWAY", addressDisplay: "300  FENWAY, 02115", zip: "02115", license: "20588", category: "School", inspections: 57, fails: 24, failRate: 42.1, yearsFailed: 12 },
       { name: "Berklee College of Music", address: "160  MASSACHUSETTS AV", addressDisplay: "160  MASSACHUSETTS AV, 02115", zip: "02115", license: "86666", category: "School", inspections: 49, fails: 23, failRate: 46.9, yearsFailed: 12 },
-      { name: "Fisher College", address: "118  BEACON ST", addressDisplay: "118  BEACON ST, 02116", zip: "02116", license: "20692", category: "School", inspections: 46, fails: 19, failRate: 41.3, yearsFailed: 11 },
+      { name: "FISHER COLLEGE", address: "118  BEACON ST", addressDisplay: "118  BEACON ST, 02116", zip: "02116", license: "20692", category: "School", inspections: 46, fails: 19, failRate: 41.3, yearsFailed: 11 },
       { name: "University Club of Boston", address: "426  STUART ST", addressDisplay: "426  STUART ST, 02116", zip: "02116", license: "18588", category: "School", inspections: 49, fails: 18, failRate: 36.7, yearsFailed: 11 },
-      { name: "BU Conf. Ctr. School OF Mgment8th/9th", address: "595  COMMONWEALTH AV", addressDisplay: "595  COMMONWEALTH AV, 02215", zip: "02215", license: "20446", category: "School", inspections: 37, fails: 10, failRate: 27.0, yearsFailed: 8 }
+      { name: "Dining Hall @Emerson", address: "122  BOYLSTON ST", addressDisplay: "122  BOYLSTON ST, 02116", zip: "02116", license: "364830", category: "School", inspections: 35, fails: 15, failRate: 42.9, yearsFailed: 9 }
     ]
   },
   "Cafe": {
-    repeatN: 602,
+    repeatN: 605,
     avoid: [
-      { name: "Bourbon ST Cafe", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "21201", category: "Cafe", inspections: 118, fails: 57, failRate: 48.3, yearsFailed: 15 },
+      { name: "BOURBON ST. CAFE", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "21201", category: "Cafe", inspections: 118, fails: 57, failRate: 48.3, yearsFailed: 15 },
       { name: "Yely's Coffee Shop", address: "284  CENTRE ST", addressDisplay: "284  CENTRE ST, 02130", zip: "02130", license: "20071", category: "Cafe", inspections: 104, fails: 49, failRate: 47.1, yearsFailed: 15 },
-      { name: "Mckenna's Cafe", address: "109  SAVIN HILL AV", addressDisplay: "109  SAVIN HILL AV, 02125", zip: "02125", license: "23628", category: "Cafe", inspections: 92, fails: 48, failRate: 52.2, yearsFailed: 15 },
+      { name: "MCKENNA'S CAFE", address: "109  SAVIN HILL AV", addressDisplay: "109  SAVIN HILL AV, 02125", zip: "02125", license: "23628", category: "Cafe", inspections: 92, fails: 48, failRate: 52.2, yearsFailed: 15 },
       { name: "Bourbon Street Cafe", address: "350  LONGWOOD AV", addressDisplay: "350  LONGWOOD AV, 02215", zip: "02215", license: "29338", category: "Cafe", inspections: 69, fails: 39, failRate: 56.5, yearsFailed: 15 },
       { name: "Minina's Cafe", address: "430  GENEVA AV", addressDisplay: "430  GENEVA AV, 02122", zip: "02122", license: "74391", category: "Cafe", inspections: 73, fails: 38, failRate: 52.1, yearsFailed: 15 },
       { name: "My Thai Cafe Vegetarian & Bubble Tea Bristro", address: "3  BEACH ST", addressDisplay: "3  BEACH ST, 02111", zip: "02111", license: "23643", category: "Cafe", inspections: 69, fails: 31, failRate: 44.9, yearsFailed: 15 },
       { name: "Hong Kong 888 Cafe", address: "888  SOUTH ST", addressDisplay: "888  SOUTH ST, 02131", zip: "02131", license: "80208", category: "Cafe", inspections: 62, fails: 30, failRate: 48.4, yearsFailed: 15 },
       { name: "Jaho Coffee & Tea", address: "1651  WASHINGTON ST", addressDisplay: "1651  WASHINGTON ST, 02118", zip: "02118", license: "75022", category: "Cafe", inspections: 66, fails: 30, failRate: 45.5, yearsFailed: 15 },
       { name: "Nos Casa Cafe", address: "475  DUDLEY ST", addressDisplay: "475  DUDLEY ST, 02119", zip: "02119", license: "74493", category: "Cafe", inspections: 62, fails: 27, failRate: 43.5, yearsFailed: 15 },
-      { name: "Cafe Mirror", address: "362  WASHINGTON ST", addressDisplay: "362  WASHINGTON ST, 02135", zip: "02135", license: "23116", category: "Cafe", inspections: 54, fails: 26, failRate: 48.1, yearsFailed: 15 }
+      { name: "CAFE MIRROR", address: "362  WASHINGTON ST", addressDisplay: "362  WASHINGTON ST, 02135", zip: "02135", license: "23116", category: "Cafe", inspections: 54, fails: 26, failRate: 48.1, yearsFailed: 15 }
+    ]
+  },
+  "Pharmacy": {
+    repeatN: 67,
+    avoid: [
+      { name: "Walgreens No.  07189", address: "1620  TREMONT ST", addressDisplay: "1620  TREMONT ST, 02120", zip: "02120", license: "25358", category: "Pharmacy", inspections: 55, fails: 27, failRate: 49.1, yearsFailed: 13 },
+      { name: "Walgreen's No.  3135", address: "825  MORTON ST", addressDisplay: "825  MORTON ST, 02126", zip: "02126", license: "25011", category: "Pharmacy", inspections: 51, fails: 22, failRate: 43.1, yearsFailed: 12 },
+      { name: "CVS Pharmacy No. 1031", address: "4600  WASHINGTON ST", addressDisplay: "4600  WASHINGTON ST, 02131", zip: "02131", license: "34220", category: "Pharmacy", inspections: 37, fails: 21, failRate: 56.8, yearsFailed: 12 },
+      { name: "CVS/Pharmacy No. 2070", address: "467  CENTRE ST", addressDisplay: "467  CENTRE ST, 02130", zip: "02130", license: "20126", category: "Pharmacy", inspections: 36, fails: 15, failRate: 41.7, yearsFailed: 12 },
+      { name: "CVS/PHARMACY No. 2592", address: "468  BLUE HILL AV", addressDisplay: "468  BLUE HILL AV, 02121", zip: "02121", license: "21565", category: "Pharmacy", inspections: 41, fails: 15, failRate: 36.6, yearsFailed: 12 },
+      { name: "Walgreen's No. 3016", address: "416  WARREN ST", addressDisplay: "416  WARREN ST, 02119", zip: "02119", license: "25005", category: "Pharmacy", inspections: 55, fails: 26, failRate: 47.3, yearsFailed: 11 },
+      { name: "WALGREEN'S No.  4072", address: "1890  COLUMBUS AV", addressDisplay: "1890  COLUMBUS AV, 02119", zip: "02119", license: "25009", category: "Pharmacy", inspections: 52, fails: 25, failRate: 48.1, yearsFailed: 11 },
+      { name: "CVS Pharmacy No. 5464", address: "1575  BLUE HILL AV", addressDisplay: "1575  BLUE HILL AV, 02126", zip: "02126", license: "80426", category: "Pharmacy", inspections: 36, fails: 17, failRate: 47.2, yearsFailed: 11 },
+      { name: "Walgreen's No.  09538", address: "2275  WASHINGTON ST", addressDisplay: "2275  WASHINGTON ST, 02119", zip: "02119", license: "25013", category: "Pharmacy", inspections: 58, fails: 24, failRate: 41.4, yearsFailed: 10 },
+      { name: "Walgreens No.  06349", address: "583  WASHINGTON ST", addressDisplay: "583  WASHINGTON ST, 02124", zip: "02124", license: "25360", category: "Pharmacy", inspections: 51, fails: 16, failRate: 31.4, yearsFailed: 10 }
+    ]
+  },
+  "Grocery": {
+    repeatN: 99,
+    avoid: [
+      { name: "Go Fresh 365", address: "1102  WASHINGTON ST", addressDisplay: "1102  WASHINGTON ST, 02118", zip: "02118", license: "34585", category: "Grocery", inspections: 111, fails: 58, failRate: 52.3, yearsFailed: 15 },
+      { name: "Shaw's Supermarkets No. 602", address: "53  HUNTINGTON AV", addressDisplay: "53  HUNTINGTON AV, 02199", zip: "02199", license: "25674", category: "Grocery", inspections: 85, fails: 42, failRate: 49.4, yearsFailed: 15 },
+      { name: "Star Market No. 3588", address: "1065  COMMONWEALTH AV", addressDisplay: "1065  COMMONWEALTH AV, 02215", zip: "02215", license: "25686", category: "Grocery", inspections: 72, fails: 35, failRate: 48.6, yearsFailed: 15 },
+      { name: "Stop & Shop No. 412", address: "1622  TREMONT ST", addressDisplay: "1622  TREMONT ST, 02120", zip: "02120", license: "22727", category: "Grocery", inspections: 68, fails: 32, failRate: 47.1, yearsFailed: 15 },
+      { name: "Stop & Shop Supermarket No. 004", address: "950  AMERICAN LEGION HW", addressDisplay: "950  AMERICAN LEGION HW, 02136", zip: "02136", license: "31709", category: "Grocery", inspections: 68, fails: 30, failRate: 44.1, yearsFailed: 15 },
+      { name: "F & T Davey's Supermarket", address: "438  DUDLEY ST", addressDisplay: "438  DUDLEY ST, 02119", zip: "02119", license: "19236", category: "Grocery", inspections: 59, fails: 25, failRate: 42.4, yearsFailed: 15 },
+      { name: "Star Market No. 4587", address: "45  WM T MORRISSEY BL", addressDisplay: "45  WM T MORRISSEY BL, 02122", zip: "02122", license: "25690", category: "Grocery", inspections: 97, fails: 49, failRate: 50.5, yearsFailed: 14 },
+      { name: "Super Stop & Shop", address: "1100  MASSACHUSETTS AV", addressDisplay: "1100  MASSACHUSETTS AV, 02125", zip: "02125", license: "24174", category: "Grocery", inspections: 97, fails: 48, failRate: 49.5, yearsFailed: 14 },
+      { name: "Shaw's Supermarkets No. 2579", address: "1377  HYDE PARK AV", addressDisplay: "1377  HYDE PARK AV, 02136", zip: "02136", license: "25676", category: "Grocery", inspections: 76, fails: 33, failRate: 43.4, yearsFailed: 14 },
+      { name: "Stop & Shop Supermarket No. 075", address: "301  CENTRE ST", addressDisplay: "301  CENTRE ST, 02130", zip: "02130", license: "26027", category: "Grocery", inspections: 68, fails: 31, failRate: 45.6, yearsFailed: 14 }
     ]
   },
   "Food and drinks": {
-    repeatN: 2282,
+    repeatN: 2270,
     avoid: [
       { name: "Fan Fan Restaurant", address: "15  HARVARD AV", addressDisplay: "15  HARVARD AV, 02136", zip: "02136", license: "37129", category: "Food and drinks", inspections: 105, fails: 54, failRate: 51.4, yearsFailed: 15 },
       { name: "Bonchon Allston", address: "101  BRIGHTON AV", addressDisplay: "101  BRIGHTON AV, 02134", zip: "02134", license: "78286", category: "Food and drinks", inspections: 109, fails: 53, failRate: 48.6, yearsFailed: 15 },
       { name: "The Real Deal", address: "1882  CENTRE ST", addressDisplay: "1882  CENTRE ST, 02132", zip: "02132", license: "23987", category: "Food and drinks", inspections: 103, fails: 53, failRate: 51.5, yearsFailed: 15 },
       { name: "Yamato Japanese Cuisine", address: "111  CHISWICK RD", addressDisplay: "111  CHISWICK RD, 02135", zip: "02135", license: "74763", category: "Food and drinks", inspections: 99, fails: 49, failRate: 49.5, yearsFailed: 15 },
-      { name: "Bertucci's", address: "633  V F W PK", addressDisplay: "633  V F W PK, 02132", zip: "02132", license: "19320", category: "Food and drinks", inspections: 91, fails: 47, failRate: 51.6, yearsFailed: 15 },
-      { name: "Paramount", address: "44  CHARLES ST", addressDisplay: "44  CHARLES ST, 02114", zip: "02114", license: "20157", category: "Food and drinks", inspections: 95, fails: 47, failRate: 49.5, yearsFailed: 15 },
+      { name: "BERTUCCI'S", address: "633  V F W PK", addressDisplay: "633  V F W PK, 02132", zip: "02132", license: "19320", category: "Food and drinks", inspections: 91, fails: 47, failRate: 51.6, yearsFailed: 15 },
+      { name: "PARAMOUNT", address: "44  CHARLES ST", addressDisplay: "44  CHARLES ST, 02114", zip: "02114", license: "20157", category: "Food and drinks", inspections: 95, fails: 47, failRate: 49.5, yearsFailed: 15 },
       { name: "Pho Le", address: "1356  DORCHESTER AV", addressDisplay: "1356  DORCHESTER AV, 02122", zip: "02122", license: "68290", category: "Food and drinks", inspections: 92, fails: 47, failRate: 51.1, yearsFailed: 15 },
       { name: "Victoria Seafood", address: "1029  COMMONWEALTH AV", addressDisplay: "1029  COMMONWEALTH AV, 02215", zip: "02215", license: "20579", category: "Food and drinks", inspections: 98, fails: 44, failRate: 44.9, yearsFailed: 15 },
-      { name: "Pho 2000", address: "198  ADAMS ST", addressDisplay: "198  ADAMS ST, 02122", zip: "02122", license: "76202", category: "Food and drinks", inspections: 86, fails: 43, failRate: 50.0, yearsFailed: 15 },
-      { name: "Merengue Restaurant", address: "156  BLUE HILL AV", addressDisplay: "156  BLUE HILL AV, 02119", zip: "02119", license: "19901", category: "Food and drinks", inspections: 97, fails: 42, failRate: 43.3, yearsFailed: 15 }
+      { name: "PHO 2000", address: "198  ADAMS ST", addressDisplay: "198  ADAMS ST, 02122", zip: "02122", license: "76202", category: "Food and drinks", inspections: 86, fails: 43, failRate: 50.0, yearsFailed: 15 },
+      { name: "MERENGUE RESTAURANT", address: "156  BLUE HILL AV", addressDisplay: "156  BLUE HILL AV, 02119", zip: "02119", license: "19901", category: "Food and drinks", inspections: 97, fails: 42, failRate: 43.3, yearsFailed: 15 }
     ]
   },
   "Take-out": {
-    repeatN: 1891,
+    repeatN: 1880,
     avoid: [
       { name: "Nhu Lan Fast Food", address: "1155  DORCHESTER AV", addressDisplay: "1155  DORCHESTER AV, 02125", zip: "02125", license: "74834", category: "Take-out", inspections: 103, fails: 51, failRate: 49.5, yearsFailed: 15 },
-      { name: "Bale Restaurant", address: "1052  DORCHESTER AV", addressDisplay: "1052  DORCHESTER AV, 02125", zip: "02125", license: "22464", category: "Take-out", inspections: 104, fails: 48, failRate: 46.2, yearsFailed: 15 },
-      { name: "New York Fried Chicken & Pizza", address: "531  COLUMBIA RD", addressDisplay: "531  COLUMBIA RD, 02125", zip: "02125", license: "23286", category: "Take-out", inspections: 90, fails: 48, failRate: 53.3, yearsFailed: 15 },
-      { name: "Nicole's Pizza", address: "639  TREMONT ST", addressDisplay: "639  TREMONT ST, 02118", zip: "02118", license: "21851", category: "Take-out", inspections: 83, fails: 48, failRate: 57.8, yearsFailed: 15 },
+      { name: "BALE RESTAURANT", address: "1052  DORCHESTER AV", addressDisplay: "1052  DORCHESTER AV, 02125", zip: "02125", license: "22464", category: "Take-out", inspections: 104, fails: 48, failRate: 46.2, yearsFailed: 15 },
+      { name: "NEW YORK FRIED CHICKEN & PIZZA", address: "531  COLUMBIA RD", addressDisplay: "531  COLUMBIA RD, 02125", zip: "02125", license: "23286", category: "Take-out", inspections: 90, fails: 48, failRate: 53.3, yearsFailed: 15 },
+      { name: "NICOLE'S PIZZA", address: "639  TREMONT ST", addressDisplay: "639  TREMONT ST, 02118", zip: "02118", license: "21851", category: "Take-out", inspections: 83, fails: 48, failRate: 57.8, yearsFailed: 15 },
       { name: "Los Amigos Mexican Grill", address: "1741  CENTRE ST", addressDisplay: "1741  CENTRE ST, 02132", zip: "02132", license: "75844", category: "Take-out", inspections: 103, fails: 47, failRate: 45.6, yearsFailed: 15 },
-      { name: "Jen Lai Noodle and Rice", address: "1  FANEUIL HALL MKT PL PL", addressDisplay: "1  FANEUIL HALL MKT PL PL, 02109", zip: "02109", license: "25746", category: "Take-out", inspections: 95, fails: 46, failRate: 48.4, yearsFailed: 15 },
+      { name: "Jen Lai Noodle and Rice Co.", address: "1  FANEUIL HALL MKT PL PL", addressDisplay: "1  FANEUIL HALL MKT PL PL, 02109", zip: "02109", license: "25746", category: "Take-out", inspections: 95, fails: 46, failRate: 48.4, yearsFailed: 15 },
       { name: "Domino's Pizza", address: "205  ADAMS ST", addressDisplay: "205  ADAMS ST, 02122", zip: "02122", license: "79072", category: "Take-out", inspections: 91, fails: 45, failRate: 49.5, yearsFailed: 15 },
-      { name: "Chung Wah", address: "199  BOWDOIN ST", addressDisplay: "199  BOWDOIN ST, 02122", zip: "02122", license: "22022", category: "Take-out", inspections: 94, fails: 44, failRate: 46.8, yearsFailed: 15 },
-      { name: "EL Chalan", address: "405  CHELSEA ST", addressDisplay: "405  CHELSEA ST, 02128", zip: "02128", license: "20637", category: "Take-out", inspections: 91, fails: 44, failRate: 48.4, yearsFailed: 15 },
+      { name: "CHUNG WAH", address: "199  BOWDOIN ST", addressDisplay: "199  BOWDOIN ST, 02122", zip: "02122", license: "22022", category: "Take-out", inspections: 94, fails: 44, failRate: 46.8, yearsFailed: 15 },
+      { name: "EL CHALAN", address: "405  CHELSEA ST", addressDisplay: "405  CHELSEA ST, 02128", zip: "02128", license: "20637", category: "Take-out", inspections: 91, fails: 44, failRate: 48.4, yearsFailed: 15 },
       { name: "Comella's", address: "1882  CENTRE ST", addressDisplay: "1882  CENTRE ST, 02132", zip: "02132", license: "24754", category: "Take-out", inspections: 80, fails: 43, failRate: 53.8, yearsFailed: 15 }
     ]
   },
   "Retail food": {
-    repeatN: 839,
+    repeatN: 682,
     avoid: [
-      { name: "Go Fresh 365", address: "1102  WASHINGTON ST", addressDisplay: "1102  WASHINGTON ST, 02118", zip: "02118", license: "34585", category: "Retail food", inspections: 111, fails: 58, failRate: 52.3, yearsFailed: 15 },
       { name: "A C Farm Market", address: "1429  DORCHESTER AV", addressDisplay: "1429  DORCHESTER AV, 02122", zip: "02122", license: "74325", category: "Retail food", inspections: 80, fails: 42, failRate: 52.5, yearsFailed: 15 },
-      { name: "Shaw's Supermarkets No. 602", address: "53  HUNTINGTON AV", addressDisplay: "53  HUNTINGTON AV, 02199", zip: "02199", license: "25674", category: "Retail food", inspections: 85, fails: 42, failRate: 49.4, yearsFailed: 15 },
-      { name: "Star Market No. 3588", address: "1065  COMMONWEALTH AV", addressDisplay: "1065  COMMONWEALTH AV, 02215", zip: "02215", license: "25686", category: "Retail food", inspections: 72, fails: 35, failRate: 48.6, yearsFailed: 15 },
-      { name: "Stop & Shop No. 412", address: "1622  TREMONT ST", addressDisplay: "1622  TREMONT ST, 02120", zip: "02120", license: "22727", category: "Retail food", inspections: 68, fails: 32, failRate: 47.1, yearsFailed: 15 },
-      { name: "Stop & Shop Supermarket No. 004", address: "950  AMERICAN LEGION HW", addressDisplay: "950  AMERICAN LEGION HW, 02136", zip: "02136", license: "31709", category: "Retail food", inspections: 68, fails: 30, failRate: 44.1, yearsFailed: 15 },
-      { name: "F & T Davey's Supermarket", address: "438  DUDLEY ST", addressDisplay: "438  DUDLEY ST, 02119", zip: "02119", license: "19236", category: "Retail food", inspections: 59, fails: 25, failRate: 42.4, yearsFailed: 15 },
-      { name: "Garden Halal Meat Market", address: "88  BLACKSTONE ST", addressDisplay: "88  BLACKSTONE ST, 02108", zip: "02108", license: "25919", category: "Retail food", inspections: 59, fails: 24, failRate: 40.7, yearsFailed: 15 },
-      { name: "Star Market No. 4587", address: "45  WM T MORRISSEY BL", addressDisplay: "45  WM T MORRISSEY BL, 02122", zip: "02122", license: "25690", category: "Retail food", inspections: 97, fails: 49, failRate: 50.5, yearsFailed: 14 },
-      { name: "Super Stop & Shop", address: "1100  MASSACHUSETTS AV", addressDisplay: "1100  MASSACHUSETTS AV, 02125", zip: "02125", license: "24174", category: "Retail food", inspections: 97, fails: 48, failRate: 49.5, yearsFailed: 14 }
+      { name: "GARDEN HALAL MEAT MARKET INC.", address: "88  BLACKSTONE ST", addressDisplay: "88  BLACKSTONE ST, 02108", zip: "02108", license: "25919", category: "Retail food", inspections: 59, fails: 24, failRate: 40.7, yearsFailed: 15 },
+      { name: "American Food Basket", address: "942  HYDE PARK AV", addressDisplay: "942  HYDE PARK AV, 02136", zip: "02136", license: "24624", category: "Retail food", inspections: 84, fails: 43, failRate: 51.2, yearsFailed: 14 },
+      { name: "Los Caballeros Market Inc.", address: "796  WASHINGTON ST", addressDisplay: "796  WASHINGTON ST, 02124", zip: "02124", license: "22579", category: "Retail food", inspections: 60, fails: 27, failRate: 45.0, yearsFailed: 14 },
+      { name: "BAZAAR ON CAMBRIDGE ST.", address: "424  CAMBRIDGE ST", addressDisplay: "424  CAMBRIDGE ST, 02134", zip: "02134", license: "23278", category: "Retail food", inspections: 70, fails: 25, failRate: 35.7, yearsFailed: 14 },
+      { name: "Star Markets No. 2576", address: "33  KILMARNOCK ST", addressDisplay: "33  KILMARNOCK ST, 02215", zip: "02215", license: "25671", category: "Retail food", inspections: 55, fails: 24, failRate: 43.6, yearsFailed: 14 },
+      { name: "Family Dollar Stores of MA No.  28063", address: "20  CORINTH ST", addressDisplay: "20  CORINTH ST, 02131", zip: "02131", license: "33358", category: "Retail food", inspections: 45, fails: 22, failRate: 48.9, yearsFailed: 14 },
+      { name: "Quick Pick Convenience", address: "973  TREMONT ST", addressDisplay: "973  TREMONT ST, 02120", zip: "02120", license: "75276", category: "Retail food", inspections: 55, fails: 22, failRate: 40.0, yearsFailed: 14 },
+      { name: "PHU CUONG MARKET(1188 Dor. Ave.)", address: "1188  DORCHESTER AV", addressDisplay: "1188  DORCHESTER AV, 02125", zip: "02125", license: "31901", category: "Retail food", inspections: 70, fails: 36, failRate: 51.4, yearsFailed: 13 },
+      { name: "Compadres Meat Market", address: "3101  WASHINGTON ST", addressDisplay: "3101  WASHINGTON ST, 02119", zip: "02119", license: "75938", category: "Retail food", inspections: 58, fails: 29, failRate: 50.0, yearsFailed: 13 }
     ]
   },
   "Mobile food": {
-    repeatN: 135,
+    repeatN: 134,
     avoid: [
       { name: "Tenoch Mexican", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 138469", zip: "02128", license: "138469", category: "Mobile food", inspections: 37, fails: 11, failRate: 29.7, yearsFailed: 9 },
-      { name: "Bm3:bon ME Red", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 86676", zip: "02128", license: "86676", category: "Mobile food", inspections: 26, fails: 8, failRate: 30.8, yearsFailed: 8 },
+      { name: "BM3:BON ME RED", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 86676", zip: "02128", license: "86676", category: "Mobile food", inspections: 26, fails: 8, failRate: 30.8, yearsFailed: 8 },
       { name: "Chubby Chickpea Mobile", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 77929", zip: "02128", license: "77929", category: "Mobile food", inspections: 61, fails: 16, failRate: 26.2, yearsFailed: 7 },
-      { name: "Vanderbilt Food Trolly", address: "1  CITYWIDE", addressDisplay: "Mobile (citywide) · License 37237", zip: "02128", license: "37237", category: "Mobile food", inspections: 33, fails: 13, failRate: 39.4, yearsFailed: 7 },
+      { name: "Vanderbilt Food Trolly @107 Ave Louis Pasteur", address: "1  CITYWIDE", addressDisplay: "Mobile (citywide) · License 37237", zip: "02128", license: "37237", category: "Mobile food", inspections: 33, fails: 13, failRate: 39.4, yearsFailed: 7 },
       { name: "Momogoose 2", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 68113", zip: "02128", license: "68113", category: "Mobile food", inspections: 35, fails: 12, failRate: 34.3, yearsFailed: 7 },
       { name: "Momogoose 3", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 78558", zip: "02128", license: "78558", category: "Mobile food", inspections: 32, fails: 11, failRate: 34.4, yearsFailed: 7 },
       { name: "Momogoose 4", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 76220", zip: "02128", license: "76220", category: "Mobile food", inspections: 31, fails: 10, failRate: 32.3, yearsFailed: 7 },
@@ -771,6 +917,7 @@ const REPEAT_BY_CATEGORY: Record<string, { repeatN: number; avoid: PlaceRow[] }>
     ]
   }
 };
+
 type TabId =
   | "summary"
   | "overview"
@@ -1148,8 +1295,11 @@ function SectionPlaces() {
         offender means a fail in at least two calendar years from 2012
         through 2026. Two failed inspections in 2025 count as one year —
         that place is not a repeat offender unless it also failed in
-        another year. Places to avoid are the top of those multi-year
-        repeats. Use the category pills for ice cream, cafe, museums /
+        another year. Be cautious lists the top of those multi-year
+        repeats — inspection history, not a skip list. Museums, the
+        aquarium, hospitals, schools, hotels, and cultural attractions
+        are often destinations or institutions people still use. Use the
+        category pills for ice cream, pharmacy, grocery, cafe, museums /
         attractions, food and drinks, take-out, and the rest. Do not
         count 3,347 licenses as inspections.
       </Text>
@@ -1230,17 +1380,21 @@ function SectionPlaces() {
         Inc/LLC/Corp/Ltd only — not Company in Atlantic Fish Company; @ is
         a location suffix when the tail is a street, hospital, hotel, or
         college, not a trade name (A @ Time, EAST @ WEST). Licenses are
-        not merged. Ice cream, Cafe, School, Hotel, Hospital, and Cultural
-        / attraction are name overlays — not a City cuisine or license
-        field — with word-boundary matching (ice cream, gelato, frozen
-        yogurt, creamery) plus public ice-cream roundups and official
-        scoop-shop pages joined on brand key. Ben &amp; Jerry&apos;s is
-        Ice cream from those sourced pages, not from a handwritten brand
-        list. ICE Auto Services and All Spice are not ice cream. School Street is not School. A coffee shop @ a hotel is Cafe, not Hotel;
-        generic dining @ a hospital is Hospital. FT is Take-out, not Food.
-        1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a
-        shared physical address. Other / unclassified is 0 on this dump.
-        2026 YTD is not a full year.
+        not merged. Ice cream, Pharmacy, Grocery, Cafe, School, Hotel,
+        Hospital, and Cultural / attraction are name overlays — not a
+        City cuisine, not extra ISD license types — with word-boundary
+        matching (ice cream, gelato, frozen yogurt, creamery; pharmacy /
+        drugstore / CVS / Walgreens / Rite Aid; grocery / supermarket)
+        plus public ice-cream and grocery roundups joined on brand key.
+        Ben &amp; Jerry&apos;s is Ice cream from those sourced pages, not
+        from a handwritten brand list. CVS/Pharmacy stays Pharmacy even
+        when licensecat is RF. Leftover Retail food is other packaged
+        retail. ICE Auto Services and All Spice are not ice cream. 7-Eleven
+        is not grocery. School Street is not School. A coffee shop @ a
+        hotel is Cafe, not Hotel; generic dining @ a hospital is Hospital.
+        FT is Take-out, not Food. 1 CITYWIDE ST is ISD’s placeholder for
+        mobile licenses, not a shared physical address. Other /
+        unclassified is 0 on this dump. 2026 YTD is not a full year.
       </Caption>
       <H3>Year for always-pass lists</H3>
       <Row gap={8} wrap>
@@ -1252,7 +1406,7 @@ function SectionPlaces() {
           </span>
         ))}
       </Row>
-      <H3>Category — always-pass and places to avoid</H3>
+      <H3>Category — always-pass and repeated fails</H3>
       <Row gap={8} wrap>
         {catPills.map((p) => (
           <span key={p.id}>
@@ -1301,14 +1455,14 @@ function SectionPlaces() {
             ])}
           />
           <Caption>
-            {`Source: Analyze Boston Food Establishment Inspections · ${windowCaption} · ${catLabel} · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd and @ location suffixes · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address · BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year avoid because the windows differ`}
+            {`Source: Analyze Boston Food Establishment Inspections · ${windowCaption} · ${catLabel} · always-pass requires at least 3 collapsed visits in this window and zero HE_Fail / HE_FailExt / Fail / Failed / HE_FAILNOR · HE_Filed is not a fail · one lucky pass is excluded · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd and @ location suffixes · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address · BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year repeated fails because the windows differ`}
           </Caption>
         </Stack>
       ) : null}
       {catAvoid.length > 0 ? (
         <Stack gap={8}>
           <H3>
-            Places to avoid — {catLabel} (failed in ≥2 calendar years)
+            {cautionHeadline(catLabel)}
           </H3>
           <Table
             headers={[
@@ -1330,7 +1484,7 @@ function SectionPlaces() {
             ])}
           />
           <Caption>
-            {`Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeat offender = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · ${catLabel} · ${REPEAT_N_TOTAL.toLocaleString("en-US")} places citywide met this rule · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address`}
+            {`Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeated inspection fails = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · ${catLabel} · ${REPEAT_N_TOTAL.toLocaleString("en-US")} places citywide met this rule · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address.${cautionNote(catLabel)}`}
           </Caption>
         </Stack>
       ) : null}
@@ -1379,7 +1533,7 @@ function SectionQuality() {
           ],
           [
             "Names: strip Inc/LLC/Corp/Ltd, not Company",
-            "Atlantic Fish Company keeps Company. @ is a location only after a street/hospital/hotel/college. A @ Time is a trade name. Ice cream is not a City license type.",
+            "Atlantic Fish Company keeps Company. @ is a location only after a street/hospital/hotel/college. A @ Time is a trade name. Ice cream, Pharmacy, and Grocery are not City license types.",
           ],
         ]}
         rowTone={["success", "warning", "danger", "warning", "warning", "info", "warning", "warning", "info"]}
@@ -1541,7 +1695,9 @@ function TabPublic() {
         Open Places. Always-pass uses 2019 / 2024 / 2025 / 2026 YTD with
         a category pill. Repeat offenders failed in at least two calendar
         years — two fails in 2025 are not enough. Category pills cover
-        ice cream, cafe, museums, food and drinks, take-out, and the rest.
+        ice cream, pharmacy, grocery, cafe, museums, food and drinks,
+        take-out, and the rest. Repeated fails are a reason to be
+        cautious, not a skip list.
       </Callout>
       <Grid columns={2} gap={24}>
         <Stack gap={8}>

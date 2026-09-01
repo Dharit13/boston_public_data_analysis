@@ -8,7 +8,7 @@
     "insp_max": "2026-08-28",
     "lic_raw": 3347,
     "lic_kept": 3347,
-    "note": "Food establishment inspections and active food licenses are separate files. Do not count a license row as an inspection. The inspection dump is one row per violation; this briefing collapses to one inspection per license number and result timestamp. Drop rows with no resultdttm. Complete years are 2012\u20132025. 2026 is year-to-date through 28 August \u2014 not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR \u2014 not a substring. Star levels are exact *, **, ***. Display names strip trailing Inc/LLC/Corp/Ltd, not Company/Co in a trade name, and strip @ only when it is a location suffix (street, hospital, hotel, college). Ice cream overlays are not a City license type."
+    "note": "Food establishment inspections and active food licenses are separate files. Do not count a license row as an inspection. The inspection dump is one row per violation; this briefing collapses to one inspection per license number and result timestamp. Drop rows with no resultdttm. Complete years are 2012\u20132025. 2026 is year-to-date through 28 August \u2014 not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR \u2014 not a substring. Star levels are exact *, **, ***. Display names strip trailing Inc/LLC/Corp/Ltd, not Company/Co in a trade name, and strip @ only when it is a location suffix (street, hospital, hotel, college). Ice cream, pharmacy, and grocery overlays are not City license types. ISD licensecat RF remains Retail Food (packaged food); leftover Retail food after overlays is other packaged retail, not pharmacy or grocery."
   },
   "years": [
     2012,
@@ -4313,19 +4313,29 @@
           "fails": 348
         },
         {
+          "label": "Pharmacy",
+          "inspections": 131,
+          "fails": 39
+        },
+        {
+          "label": "Grocery",
+          "inspections": 248,
+          "fails": 111
+        },
+        {
           "label": "Food and drinks",
-          "inspections": 4059,
-          "fails": 1594
+          "inspections": 4041,
+          "fails": 1586
         },
         {
           "label": "Take-out",
-          "inspections": 3070,
-          "fails": 1170
+          "inspections": 3061,
+          "fails": 1166
         },
         {
           "label": "Retail food",
-          "inspections": 1302,
-          "fails": 444
+          "inspections": 950,
+          "fails": 306
         },
         {
           "label": "Mobile food",
@@ -5097,6 +5107,16 @@
           "fails": 465
         },
         {
+          "label": "Pharmacy",
+          "inspections": 155,
+          "fails": 62
+        },
+        {
+          "label": "Grocery",
+          "inspections": 293,
+          "fails": 108
+        },
+        {
           "label": "Food and drinks",
           "inspections": 5721,
           "fails": 1976
@@ -5108,8 +5128,8 @@
         },
         {
           "label": "Retail food",
-          "inspections": 1665,
-          "fails": 520
+          "inspections": 1217,
+          "fails": 350
         },
         {
           "label": "Mobile food",
@@ -5543,6 +5563,176 @@
           "always_pass_n": 32,
           "repeat_n": 0
         },
+        "Pharmacy": {
+          "always_pass": [
+            {
+              "name": "CVS/Pharmacy No. 1889",
+              "name_display": "CVS/Pharmacy No. 1889",
+              "brand_key": "cvs pharmacy no 1889",
+              "address": "427  WASHINGTON ST",
+              "address_display": "427  WASHINGTON ST, 02135",
+              "zip": "02135",
+              "license": "20759",
+              "category": "Pharmacy",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Walgreens No.  05756",
+              "name_display": "Walgreens No. 05756",
+              "brand_key": "walgreens no 05756",
+              "address": "1  WM C KELLY SQ",
+              "address_display": "1  WM C KELLY SQ, 02128",
+              "zip": "02128",
+              "license": "25352",
+              "category": "Pharmacy",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Walgreens No. 11797",
+              "name_display": "Walgreens No. 11797",
+              "brand_key": "walgreens no 11797",
+              "address": "465  CAMBRIDGE ST",
+              "address_display": "465  CAMBRIDGE ST, 02134",
+              "zip": "02134",
+              "license": "33162",
+              "category": "Pharmacy",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            }
+          ],
+          "places_to_avoid": [],
+          "always_pass_n": 3,
+          "repeat_n": 0
+        },
+        "Grocery": {
+          "always_pass": [
+            {
+              "name": "Daily Table",
+              "name_display": "Daily Table",
+              "brand_key": "daily table",
+              "address": "450  WASHINGTON ST",
+              "address_display": "450  WASHINGTON ST, 02124",
+              "zip": "02124",
+              "license": "129653",
+              "category": "Grocery",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Star Market No. 4572",
+              "name_display": "Star Market No. 4572",
+              "brand_key": "star market no 4572",
+              "address": "370  WESTERN AV",
+              "address_display": "370  WESTERN AV, 02135",
+              "zip": "02135",
+              "license": "25692",
+              "category": "Grocery",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Tropical Food Mart",
+              "name_display": "Tropical Food Mart",
+              "brand_key": "tropical food mart",
+              "address": "4545  WASHINGTON ST",
+              "address_display": "4545  WASHINGTON ST, 02131",
+              "zip": "02131",
+              "license": "89935",
+              "category": "Grocery",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Bob's Grocery",
+              "name_display": "Bob's Grocery",
+              "brand_key": "bobs grocery",
+              "address": "160  ENDICOTT ST",
+              "address_display": "160  ENDICOTT ST, 02113",
+              "zip": "02113",
+              "license": "19919",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Star Market Company",
+              "name_display": "Star Market Company",
+              "brand_key": "star market company",
+              "address": "50  CAUSEWAY ST",
+              "address_display": "50  CAUSEWAY ST, 02114",
+              "zip": "02114",
+              "license": "359367",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "TRADER JOE'S No. 510",
+              "name_display": "Trader Joe's NO 510",
+              "brand_key": "trader joes no 510",
+              "address": "893  BOYLSTON ST",
+              "address_display": "893  BOYLSTON ST, 02115",
+              "zip": "02115",
+              "license": "25622",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Trader Joe's No. 561",
+              "name_display": "Trader Joe's No. 561",
+              "brand_key": "trader joes no 561",
+              "address": "199 N HARVARD ST",
+              "address_display": "199 N HARVARD ST, 02134",
+              "zip": "02134",
+              "license": "334435",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Trader Joe's No. 566",
+              "name_display": "Trader Joe's No. 566",
+              "brand_key": "trader joes no 566",
+              "address": "44  THOMSON PL",
+              "address_display": "44  THOMSON PL, 02210",
+              "zip": "02210",
+              "license": "398730",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "WHOLE FOODS MARKET",
+              "name_display": "Whole Foods Market",
+              "brand_key": "whole foods market",
+              "address": "310  HARRISON AV",
+              "address_display": "310  HARRISON AV, 02118",
+              "zip": "02118",
+              "license": "127863",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            }
+          ],
+          "places_to_avoid": [],
+          "always_pass_n": 9,
+          "repeat_n": 0
+        },
         "Food and drinks": {
           "always_pass": [
             {
@@ -5820,58 +6010,6 @@
         "Retail food": {
           "always_pass": [
             {
-              "name": "CVS/Pharmacy No. 1889",
-              "name_display": "CVS/Pharmacy No. 1889",
-              "brand_key": "cvs pharmacy no 1889",
-              "address": "427  WASHINGTON ST",
-              "address_display": "427  WASHINGTON ST, 02135",
-              "zip": "02135",
-              "license": "20759",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
-              "name": "Daily Table",
-              "name_display": "Daily Table",
-              "brand_key": "daily table",
-              "address": "450  WASHINGTON ST",
-              "address_display": "450  WASHINGTON ST, 02124",
-              "zip": "02124",
-              "license": "129653",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
-              "name": "Star Market No. 4572",
-              "name_display": "Star Market No. 4572",
-              "brand_key": "star market no 4572",
-              "address": "370  WESTERN AV",
-              "address_display": "370  WESTERN AV, 02135",
-              "zip": "02135",
-              "license": "25692",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
-              "name": "Tropical Food Mart",
-              "name_display": "Tropical Food Mart",
-              "brand_key": "tropical food mart",
-              "address": "4545  WASHINGTON ST",
-              "address_display": "4545  WASHINGTON ST, 02131",
-              "zip": "02131",
-              "license": "89935",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
               "name": "AFC Zenshi @ Shaw's 3588",
               "name_display": "AFC Zenshi",
               "brand_key": "afc zenshi",
@@ -5892,19 +6030,6 @@
               "address_display": "370  WESTERN AV, 02135",
               "zip": "02135",
               "license": "21946",
-              "category": "Retail food",
-              "inspections": 3,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
-              "name": "Bob's Grocery",
-              "name_display": "Bob's Grocery",
-              "brand_key": "bobs grocery",
-              "address": "160  ENDICOTT ST",
-              "address_display": "160  ENDICOTT ST, 02113",
-              "zip": "02113",
-              "license": "19919",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -5948,10 +6073,75 @@
               "inspections": 3,
               "fails": 0,
               "fail_rate": 0.0
+            },
+            {
+              "name": "Eagle Hill Convenience Store",
+              "name_display": "Eagle Hill Convenience Store",
+              "brand_key": "eagle hill convenience store",
+              "address": "215  TRENTON ST",
+              "address_display": "215  TRENTON ST, 02128",
+              "zip": "02128",
+              "license": "80141",
+              "category": "Retail food",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "HENRY'S MARKET",
+              "name_display": "Henry's Market",
+              "brand_key": "henrys market",
+              "address": "892  SOUTH ST",
+              "address_display": "892  SOUTH ST, 02131",
+              "zip": "02131",
+              "license": "21759",
+              "category": "Retail food",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Lilly Boston-Retail",
+              "name_display": "Lilly Boston-Retail",
+              "brand_key": "lilly boston retail",
+              "address": "15  NECCO ST",
+              "address_display": "15  NECCO ST, 02210",
+              "zip": "02210",
+              "license": "568808",
+              "category": "Retail food",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Obrian's Market",
+              "name_display": "Obrian's Market",
+              "brand_key": "obrians market",
+              "address": "1660  DORCHESTER AV",
+              "address_display": "1660  DORCHESTER AV, 02122",
+              "zip": "02122",
+              "license": "521061",
+              "category": "Retail food",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Philips Candy House",
+              "name_display": "Philips Candy House",
+              "brand_key": "philips candy house",
+              "address": "818  WM T MORRISSEY BL",
+              "address_display": "818  WM T MORRISSEY BL, 02122",
+              "zip": "02122",
+              "license": "18262",
+              "category": "Retail food",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 26,
+          "always_pass_n": 14,
           "repeat_n": 0
         },
         "Mobile food": {
@@ -6011,7 +6201,7 @@
             {
               "name": "Boston Trolley DogsNo. 2",
               "name_display": "Boston Trolley DogsNo. 2",
-              "brand_key": "boston trolley dogsno 2",
+              "brand_key": "boston trolley dogs no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
@@ -6132,7 +6322,7 @@
           "address_display": "77  SEAPORT BL, 02210",
           "zip": "02210",
           "license": "301882",
-          "category": "Retail food",
+          "category": "Pharmacy",
           "inspections": 4,
           "fails": 0,
           "fail_rate": 0.0
@@ -6145,7 +6335,7 @@
           "address_display": "218  HANOVER ST, 02113",
           "zip": "02113",
           "license": "19949",
-          "category": "Retail food",
+          "category": "Pharmacy",
           "inspections": 4,
           "fails": 0,
           "fail_rate": 0.0
@@ -6265,9 +6455,19 @@
           "fails": 466
         },
         {
+          "label": "Pharmacy",
+          "inspections": 155,
+          "fails": 68
+        },
+        {
+          "label": "Grocery",
+          "inspections": 306,
+          "fails": 140
+        },
+        {
           "label": "Food and drinks",
-          "inspections": 4866,
-          "fails": 2127
+          "inspections": 4864,
+          "fails": 2126
         },
         {
           "label": "Take-out",
@@ -6276,8 +6476,8 @@
         },
         {
           "label": "Retail food",
-          "inspections": 1472,
-          "fails": 537
+          "inspections": 1013,
+          "fails": 330
         },
         {
           "label": "Mobile food",
@@ -6540,6 +6740,124 @@
           ],
           "places_to_avoid": [],
           "always_pass_n": 9,
+          "repeat_n": 0
+        },
+        "Pharmacy": {
+          "always_pass": [
+            {
+              "name": "CVS/Pharmacy No. 10517",
+              "name_display": "CVS/Pharmacy No. 10517",
+              "brand_key": "cvs pharmacy no 10517",
+              "address": "77  SEAPORT BL",
+              "address_display": "77  SEAPORT BL, 02210",
+              "zip": "02210",
+              "license": "301882",
+              "category": "Pharmacy",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "CVS/Pharmacy No. 1900",
+              "name_display": "CVS/Pharmacy No. 1900",
+              "brand_key": "cvs pharmacy no 1900",
+              "address": "218  HANOVER ST",
+              "address_display": "218  HANOVER ST, 02113",
+              "zip": "02113",
+              "license": "19949",
+              "category": "Pharmacy",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Walgreens No.  06349",
+              "name_display": "Walgreens No. 06349",
+              "brand_key": "walgreens no 06349",
+              "address": "583  WASHINGTON ST",
+              "address_display": "583  WASHINGTON ST, 02124",
+              "zip": "02124",
+              "license": "25360",
+              "category": "Pharmacy",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            }
+          ],
+          "places_to_avoid": [],
+          "always_pass_n": 3,
+          "repeat_n": 0
+        },
+        "Grocery": {
+          "always_pass": [
+            {
+              "name": "Trader Joe's No. 566",
+              "name_display": "Trader Joe's No. 566",
+              "brand_key": "trader joes no 566",
+              "address": "44  THOMSON PL",
+              "address_display": "44  THOMSON PL, 02210",
+              "zip": "02210",
+              "license": "398730",
+              "category": "Grocery",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "WHOLE FOODS MARKET",
+              "name_display": "Whole Foods Market",
+              "brand_key": "whole foods market",
+              "address": "15  WASHINGTON ST",
+              "address_display": "15  WASHINGTON ST, 02135",
+              "zip": "02135",
+              "license": "24017",
+              "category": "Grocery",
+              "inspections": 4,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "Star Market Company",
+              "name_display": "Star Market Company",
+              "brand_key": "star market company",
+              "address": "50  CAUSEWAY ST",
+              "address_display": "50  CAUSEWAY ST, 02114",
+              "zip": "02114",
+              "license": "359367",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "TRADER JOE'S No. 510",
+              "name_display": "Trader Joe's NO 510",
+              "brand_key": "trader joes no 510",
+              "address": "893  BOYLSTON ST",
+              "address_display": "893  BOYLSTON ST, 02115",
+              "zip": "02115",
+              "license": "25622",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            },
+            {
+              "name": "WHOLE FOODS MARKET(Cambridge St.)",
+              "name_display": "Whole Foods Market",
+              "brand_key": "whole foods market",
+              "address": "181  CAMBRIDGE ST",
+              "address_display": "181  CAMBRIDGE ST, 02114",
+              "zip": "02114",
+              "license": "24001",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            }
+          ],
+          "places_to_avoid": [],
+          "always_pass_n": 5,
           "repeat_n": 0
         },
         "Food and drinks": {
@@ -6819,58 +7137,6 @@
         "Retail food": {
           "always_pass": [
             {
-              "name": "CVS/Pharmacy No. 10517",
-              "name_display": "CVS/Pharmacy No. 10517",
-              "brand_key": "cvs pharmacy no 10517",
-              "address": "77  SEAPORT BL",
-              "address_display": "77  SEAPORT BL, 02210",
-              "zip": "02210",
-              "license": "301882",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
-              "name": "CVS/Pharmacy No. 1900",
-              "name_display": "CVS/Pharmacy No. 1900",
-              "brand_key": "cvs pharmacy no 1900",
-              "address": "218  HANOVER ST",
-              "address_display": "218  HANOVER ST, 02113",
-              "zip": "02113",
-              "license": "19949",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
-              "name": "Trader Joe's No. 566",
-              "name_display": "Trader Joe's No. 566",
-              "brand_key": "trader joes no 566",
-              "address": "44  THOMSON PL",
-              "address_display": "44  THOMSON PL, 02210",
-              "zip": "02210",
-              "license": "398730",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
-              "name": "WHOLE FOODS MARKET",
-              "name_display": "Whole Foods Market",
-              "brand_key": "whole foods market",
-              "address": "15  WASHINGTON ST",
-              "address_display": "15  WASHINGTON ST, 02135",
-              "zip": "02135",
-              "license": "24017",
-              "category": "Retail food",
-              "inspections": 4,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
               "name": "ADAMS CONVENIENCE STORE",
               "name_display": "Adams Convenience Store",
               "brand_key": "adams convenience store",
@@ -6936,13 +7202,13 @@
               "fail_rate": 0.0
             },
             {
-              "name": "Star Market Company",
-              "name_display": "Star Market Company",
-              "brand_key": "star market company",
-              "address": "50  CAUSEWAY ST",
-              "address_display": "50  CAUSEWAY ST, 02114",
-              "zip": "02114",
-              "license": "359367",
+              "name": "Walden Local Butcher",
+              "name_display": "Walden Local Butcher",
+              "brand_key": "walden local butcher",
+              "address": "316  SHAWMUT AV",
+              "address_display": "316  SHAWMUT AV, 02118",
+              "zip": "02118",
+              "license": "332174",
               "category": "Retail food",
               "inspections": 3,
               "fails": 0,
@@ -6950,7 +7216,7 @@
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 14,
+          "always_pass_n": 6,
           "repeat_n": 0
         },
         "Mobile food": {
@@ -6958,7 +7224,7 @@
             {
               "name": "Boston Trolley DogsNo. 2",
               "name_display": "Boston Trolley DogsNo. 2",
-              "brand_key": "boston trolley dogsno 2",
+              "brand_key": "boston trolley dogs no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
@@ -7048,7 +7314,7 @@
         {
           "name": "BM2: Bon Me OrangeNo. 2",
           "name_display": "BM2: Bon Me OrangeNo. 2",
-          "brand_key": "bm2 bon me orangeno 2",
+          "brand_key": "bm2 bon me orange no 2",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 523524",
           "zip": "02128",
@@ -7165,7 +7431,7 @@
         {
           "name": "Boston Trolley DogsNo. 2",
           "name_display": "Boston Trolley DogsNo. 2",
-          "brand_key": "boston trolley dogsno 2",
+          "brand_key": "boston trolley dogs no 2",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 531943",
           "zip": "02128",
@@ -7212,9 +7478,19 @@
           "fails": 383
         },
         {
+          "label": "Pharmacy",
+          "inspections": 71,
+          "fails": 25
+        },
+        {
+          "label": "Grocery",
+          "inspections": 214,
+          "fails": 103
+        },
+        {
           "label": "Food and drinks",
-          "inspections": 3488,
-          "fails": 1721
+          "inspections": 3486,
+          "fails": 1720
         },
         {
           "label": "Take-out",
@@ -7223,8 +7499,8 @@
         },
         {
           "label": "Retail food",
-          "inspections": 1082,
-          "fails": 389
+          "inspections": 799,
+          "fails": 262
         },
         {
           "label": "Mobile food",
@@ -7264,6 +7540,46 @@
           ],
           "places_to_avoid": [],
           "always_pass_n": 2,
+          "repeat_n": 0
+        },
+        "Pharmacy": {
+          "always_pass": [
+            {
+              "name": "CVS  Pharmacy",
+              "name_display": "CVS Pharmacy",
+              "brand_key": "cvs pharmacy",
+              "address": "214  HARVARD AV",
+              "address_display": "214  HARVARD AV, 02134",
+              "zip": "02134",
+              "license": "425214",
+              "category": "Pharmacy",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            }
+          ],
+          "places_to_avoid": [],
+          "always_pass_n": 1,
+          "repeat_n": 0
+        },
+        "Grocery": {
+          "always_pass": [
+            {
+              "name": "WHOLE FOODS MARKET(415 Centre St.)",
+              "name_display": "Whole Foods Market",
+              "brand_key": "whole foods market",
+              "address": "415  CENTRE ST",
+              "address_display": "415  CENTRE ST, 02130",
+              "zip": "02130",
+              "license": "75480",
+              "category": "Grocery",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            }
+          ],
+          "places_to_avoid": [],
+          "always_pass_n": 1,
           "repeat_n": 0
         },
         "Food and drinks": {
@@ -7556,19 +7872,6 @@
               "fail_rate": 0.0
             },
             {
-              "name": "CVS  Pharmacy",
-              "name_display": "CVS Pharmacy",
-              "brand_key": "cvs pharmacy",
-              "address": "214  HARVARD AV",
-              "address_display": "214  HARVARD AV, 02134",
-              "zip": "02134",
-              "license": "425214",
-              "category": "Retail food",
-              "inspections": 3,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
               "name": "Dollar Tree",
               "name_display": "Dollar Tree",
               "brand_key": "dollar tree",
@@ -7608,19 +7911,6 @@
               "fail_rate": 0.0
             },
             {
-              "name": "WHOLE FOODS MARKET(415 Centre St.)",
-              "name_display": "Whole Foods Market",
-              "brand_key": "whole foods market",
-              "address": "415  CENTRE ST",
-              "address_display": "415  CENTRE ST, 02130",
-              "zip": "02130",
-              "license": "75480",
-              "category": "Retail food",
-              "inspections": 3,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
               "name": "Wild Duck Food Market",
               "name_display": "Wild Duck Food Market",
               "brand_key": "wild duck food market",
@@ -7635,7 +7925,7 @@
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 8,
+          "always_pass_n": 6,
           "repeat_n": 0
         },
         "Mobile food": {
@@ -7643,7 +7933,7 @@
             {
               "name": "BM2: Bon Me OrangeNo. 2",
               "name_display": "BM2: Bon Me OrangeNo. 2",
-              "brand_key": "bm2 bon me orangeno 2",
+              "brand_key": "bm2 bon me orange no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 523524",
               "zip": "02128",
@@ -7695,7 +7985,7 @@
             {
               "name": "Boston Trolley DogsNo. 2",
               "name_display": "Boston Trolley DogsNo. 2",
-              "brand_key": "boston trolley dogsno 2",
+              "brand_key": "boston trolley dogs no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
@@ -7814,7 +8104,7 @@
         "address_display": "1102  WASHINGTON ST, 02118",
         "zip": "02118",
         "license": "34585",
-        "category": "Retail food",
+        "category": "Grocery",
         "inspections": 111,
         "fails": 58,
         "fail_rate": 52.3,
@@ -8888,6 +9178,296 @@
         ],
         "repeat_n": 605
       },
+      "Pharmacy": {
+        "places_to_avoid": [
+          {
+            "name": "Walgreens No.  07189",
+            "name_display": "Walgreens No. 07189",
+            "brand_key": "walgreens no 07189",
+            "address": "1620  TREMONT ST",
+            "address_display": "1620  TREMONT ST, 02120",
+            "zip": "02120",
+            "license": "25358",
+            "category": "Pharmacy",
+            "inspections": 55,
+            "fails": 27,
+            "fail_rate": 49.1,
+            "years_failed": 13
+          },
+          {
+            "name": "Walgreen's No.  3135",
+            "name_display": "Walgreen's No. 3135",
+            "brand_key": "walgreens no 3135",
+            "address": "825  MORTON ST",
+            "address_display": "825  MORTON ST, 02126",
+            "zip": "02126",
+            "license": "25011",
+            "category": "Pharmacy",
+            "inspections": 51,
+            "fails": 22,
+            "fail_rate": 43.1,
+            "years_failed": 12
+          },
+          {
+            "name": "CVS Pharmacy No. 1031",
+            "name_display": "CVS Pharmacy No. 1031",
+            "brand_key": "cvs pharmacy no 1031",
+            "address": "4600  WASHINGTON ST",
+            "address_display": "4600  WASHINGTON ST, 02131",
+            "zip": "02131",
+            "license": "34220",
+            "category": "Pharmacy",
+            "inspections": 37,
+            "fails": 21,
+            "fail_rate": 56.8,
+            "years_failed": 12
+          },
+          {
+            "name": "CVS/Pharmacy No. 2070",
+            "name_display": "CVS/Pharmacy No. 2070",
+            "brand_key": "cvs pharmacy no 2070",
+            "address": "467  CENTRE ST",
+            "address_display": "467  CENTRE ST, 02130",
+            "zip": "02130",
+            "license": "20126",
+            "category": "Pharmacy",
+            "inspections": 36,
+            "fails": 15,
+            "fail_rate": 41.7,
+            "years_failed": 12
+          },
+          {
+            "name": "CVS/PHARMACY No. 2592",
+            "name_display": "Cvs/pharmacy NO 2592",
+            "brand_key": "cvs pharmacy no 2592",
+            "address": "468  BLUE HILL AV",
+            "address_display": "468  BLUE HILL AV, 02121",
+            "zip": "02121",
+            "license": "21565",
+            "category": "Pharmacy",
+            "inspections": 41,
+            "fails": 15,
+            "fail_rate": 36.6,
+            "years_failed": 12
+          },
+          {
+            "name": "Walgreen's No. 3016",
+            "name_display": "Walgreen's No. 3016",
+            "brand_key": "walgreens no 3016",
+            "address": "416  WARREN ST",
+            "address_display": "416  WARREN ST, 02119",
+            "zip": "02119",
+            "license": "25005",
+            "category": "Pharmacy",
+            "inspections": 55,
+            "fails": 26,
+            "fail_rate": 47.3,
+            "years_failed": 11
+          },
+          {
+            "name": "WALGREEN'S No.  4072",
+            "name_display": "Walgreen's NO 4072",
+            "brand_key": "walgreens no 4072",
+            "address": "1890  COLUMBUS AV",
+            "address_display": "1890  COLUMBUS AV, 02119",
+            "zip": "02119",
+            "license": "25009",
+            "category": "Pharmacy",
+            "inspections": 52,
+            "fails": 25,
+            "fail_rate": 48.1,
+            "years_failed": 11
+          },
+          {
+            "name": "CVS Pharmacy No. 5464",
+            "name_display": "CVS Pharmacy No. 5464",
+            "brand_key": "cvs pharmacy no 5464",
+            "address": "1575  BLUE HILL AV",
+            "address_display": "1575  BLUE HILL AV, 02126",
+            "zip": "02126",
+            "license": "80426",
+            "category": "Pharmacy",
+            "inspections": 36,
+            "fails": 17,
+            "fail_rate": 47.2,
+            "years_failed": 11
+          },
+          {
+            "name": "Walgreen's No.  09538",
+            "name_display": "Walgreen's No. 09538",
+            "brand_key": "walgreens no 09538",
+            "address": "2275  WASHINGTON ST",
+            "address_display": "2275  WASHINGTON ST, 02119",
+            "zip": "02119",
+            "license": "25013",
+            "category": "Pharmacy",
+            "inspections": 58,
+            "fails": 24,
+            "fail_rate": 41.4,
+            "years_failed": 10
+          },
+          {
+            "name": "Walgreens No.  06349",
+            "name_display": "Walgreens No. 06349",
+            "brand_key": "walgreens no 06349",
+            "address": "583  WASHINGTON ST",
+            "address_display": "583  WASHINGTON ST, 02124",
+            "zip": "02124",
+            "license": "25360",
+            "category": "Pharmacy",
+            "inspections": 51,
+            "fails": 16,
+            "fail_rate": 31.4,
+            "years_failed": 10
+          }
+        ],
+        "repeat_n": 67
+      },
+      "Grocery": {
+        "places_to_avoid": [
+          {
+            "name": "Go Fresh 365",
+            "name_display": "Go Fresh 365",
+            "brand_key": "go fresh 365",
+            "address": "1102  WASHINGTON ST",
+            "address_display": "1102  WASHINGTON ST, 02118",
+            "zip": "02118",
+            "license": "34585",
+            "category": "Grocery",
+            "inspections": 111,
+            "fails": 58,
+            "fail_rate": 52.3,
+            "years_failed": 15
+          },
+          {
+            "name": "Shaw's Supermarkets No. 602",
+            "name_display": "Shaw's Supermarkets No. 602",
+            "brand_key": "shaws supermarkets no 602",
+            "address": "53  HUNTINGTON AV",
+            "address_display": "53  HUNTINGTON AV, 02199",
+            "zip": "02199",
+            "license": "25674",
+            "category": "Grocery",
+            "inspections": 85,
+            "fails": 42,
+            "fail_rate": 49.4,
+            "years_failed": 15
+          },
+          {
+            "name": "Star Market No. 3588",
+            "name_display": "Star Market No. 3588",
+            "brand_key": "star market no 3588",
+            "address": "1065  COMMONWEALTH AV",
+            "address_display": "1065  COMMONWEALTH AV, 02215",
+            "zip": "02215",
+            "license": "25686",
+            "category": "Grocery",
+            "inspections": 72,
+            "fails": 35,
+            "fail_rate": 48.6,
+            "years_failed": 15
+          },
+          {
+            "name": "Stop & Shop No. 412",
+            "name_display": "Stop & Shop No. 412",
+            "brand_key": "stop shop no 412",
+            "address": "1622  TREMONT ST",
+            "address_display": "1622  TREMONT ST, 02120",
+            "zip": "02120",
+            "license": "22727",
+            "category": "Grocery",
+            "inspections": 68,
+            "fails": 32,
+            "fail_rate": 47.1,
+            "years_failed": 15
+          },
+          {
+            "name": "Stop & Shop Supermarket No. 004",
+            "name_display": "Stop & Shop Supermarket No. 004",
+            "brand_key": "stop shop supermarket no 004",
+            "address": "950  AMERICAN LEGION HW",
+            "address_display": "950  AMERICAN LEGION HW, 02136",
+            "zip": "02136",
+            "license": "31709",
+            "category": "Grocery",
+            "inspections": 68,
+            "fails": 30,
+            "fail_rate": 44.1,
+            "years_failed": 15
+          },
+          {
+            "name": "F & T Davey's Supermarket",
+            "name_display": "F & T Davey's Supermarket",
+            "brand_key": "ft daveys supermarket",
+            "address": "438  DUDLEY ST",
+            "address_display": "438  DUDLEY ST, 02119",
+            "zip": "02119",
+            "license": "19236",
+            "category": "Grocery",
+            "inspections": 59,
+            "fails": 25,
+            "fail_rate": 42.4,
+            "years_failed": 15
+          },
+          {
+            "name": "Star Market No. 4587",
+            "name_display": "Star Market No. 4587",
+            "brand_key": "star market no 4587",
+            "address": "45  WM T MORRISSEY BL",
+            "address_display": "45  WM T MORRISSEY BL, 02122",
+            "zip": "02122",
+            "license": "25690",
+            "category": "Grocery",
+            "inspections": 97,
+            "fails": 49,
+            "fail_rate": 50.5,
+            "years_failed": 14
+          },
+          {
+            "name": "Super Stop & Shop",
+            "name_display": "Super Stop & Shop",
+            "brand_key": "super stop shop",
+            "address": "1100  MASSACHUSETTS AV",
+            "address_display": "1100  MASSACHUSETTS AV, 02125",
+            "zip": "02125",
+            "license": "24174",
+            "category": "Grocery",
+            "inspections": 97,
+            "fails": 48,
+            "fail_rate": 49.5,
+            "years_failed": 14
+          },
+          {
+            "name": "Shaw's Supermarkets No. 2579",
+            "name_display": "Shaw's Supermarkets No. 2579",
+            "brand_key": "shaws supermarkets no 2579",
+            "address": "1377  HYDE PARK AV",
+            "address_display": "1377  HYDE PARK AV, 02136",
+            "zip": "02136",
+            "license": "25676",
+            "category": "Grocery",
+            "inspections": 76,
+            "fails": 33,
+            "fail_rate": 43.4,
+            "years_failed": 14
+          },
+          {
+            "name": "Stop & Shop Supermarket No. 075",
+            "name_display": "Stop & Shop Supermarket No. 075",
+            "brand_key": "stop shop supermarket no 075",
+            "address": "301  CENTRE ST",
+            "address_display": "301  CENTRE ST, 02130",
+            "zip": "02130",
+            "license": "26027",
+            "category": "Grocery",
+            "inspections": 68,
+            "fails": 31,
+            "fail_rate": 45.6,
+            "years_failed": 14
+          }
+        ],
+        "repeat_n": 99
+      },
       "Food and drinks": {
         "places_to_avoid": [
           {
@@ -9031,7 +9611,7 @@
             "years_failed": 15
           }
         ],
-        "repeat_n": 2277
+        "repeat_n": 2270
       },
       "Take-out": {
         "places_to_avoid": [
@@ -9176,24 +9756,10 @@
             "years_failed": 15
           }
         ],
-        "repeat_n": 1882
+        "repeat_n": 1880
       },
       "Retail food": {
         "places_to_avoid": [
-          {
-            "name": "Go Fresh 365",
-            "name_display": "Go Fresh 365",
-            "brand_key": "go fresh 365",
-            "address": "1102  WASHINGTON ST",
-            "address_display": "1102  WASHINGTON ST, 02118",
-            "zip": "02118",
-            "license": "34585",
-            "category": "Retail food",
-            "inspections": 111,
-            "fails": 58,
-            "fail_rate": 52.3,
-            "years_failed": 15
-          },
           {
             "name": "A C Farm Market",
             "name_display": "A C Farm Market",
@@ -9206,76 +9772,6 @@
             "inspections": 80,
             "fails": 42,
             "fail_rate": 52.5,
-            "years_failed": 15
-          },
-          {
-            "name": "Shaw's Supermarkets No. 602",
-            "name_display": "Shaw's Supermarkets No. 602",
-            "brand_key": "shaws supermarkets no 602",
-            "address": "53  HUNTINGTON AV",
-            "address_display": "53  HUNTINGTON AV, 02199",
-            "zip": "02199",
-            "license": "25674",
-            "category": "Retail food",
-            "inspections": 85,
-            "fails": 42,
-            "fail_rate": 49.4,
-            "years_failed": 15
-          },
-          {
-            "name": "Star Market No. 3588",
-            "name_display": "Star Market No. 3588",
-            "brand_key": "star market no 3588",
-            "address": "1065  COMMONWEALTH AV",
-            "address_display": "1065  COMMONWEALTH AV, 02215",
-            "zip": "02215",
-            "license": "25686",
-            "category": "Retail food",
-            "inspections": 72,
-            "fails": 35,
-            "fail_rate": 48.6,
-            "years_failed": 15
-          },
-          {
-            "name": "Stop & Shop No. 412",
-            "name_display": "Stop & Shop No. 412",
-            "brand_key": "stop shop no 412",
-            "address": "1622  TREMONT ST",
-            "address_display": "1622  TREMONT ST, 02120",
-            "zip": "02120",
-            "license": "22727",
-            "category": "Retail food",
-            "inspections": 68,
-            "fails": 32,
-            "fail_rate": 47.1,
-            "years_failed": 15
-          },
-          {
-            "name": "Stop & Shop Supermarket No. 004",
-            "name_display": "Stop & Shop Supermarket No. 004",
-            "brand_key": "stop shop supermarket no 004",
-            "address": "950  AMERICAN LEGION HW",
-            "address_display": "950  AMERICAN LEGION HW, 02136",
-            "zip": "02136",
-            "license": "31709",
-            "category": "Retail food",
-            "inspections": 68,
-            "fails": 30,
-            "fail_rate": 44.1,
-            "years_failed": 15
-          },
-          {
-            "name": "F & T Davey's Supermarket",
-            "name_display": "F & T Davey's Supermarket",
-            "brand_key": "ft daveys supermarket",
-            "address": "438  DUDLEY ST",
-            "address_display": "438  DUDLEY ST, 02119",
-            "zip": "02119",
-            "license": "19236",
-            "category": "Retail food",
-            "inspections": 59,
-            "fails": 25,
-            "fail_rate": 42.4,
             "years_failed": 15
           },
           {
@@ -9293,35 +9789,119 @@
             "years_failed": 15
           },
           {
-            "name": "Star Market No. 4587",
-            "name_display": "Star Market No. 4587",
-            "brand_key": "star market no 4587",
-            "address": "45  WM T MORRISSEY BL",
-            "address_display": "45  WM T MORRISSEY BL, 02122",
-            "zip": "02122",
-            "license": "25690",
+            "name": "American Food Basket",
+            "name_display": "American Food Basket",
+            "brand_key": "american food basket",
+            "address": "942  HYDE PARK AV",
+            "address_display": "942  HYDE PARK AV, 02136",
+            "zip": "02136",
+            "license": "24624",
             "category": "Retail food",
-            "inspections": 97,
-            "fails": 49,
-            "fail_rate": 50.5,
+            "inspections": 84,
+            "fails": 43,
+            "fail_rate": 51.2,
             "years_failed": 14
           },
           {
-            "name": "Super Stop & Shop",
-            "name_display": "Super Stop & Shop",
-            "brand_key": "super stop shop",
-            "address": "1100  MASSACHUSETTS AV",
-            "address_display": "1100  MASSACHUSETTS AV, 02125",
-            "zip": "02125",
-            "license": "24174",
+            "name": "Los Caballeros Market Inc.",
+            "name_display": "Los Caballeros Market",
+            "brand_key": "los caballeros market",
+            "address": "796  WASHINGTON ST",
+            "address_display": "796  WASHINGTON ST, 02124",
+            "zip": "02124",
+            "license": "22579",
             "category": "Retail food",
-            "inspections": 97,
-            "fails": 48,
-            "fail_rate": 49.5,
+            "inspections": 60,
+            "fails": 27,
+            "fail_rate": 45.0,
             "years_failed": 14
+          },
+          {
+            "name": "BAZAAR ON CAMBRIDGE ST.",
+            "name_display": "Bazaar ON Cambridge ST",
+            "brand_key": "bazaar on cambridge st",
+            "address": "424  CAMBRIDGE ST",
+            "address_display": "424  CAMBRIDGE ST, 02134",
+            "zip": "02134",
+            "license": "23278",
+            "category": "Retail food",
+            "inspections": 70,
+            "fails": 25,
+            "fail_rate": 35.7,
+            "years_failed": 14
+          },
+          {
+            "name": "Star Markets No. 2576",
+            "name_display": "Star Markets No. 2576",
+            "brand_key": "star markets no 2576",
+            "address": "33  KILMARNOCK ST",
+            "address_display": "33  KILMARNOCK ST, 02215",
+            "zip": "02215",
+            "license": "25671",
+            "category": "Retail food",
+            "inspections": 55,
+            "fails": 24,
+            "fail_rate": 43.6,
+            "years_failed": 14
+          },
+          {
+            "name": "Family Dollar Stores of MA No.  28063",
+            "name_display": "Family Dollar Stores of MA No. 28063",
+            "brand_key": "family dollar stores of ma no 28063",
+            "address": "20  CORINTH ST",
+            "address_display": "20  CORINTH ST, 02131",
+            "zip": "02131",
+            "license": "33358",
+            "category": "Retail food",
+            "inspections": 45,
+            "fails": 22,
+            "fail_rate": 48.9,
+            "years_failed": 14
+          },
+          {
+            "name": "Quick Pick Convenience",
+            "name_display": "Quick Pick Convenience",
+            "brand_key": "quick pick convenience",
+            "address": "973  TREMONT ST",
+            "address_display": "973  TREMONT ST, 02120",
+            "zip": "02120",
+            "license": "75276",
+            "category": "Retail food",
+            "inspections": 55,
+            "fails": 22,
+            "fail_rate": 40.0,
+            "years_failed": 14
+          },
+          {
+            "name": "PHU CUONG MARKET(1188 Dor. Ave.)",
+            "name_display": "Phu Cuong Market",
+            "brand_key": "phu cuong market",
+            "address": "1188  DORCHESTER AV",
+            "address_display": "1188  DORCHESTER AV, 02125",
+            "zip": "02125",
+            "license": "31901",
+            "category": "Retail food",
+            "inspections": 70,
+            "fails": 36,
+            "fail_rate": 51.4,
+            "years_failed": 13
+          },
+          {
+            "name": "Compadres Meat Market",
+            "name_display": "Compadres Meat Market",
+            "brand_key": "compadres meat market",
+            "address": "3101  WASHINGTON ST",
+            "address_display": "3101  WASHINGTON ST, 02119",
+            "zip": "02119",
+            "license": "75938",
+            "category": "Retail food",
+            "inspections": 58,
+            "fails": 29,
+            "fail_rate": 50.0,
+            "years_failed": 13
           }
         ],
-        "repeat_n": 839
+        "repeat_n": 682
       },
       "Mobile food": {
         "places_to_avoid": [

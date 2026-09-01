@@ -1,0 +1,276 @@
+{
+  "note": "Generated from public Boston grocery/supermarket roundups. Matching uses brand_key equality, prefix, or consecutive tokens after name normalization (the same join pattern as ice_cream_web_matches.json). Not a City license type. Out-of-Boston chains are kept for the join and simply will not match ISD records. Convenience is excluded: 7-Eleven and Dunkin are not grocery. Target, Walmart, and Amazon Fresh were omitted (general merchandise / e-commerce, not a supermarket briefing overlay). Independent corner 'market' names are not listed so Lily's Market stays Retail food unless the trade name has grocery/supermarket.",
+  "names": [
+    {
+      "name": "Trader Joe's",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://www.boston.com/news/local-news/2025/11/21/which-supermarkets-have-the-best-prices-and-quality-in-greater-boston/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Whole Foods",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://www.boston.com/news/local-news/2025/11/21/which-supermarkets-have-the-best-prices-and-quality-in-greater-boston/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Whole Foods Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Stop & Shop",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://www.boston.com/news/local-news/2025/11/21/which-supermarkets-have-the-best-prices-and-quality-in-greater-boston/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Star Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://en.wikipedia.org/wiki/Shaw%27s_and_Star_Market",
+        "https://www.boston.com/news/local-news/2025/11/21/which-supermarkets-have-the-best-prices-and-quality-in-greater-boston/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Shaw's",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://en.wikipedia.org/wiki/Shaw%27s_and_Star_Market",
+        "https://www.boston.com/news/local-news/2025/11/21/which-supermarkets-have-the-best-prices-and-quality-in-greater-boston/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Market Basket",
+      "sources": [
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://www.bostonglobe.com/2025/11/19/business/market-basket-wegmans-consumers-report/",
+        "https://www.cbsnews.com/boston/news/grocery-stores-supermarkets-massachusetts-price-quality-checkbook/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Wegmans",
+      "sources": [
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://www.bostonglobe.com/2025/11/19/business/market-basket-wegmans-consumers-report/",
+        "https://www.cbsnews.com/boston/news/grocery-stores-supermarkets-massachusetts-price-quality-checkbook/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Roche Bros",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Roche Brothers",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Price Rite",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://www.cbsnews.com/boston/news/grocery-stores-supermarkets-massachusetts-price-quality-checkbook/"
+      ]
+    },
+    {
+      "name": "ALDI",
+      "sources": [
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://www.boston.com/news/local-news/2025/11/21/which-supermarkets-have-the-best-prices-and-quality-in-greater-boston/",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Hannaford",
+      "sources": [
+        "https://www.checkbook.org/boston-area/supermarkets/articles/Which-Grocery-Stores-Offer-the-Best-Prices-and-Quality-2057",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "America's Food Basket",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Daily Table",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Foodie's Urban Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Foodie's",
+      "sources": [
+        "https://foodiesmarkets.com/groceries/"
+      ]
+    },
+    {
+      "name": "C-Mart",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Super 88 Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "H Mart",
+      "sources": [
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Tropical Foods",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Tropical Foods El Platanero",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Go Fresh 365",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Ming's Supermarket",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Brother's Supermarket",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Happy Supermarket",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Jia Ho Supermarket",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Bazaar Supermarkets",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Bell's Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Dorchester Food Co-Op",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Lambert's Rainbow Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Phú Cường Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "South End Food Emporium",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Truong Thinh Supermarket",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Village Market",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "bfresh",
+      "sources": [
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Lidl",
+      "sources": [
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Costco",
+      "sources": [
+        "https://grocerychop.com/blog/best-grocery-stores-boston",
+        "https://www.boston.com/news/local-news/2025/11/21/which-supermarkets-have-the-best-prices-and-quality-in-greater-boston/"
+      ]
+    },
+    {
+      "name": "BJ's Wholesale Club",
+      "sources": [
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Grocery Outlet",
+      "sources": [
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    }
+  ]
+}

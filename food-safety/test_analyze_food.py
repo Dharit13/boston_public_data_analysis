@@ -6,6 +6,7 @@ from pathlib import Path
 
 from analyze_food import (
     ALWAYS_PASS_MIN,
+    OVERLAY_ORDER,
     _place_key,
     _roll_places,
     brand_compact,
@@ -19,6 +20,7 @@ from analyze_food import (
     load_licenses,
     name_display,
     normalize_name,
+    set_web_grocery_names,
     set_web_ice_names,
     viol_star,
     zip5_of,
@@ -142,6 +144,49 @@ class CategoryTests(unittest.TestCase):
         self.assertEqual(categorize("Tufts Medical Center Cafe", "FS"), "Hospital")
         self.assertEqual(categorize("Emerson College Dining", "FS"), "School")
         self.assertEqual(categorize("Marriott Hotel Kitchen", "FS"), "Hotel")
+
+    def test_pharmacy_and_grocery_before_coded_retail(self):
+        self.assertEqual(
+            OVERLAY_ORDER[:8],
+            (
+                "Ice cream",
+                "Cultural / attraction",
+                "Hospital",
+                "Hotel",
+                "School",
+                "Cafe",
+                "Pharmacy",
+                "Grocery",
+            ),
+        )
+        self.assertEqual(
+            OVERLAY_ORDER[8:],
+            (
+                "Food and drinks",
+                "Take-out",
+                "Retail food",
+                "Mobile food",
+                "Other / unclassified",
+            ),
+        )
+        self.assertEqual(categorize("CVS/Pharmacy No. 10517", "RF"), "Pharmacy")
+        self.assertEqual(categorize("CVS/Pharmacy No. 1900", "RF"), "Pharmacy")
+        self.assertEqual(categorize("CVS No. 1024", "RF"), "Pharmacy")
+        self.assertEqual(
+            categorize("Patient Dining @ Tufts Medical Center", "FS"),
+            "Hospital",
+        )
+        self.assertEqual(
+            categorize("AFC Sushi @ Walgreens No. 15390", "FT"),
+            "Take-out",
+        )
+        self.assertEqual(categorize("ICE Auto Services", "RF"), "Retail food")
+        self.assertEqual(categorize("7-ELEVEN", "RF"), "Retail food")
+        self.assertEqual(categorize("Dunkin Donuts", "FT"), "Take-out")
+        self.assertEqual(categorize("Lily's Market", "RF"), "Retail food")
+        self.assertEqual(categorize("Bob's Grocery", "RF"), "Grocery")
+        self.assertEqual(categorize("Shaw's Supermarkets No. 602", "RF"), "Grocery")
+        self.assertNotIn("legalowner", categorize.__code__.co_varnames)
 
 
 class NamePipelineTests(unittest.TestCase):
@@ -446,6 +491,95 @@ class WebIceJsonTests(unittest.TestCase):
             categorize("P & R Restaurant & Ice Cream Parlor", "FT"),
             "Ice cream",
         )
+
+
+class WebGroceryJsonTests(unittest.TestCase):
+    def setUp(self):
+        set_web_grocery_names([
+            "Trader Joe's",
+            "Whole Foods",
+            "Stop & Shop",
+            "Star Market",
+        ])
+
+    def tearDown(self):
+        set_web_grocery_names(None)
+
+    def test_web_matched_chain_without_grocery_word_is_grocery(self):
+        self.assertEqual(categorize("Trader Joe's No. 566", "RF"), "Grocery")
+        self.assertEqual(categorize("TRADER JOE'S No. 510", "RF"), "Grocery")
+        self.assertEqual(categorize("WHOLE FOODS MARKET", "RF"), "Grocery")
+        self.assertEqual(categorize("Stop & Shop No. 412", "RF"), "Grocery")
+        self.assertEqual(categorize("Super Stop & Shop", "RF"), "Grocery")
+        self.assertEqual(categorize("Star Market No. 4572", "RF"), "Grocery")
+        self.assertEqual(categorize("Star Market Company", "RF"), "Grocery")
+        self.assertEqual(categorize("7-ELEVEN", "RF"), "Retail food")
+        self.assertEqual(categorize("Dunkin Donuts", "FT"), "Take-out")
+        self.assertEqual(
+            categorize("Kikka @ Whole Foods Charlestown", "RF"),
+            "Retail food",
+        )
+        self.assertEqual(
+            categorize("ACE SUSHI @ STOP & SHOP", "RF"),
+            "Retail food",
+        )
+
+    def test_cvs_licenses_stay_distinct_places(self):
+        rows = [
+            {
+                "business": "CVS/Pharmacy No. 10517",
+                "licenseno": "301882",
+                "address": "77  SEAPORT BL",
+                "zip": "02210",
+                "licensecat": "RF",
+                "fail": False,
+            },
+            {
+                "business": "CVS/Pharmacy No. 1900",
+                "licenseno": "19949",
+                "address": "218  HANOVER ST",
+                "zip": "02113",
+                "licensecat": "RF",
+                "fail": False,
+            },
+        ]
+        by = _roll_places(rows)
+        self.assertEqual(len(by), 2)
+        self.assertEqual(len({_place_key(r) for r in rows}), 2)
+        recs = list(by.values())
+        self.assertTrue(all(r["category"] == "Pharmacy" for r in recs))
+        self.assertEqual({r["license"] for r in recs}, {"301882", "19949"})
+        self.assertNotEqual(brand_key(rows[0]["business"]), brand_key(rows[1]["business"]))
+
+    def test_generated_json_has_source_urls_not_a_frozenset(self):
+        path = Path(__file__).parent / "grocery_web_matches.json"
+        data = json.loads(path.read_text())
+        self.assertTrue(data["names"])
+        labels = []
+        for item in data["names"]:
+            self.assertTrue(item["name"])
+            self.assertTrue(item["sources"])
+            self.assertTrue(all(s.startswith("http") for s in item["sources"]))
+            labels.append(item["name"])
+        self.assertIn("Trader Joe's", labels)
+        self.assertIn("Whole Foods", labels)
+        self.assertIn("Stop & Shop", labels)
+        self.assertIn("Star Market", labels)
+        self.assertNotIn("7-Eleven", labels)
+        self.assertNotIn("7-ELEVEN", labels)
+        self.assertNotIn("Dunkin", labels)
+        analyzer = (Path(__file__).parent / "analyze_food.py").read_text()
+        self.assertNotIn("frozenset({\"Trader Joe", analyzer)
+        self.assertNotIn("Trader Joe's, Whole Foods", analyzer)
+
+    def test_production_json_classifies_listed_grocers(self):
+        set_web_grocery_names(None)
+        self.assertEqual(categorize("Trader Joe's No. 566", "RF"), "Grocery")
+        self.assertEqual(categorize("WHOLE FOODS MARKET", "RF"), "Grocery")
+        self.assertEqual(categorize("Stop & Shop No. 412", "RF"), "Grocery")
+        self.assertEqual(categorize("Star Market No. 4572", "RF"), "Grocery")
+        self.assertEqual(categorize("7-ELEVEN", "RF"), "Retail food")
+        self.assertEqual(categorize("Lily's Market", "RF"), "Retail food")
 
 
 class CitywideAddressTests(unittest.TestCase):
@@ -789,6 +923,8 @@ class CanvasLayoutTests(unittest.TestCase):
         self.assertIn("2026 YTD", text)
         self.assertIn("at least 3 inspections", text)
         self.assertIn("Ice cream", text)
+        self.assertIn("Pharmacy", text)
+        self.assertIn("Grocery", text)
         self.assertIn("Other / unclassified", text)
         self.assertIn("word-boundary", text)
         self.assertIn("calendar years", text)
@@ -796,6 +932,16 @@ class CanvasLayoutTests(unittest.TestCase):
         self.assertIn("Go Fresh 365", text)
         self.assertIn("places-category", text)
         self.assertNotIn("within-window repeat offenders", text)
+        self.assertNotIn("Places to avoid", text)
+        self.assertNotIn("places to avoid", text)
+        self.assertNotIn("don't eat here", text.lower())
+        self.assertNotIn("dont eat here", text.lower())
+        self.assertNotIn("hit list", text.lower())
+        self.assertIn("Be cautious — repeated fails", text)
+        self.assertIn("Mayor’s Food Court", text)
+        self.assertIn("not an official ISD", text)
+        self.assertIn("often destinations or institutions", text)
+        self.assertIn("not extra ISD license types", text)
         self.assertIn("Ice cream", stats["place_windows"]["2025"]["by_category"])
         self.assertIn("Ice cream", stats["repeat_across_years"]["by_category"])
         self.assertIn("names are cleaned", text)
@@ -875,6 +1021,8 @@ class CanvasLayoutTests(unittest.TestCase):
             "Hotel",
             "School",
             "Cafe",
+            "Pharmacy",
+            "Grocery",
             "Food and drinks",
             "Take-out",
             "Retail food",
@@ -903,7 +1051,7 @@ class CanvasLayoutTests(unittest.TestCase):
         )
         self.assertNotIn("mobile rows often use 1 CITYWIDE ST", text)
         self.assertIn(
-            "BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year avoid because the windows differ",
+            "BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year repeated fails because the windows differ",
             text,
         )
         self.assertIn("placeAddress(", text)
@@ -974,6 +1122,26 @@ class DumpNameQualityTests(unittest.TestCase):
             "Food and drinks",
         )
 
+    def test_cvs_seaport_and_hanover_are_pharmacy_not_retail(self):
+        set_web_grocery_names(None)
+        seaport = "CVS/Pharmacy No. 10517"
+        hanover = "CVS/Pharmacy No. 1900"
+        self.assertIn(seaport, self.by_name)
+        self.assertIn(hanover, self.by_name)
+        self.assertEqual(categorize(seaport, self.by_name[seaport]), "Pharmacy")
+        self.assertEqual(categorize(hanover, self.by_name[hanover]), "Pharmacy")
+        self.assertNotEqual(brand_key(seaport), brand_key(hanover))
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_trader_joe_without_grocery_word_and_seven_eleven_not_grocery(self):
+        set_web_grocery_names(None)
+        tj = "Trader Joe's No. 566"
+        self.assertIn(tj, self.by_name)
+        self.assertNotIn("grocery", tj.casefold())
+        self.assertNotIn("supermarket", tj.casefold())
+        self.assertEqual(categorize(tj, self.by_name[tj]), "Grocery")
+        glued = next(n for n in self.by_name if "trader joe" in n.casefold() and "no." in n.casefold().replace(" ", ""))
+        self.assertEqual(categorize(glued, self.by_name[glued]), "Grocery", glued)
+        seven = next(n for n in self.by_name if n.casefold().startswith("7-eleven"))
+        self.assertEqual(categorize(seven, self.by_name[seven]), "Retail food")
+        self.assertEqual(categorize("ICE Auto Services", "RF"), "Retail food")
+        self.assertNotEqual(categorize("ICE Auto Services", "RF"), "Ice cream")
