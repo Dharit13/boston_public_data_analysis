@@ -168,6 +168,10 @@ _GROCERY_RE = re.compile(
     r"\b(grocery|supermarket|super\s+market)\b",
     re.I,
 )
+_VARIETY_STORE_RE = re.compile(
+    r"\b(dollar\s+tree|family\s+dollar|dollar\s+general)\b",
+    re.I,
+)
 
 QUALITY_NOTE = (
     "Food establishment inspections and active food licenses are separate "
@@ -188,7 +192,8 @@ QUALITY_NOTE = (
     "suffix (street, hospital, hotel, college). Ice cream, pharmacy, and "
     "grocery overlays are not City license types. ISD licensecat RF remains "
     "Retail Food (packaged food); leftover Retail food after overlays is "
-    "other packaged retail, not pharmacy or grocery. Place lists skip "
+    "other packaged retail, not pharmacy, grocery, or dollar/variety stores "
+    "(Dollar Tree, Family Dollar, Dollar General). Place lists skip "
     "HE_NotReq: it is not counted as an inspection for always-pass or "
     "cautious tables. Always-pass and be-cautious in a Places view use "
     "the same year window. Ranking pills are ice cream, cafe, pharmacy, "
@@ -529,6 +534,8 @@ def categorize(business: str, licensecat: str) -> str:
         brand_key(name), _web_grocery_keys()
     ):
         return CAT_GROCERY
+    if _VARIETY_STORE_RE.search(norm) or _VARIETY_STORE_RE.search(name):
+        return CAT_OTHER
     return coded
 
 
@@ -886,7 +893,8 @@ REPEAT_ACROSS_RULE = (
     "Places always-pass and be-cautious use the same window. This career "
     "rollup is not mixed with a year pill. It lists ranking categories only "
     "(not Hospital, School, Cultural / attraction, or Hotel) with a major "
-    "fail (** or ***) in at least two calendar years. Minor-only repeats "
+    "fail (** or ***) in at least two calendar "
+    "years. Minor-only repeats "
     "(* only — walls, wiping cloths) are excluded. Two major fails in the "
     "same year count as one year. Ranked by years with a major fail, then "
     "major-fail count. Severity is viol_level on the collapsed visit, not "

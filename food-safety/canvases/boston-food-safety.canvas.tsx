@@ -1543,21 +1543,31 @@ function SectionPlaces() {
         ]}
         columnAlign={["left", "right", "right"]}
         rows={[
-          ["2019 complete", "36", "396"],
-          ["2024 complete", "40", "848"],
-          ["2025 complete", "79", "985"],
-          ["2026 YTD through 28 Aug", "48", "814"],
+          [
+            "2019 complete",
+            ALWAYS_PASS_N[0].toLocaleString("en-US"),
+            CAUTIOUS_N[0].toLocaleString("en-US"),
+          ],
+          [
+            "2024 complete",
+            ALWAYS_PASS_N[1].toLocaleString("en-US"),
+            CAUTIOUS_N[1].toLocaleString("en-US"),
+          ],
+          [
+            "2025 complete",
+            ALWAYS_PASS_N[2].toLocaleString("en-US"),
+            CAUTIOUS_N[2].toLocaleString("en-US"),
+          ],
+          [
+            "2026 YTD through 28 Aug",
+            ALWAYS_PASS_N[3].toLocaleString("en-US"),
+            CAUTIOUS_N[3].toLocaleString("en-US"),
+          ],
         ]}
         rowTone={["info", "info", "info", "warning"]}
       />
       <Caption>
-        Source: Analyze Boston Food Establishment Inspections · collapsed
-        visits · both lists use the same window and skip HE_NotReq as an
-        inspection. 2024 recorded 3,114 HE_NotReq visits, so always-pass
-        is 40 (not 328). 2025 had 30 HE_NotReq and 79 always-pass places.
-        2026 is not a full year. 2020 is COVID and is not a list window
-        here. Ranking lists exclude Hospital, School, Cultural /
-        attraction, and Hotel.
+        {`Source: Analyze Boston Food Establishment Inspections · collapsed visits · both lists use the same window and skip HE_NotReq as an inspection. 2024 recorded 3,114 HE_NotReq visits, so always-pass is ${ALWAYS_PASS_N[1].toLocaleString("en-US")} (not 328). 2025 had 30 HE_NotReq and ${ALWAYS_PASS_N[2].toLocaleString("en-US")} always-pass places. 2026 is not a full year. 2020 is COVID and is not a list window here. Hospital, School, Cultural / attraction, and Hotel use the same window as ice cream and take-out.`}
       </Caption>
       <BarChart
         categories={["2019", "2024", "2025", "2026 YTD"]}
@@ -1622,13 +1632,14 @@ function SectionPlaces() {
         are from Analyze Boston inspections. Ben &amp; Jerry&apos;s is
         Ice cream from those sourced pages, not from a handwritten brand
         list. CVS/Pharmacy stays Pharmacy even when licensecat is RF. Leftover Retail food is other packaged
-        retail. ICE Auto Services and All Spice are not ice cream. 7-Eleven
+        retail, not pharmacy, grocery, or dollar/variety stores; variety stores are unclassified, not Retail food. ICE Auto Services and All Spice are not ice cream. 7-Eleven
         is not grocery. School Street is not School. A coffee shop @ a
         hotel is Cafe, not Hotel; generic dining @ a hospital is Hospital.
         Hospital, School, Cultural / attraction, and Hotel stay on this
         overlay count table and are not ranking pills. FT is Take-out, not Food. 1 CITYWIDE ST is ISD’s placeholder for
         mobile licenses, not a shared physical address. Other /
-        unclassified is 0 on this dump. 2026 YTD is not a full year.
+        unclassified includes dollar/variety stores that ISD still codes RF.
+        2026 YTD is not a full year.
       </Caption>
       <H3>Year for both lists</H3>
       <Row gap={8} wrap>
@@ -1671,6 +1682,15 @@ function SectionPlaces() {
           tone="danger"
         />
       </Grid>
+      {activeCat === "all" ||
+      activeCat === "Hospital" ||
+      activeCat === "School" ||
+      activeCat === "Hotel" ||
+      activeCat === "Cultural / attraction" ? (
+        <Caption>
+          These are kitchen and cafeteria inspection records, not a rating of the hospital and not a skip list.
+        </Caption>
+      ) : null}
       {catAlways.length > 0 ? (
         <Stack gap={8}>
           <H3>
@@ -1717,7 +1737,7 @@ function SectionPlaces() {
             ])}
           />
           <Caption>
-            {`Source: Analyze Boston Food Establishment Inspections · ${windowCaption} · be cautious = at least two major fails (** or ***) in this same window · minor-only * repeats excluded · ranked by major-fail count · top 10 · ${catLabel} · ${catRepeatN.toLocaleString("en-US")} places in this window met this rule · a license cannot also be always-pass here · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address. Lists are from Analyze Boston inspections. Web pages only help classify ice cream and grocery names; they are not inspection outcomes. Be cautious is major fails only (** or *** on a fail visit); minor-only * repeats (wiping cloths, walls) are excluded. Severity is viol_level, not an official ISD avoid list. Letter grade is on the door / Mayor’s Food Court.`}
+            {`Source: Analyze Boston Food Establishment Inspections · ${windowCaption} · be cautious = at least two major fails (** or ***) in this same window · minor-only * repeats excluded · ranked by major-fail count · top 10 · ${catLabel} · ${catRepeatN.toLocaleString("en-US")} places in this window met this rule · a license cannot also be always-pass here · tables show cleaned name_display · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address. Lists are from Analyze Boston inspections. Web pages only help classify ice cream and grocery names; they are not inspection outcomes. Be cautious is major fails only (** or *** on a fail visit); minor-only * repeats (wiping cloths, walls) are excluded. Severity is viol_level, not an official ISD avoid list. Letter grade is on the door / Mayor’s Food Court.`}
           </Caption>
         </Stack>
       ) : null}
@@ -1762,7 +1782,7 @@ function SectionQuality() {
           ],
           [
             "Be cautious = ≥2 major fails in the same window as always-pass",
-            "If the year pill is 2025, both lists use 2025. Minor-only * repeats are excluded. Always-pass is ≥3 inspections and 0 fails, not counting HE_NotReq. Hospital, School, Cultural, and Hotel are not ranking pills.",
+            "If the year pill is 2025, both lists use 2025. Minor-only * repeats are excluded. Always-pass is ≥2 inspections and 0 fails, not counting HE_NotReq. Hospital, School, Cultural, and Hotel are ranking categories; those rows are kitchen and cafeteria inspection records, not a rating of the hospital and not a skip list.",
           ],
           [
             "Names: strip Inc/LLC/Corp/Ltd, not Company",
