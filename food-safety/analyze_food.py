@@ -36,6 +36,7 @@ SEV_LABEL = {
     SEV_UNSTARRED: "Unstarred",
 }
 ALWAYS_PASS_MIN = 3
+CAUTIOUS_MAJOR_MIN = 2
 REPEAT_YEAR_MIN = 2
 PLACE_DETAIL_YEARS = (2019, 2024, 2025)
 
@@ -73,6 +74,18 @@ OVERLAY_ORDER = (
     CAT_MOBILE,
     CAT_OTHER,
 )
+# Overlay counts still include Hospital / School / Cultural / Hotel.
+# Ranking pills do not: those kitchens are not consumer pick-a-restaurant lists.
+INSTITUTION_CATS = frozenset(
+    {CAT_HOSPITAL, CAT_SCHOOL, CAT_CULTURAL, CAT_HOTEL}
+)
+RANKING_CATS = frozenset(
+    lab
+    for lab in OVERLAY_ORDER
+    if lab != CAT_OTHER and lab not in INSTITUTION_CATS
+)
+RANKING_ORDER = tuple(lab for lab in OVERLAY_ORDER if lab in RANKING_CATS)
+ACTIVE_STATUS = "Active"
 
 _ICE_RE = re.compile(
     r"\b(ice\s*cream|gelato|frozen\s+yogurt|frozen\s+dessert|fro-?yo|yoghurt\s+shop|\w*creamery)\b",
@@ -177,8 +190,16 @@ QUALITY_NOTE = (
     "Retail Food (packaged food); leftover Retail food after overlays is "
     "other packaged retail, not pharmacy or grocery. Place lists skip "
     "HE_NotReq: it is not counted as an inspection for always-pass or "
-    "cautious tables. Be cautious ranks major fails only (** or *** on a "
-    "fail visit); minor-only * repeats are excluded."
+    "cautious tables. Always-pass and be-cautious in a Places view use "
+    "the same year window. Ranking pills are ice cream, cafe, pharmacy, "
+    "grocery, food and drinks, take-out, retail food, and mobile food — "
+    "not Hospital, School, Cultural / attraction, or Hotel. Always-pass "
+    "is an Active license, zero fails, and at least three real visits in "
+    "that window. Be cautious is an Active license with at least two "
+    "major fails (** or *** on a fail visit) in that same window; "
+    "minor-only * repeats are excluded. A license number cannot appear "
+    "on both lists in the same view. Institution kitchens are cafeteria "
+    "inspection records, not a rating of the hospital or a skip list."
 )
 
 
@@ -538,6 +559,14 @@ def _place_key(row: dict) -> str:
     return row["licenseno"] or f"{row['business']}|{row['address']}|{row['zip']}"
 
 
+def _license_id(rec: dict) -> str:
+    return rec.get("license") or f"{rec['name']}|{rec['address']}|{rec['zip']}"
+
+
+def _is_major_fail_row(row: dict) -> bool:
+    return bool(row.get("fail")) and fail_severity(row.get("stars") or {}) == SEV_MAJOR
+
+
 def _roll_places(rows: list[dict]) -> dict[str, dict]:
     by: dict[str, dict] = {}
     for row in rows:
@@ -554,13 +583,25 @@ def _roll_places(rows: list[dict]) -> dict[str, dict]:
                 "zip": row["zip"],
                 "license": row["licenseno"],
                 "category": categorize(row["business"], row["licensecat"]),
+                "licstatus": "",
                 "inspections": 0,
                 "fails": 0,
+                "major_fails": 0,
+                "last_fail_dt": "",
+                "last_fail_severity": "",
             }
             by[key] = rec
+        if row.get("licstatus") == ACTIVE_STATUS:
+            rec["licstatus"] = ACTIVE_STATUS
         rec["inspections"] += 1
         if row["fail"]:
             rec["fails"] += 1
+            if _is_major_fail_row(row):
+                rec["major_fails"] += 1
+                dtiso = row.get("resultdttm") or ""
+                if dtiso >= rec["last_fail_dt"]:
+                    rec["last_fail_dt"] = dtiso
+                    rec["last_fail_severity"] = SEV_MAJOR
     for rec in by.values():
         n = rec["inspections"]
         rec["fail_rate"] = round(100.0 * rec["fails"] / n, 1) if n else 0.0
@@ -585,17 +626,67 @@ def _public_place(rec: dict, extra: tuple[str, ...] = ()) -> dict:
         "fails",
         "fail_rate",
     ) + extra
-    return {k: rec[k] for k in keys}
+    return {k: rec[k] for k in keys if k in rec}
+
+
+def _is_active_place(rec: dict) -> bool:
+    return rec.get("licstatus") == ACTIVE_STATUS
+
+
+def _split_window_lists(places: list[dict]) -> tuple[list[dict], list[dict]]:
+    ranked = [
+        p
+        for p in places
+        if p["category"] in RANKING_CATS and _is_active_place(p)
+    ]
+    cautious = [
+        p for p in ranked if p.get("major_fails", 0) >= CAUTIOUS_MAJOR_MIN
+    ]
+    cautious.sort(
+        key=lambda p: (-p["major_fails"], -p["fails"], p["name"].lower())
+    )
+    cautious_ids = {_license_id(p) for p in cautious}
+    always = [
+        p
+        for p in ranked
+        if p["fails"] == 0
+        and p["inspections"] >= ALWAYS_PASS_MIN
+        and _license_id(p) not in cautious_ids
+    ]
+    always.sort(key=lambda p: (-p["inspections"], p["name"].lower()))
+    return always, cautious
+
+
+def place_lists_for_window(places: list[dict]) -> dict:
+    """Always-pass and be-cautious for one year window. Same rules every category."""
+    always, cautious = _split_window_lists(places)
+    extra = ("major_fails", "last_fail_severity")
+    by_category: dict[str, dict] = {}
+    for lab in RANKING_ORDER:
+        subset = [p for p in places if p["category"] == lab]
+        cat_always, cat_cautious = _split_window_lists(subset)
+        if not cat_always and not cat_cautious:
+            continue
+        by_category[lab] = {
+            "always_pass": [_public_place(p) for p in cat_always[:10]],
+            "places_to_avoid": [
+                _public_place(p, extra=extra) for p in cat_cautious[:10]
+            ],
+            "always_pass_n": len(cat_always),
+            "repeat_n": len(cat_cautious),
+        }
+    return {
+        "always_pass": always,
+        "cautious": cautious,
+        "by_category": by_category,
+    }
 
 
 def _window_payload(by: dict[str, dict], ytd: bool) -> dict:
     places = list(by.values())
-    always = [
-        p
-        for p in places
-        if p["fails"] == 0 and p["inspections"] >= ALWAYS_PASS_MIN
-    ]
-    always.sort(key=lambda p: (-p["inspections"], p["name"].lower()))
+    lists = place_lists_for_window(places)
+    always = lists["always_pass"]
+    cautious = lists["cautious"]
     cat_n: Counter = Counter()
     cat_fail: Counter = Counter()
     for p in places:
@@ -606,33 +697,18 @@ def _window_payload(by: dict[str, dict], ytd: bool) -> dict:
         for lab in OVERLAY_ORDER
         if cat_n[lab]
     ]
-    by_category: dict[str, dict] = {}
-    for lab in OVERLAY_ORDER:
-        subset = [p for p in places if p["category"] == lab]
-        cat_always = [
-            p
-            for p in subset
-            if p["fails"] == 0 and p["inspections"] >= ALWAYS_PASS_MIN
-        ]
-        cat_always.sort(key=lambda p: (-p["inspections"], p["name"].lower()))
-        if not cat_always:
-            continue
-        by_category[lab] = {
-            "always_pass": [_public_place(p) for p in cat_always[:10]],
-            "places_to_avoid": [],
-            "always_pass_n": len(cat_always),
-            "repeat_n": 0,
-        }
+    extra = ("major_fails", "last_fail_severity")
     return {
         "ytd": ytd,
         "min_pass_inspections": ALWAYS_PASS_MIN,
+        "min_major_fails": CAUTIOUS_MAJOR_MIN,
         "always_pass": [_public_place(p) for p in always[:10]],
         "repeat_offenders": [],
-        "places_to_avoid": [],
+        "places_to_avoid": [_public_place(p, extra=extra) for p in cautious[:10]],
         "always_pass_n": len(always),
-        "repeat_n": 0,
+        "repeat_n": len(cautious),
         "category_n": category_n,
-        "by_category": by_category,
+        "by_category": lists["by_category"],
     }
 
 
@@ -676,6 +752,7 @@ def load_inspections(path: Path) -> tuple[list[dict], dict]:
                     "address": strip_null(raw.get("address", "")),
                     "licensecat": strip_null(raw.get("licensecat", "")),
                     "descript": strip_null(raw.get("descript", "")),
+                    "licstatus": strip_null(raw.get("licstatus", "")),
                     "zip": zip5,
                     "neighborhood": ZIP_NEIGHBORHOOD.get(zip5, ""),
                     "resultdttm": dt.isoformat(timespec="seconds"),
@@ -804,15 +881,18 @@ SEVERITY_RULE = (
     "is not a fail."
 )
 
-REPEAT_ACROSS_WINDOW = "2012–2026 · major fail (**/***) in ≥2 calendar years"
+REPEAT_ACROSS_WINDOW = "2012–2026 · methods appendix · not a Places year pill"
 REPEAT_ACROSS_RULE = (
-    "Be cautious lists places with a major fail (** or ***) in at least two "
-    "calendar years. Minor-only repeats (* only — walls, wiping cloths) are "
-    "excluded. Two major fails in the same year count as one year. Ranked by "
-    "years with a major fail, then major-fail count. Severity is viol_level "
-    "on the collapsed visit, not an official ISD avoid list. Web pages only "
-    "help classify ice cream and grocery names; they are not inspection "
-    "outcomes. HE_NotReq is not counted as an inspection on these lists."
+    "Places always-pass and be-cautious use the same window. This career "
+    "rollup is not mixed with a year pill. It lists ranking categories only "
+    "(not Hospital, School, Cultural / attraction, or Hotel) with a major "
+    "fail (** or ***) in at least two calendar years. Minor-only repeats "
+    "(* only — walls, wiping cloths) are excluded. Two major fails in the "
+    "same year count as one year. Ranked by years with a major fail, then "
+    "major-fail count. Severity is viol_level on the collapsed visit, not "
+    "an official ISD avoid list. Web pages only help classify ice cream "
+    "and grocery names; they are not inspection outcomes. HE_NotReq is not "
+    "counted as an inspection on these lists."
 )
 
 
@@ -919,12 +999,15 @@ def briefing_from_rows(
                 "zip": row["zip"],
                 "license": row["licenseno"],
                 "category": categorize(row["business"], row["licensecat"]),
+                "licstatus": "",
                 "inspections": 0,
                 "fails": 0,
                 "last_fail_dt": "",
                 "last_fail_severity": "",
             }
             across_roll[key] = rec
+        if row.get("licstatus") == ACTIVE_STATUS:
+            rec["licstatus"] = ACTIVE_STATUS
         rec["inspections"] += 1
         if row["fail"] and fail_severity(row["stars"]) == SEV_MAJOR:
             rec["fails"] += 1
@@ -938,6 +1021,10 @@ def briefing_from_rows(
         nyears = len(years_major.get(key, ()))
         if nyears < REPEAT_YEAR_MIN:
             continue
+        if rec["category"] not in RANKING_CATS:
+            continue
+        if rec.get("licstatus") != ACTIVE_STATUS:
+            continue
         rec["years_failed"] = nyears
         rec["fail_rate"] = round(
             100.0 * rec["fails"] / rec["inspections"], 1
@@ -947,7 +1034,7 @@ def briefing_from_rows(
         key=lambda p: (-p["years_failed"], -p["fails"], p["name"].lower())
     )
     across_by_cat: dict[str, dict] = {}
-    for lab in OVERLAY_ORDER:
+    for lab in RANKING_ORDER:
         subset = [p for p in across_places if p["category"] == lab]
         if not subset:
             continue
@@ -1042,6 +1129,7 @@ def briefing_from_rows(
         },
         "place_windows": place_windows,
         "repeat_across_years": repeat_across,
+        "ranking_labels": list(RANKING_ORDER),
         "category_by_year": category_by_year,
     }
 
