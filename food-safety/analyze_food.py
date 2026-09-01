@@ -175,7 +175,10 @@ QUALITY_NOTE = (
     "suffix (street, hospital, hotel, college). Ice cream, pharmacy, and "
     "grocery overlays are not City license types. ISD licensecat RF remains "
     "Retail Food (packaged food); leftover Retail food after overlays is "
-    "other packaged retail, not pharmacy or grocery."
+    "other packaged retail, not pharmacy or grocery. Place lists skip "
+    "HE_NotReq: it is not counted as an inspection for always-pass or "
+    "cautious tables. Be cautious ranks major fails only (** or *** on a "
+    "fail visit); minor-only * repeats are excluded."
 )
 
 
@@ -232,6 +235,19 @@ def zip5_of(raw: str) -> str:
 
 def is_fail(raw: str) -> bool:
     return strip_null(raw) in FAIL_RESULTS
+
+
+def is_place_visit(row) -> bool:
+    """Collapsed visits that count on always-pass / cautious lists.
+
+    HE_NotReq is still a citywide result code; it is not an inspection of the
+    kitchen for place lists.
+    """
+    if isinstance(row, dict):
+        result = strip_null(row.get("result", ""))
+    else:
+        result = strip_null(row)
+    return result != "HE_NotReq"
 
 
 def fail_severity(stars: dict) -> str:
@@ -525,6 +541,8 @@ def _place_key(row: dict) -> str:
 def _roll_places(rows: list[dict]) -> dict[str, dict]:
     by: dict[str, dict] = {}
     for row in rows:
+        if not is_place_visit(row):
+            continue
         key = _place_key(row)
         rec = by.get(key)
         if rec is None:
@@ -786,6 +804,17 @@ SEVERITY_RULE = (
     "is not a fail."
 )
 
+REPEAT_ACROSS_WINDOW = "2012–2026 · major fail (**/***) in ≥2 calendar years"
+REPEAT_ACROSS_RULE = (
+    "Be cautious lists places with a major fail (** or ***) in at least two "
+    "calendar years. Minor-only repeats (* only — walls, wiping cloths) are "
+    "excluded. Two major fails in the same year count as one year. Ranked by "
+    "years with a major fail, then major-fail count. Severity is viol_level "
+    "on the collapsed visit, not an official ISD avoid list. Web pages only "
+    "help classify ice cream and grocery names; they are not inspection "
+    "outcomes. HE_NotReq is not counted as an inspection on these lists."
+)
+
 
 def _days_in_year(year: int) -> int:
     leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
@@ -872,10 +901,12 @@ def briefing_from_rows(
     ytd_payload["year"] = 2026
     place_windows["2026_ytd"] = ytd_payload
 
-    years_failed: dict[str, set[int]] = defaultdict(set)
+    years_major: dict[str, set[int]] = defaultdict(set)
     across_roll: dict[str, dict] = {}
     for row in inspections:
         if not (2012 <= row["year"] <= YEAR_MAX):
+            continue
+        if not is_place_visit(row):
             continue
         key = _place_key(row)
         rec = across_roll.get(key)
@@ -895,16 +926,16 @@ def briefing_from_rows(
             }
             across_roll[key] = rec
         rec["inspections"] += 1
-        if row["fail"]:
+        if row["fail"] and fail_severity(row["stars"]) == SEV_MAJOR:
             rec["fails"] += 1
-            years_failed[key].add(row["year"])
+            years_major[key].add(row["year"])
             dtiso = row.get("resultdttm") or ""
             if dtiso >= rec["last_fail_dt"]:
                 rec["last_fail_dt"] = dtiso
-                rec["last_fail_severity"] = fail_severity(row["stars"])
+                rec["last_fail_severity"] = SEV_MAJOR
     across_places = []
     for key, rec in across_roll.items():
-        nyears = len(years_failed.get(key, ()))
+        nyears = len(years_major.get(key, ()))
         if nyears < REPEAT_YEAR_MIN:
             continue
         rec["years_failed"] = nyears
@@ -930,7 +961,8 @@ def briefing_from_rows(
             "repeat_n": len(subset),
         }
     repeat_across = {
-        "window": "2012–2026 · fail in ≥2 calendar years",
+        "window": REPEAT_ACROSS_WINDOW,
+        "rule": REPEAT_ACROSS_RULE,
         "years": list(range(YEAR_MIN, YEAR_MAX + 1)),
         "repeat_n": len(across_places),
         "places": [

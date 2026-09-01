@@ -18,6 +18,7 @@ from analyze_food import (
     briefing_from_rows,
     categorize,
     fail_severity,
+    is_place_visit,
     format_address_display,
     is_citywide_placeholder,
     is_fail,
@@ -52,6 +53,11 @@ class ResultTests(unittest.TestCase):
         self.assertFalse(is_fail("HE_VolClos"))
         self.assertNotIn("HE_Filed", FAIL_RESULTS)
         self.assertTrue(SEVERE_OPS.isdisjoint(FAIL_RESULTS))
+        self.assertFalse(is_fail("HE_NotReq"))
+        self.assertFalse(is_place_visit({"result": "HE_NotReq"}))
+        self.assertTrue(is_place_visit({"result": "HE_Pass"}))
+        self.assertTrue(is_place_visit({"result": "HE_Fail"}))
+        self.assertTrue(is_place_visit({"result": "HE_Filed"}))
 
     def test_fail_severity_stars_not_keywords(self):
         self.assertEqual(fail_severity({"*": 2, "**": 0, "***": 0}), SEV_MINOR)
@@ -656,7 +662,7 @@ class PlaceWindowTests(unittest.TestCase):
         b = briefing_from_rows(inspections, licenses, {**iq, **lq})
         self.assertNotIn("licenses", b["by_year"][0])
         self.assertEqual(b["active_licenses"], 2)
-        self.assertEqual(b["y2025"]["n"], 37)
+        self.assertEqual(b["y2025"]["n"], 45)
         windows = b["place_windows"]
         self.assertIn("2019", windows)
         self.assertIn("2024", windows)
@@ -672,6 +678,10 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertIn("ICE Auto Services", names_2025_pass)
         self.assertIn("Al's School Street Cafe", names_2025_pass)
         self.assertIn("Filed Only", names_2025_pass)
+        self.assertIn("Solid Pad", names_2025_pass)
+        solid = next(p for p in windows["2025"]["always_pass"] if p["name"] == "Solid Pad")
+        self.assertEqual(solid["inspections"], 3)
+        self.assertNotIn("NotReq Pad", names_2025_pass)
         self.assertNotIn("One Lucky Bowl", names_2025_pass)
         self.assertNotIn("Repeat Taco", names_2025_pass)
         bart = next(p for p in windows["2025"]["always_pass"] if p["name"] == "Bart Ice Cream")
@@ -711,16 +721,20 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertEqual(y2026_rep, [])
 
         across = {p["name"]: p for p in b["repeat_across_years"]["places"]}
-        self.assertIn("Repeat Taco", across)
-        self.assertGreaterEqual(across["Repeat Taco"]["years_failed"], 3)
-        self.assertEqual(across["Repeat Taco"]["last_fail_severity"], "minor_only")
+        self.assertNotIn("Repeat Taco", across)
+        self.assertNotIn("Citywide Repeat", across)
         self.assertIn("Major Kitchen", across)
         self.assertEqual(across["Major Kitchen"]["last_fail_severity"], "major")
+        self.assertGreaterEqual(across["Major Kitchen"]["years_failed"], 2)
+        self.assertIn("Major Wok", across)
+        self.assertEqual(across["Major Wok"]["last_fail_severity"], "major")
         self.assertNotIn("Children's Museum Shop", across)
         self.assertNotIn("Marriott Hotel Kitchen", across)
-        self.assertEqual(b["repeat_across_years"]["window"], "2012–2026 · fail in ≥2 calendar years")
-        taco_years = across["Repeat Taco"]["years_failed"]
-        self.assertGreaterEqual(taco_years, 3)
+        self.assertEqual(
+            b["repeat_across_years"]["window"],
+            "2012–2026 · major fail (**/***) in ≥2 calendar years",
+        )
+        self.assertIn("minor-only", b["repeat_across_years"]["rule"].lower())
 
         coded = {row["year"]: row for row in b["category_by_year"]}
         self.assertIn("Food and drinks", coded[2025])
@@ -757,11 +771,11 @@ class PlaceWindowTests(unittest.TestCase):
         across_cat = b["repeat_across_years"]["by_category"]
         self.assertEqual(
             [p["name"] for p in across_cat["Take-out"]["places_to_avoid"]],
-            ["Repeat Taco"],
+            ["Major Wok"],
         )
         self.assertEqual(
             across_cat["Take-out"]["places_to_avoid"][0]["last_fail_severity"],
-            "minor_only",
+            "major",
         )
         self.assertEqual(
             [p["name"] for p in across_cat["Food and drinks"]["places_to_avoid"]],
@@ -798,21 +812,23 @@ class PlaceWindowTests(unittest.TestCase):
         across = next(
             p
             for p in b["repeat_across_years"]["places"]
-            if p["name"] == "Citywide Repeat"
+            if p["name"] == "Citywide Major"
         )
         self.assertEqual(across["address"], "1 CITYWIDE")
         self.assertEqual(
             across["address_display"],
-            "Mobile (citywide) · License L115",
+            "Mobile (citywide) · License L117",
         )
         self.assertNotRegex(across["address_display"], r"(?i)1\s+CITYWIDE")
         avoid_mfw = b["repeat_across_years"]["by_category"]["Mobile food"][
             "places_to_avoid"
         ]
-        self.assertEqual(avoid_mfw[0]["name"], "Citywide Repeat")
+        avoid_names = [p["name"] for p in avoid_mfw]
+        self.assertIn("Citywide Major", avoid_names)
+        self.assertNotIn("Citywide Repeat", avoid_names)
         self.assertEqual(
             avoid_mfw[0]["address_display"],
-            "Mobile (citywide) · License L115",
+            "Mobile (citywide) · License L117",
         )
 
 
@@ -978,6 +994,10 @@ class CanvasLayoutTests(unittest.TestCase):
         self.assertIn("word-boundary", text)
         self.assertIn("calendar years", text)
         self.assertIn("Two fails in the same year are not a repeat", text)
+        self.assertIn("major fail", text.lower())
+        self.assertIn("HE_NotReq", text)
+        self.assertIn("not counting HE_NotReq", text)
+        self.assertIn("web pages only help classify", text.lower())
         self.assertIn("Go Fresh 365", text)
         self.assertIn("places-category", text)
         self.assertNotIn("within-window repeat offenders", text)
@@ -1010,6 +1030,8 @@ class CanvasLayoutTests(unittest.TestCase):
             stats["repeat_across_years"]["places"][0]["last_fail_severity"],
             "major",
         )
+        for p in stats["repeat_across_years"]["places"]:
+            self.assertEqual(p["last_fail_severity"], "major", p["name"])
         self.assertIn("not an official ISD", text)
         self.assertIn("Mayor’s Food Court", text)
         self.assertIn("often destinations or institutions", text)
@@ -1123,7 +1145,7 @@ class CanvasLayoutTests(unittest.TestCase):
         )
         self.assertNotIn("mobile rows often use 1 CITYWIDE ST", text)
         self.assertIn(
-            "BM3:BON ME RED and Chubby Chickpea can appear on 2024 always-pass and on multi-year repeated fails because the windows differ",
+            "BM3:BON ME RED and Chubby Chickpea stay on the multi-year major-fail list; they are not on 2024 always-pass because HE_NotReq visits do not count",
             text,
         )
         self.assertIn("placeAddress(", text)
