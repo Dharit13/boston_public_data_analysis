@@ -1,0 +1,191 @@
+{
+  "note": "Generated from public ice-cream roundup pages plus official Boston scoop-shop listings for chains Time Out/Eater headings omitted. Matching uses brand_compact equality after name normalization. Not a City license type. Out-of-Boston shops are kept for the join and simply will not match ISD records. Picco, P & R Restaurant (restaurant that also scoops; dump rows are P & R Ice Cream / P & R Restaurant & Ice Cream Parlor), Clear Flour Bread, Vinal General Store, and Wikipedia global parlor chains were not included (restaurant/bakery false-positive risk). Ben & Jerry's is included from official scoop-shop pages and Boston.com coverage, not from Time Out's introductory mention.",
+  "names": [
+    {
+      "name": "Far Out Ice Cream",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "Toscanini's",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://boston.eater.com/maps/best-ice-cream-boston",
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/",
+        "https://www.boston.com/food/ice-cream/2025/07/11/best-boston-ice-cream/"
+      ]
+    },
+    {
+      "name": "New City Microcreamery",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "Gracie's Ice Cream",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/",
+        "https://www.boston.com/food/ice-cream/2025/07/11/best-boston-ice-cream/",
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    },
+    {
+      "name": "Honeycomb Creamery",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://boston.eater.com/maps/best-ice-cream-boston",
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/",
+        "https://www.boston.com/food/summer/2024/08/15/i-tasted-over-250-ice-cream-flavors-in-greater-boston-here-are-my-favorites/",
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    },
+    {
+      "name": "FoMu",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "Christina's Homemade Ice Cream",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "J.P. Licks",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/",
+        "https://en.wikipedia.org/wiki/J.P._Licks"
+      ]
+    },
+    {
+      "name": "Emack & Bolio's",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston",
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    },
+    {
+      "name": "Ben & Jerry's",
+      "sources": [
+        "https://www.benjerry.com/newbury",
+        "https://www.benjerry.com/boston-faneuilhall",
+        "https://www.benjerry.com/boston-seaport",
+        "https://www.boston.com/food/restaurants/2019/04/11/ben-jerrys-faneuil-hall/"
+      ]
+    },
+    {
+      "name": "Amorino",
+      "sources": [
+        "https://www.timeout.com/boston/restaurants/best-ice-cream-in-boston"
+      ]
+    },
+    {
+      "name": "Gerly's Ice Cream",
+      "sources": [
+        "https://boston.eater.com/maps/best-ice-cream-boston",
+        "https://www.boston.com/food/summer/2024/08/15/i-tasted-over-250-ice-cream-flavors-in-greater-boston-here-are-my-favorites/"
+      ]
+    },
+    {
+      "name": "Rancatore's Ice Cream & Yogurt",
+      "sources": [
+        "https://boston.eater.com/maps/best-ice-cream-boston",
+        "https://www.boston.com/food/ice-cream/2025/07/11/best-boston-ice-cream/"
+      ]
+    },
+    {
+      "name": "Jamie's Ice Cream Co.",
+      "sources": [
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "Lazy Bear Creamery",
+      "sources": [
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "The Ice Creamsmith",
+      "sources": [
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "Ron's Ice Cream & Bowling",
+      "sources": [
+        "https://boston.eater.com/maps/best-ice-cream-boston"
+      ]
+    },
+    {
+      "name": "Ron's Gourmet Ice Cream",
+      "sources": [
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    },
+    {
+      "name": "Third Time Together",
+      "sources": [
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/"
+      ]
+    },
+    {
+      "name": "Crescent Ridge",
+      "sources": [
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/",
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    },
+    {
+      "name": "Crescent Ridge Dairy",
+      "sources": [
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/"
+      ]
+    },
+    {
+      "name": "Tipping Cow",
+      "sources": [
+        "https://www.bostonmagazine.com/best-of-boston-archive/award/ice-cream/"
+      ]
+    },
+    {
+      "name": "Van Leeuwen Ice Cream",
+      "sources": [
+        "https://www.boston.com/food/ice-cream/2025/07/11/best-boston-ice-cream/"
+      ]
+    },
+    {
+      "name": "Cabot's Ice Cream & Restaurant",
+      "sources": [
+        "https://www.boston.com/food/ice-cream/2025/07/11/best-boston-ice-cream/",
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    },
+    {
+      "name": "Holy Cow Ice Cream Cafe",
+      "sources": [
+        "https://www.boston.com/food/summer/2024/08/15/i-tasted-over-250-ice-cream-flavors-in-greater-boston-here-are-my-favorites/"
+      ]
+    },
+    {
+      "name": "Sweeties",
+      "sources": [
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    },
+    {
+      "name": "The Original Boston Frosty",
+      "sources": [
+        "https://www.cbsnews.com/boston/news/massachusetts-ice-cream-trail-map/"
+      ]
+    }
+  ]
+}

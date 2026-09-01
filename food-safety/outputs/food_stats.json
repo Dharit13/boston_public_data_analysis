@@ -8,7 +8,7 @@
     "insp_max": "2026-08-28",
     "lic_raw": 3347,
     "lic_kept": 3347,
-    "note": "Food establishment inspections and active food licenses are separate files. Do not count a license row as an inspection. The inspection dump is one row per violation; this briefing collapses to one inspection per license number and result timestamp. Drop rows with no resultdttm. Complete years are 2012\u20132025. 2026 is year-to-date through 28 August \u2014 not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR \u2014 not a substring. Star levels are exact *, **, ***."
+    "note": "Food establishment inspections and active food licenses are separate files. Do not count a license row as an inspection. The inspection dump is one row per violation; this briefing collapses to one inspection per license number and result timestamp. Drop rows with no resultdttm. Complete years are 2012\u20132025. 2026 is year-to-date through 28 August \u2014 not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR \u2014 not a substring. Star levels are exact *, **, ***. Display names strip trailing Inc/LLC/Corp/Ltd, not Company/Co in a trade name, and strip @ only when it is a location suffix (street, hospital, hotel, college). Ice cream overlays are not a City license type."
   },
   "years": [
     2012,
@@ -4148,6 +4148,8 @@
       "always_pass": [
         {
           "name": "Roxy's Gourmet Grilled Cheese No. 2",
+          "name_display": "Roxy's Gourmet Grilled Cheese No. 2",
+          "brand_key": "roxys gourmet grilled cheese no 2",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 74860",
           "zip": "02128",
@@ -4159,6 +4161,8 @@
         },
         {
           "name": "The Bacon Truck No. 2",
+          "name_display": "The Bacon Truck No. 2",
+          "brand_key": "bacon truck no 2",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 389249",
           "zip": "02128",
@@ -4170,6 +4174,8 @@
         },
         {
           "name": "Emmanuel College",
+          "name_display": "Emmanuel College",
+          "brand_key": "emmanuel college",
           "address": "400  FENWAY",
           "address_display": "400  FENWAY, 02115",
           "zip": "02115",
@@ -4181,6 +4187,8 @@
         },
         {
           "name": "HILTON BOSTON LOGAN AIRPORT",
+          "name_display": "Hilton Boston Logan Airport",
+          "brand_key": "hilton boston logan airport",
           "address": "1  HOTEL DR",
           "address_display": "1  HOTEL DR, 02128",
           "zip": "02128",
@@ -4192,6 +4200,8 @@
         },
         {
           "name": "Mama Ana",
+          "name_display": "Mama Ana",
+          "brand_key": "mama ana",
           "address": "197  EIGHTH ST",
           "address_display": "197  EIGHTH ST, 02129",
           "zip": "02129",
@@ -4203,6 +4213,8 @@
         },
         {
           "name": "Mcdonalds",
+          "name_display": "Mcdonalds",
+          "brand_key": "mcdonalds",
           "address": "315  WASHINGTON ST",
           "address_display": "315  WASHINGTON ST, 02108",
           "zip": "02108",
@@ -4214,6 +4226,8 @@
         },
         {
           "name": "THE BARKING CRAB",
+          "name_display": "The Barking Crab",
+          "brand_key": "barking crab",
           "address": "88  SLEEPER ST",
           "address_display": "88  SLEEPER ST, 02210",
           "zip": "02210",
@@ -4225,6 +4239,8 @@
         },
         {
           "name": "AFC Sushi @ Walgreens No. 15390",
+          "name_display": "AFC Sushi",
+          "brand_key": "afc sushi",
           "address": "10  SCHOOL ST",
           "address_display": "10  SCHOOL ST, 02108",
           "zip": "02108",
@@ -4236,6 +4252,8 @@
         },
         {
           "name": "AFC Sushi @Liberty Mutual Ins.",
+          "name_display": "AFC Sushi",
+          "brand_key": "afc sushi",
           "address": "157  BERKELEY ST",
           "address_display": "157  BERKELEY ST, 02116",
           "zip": "02116",
@@ -4247,6 +4265,8 @@
         },
         {
           "name": "Bella Luna Restaurant @ the Brewery",
+          "name_display": "Bella Luna Restaurant",
+          "brand_key": "bella luna restaurant",
           "address": "284  AMORY ST",
           "address_display": "284  AMORY ST, 02130",
           "zip": "02130",
@@ -4264,8 +4284,8 @@
       "category_n": [
         {
           "label": "Ice cream",
-          "inspections": 26,
-          "fails": 8
+          "inspections": 78,
+          "fails": 23
         },
         {
           "label": "Cultural / attraction",
@@ -4279,37 +4299,37 @@
         },
         {
           "label": "Hotel",
-          "inspections": 194,
-          "fails": 59
+          "inspections": 188,
+          "fails": 58
         },
         {
           "label": "School",
-          "inspections": 98,
-          "fails": 32
+          "inspections": 86,
+          "fails": 28
         },
         {
           "label": "Cafe",
-          "inspections": 1056,
-          "fails": 354
+          "inspections": 1039,
+          "fails": 348
         },
         {
           "label": "Food and drinks",
-          "inspections": 4041,
-          "fails": 1588
+          "inspections": 4059,
+          "fails": 1594
         },
         {
           "label": "Take-out",
-          "inspections": 3107,
-          "fails": 1181
+          "inspections": 3070,
+          "fails": 1170
         },
         {
           "label": "Retail food",
-          "inspections": 1298,
-          "fails": 443
+          "inspections": 1302,
+          "fails": 444
         },
         {
           "label": "Mobile food",
-          "inspections": 221,
+          "inspections": 219,
           "fails": 50
         }
       ],
@@ -4318,6 +4338,8 @@
           "always_pass": [
             {
               "name": "CHILDRENS HOSPITAL MAIN CAF",
+              "name_display": "Childrens Hospital Main Caf",
+              "brand_key": "childrens hospital main caf",
               "address": "300  LONGWOOD AV",
               "address_display": "300  LONGWOOD AV, 02115",
               "zip": "02115",
@@ -4329,6 +4351,8 @@
             },
             {
               "name": "Spaulding Rehabilitation Hospital",
+              "name_display": "Spaulding Rehabilitation Hospital",
+              "brand_key": "spaulding rehabilitation hospital",
               "address": "300  FIRST AV",
               "address_display": "300  FIRST AV, 02129",
               "zip": "02129",
@@ -4347,6 +4371,8 @@
           "always_pass": [
             {
               "name": "HILTON BOSTON LOGAN AIRPORT",
+              "name_display": "Hilton Boston Logan Airport",
+              "brand_key": "hilton boston logan airport",
               "address": "1  HOTEL DR",
               "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
@@ -4355,27 +4381,18 @@
               "inspections": 4,
               "fails": 0,
               "fail_rate": 0.0
-            },
-            {
-              "name": "MARRIOTT'S CUSTOM HOUSE",
-              "address": "3  MC KINLEY SQ",
-              "address_display": "3  MC KINLEY SQ, 02109",
-              "zip": "02109",
-              "license": "20606",
-              "category": "Hotel",
-              "inspections": 3,
-              "fails": 0,
-              "fail_rate": 0.0
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 2,
+          "always_pass_n": 1,
           "repeat_n": 0
         },
         "School": {
           "always_pass": [
             {
               "name": "Emmanuel College",
+              "name_display": "Emmanuel College",
+              "brand_key": "emmanuel college",
               "address": "400  FENWAY",
               "address_display": "400  FENWAY, 02115",
               "zip": "02115",
@@ -4394,6 +4411,8 @@
           "always_pass": [
             {
               "name": "Boston News Cafe (90 Arch St.)",
+              "name_display": "Boston News Cafe",
+              "brand_key": "boston news cafe",
               "address": "90  ARCH ST",
               "address_display": "90  ARCH ST, 02110",
               "zip": "02110",
@@ -4405,6 +4424,8 @@
             },
             {
               "name": "GLOBE BAR & CAFE",
+              "name_display": "Globe Bar & Cafe",
+              "brand_key": "globe bar cafe",
               "address": "384  BOYLSTON ST",
               "address_display": "384  BOYLSTON ST, 02116",
               "zip": "02116",
@@ -4416,6 +4437,8 @@
             },
             {
               "name": "Solid Ground Cafe",
+              "name_display": "Solid Ground Cafe",
+              "brand_key": "solid ground cafe",
               "address": "742  HUNTINGTON AV",
               "address_display": "742  HUNTINGTON AV, 02115",
               "zip": "02115",
@@ -4427,6 +4450,8 @@
             },
             {
               "name": "Starbucks Coffee Co. No. 875",
+              "name_display": "Starbucks Coffee Co. No. 875",
+              "brand_key": "starbucks coffee co no 875",
               "address": "228  WASHINGTON ST",
               "address_display": "228  WASHINGTON ST, 02109",
               "zip": "02109",
@@ -4438,6 +4463,8 @@
             },
             {
               "name": "Starbucks Coffee No.  7224",
+              "name_display": "Starbucks Coffee No. 7224",
+              "brand_key": "starbucks coffee no 7224",
               "address": "364  BROOKLINE AV",
               "address_display": "364  BROOKLINE AV, 02115",
               "zip": "02115",
@@ -4449,6 +4476,8 @@
             },
             {
               "name": "Starbucks Coffee No.  7805",
+              "name_display": "Starbucks Coffee No. 7805",
+              "brand_key": "starbucks coffee no 7805",
               "address": "90  OLIVER ST",
               "address_display": "90  OLIVER ST, 02110",
               "zip": "02110",
@@ -4460,6 +4489,8 @@
             },
             {
               "name": "Starbucks Coffee No. 22566",
+              "name_display": "Starbucks Coffee No. 22566",
+              "brand_key": "starbucks coffee no 22566",
               "address": "48  NORTHERN AV",
               "address_display": "48  NORTHERN AV, 02210",
               "zip": "02210",
@@ -4471,6 +4502,8 @@
             },
             {
               "name": "Sunny Cafe",
+              "name_display": "Sunny Cafe",
+              "brand_key": "sunny cafe",
               "address": "1000  BENNINGTON ST",
               "address_display": "1000  BENNINGTON ST, 02128",
               "zip": "02128",
@@ -4482,6 +4515,8 @@
             },
             {
               "name": "Tatte Bakery & Cafe",
+              "name_display": "Tatte Bakery & Cafe",
+              "brand_key": "tatte bakery cafe",
               "address": "70  CHARLES ST",
               "address_display": "70  CHARLES ST, 02114",
               "zip": "02114",
@@ -4500,6 +4535,8 @@
           "always_pass": [
             {
               "name": "Mama Ana",
+              "name_display": "Mama Ana",
+              "brand_key": "mama ana",
               "address": "197  EIGHTH ST",
               "address_display": "197  EIGHTH ST, 02129",
               "zip": "02129",
@@ -4511,6 +4548,8 @@
             },
             {
               "name": "THE BARKING CRAB",
+              "name_display": "The Barking Crab",
+              "brand_key": "barking crab",
               "address": "88  SLEEPER ST",
               "address_display": "88  SLEEPER ST, 02210",
               "zip": "02210",
@@ -4522,6 +4561,8 @@
             },
             {
               "name": "AFC Sushi @Liberty Mutual Ins.",
+              "name_display": "AFC Sushi",
+              "brand_key": "afc sushi",
               "address": "157  BERKELEY ST",
               "address_display": "157  BERKELEY ST, 02116",
               "zip": "02116",
@@ -4533,6 +4574,8 @@
             },
             {
               "name": "Bella Luna Restaurant @ the Brewery",
+              "name_display": "Bella Luna Restaurant",
+              "brand_key": "bella luna restaurant",
               "address": "284  AMORY ST",
               "address_display": "284  AMORY ST, 02130",
               "zip": "02130",
@@ -4544,6 +4587,8 @@
             },
             {
               "name": "Boston Chops",
+              "name_display": "Boston Chops",
+              "brand_key": "boston chops",
               "address": "1375  WASHINGTON ST",
               "address_display": "1375  WASHINGTON ST, 02118",
               "zip": "02118",
@@ -4555,6 +4600,8 @@
             },
             {
               "name": "Canary Square",
+              "name_display": "Canary Square",
+              "brand_key": "canary square",
               "address": "435 S HUNTINGTON AV",
               "address_display": "435 S HUNTINGTON AV, 02130",
               "zip": "02130",
@@ -4566,6 +4613,8 @@
             },
             {
               "name": "Chipotle Mexican Grill",
+              "name_display": "Chipotle Mexican Grill",
+              "brand_key": "chipotle mexican grill",
               "address": "1924  BEACON ST",
               "address_display": "1924  BEACON ST, 02135",
               "zip": "02135",
@@ -4577,6 +4626,8 @@
             },
             {
               "name": "Dorchester Brewing Company",
+              "name_display": "Dorchester Brewing Company",
+              "brand_key": "dorchester brewing company",
               "address": "1246  MASSACHUSETTS AV",
               "address_display": "1246  MASSACHUSETTS AV, 02125",
               "zip": "02125",
@@ -4588,6 +4639,8 @@
             },
             {
               "name": "EL PENOL RESTAURANT",
+              "name_display": "EL Penol Restaurant",
+              "brand_key": "el penol restaurant",
               "address": "54  BENNINGTON ST",
               "address_display": "54  BENNINGTON ST, 02128",
               "zip": "02128",
@@ -4599,6 +4652,8 @@
             },
             {
               "name": "GRASSHOPPER VEGETARIAN",
+              "name_display": "Grasshopper Vegetarian",
+              "brand_key": "grasshopper vegetarian",
               "address": "1 N BEACON ST",
               "address_display": "1 N BEACON ST, 02134",
               "zip": "02134",
@@ -4610,13 +4665,15 @@
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 20,
+          "always_pass_n": 21,
           "repeat_n": 0
         },
         "Take-out": {
           "always_pass": [
             {
               "name": "Mcdonalds",
+              "name_display": "Mcdonalds",
+              "brand_key": "mcdonalds",
               "address": "315  WASHINGTON ST",
               "address_display": "315  WASHINGTON ST, 02108",
               "zip": "02108",
@@ -4628,6 +4685,8 @@
             },
             {
               "name": "AFC Sushi @ Walgreens No. 15390",
+              "name_display": "AFC Sushi",
+              "brand_key": "afc sushi",
               "address": "10  SCHOOL ST",
               "address_display": "10  SCHOOL ST, 02108",
               "zip": "02108",
@@ -4639,6 +4698,8 @@
             },
             {
               "name": "Boloco",
+              "name_display": "Boloco",
+              "brand_key": "boloco",
               "address": "48  CONGRESS ST",
               "address_display": "48  CONGRESS ST, 02109",
               "zip": "02109",
@@ -4650,6 +4711,8 @@
             },
             {
               "name": "Burger King",
+              "name_display": "Burger King",
+              "brand_key": "burger king",
               "address": "1  MAVERICK SQ",
               "address_display": "1  MAVERICK SQ, 02128",
               "zip": "02128",
@@ -4661,6 +4724,8 @@
             },
             {
               "name": "C11",
+              "name_display": "C11",
+              "brand_key": "c11",
               "address": "4  JERSEY ST",
               "address_display": "4  JERSEY ST, 02215",
               "zip": "02215",
@@ -4672,6 +4737,8 @@
             },
             {
               "name": "Chacarero",
+              "name_display": "Chacarero",
+              "brand_key": "chacarero",
               "address": "93  ARCH ST",
               "address_display": "93  ARCH ST, 02110",
               "zip": "02110",
@@ -4683,6 +4750,8 @@
             },
             {
               "name": "Cisco Brewery",
+              "name_display": "Cisco Brewery",
+              "brand_key": "cisco brewery",
               "address": "200  LOGAN AIRPORT TRMNL B",
               "address_display": "200  LOGAN AIRPORT TRMNL B, 02128",
               "zip": "02128",
@@ -4694,6 +4763,8 @@
             },
             {
               "name": "Dumpling King",
+              "name_display": "Dumpling King",
+              "brand_key": "dumpling king",
               "address": "40  HARRISON AV",
               "address_display": "40  HARRISON AV, 02111",
               "zip": "02111",
@@ -4705,6 +4776,8 @@
             },
             {
               "name": "Dunkin Donuts",
+              "name_display": "Dunkin Donuts",
+              "brand_key": "dunkin donuts",
               "address": "616  MASSACHUSETTS AV",
               "address_display": "616  MASSACHUSETTS AV, 02118",
               "zip": "02118",
@@ -4716,6 +4789,8 @@
             },
             {
               "name": "Dunkin Donuts",
+              "name_display": "Dunkin Donuts",
+              "brand_key": "dunkin donuts",
               "address": "77  MILK ST ST",
               "address_display": "77  MILK ST ST, 02110",
               "zip": "02110",
@@ -4734,6 +4809,8 @@
           "always_pass": [
             {
               "name": "Berezka International Food Store",
+              "name_display": "Berezka International Food Store",
+              "brand_key": "berezka international food store",
               "address": "1215  COMMONWEALTH AV",
               "address_display": "1215  COMMONWEALTH AV, 02134",
               "zip": "02134",
@@ -4745,6 +4822,8 @@
             },
             {
               "name": "Daniel Beauty Supply & Dollar Store",
+              "name_display": "Daniel Beauty Supply & Dollar Store",
+              "brand_key": "daniel beauty supply dollar store",
               "address": "3115  WASHINGTON ST",
               "address_display": "3115  WASHINGTON ST, 02119",
               "zip": "02119",
@@ -4756,6 +4835,8 @@
             },
             {
               "name": "Genji Sushi No. 10087",
+              "name_display": "Genji Sushi No. 10087",
+              "brand_key": "genji sushi no 10087",
               "address": "181  CAMBRIDGE ST",
               "address_display": "181  CAMBRIDGE ST, 02114",
               "zip": "02114",
@@ -4767,6 +4848,8 @@
             },
             {
               "name": "Los Paisanos Market",
+              "name_display": "Los Paisanos Market",
+              "brand_key": "los paisanos market",
               "address": "11  MERIDIAN ST",
               "address_display": "11  MERIDIAN ST, 02128",
               "zip": "02128",
@@ -4785,6 +4868,8 @@
           "always_pass": [
             {
               "name": "Roxy's Gourmet Grilled Cheese No. 2",
+              "name_display": "Roxy's Gourmet Grilled Cheese No. 2",
+              "brand_key": "roxys gourmet grilled cheese no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 74860",
               "zip": "02128",
@@ -4796,6 +4881,8 @@
             },
             {
               "name": "The Bacon Truck No. 2",
+              "name_display": "The Bacon Truck No. 2",
+              "brand_key": "bacon truck no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 389249",
               "zip": "02128",
@@ -4807,6 +4894,8 @@
             },
             {
               "name": "Hometown Poke",
+              "name_display": "Hometown Poke",
+              "brand_key": "hometown poke",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 411005",
               "zip": "02128",
@@ -4818,6 +4907,8 @@
             },
             {
               "name": "The Bacon Truck",
+              "name_display": "The Bacon Truck",
+              "brand_key": "bacon truck",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 97097",
               "zip": "02128",
@@ -4841,6 +4932,8 @@
       "always_pass": [
         {
           "name": "Limani Grille",
+          "name_display": "Limani Grille",
+          "brand_key": "limani grille",
           "address": "100  NORTHERN AV",
           "address_display": "100  NORTHERN AV, 02210",
           "zip": "02210",
@@ -4852,6 +4945,8 @@
         },
         {
           "name": "Zaaki",
+          "name_display": "Zaaki",
+          "brand_key": "zaaki",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 353809",
           "zip": "02128",
@@ -4863,6 +4958,8 @@
         },
         {
           "name": "CHECKMATE CAFE",
+          "name_display": "Checkmate Cafe",
+          "brand_key": "checkmate cafe",
           "address": "900  SOUTH ST",
           "address_display": "900  SOUTH ST, 02131",
           "zip": "02131",
@@ -4874,6 +4971,8 @@
         },
         {
           "name": "Dave's Hot Chicken",
+          "name_display": "Dave's Hot Chicken",
+          "brand_key": "daves hot chicken",
           "address": "123  STUART ST",
           "address_display": "123  STUART ST, 02116",
           "zip": "02116",
@@ -4885,6 +4984,8 @@
         },
         {
           "name": "Lincoln Tavern",
+          "name_display": "Lincoln Tavern",
+          "brand_key": "lincoln tavern",
           "address": "425 W BROADWAY",
           "address_display": "425 W BROADWAY, 02127",
           "zip": "02127",
@@ -4896,6 +4997,8 @@
         },
         {
           "name": "SALSAS MEXICAN GRILL",
+          "name_display": "Salsas Mexican Grill",
+          "brand_key": "salsas mexican grill",
           "address": "417  WASHINGTON ST",
           "address_display": "417  WASHINGTON ST, 02108",
           "zip": "02108",
@@ -4907,6 +5010,8 @@
         },
         {
           "name": "311",
+          "name_display": "311",
+          "brand_key": "311",
           "address": "605  TREMONT ST",
           "address_display": "605  TREMONT ST, 02118",
           "zip": "02118",
@@ -4918,6 +5023,8 @@
         },
         {
           "name": "A & N PIZZA",
+          "name_display": "A & N Pizza",
+          "brand_key": "an pizza",
           "address": "1409  CENTRE ST",
           "address_display": "1409  CENTRE ST, 02132",
           "zip": "02132",
@@ -4929,6 +5036,8 @@
         },
         {
           "name": "Burger King",
+          "name_display": "Burger King",
+          "brand_key": "burger king",
           "address": "100  WASHINGTON ST",
           "address_display": "100  WASHINGTON ST, 02121",
           "zip": "02121",
@@ -4940,6 +5049,8 @@
         },
         {
           "name": "Chubby Chickpea Mobile",
+          "name_display": "Chubby Chickpea Mobile",
+          "brand_key": "chubby chickpea mobile",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 77929",
           "zip": "02128",
@@ -4957,8 +5068,8 @@
       "category_n": [
         {
           "label": "Ice cream",
-          "inspections": 43,
-          "fails": 10
+          "inspections": 147,
+          "fails": 48
         },
         {
           "label": "Cultural / attraction",
@@ -4967,42 +5078,42 @@
         },
         {
           "label": "Hospital",
-          "inspections": 75,
-          "fails": 24
+          "inspections": 67,
+          "fails": 22
         },
         {
           "label": "Hotel",
-          "inspections": 232,
-          "fails": 64
+          "inspections": 218,
+          "fails": 60
         },
         {
           "label": "School",
-          "inspections": 137,
-          "fails": 41
+          "inspections": 138,
+          "fails": 43
         },
         {
           "label": "Cafe",
-          "inspections": 1436,
-          "fails": 459
+          "inspections": 1441,
+          "fails": 465
         },
         {
           "label": "Food and drinks",
-          "inspections": 5718,
-          "fails": 1978
+          "inspections": 5721,
+          "fails": 1976
         },
         {
           "label": "Take-out",
-          "inspections": 4878,
-          "fails": 1571
+          "inspections": 4787,
+          "fails": 1533
         },
         {
           "label": "Retail food",
-          "inspections": 1663,
+          "inspections": 1665,
           "fails": 520
         },
         {
           "label": "Mobile food",
-          "inspections": 345,
+          "inspections": 343,
           "fails": 55
         }
       ],
@@ -5011,6 +5122,8 @@
           "always_pass": [
             {
               "name": "Far Out Ice Cream",
+              "name_display": "Far Out Ice Cream",
+              "brand_key": "far out ice cream",
               "address": "201  BROOKLINE AV",
               "address_display": "201  BROOKLINE AV, 02215",
               "zip": "02215",
@@ -5022,6 +5135,8 @@
             },
             {
               "name": "Fomu Ice Cream",
+              "name_display": "Fomu Ice Cream",
+              "brand_key": "fomu ice cream",
               "address": "200  FANEUIL HALL MARKETPLACE",
               "address_display": "200  FANEUIL HALL MARKETPLACE, 02109",
               "zip": "02109",
@@ -5030,16 +5145,31 @@
               "inspections": 3,
               "fails": 0,
               "fail_rate": 0.0
+            },
+            {
+              "name": "Lazy Bear Creamery",
+              "name_display": "Lazy Bear Creamery",
+              "brand_key": "lazy bear creamery",
+              "address": "383  NEPONSET AV",
+              "address_display": "383  NEPONSET AV, 02122",
+              "zip": "02122",
+              "license": "489989",
+              "category": "Ice cream",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 2,
+          "always_pass_n": 3,
           "repeat_n": 0
         },
         "Hospital": {
           "always_pass": [
             {
               "name": "3rd Floor @ Tufts Medical Center",
+              "name_display": "3rd Floor",
+              "brand_key": "3rd floor",
               "address": "750  WASHINGTON ST",
               "address_display": "750  WASHINGTON ST, 02111",
               "zip": "02111",
@@ -5051,6 +5181,8 @@
             },
             {
               "name": "Mass General Hospital Cafe",
+              "name_display": "Mass General Hospital Cafe",
+              "brand_key": "mass general hospital cafe",
               "address": "55  FRUIT ST",
               "address_display": "55  FRUIT ST, 02114",
               "zip": "02114",
@@ -5062,6 +5194,8 @@
             },
             {
               "name": "Patient Dining @ Tufts Medical Center",
+              "name_display": "Patient Dining",
+              "brand_key": "patient dining",
               "address": "750  WASHINGTON ST",
               "address_display": "750  WASHINGTON ST, 02111",
               "zip": "02111",
@@ -5073,6 +5207,8 @@
             },
             {
               "name": "Spaulding Rehabilitation Hospital",
+              "name_display": "Spaulding Rehabilitation Hospital",
+              "brand_key": "spaulding rehabilitation hospital",
               "address": "300  FIRST AV",
               "address_display": "300  FIRST AV, 02129",
               "zip": "02129",
@@ -5091,6 +5227,8 @@
           "always_pass": [
             {
               "name": "HYATT CONF. & HOTEL (FS)",
+              "name_display": "Hyatt Conf. & Hotel",
+              "brand_key": "hyatt conf hotel",
               "address": "101  HARBORSIDE DR",
               "address_display": "101  HARBORSIDE DR, 02128",
               "zip": "02128",
@@ -5102,6 +5240,8 @@
             },
             {
               "name": "The Westin Boston Waterfront",
+              "name_display": "The Westin Boston Waterfront",
+              "brand_key": "westin boston waterfront",
               "address": "425  SUMMER ST",
               "address_display": "425  SUMMER ST, 02210",
               "zip": "02210",
@@ -5113,6 +5253,8 @@
             },
             {
               "name": "The Westin Boston Waterfront/Starbucks",
+              "name_display": "The Westin Boston Waterfront/Starbucks",
+              "brand_key": "westin boston waterfront starbucks",
               "address": "425  SUMMER ST",
               "address_display": "425  SUMMER ST, 02210",
               "zip": "02210",
@@ -5124,6 +5266,8 @@
             },
             {
               "name": "Battery Wharf Hotel/Grille",
+              "name_display": "Battery Wharf Hotel/Grille",
+              "brand_key": "battery wharf hotel grille",
               "address": "3  BATTERY WH",
               "address_display": "3  BATTERY WH, 02109",
               "zip": "02109",
@@ -5135,6 +5279,8 @@
             },
             {
               "name": "Canopy Hotel",
+              "name_display": "Canopy Hotel",
+              "brand_key": "canopy hotel",
               "address": "99  BLACKSTONE ST",
               "address_display": "99  BLACKSTONE ST, 02109",
               "zip": "02109",
@@ -5145,18 +5291,9 @@
               "fail_rate": 0.0
             },
             {
-              "name": "Cosmica @ the Revolution Hotel",
-              "address": "40  BERKELEY ST",
-              "address_display": "40  BERKELEY ST, 02116",
-              "zip": "02116",
-              "license": "401924",
-              "category": "Hotel",
-              "inspections": 3,
-              "fails": 0,
-              "fail_rate": 0.0
-            },
-            {
               "name": "Four Seasons Hotel Boston",
+              "name_display": "Four Seasons Hotel Boston",
+              "brand_key": "four seasons hotel boston",
               "address": "200  BOYLSTON ST",
               "address_display": "200  BOYLSTON ST, 02116",
               "zip": "02116",
@@ -5168,6 +5305,8 @@
             },
             {
               "name": "HILTON BOSTON LOGAN AIRPORT",
+              "name_display": "Hilton Boston Logan Airport",
+              "brand_key": "hilton boston logan airport",
               "address": "1  HOTEL DR",
               "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
@@ -5179,6 +5318,8 @@
             },
             {
               "name": "Residence Inn by Marriott",
+              "name_display": "Residence Inn by Marriott",
+              "brand_key": "residence inn by marriott",
               "address": "370  CONGRESS ST",
               "address_display": "370  CONGRESS ST, 02210",
               "zip": "02210",
@@ -5190,6 +5331,8 @@
             },
             {
               "name": "Roof Top Pool at The Colonnade Hotel",
+              "name_display": "Roof Top Pool at The Colonnade Hotel",
+              "brand_key": "roof top pool at the colonnade hotel",
               "address": "120  HUNTINGTON AV",
               "address_display": "120  HUNTINGTON AV, 02116",
               "zip": "02116",
@@ -5201,13 +5344,15 @@
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 10,
+          "always_pass_n": 9,
           "repeat_n": 0
         },
         "School": {
           "always_pass": [
             {
               "name": "Suffolk University Sawyer Cafe",
+              "name_display": "Suffolk University Sawyer Cafe",
+              "brand_key": "suffolk university sawyer cafe",
               "address": "8  ASHBURTON PL",
               "address_display": "8  ASHBURTON PL, 02108",
               "zip": "02108",
@@ -5219,6 +5364,8 @@
             },
             {
               "name": "BU 4thFl SCHOOL OF MGMT",
+              "name_display": "BU 4thfl School OF Mgmt",
+              "brand_key": "bu 4thfl school of mgmt",
               "address": "595  COMMONWEALTH AV",
               "address_display": "595  COMMONWEALTH AV, 02215",
               "zip": "02215",
@@ -5230,6 +5377,8 @@
             },
             {
               "name": "Northeastern University Belvidere",
+              "name_display": "Northeastern University Belvidere",
+              "brand_key": "northeastern university belvidere",
               "address": "39  DALTON ST",
               "address_display": "39  DALTON ST, 02199",
               "zip": "02199",
@@ -5241,6 +5390,8 @@
             },
             {
               "name": "University Club of Boston-Rooftop Bar",
+              "name_display": "University Club of Boston-Rooftop Bar",
+              "brand_key": "university club of boston rooftop bar",
               "address": "426  STUART ST",
               "address_display": "426  STUART ST, 02116",
               "zip": "02116",
@@ -5259,6 +5410,8 @@
           "always_pass": [
             {
               "name": "CHECKMATE CAFE",
+              "name_display": "Checkmate Cafe",
+              "brand_key": "checkmate cafe",
               "address": "900  SOUTH ST",
               "address_display": "900  SOUTH ST, 02131",
               "zip": "02131",
@@ -5270,6 +5423,8 @@
             },
             {
               "name": "The Well Coffee House Boston",
+              "name_display": "The Well Coffee House Boston",
+              "brand_key": "well coffee house boston",
               "address": "62  WILLIAM C KELLY SQ",
               "address_display": "62  WILLIAM C KELLY SQ, 02128",
               "zip": "02128",
@@ -5281,6 +5436,8 @@
             },
             {
               "name": "Unidine Cafe Coffee Bar",
+              "name_display": "Unidine Cafe Coffee Bar",
+              "brand_key": "unidine cafe coffee bar",
               "address": "529  MAIN ST",
               "address_display": "529  MAIN ST, 02129",
               "zip": "02129",
@@ -5292,6 +5449,8 @@
             },
             {
               "name": "960 Cafe",
+              "name_display": "960 Cafe",
+              "brand_key": "960 cafe",
               "address": "960  MASSACHUSETTS AV",
               "address_display": "960  MASSACHUSETTS AV, 02118",
               "zip": "02118",
@@ -5303,6 +5462,8 @@
             },
             {
               "name": "B I DEACONESS/WEST END CAFE",
+              "name_display": "B I Deaconess/west End Cafe",
+              "brand_key": "bi deaconess west end cafe",
               "address": "1  DEACONESS RD",
               "address_display": "1  DEACONESS RD, 02215",
               "zip": "02215",
@@ -5314,6 +5475,8 @@
             },
             {
               "name": "Blank Street Coffee",
+              "name_display": "Blank Street Coffee",
+              "brand_key": "blank street coffee",
               "address": "489 E BROADWAY",
               "address_display": "489 E BROADWAY, 02127",
               "zip": "02127",
@@ -5325,6 +5488,8 @@
             },
             {
               "name": "Boston News Cafe (90 Arch St.)",
+              "name_display": "Boston News Cafe",
+              "brand_key": "boston news cafe",
               "address": "90  ARCH ST",
               "address_display": "90  ARCH ST, 02110",
               "zip": "02110",
@@ -5336,6 +5501,8 @@
             },
             {
               "name": "Capital One Cafe",
+              "name_display": "Capital One Cafe",
+              "brand_key": "capital one cafe",
               "address": "795  BOYLSTON ST",
               "address_display": "795  BOYLSTON ST, 02116",
               "zip": "02116",
@@ -5347,6 +5514,8 @@
             },
             {
               "name": "Capital One Cafe",
+              "name_display": "Capital One Cafe",
+              "brand_key": "capital one cafe",
               "address": "55  SEAPORT BL",
               "address_display": "55  SEAPORT BL, 02210",
               "zip": "02210",
@@ -5358,6 +5527,8 @@
             },
             {
               "name": "Dug Out Cafe Inc",
+              "name_display": "Dug Out Cafe",
+              "brand_key": "dug out cafe",
               "address": "722  COMMONWEALTH AV",
               "address_display": "722  COMMONWEALTH AV, 02115",
               "zip": "02115",
@@ -5369,13 +5540,15 @@
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 33,
+          "always_pass_n": 32,
           "repeat_n": 0
         },
         "Food and drinks": {
           "always_pass": [
             {
               "name": "Limani Grille",
+              "name_display": "Limani Grille",
+              "brand_key": "limani grille",
               "address": "100  NORTHERN AV",
               "address_display": "100  NORTHERN AV, 02210",
               "zip": "02210",
@@ -5387,6 +5560,8 @@
             },
             {
               "name": "Dave's Hot Chicken",
+              "name_display": "Dave's Hot Chicken",
+              "brand_key": "daves hot chicken",
               "address": "123  STUART ST",
               "address_display": "123  STUART ST, 02116",
               "zip": "02116",
@@ -5398,6 +5573,8 @@
             },
             {
               "name": "Lincoln Tavern",
+              "name_display": "Lincoln Tavern",
+              "brand_key": "lincoln tavern",
               "address": "425 W BROADWAY",
               "address_display": "425 W BROADWAY, 02127",
               "zip": "02127",
@@ -5409,6 +5586,8 @@
             },
             {
               "name": "311",
+              "name_display": "311",
+              "brand_key": "311",
               "address": "605  TREMONT ST",
               "address_display": "605  TREMONT ST, 02118",
               "zip": "02118",
@@ -5420,6 +5599,8 @@
             },
             {
               "name": "El Jefe's Taqueria",
+              "name_display": "El Jefe's Taqueria",
+              "brand_key": "el jefes taqueria",
               "address": "80  BOYLSTON ST",
               "address_display": "80  BOYLSTON ST, 02116",
               "zip": "02116",
@@ -5431,6 +5612,8 @@
             },
             {
               "name": "Laugh Boston",
+              "name_display": "Laugh Boston",
+              "brand_key": "laugh boston",
               "address": "425  SUMMER ST",
               "address_display": "425  SUMMER ST, 02210",
               "zip": "02210",
@@ -5442,6 +5625,8 @@
             },
             {
               "name": "Levy Premium Main Kitchen & Commissary",
+              "name_display": "Levy Premium Main Kitchen & Commissary",
+              "brand_key": "levy premium main kitchen commissary",
               "address": "415  SUMMER ST",
               "address_display": "415  SUMMER ST, 02210",
               "zip": "02210",
@@ -5453,6 +5638,8 @@
             },
             {
               "name": "Lucia Ristorante",
+              "name_display": "Lucia Ristorante",
+              "brand_key": "lucia ristorante",
               "address": "415  HANOVER ST",
               "address_display": "415  HANOVER ST, 02109",
               "zip": "02109",
@@ -5464,6 +5651,8 @@
             },
             {
               "name": "Moxies",
+              "name_display": "Moxies",
+              "brand_key": "moxies",
               "address": "899  CONGRESS ST",
               "address_display": "899  CONGRESS ST, 02210",
               "zip": "02210",
@@ -5475,6 +5664,8 @@
             },
             {
               "name": "Mud House",
+              "name_display": "Mud House",
+              "brand_key": "mud house",
               "address": "389  NEPONSET AV",
               "address_display": "389  NEPONSET AV, 02122",
               "zip": "02122",
@@ -5486,13 +5677,15 @@
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 114,
+          "always_pass_n": 115,
           "repeat_n": 0
         },
         "Take-out": {
           "always_pass": [
             {
               "name": "SALSAS MEXICAN GRILL",
+              "name_display": "Salsas Mexican Grill",
+              "brand_key": "salsas mexican grill",
               "address": "417  WASHINGTON ST",
               "address_display": "417  WASHINGTON ST, 02108",
               "zip": "02108",
@@ -5504,6 +5697,8 @@
             },
             {
               "name": "A & N PIZZA",
+              "name_display": "A & N Pizza",
+              "brand_key": "an pizza",
               "address": "1409  CENTRE ST",
               "address_display": "1409  CENTRE ST, 02132",
               "zip": "02132",
@@ -5515,6 +5710,8 @@
             },
             {
               "name": "Burger King",
+              "name_display": "Burger King",
+              "brand_key": "burger king",
               "address": "100  WASHINGTON ST",
               "address_display": "100  WASHINGTON ST, 02121",
               "zip": "02121",
@@ -5526,6 +5723,8 @@
             },
             {
               "name": "Dunkin Donuts",
+              "name_display": "Dunkin Donuts",
+              "brand_key": "dunkin donuts",
               "address": "1931  DORCHESTER AV",
               "address_display": "1931  DORCHESTER AV, 02124",
               "zip": "02124",
@@ -5537,6 +5736,8 @@
             },
             {
               "name": "Dunkin Donuts",
+              "name_display": "Dunkin Donuts",
+              "brand_key": "dunkin donuts",
               "address": "210  HARVARD AV",
               "address_display": "210  HARVARD AV, 02134",
               "zip": "02134",
@@ -5548,6 +5749,8 @@
             },
             {
               "name": "DUNKIN DONUTS(ARRIVAL)",
+              "name_display": "Dunkin Donuts",
+              "brand_key": "dunkin donuts",
               "address": "100  TERMINAL RD",
               "address_display": "100  TERMINAL RD, 02128",
               "zip": "02128",
@@ -5559,6 +5762,8 @@
             },
             {
               "name": "Dunkin Donuts-Amer Airlines/Landside",
+              "name_display": "Dunkin Donuts-Amer Airlines/Landside",
+              "brand_key": "dunkin donuts amer airlines landside",
               "address": "200  LOGAN AIRPORT TRMNL B",
               "address_display": "200  LOGAN AIRPORT TRMNL B, 02128",
               "zip": "02128",
@@ -5570,6 +5775,8 @@
             },
             {
               "name": "Frio Rico",
+              "name_display": "Frio Rico",
+              "brand_key": "frio rico",
               "address": "360  BENNINGTON ST",
               "address_display": "360  BENNINGTON ST, 02128",
               "zip": "02128",
@@ -5581,6 +5788,8 @@
             },
             {
               "name": "JIMMY JOHN'S",
+              "name_display": "Jimmy John's",
+              "brand_key": "jimmy johns",
               "address": "100  TERMINAL RD",
               "address_display": "100  TERMINAL RD, 02128",
               "zip": "02128",
@@ -5592,6 +5801,8 @@
             },
             {
               "name": "Shanti Express",
+              "name_display": "Shanti Express",
+              "brand_key": "shanti express",
               "address": "49  WARREN ST",
               "address_display": "49  WARREN ST, 02119",
               "zip": "02119",
@@ -5610,6 +5821,8 @@
           "always_pass": [
             {
               "name": "CVS/Pharmacy No. 1889",
+              "name_display": "CVS/Pharmacy No. 1889",
+              "brand_key": "cvs pharmacy no 1889",
               "address": "427  WASHINGTON ST",
               "address_display": "427  WASHINGTON ST, 02135",
               "zip": "02135",
@@ -5621,6 +5834,8 @@
             },
             {
               "name": "Daily Table",
+              "name_display": "Daily Table",
+              "brand_key": "daily table",
               "address": "450  WASHINGTON ST",
               "address_display": "450  WASHINGTON ST, 02124",
               "zip": "02124",
@@ -5632,6 +5847,8 @@
             },
             {
               "name": "Star Market No. 4572",
+              "name_display": "Star Market No. 4572",
+              "brand_key": "star market no 4572",
               "address": "370  WESTERN AV",
               "address_display": "370  WESTERN AV, 02135",
               "zip": "02135",
@@ -5643,6 +5860,8 @@
             },
             {
               "name": "Tropical Food Mart",
+              "name_display": "Tropical Food Mart",
+              "brand_key": "tropical food mart",
               "address": "4545  WASHINGTON ST",
               "address_display": "4545  WASHINGTON ST, 02131",
               "zip": "02131",
@@ -5654,6 +5873,8 @@
             },
             {
               "name": "AFC Zenshi @ Shaw's 3588",
+              "name_display": "AFC Zenshi",
+              "brand_key": "afc zenshi",
               "address": "1065  COMMONWEALTH AV",
               "address_display": "1065  COMMONWEALTH AV, 02215",
               "zip": "02215",
@@ -5665,6 +5886,8 @@
             },
             {
               "name": "AFC Zenshi @ Shaw's 4572",
+              "name_display": "AFC Zenshi",
+              "brand_key": "afc zenshi",
               "address": "370  WESTERN AV",
               "address_display": "370  WESTERN AV, 02135",
               "zip": "02135",
@@ -5676,6 +5899,8 @@
             },
             {
               "name": "Bob's Grocery",
+              "name_display": "Bob's Grocery",
+              "brand_key": "bobs grocery",
               "address": "160  ENDICOTT ST",
               "address_display": "160  ENDICOTT ST, 02113",
               "zip": "02113",
@@ -5687,6 +5912,8 @@
             },
             {
               "name": "BOB'S PITA MARKET.",
+              "name_display": "Bob's Pita Market.",
+              "brand_key": "bobs pita market",
               "address": "4198  WASHINGTON ST",
               "address_display": "4198  WASHINGTON ST, 02131",
               "zip": "02131",
@@ -5698,6 +5925,8 @@
             },
             {
               "name": "Cibao Market",
+              "name_display": "Cibao Market",
+              "brand_key": "cibao market",
               "address": "3936  WASHINGTON ST",
               "address_display": "3936  WASHINGTON ST, 02131",
               "zip": "02131",
@@ -5709,6 +5938,8 @@
             },
             {
               "name": "Donna's Cakes",
+              "name_display": "Donna's Cakes",
+              "brand_key": "donnas cakes",
               "address": "100  SPRING ST",
               "address_display": "100  SPRING ST, 02132",
               "zip": "02132",
@@ -5727,6 +5958,8 @@
           "always_pass": [
             {
               "name": "Zaaki",
+              "name_display": "Zaaki",
+              "brand_key": "zaaki",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 353809",
               "zip": "02128",
@@ -5738,6 +5971,8 @@
             },
             {
               "name": "Chubby Chickpea Mobile",
+              "name_display": "Chubby Chickpea Mobile",
+              "brand_key": "chubby chickpea mobile",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 77929",
               "zip": "02128",
@@ -5749,6 +5984,8 @@
             },
             {
               "name": "Berry Sweets No. 1",
+              "name_display": "Berry Sweets No. 1",
+              "brand_key": "berry sweets no 1",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 396032",
               "zip": "02128",
@@ -5760,6 +5997,8 @@
             },
             {
               "name": "BM3:BON ME RED",
+              "name_display": "Bm3:bon ME Red",
+              "brand_key": "bm3 bon me red",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 86676",
               "zip": "02128",
@@ -5771,6 +6010,8 @@
             },
             {
               "name": "Boston Trolley DogsNo. 2",
+              "name_display": "Boston Trolley DogsNo. 2",
+              "brand_key": "boston trolley dogsno 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
@@ -5782,6 +6023,8 @@
             },
             {
               "name": "Chicken and Rice Guys No. 1",
+              "name_display": "Chicken and Rice Guys No. 1",
+              "brand_key": "chicken rice guys no 1",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 523270",
               "zip": "02128",
@@ -5793,6 +6036,8 @@
             },
             {
               "name": "Dezz Kitchen",
+              "name_display": "Dezz Kitchen",
+              "brand_key": "dezz kitchen",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 481891",
               "zip": "02128",
@@ -5804,6 +6049,8 @@
             },
             {
               "name": "How's Your Meat",
+              "name_display": "How's Your Meat",
+              "brand_key": "hows your meat",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 460308",
               "zip": "02128",
@@ -5815,6 +6062,8 @@
             },
             {
               "name": "Indulge India",
+              "name_display": "Indulge India",
+              "brand_key": "indulge india",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 524220",
               "zip": "02128",
@@ -5826,6 +6075,8 @@
             },
             {
               "name": "Moyzilla No. 4",
+              "name_display": "Moyzilla No. 4",
+              "brand_key": "moyzilla no 4",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 401890",
               "zip": "02128",
@@ -5849,6 +6100,8 @@
       "always_pass": [
         {
           "name": "Dunkin Donuts",
+          "name_display": "Dunkin Donuts",
+          "brand_key": "dunkin donuts",
           "address": "1627  TREMONT ST",
           "address_display": "1627  TREMONT ST, 02120",
           "zip": "02120",
@@ -5860,6 +6113,8 @@
         },
         {
           "name": "Blue Ribbon Barbecue",
+          "name_display": "Blue Ribbon Barbecue",
+          "brand_key": "blue ribbon barbecue",
           "address": "401  PARK DR",
           "address_display": "401  PARK DR, 02215",
           "zip": "02215",
@@ -5871,6 +6126,8 @@
         },
         {
           "name": "CVS/Pharmacy No. 10517",
+          "name_display": "CVS/Pharmacy No. 10517",
+          "brand_key": "cvs pharmacy no 10517",
           "address": "77  SEAPORT BL",
           "address_display": "77  SEAPORT BL, 02210",
           "zip": "02210",
@@ -5882,6 +6139,8 @@
         },
         {
           "name": "CVS/Pharmacy No. 1900",
+          "name_display": "CVS/Pharmacy No. 1900",
+          "brand_key": "cvs pharmacy no 1900",
           "address": "218  HANOVER ST",
           "address_display": "218  HANOVER ST, 02113",
           "zip": "02113",
@@ -5893,6 +6152,8 @@
         },
         {
           "name": "Honeygrow",
+          "name_display": "Honeygrow",
+          "brand_key": "honeygrow",
           "address": "100  NORTHERN AV",
           "address_display": "100  NORTHERN AV, 02210",
           "zip": "02210",
@@ -5904,6 +6165,8 @@
         },
         {
           "name": "Lala's Neapolitan-ish Pizza",
+          "name_display": "Lala's Neapolitan-ish Pizza",
+          "brand_key": "lalas neapolitan ish pizza",
           "address": "401  PARK DR",
           "address_display": "401  PARK DR, 02215",
           "zip": "02215",
@@ -5915,6 +6178,8 @@
         },
         {
           "name": "Shake Shack",
+          "name_display": "Shake Shack",
+          "brand_key": "shake shack",
           "address": "234  NEWBURY ST",
           "address_display": "234  NEWBURY ST, 02116",
           "zip": "02116",
@@ -5926,6 +6191,8 @@
         },
         {
           "name": "Sodexo @ Liberty Mutual Fl. 2",
+          "name_display": "Sodexo",
+          "brand_key": "sodexo",
           "address": "157  BERKELEY ST",
           "address_display": "157  BERKELEY ST, 02116",
           "zip": "02116",
@@ -5937,6 +6204,8 @@
         },
         {
           "name": "STARBUCKS COFFEE No.  7823",
+          "name_display": "Starbucks Coffee NO 7823",
+          "brand_key": "starbucks coffee no 7823",
           "address": "470  WASHINGTON ST",
           "address_display": "470  WASHINGTON ST, 02135",
           "zip": "02135",
@@ -5948,6 +6217,8 @@
         },
         {
           "name": "Taco Bell",
+          "name_display": "Taco Bell",
+          "brand_key": "taco bell",
           "address": "74  SUMMER ST",
           "address_display": "74  SUMMER ST, 02110",
           "zip": "02110",
@@ -5965,8 +6236,8 @@
       "category_n": [
         {
           "label": "Ice cream",
-          "inspections": 54,
-          "fails": 22
+          "inspections": 119,
+          "fails": 37
         },
         {
           "label": "Cultural / attraction",
@@ -5975,50 +6246,72 @@
         },
         {
           "label": "Hospital",
-          "inspections": 61,
-          "fails": 17
+          "inspections": 55,
+          "fails": 16
         },
         {
           "label": "Hotel",
-          "inspections": 220,
-          "fails": 75
+          "inspections": 210,
+          "fails": 73
         },
         {
           "label": "School",
-          "inspections": 102,
-          "fails": 31
+          "inspections": 104,
+          "fails": 34
         },
         {
           "label": "Cafe",
-          "inspections": 1212,
-          "fails": 468
+          "inspections": 1208,
+          "fails": 466
         },
         {
           "label": "Food and drinks",
-          "inspections": 4861,
+          "inspections": 4866,
           "fails": 2127
         },
         {
           "label": "Take-out",
-          "inspections": 4147,
-          "fails": 1646
+          "inspections": 4093,
+          "fails": 1632
         },
         {
           "label": "Retail food",
-          "inspections": 1468,
-          "fails": 536
+          "inspections": 1472,
+          "fails": 537
         },
         {
           "label": "Mobile food",
-          "inspections": 259,
+          "inspections": 257,
           "fails": 69
         }
       ],
       "by_category": {
+        "Ice cream": {
+          "always_pass": [
+            {
+              "name": "Crescent Ridge Dairy",
+              "name_display": "Crescent Ridge Dairy",
+              "brand_key": "crescent ridge dairy",
+              "address": "100  HANOVER ST",
+              "address_display": "100  HANOVER ST, 02114",
+              "zip": "02114",
+              "license": "141802",
+              "category": "Ice cream",
+              "inspections": 3,
+              "fails": 0,
+              "fail_rate": 0.0
+            }
+          ],
+          "places_to_avoid": [],
+          "always_pass_n": 1,
+          "repeat_n": 0
+        },
         "Hospital": {
           "always_pass": [
             {
               "name": "Mass General Hospital Cafe",
+              "name_display": "Mass General Hospital Cafe",
+              "brand_key": "mass general hospital cafe",
               "address": "55  FRUIT ST",
               "address_display": "55  FRUIT ST, 02114",
               "zip": "02114",
@@ -6030,6 +6323,8 @@
             },
             {
               "name": "Spaulding Rehabilitation Hospital",
+              "name_display": "Spaulding Rehabilitation Hospital",
+              "brand_key": "spaulding rehabilitation hospital",
               "address": "300  FIRST AV",
               "address_display": "300  FIRST AV, 02129",
               "zip": "02129",
@@ -6048,6 +6343,8 @@
           "always_pass": [
             {
               "name": "Aloft Boston Seaport Hotel Refuel",
+              "name_display": "Aloft Boston Seaport Hotel Refuel",
+              "brand_key": "aloft boston seaport hotel refuel",
               "address": "401  D ST",
               "address_display": "401  D ST, 02210",
               "zip": "02210",
@@ -6059,6 +6356,8 @@
             },
             {
               "name": "CitizenM Hotel Boston Back Bay",
+              "name_display": "CitizenM Hotel Boston Back Bay",
+              "brand_key": "citizenm hotel boston back bay",
               "address": "1001  BOYLSTON ST",
               "address_display": "1001  BOYLSTON ST, 02215",
               "zip": "02215",
@@ -6070,6 +6369,8 @@
             },
             {
               "name": "HILTON BOSTON LOGAN AIRPORT",
+              "name_display": "Hilton Boston Logan Airport",
+              "brand_key": "hilton boston logan airport",
               "address": "1  HOTEL DR",
               "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
@@ -6081,6 +6382,8 @@
             },
             {
               "name": "HYATT CONF. & HOTEL (FS)",
+              "name_display": "Hyatt Conf. & Hotel",
+              "brand_key": "hyatt conf hotel",
               "address": "101  HARBORSIDE DR",
               "address_display": "101  HARBORSIDE DR, 02128",
               "zip": "02128",
@@ -6099,6 +6402,8 @@
           "always_pass": [
             {
               "name": "Suffolk University Sargent Hall",
+              "name_display": "Suffolk University Sargent Hall",
+              "brand_key": "suffolk university sargent hall",
               "address": "120  TREMONT ST",
               "address_display": "120  TREMONT ST, 02108",
               "zip": "02108",
@@ -6117,6 +6422,8 @@
           "always_pass": [
             {
               "name": "STARBUCKS COFFEE No.  7823",
+              "name_display": "Starbucks Coffee NO 7823",
+              "brand_key": "starbucks coffee no 7823",
               "address": "470  WASHINGTON ST",
               "address_display": "470  WASHINGTON ST, 02135",
               "zip": "02135",
@@ -6128,6 +6435,8 @@
             },
             {
               "name": "Anna's Cafe",
+              "name_display": "Anna's Cafe",
+              "brand_key": "annas cafe",
               "address": "267  MEDFORD ST",
               "address_display": "267  MEDFORD ST, 02129",
               "zip": "02129",
@@ -6139,6 +6448,8 @@
             },
             {
               "name": "Cafe Presto",
+              "name_display": "Cafe Presto",
+              "brand_key": "cafe presto",
               "address": "1  HOTEL DR",
               "address_display": "1  HOTEL DR, 02128",
               "zip": "02128",
@@ -6150,6 +6461,8 @@
             },
             {
               "name": "Code 10 Restaurant Cafe",
+              "name_display": "Code 10 Restaurant Cafe",
+              "brand_key": "code 10 restaurant cafe",
               "address": "2 E CONCORD ST",
               "address_display": "2 E CONCORD ST, 02118",
               "zip": "02118",
@@ -6161,6 +6474,8 @@
             },
             {
               "name": "COURTYARD CAFE",
+              "name_display": "Courtyard Cafe",
+              "brand_key": "courtyard cafe",
               "address": "200  LONGWOOD AV",
               "address_display": "200  LONGWOOD AV, 02115",
               "zip": "02115",
@@ -6172,6 +6487,8 @@
             },
             {
               "name": "Pressed Cafe Seaport",
+              "name_display": "Pressed Cafe Seaport",
+              "brand_key": "pressed cafe seaport",
               "address": "43-61  PIER 4 BL",
               "address_display": "43-61  PIER 4 BL, 02210",
               "zip": "02210",
@@ -6183,6 +6500,8 @@
             },
             {
               "name": "Revival Cafe & Kitchen",
+              "name_display": "Revival Cafe & Kitchen",
+              "brand_key": "revival cafe kitchen",
               "address": "15  NECCO ST",
               "address_display": "15  NECCO ST, 02210",
               "zip": "02210",
@@ -6194,6 +6513,8 @@
             },
             {
               "name": "Tatte Bakery & Cafe",
+              "name_display": "Tatte Bakery & Cafe",
+              "brand_key": "tatte bakery cafe",
               "address": "70  CHARLES ST",
               "address_display": "70  CHARLES ST, 02114",
               "zip": "02114",
@@ -6205,6 +6526,8 @@
             },
             {
               "name": "Tatte Bakery & Cafe",
+              "name_display": "Tatte Bakery & Cafe",
+              "brand_key": "tatte bakery cafe",
               "address": "201  WASHINGTON ST",
               "address_display": "201  WASHINGTON ST, 02108",
               "zip": "02108",
@@ -6223,6 +6546,8 @@
           "always_pass": [
             {
               "name": "Honeygrow",
+              "name_display": "Honeygrow",
+              "brand_key": "honeygrow",
               "address": "100  NORTHERN AV",
               "address_display": "100  NORTHERN AV, 02210",
               "zip": "02210",
@@ -6234,6 +6559,8 @@
             },
             {
               "name": "Shake Shack",
+              "name_display": "Shake Shack",
+              "brand_key": "shake shack",
               "address": "234  NEWBURY ST",
               "address_display": "234  NEWBURY ST, 02116",
               "zip": "02116",
@@ -6245,6 +6572,8 @@
             },
             {
               "name": "Sodexo @ Liberty Mutual Fl. 2",
+              "name_display": "Sodexo",
+              "brand_key": "sodexo",
               "address": "157  BERKELEY ST",
               "address_display": "157  BERKELEY ST, 02116",
               "zip": "02116",
@@ -6256,6 +6585,8 @@
             },
             {
               "name": "Taco Bell",
+              "name_display": "Taco Bell",
+              "brand_key": "taco bell",
               "address": "74  SUMMER ST",
               "address_display": "74  SUMMER ST, 02110",
               "zip": "02110",
@@ -6267,6 +6598,8 @@
             },
             {
               "name": "Vejigantes Restaurant",
+              "name_display": "Vejigantes Restaurant",
+              "brand_key": "vejigantes restaurant",
               "address": "57 W DEDHAM ST",
               "address_display": "57 W DEDHAM ST, 02118",
               "zip": "02118",
@@ -6278,6 +6611,8 @@
             },
             {
               "name": "Ali Baba",
+              "name_display": "Ali Baba",
+              "brand_key": "ali baba",
               "address": "99A  CAMBRIDGE ST",
               "address_display": "99A  CAMBRIDGE ST, 02129",
               "zip": "02129",
@@ -6289,6 +6624,8 @@
             },
             {
               "name": "Bambu",
+              "name_display": "Bambu",
+              "brand_key": "bambu",
               "address": "287  ADAMS ST",
               "address_display": "287  ADAMS ST, 02122",
               "zip": "02122",
@@ -6300,6 +6637,8 @@
             },
             {
               "name": "Bleacher Bar",
+              "name_display": "Bleacher Bar",
+              "brand_key": "bleacher bar",
               "address": "70  LANSDOWNE ST",
               "address_display": "70  LANSDOWNE ST, 02215",
               "zip": "02215",
@@ -6311,6 +6650,8 @@
             },
             {
               "name": "Cava",
+              "name_display": "Cava",
+              "brand_key": "cava",
               "address": "125  SUMMER ST",
               "address_display": "125  SUMMER ST, 02110",
               "zip": "02110",
@@ -6322,6 +6663,8 @@
             },
             {
               "name": "Cava",
+              "name_display": "Cava",
+              "brand_key": "cava",
               "address": "669  BOYLSTON ST",
               "address_display": "669  BOYLSTON ST, 02116",
               "zip": "02116",
@@ -6340,6 +6683,8 @@
           "always_pass": [
             {
               "name": "Dunkin Donuts",
+              "name_display": "Dunkin Donuts",
+              "brand_key": "dunkin donuts",
               "address": "1627  TREMONT ST",
               "address_display": "1627  TREMONT ST, 02120",
               "zip": "02120",
@@ -6351,6 +6696,8 @@
             },
             {
               "name": "Blue Ribbon Barbecue",
+              "name_display": "Blue Ribbon Barbecue",
+              "brand_key": "blue ribbon barbecue",
               "address": "401  PARK DR",
               "address_display": "401  PARK DR, 02215",
               "zip": "02215",
@@ -6362,6 +6709,8 @@
             },
             {
               "name": "Lala's Neapolitan-ish Pizza",
+              "name_display": "Lala's Neapolitan-ish Pizza",
+              "brand_key": "lalas neapolitan ish pizza",
               "address": "401  PARK DR",
               "address_display": "401  PARK DR, 02215",
               "zip": "02215",
@@ -6373,6 +6722,8 @@
             },
             {
               "name": "The Monkey Bar",
+              "name_display": "The Monkey Bar",
+              "brand_key": "monkey bar",
               "address": "200  FANEUIL HALL MARKET PL",
               "address_display": "200  FANEUIL HALL MARKET PL, 02109",
               "zip": "02109",
@@ -6384,6 +6735,8 @@
             },
             {
               "name": "AFC Zenshi @ Shaws No. 1208",
+              "name_display": "AFC Zenshi",
+              "brand_key": "afc zenshi",
               "address": "246  BORDER ST",
               "address_display": "246  BORDER ST, 02128",
               "zip": "02128",
@@ -6395,6 +6748,8 @@
             },
             {
               "name": "Alamo Drafthouse",
+              "name_display": "Alamo Drafthouse",
+              "brand_key": "alamo drafthouse",
               "address": "23  NORTHERN AV",
               "address_display": "23  NORTHERN AV, 02210",
               "zip": "02210",
@@ -6406,6 +6761,8 @@
             },
             {
               "name": "B. Good Burger",
+              "name_display": "B. Good Burger",
+              "brand_key": "b good burger",
               "address": "200  TERMINAL RD",
               "address_display": "200  TERMINAL RD, 02128",
               "zip": "02128",
@@ -6417,6 +6774,8 @@
             },
             {
               "name": "Beantown Pastrami",
+              "name_display": "Beantown Pastrami",
+              "brand_key": "beantown pastrami",
               "address": "100  HANOVER ST",
               "address_display": "100  HANOVER ST, 02114",
               "zip": "02114",
@@ -6428,6 +6787,8 @@
             },
             {
               "name": "Charley's Philly Steaks",
+              "name_display": "Charley's Philly Steaks",
+              "brand_key": "charleys philly steaks",
               "address": "350  LONGWOOD AV",
               "address_display": "350  LONGWOOD AV, 02215",
               "zip": "02215",
@@ -6439,6 +6800,8 @@
             },
             {
               "name": "Craft Food Hall",
+              "name_display": "Craft Food Hall",
+              "brand_key": "craft food hall",
               "address": "135  WILLIAM T MORRISSEY BL",
               "address_display": "135  WILLIAM T MORRISSEY BL, 02125",
               "zip": "02125",
@@ -6450,13 +6813,15 @@
             }
           ],
           "places_to_avoid": [],
-          "always_pass_n": 29,
+          "always_pass_n": 28,
           "repeat_n": 0
         },
         "Retail food": {
           "always_pass": [
             {
               "name": "CVS/Pharmacy No. 10517",
+              "name_display": "CVS/Pharmacy No. 10517",
+              "brand_key": "cvs pharmacy no 10517",
               "address": "77  SEAPORT BL",
               "address_display": "77  SEAPORT BL, 02210",
               "zip": "02210",
@@ -6468,6 +6833,8 @@
             },
             {
               "name": "CVS/Pharmacy No. 1900",
+              "name_display": "CVS/Pharmacy No. 1900",
+              "brand_key": "cvs pharmacy no 1900",
               "address": "218  HANOVER ST",
               "address_display": "218  HANOVER ST, 02113",
               "zip": "02113",
@@ -6479,6 +6846,8 @@
             },
             {
               "name": "Trader Joe's No. 566",
+              "name_display": "Trader Joe's No. 566",
+              "brand_key": "trader joes no 566",
               "address": "44  THOMSON PL",
               "address_display": "44  THOMSON PL, 02210",
               "zip": "02210",
@@ -6490,6 +6859,8 @@
             },
             {
               "name": "WHOLE FOODS MARKET",
+              "name_display": "Whole Foods Market",
+              "brand_key": "whole foods market",
               "address": "15  WASHINGTON ST",
               "address_display": "15  WASHINGTON ST, 02135",
               "zip": "02135",
@@ -6501,6 +6872,8 @@
             },
             {
               "name": "ADAMS CONVENIENCE STORE",
+              "name_display": "Adams Convenience Store",
+              "brand_key": "adams convenience store",
               "address": "114  BLACKSTONE ST",
               "address_display": "114  BLACKSTONE ST, 02108",
               "zip": "02108",
@@ -6512,6 +6885,8 @@
             },
             {
               "name": "ALBA PRODUCE",
+              "name_display": "Alba Produce",
+              "brand_key": "alba produce",
               "address": "18  PARMENTER ST",
               "address_display": "18  PARMENTER ST, 02113",
               "zip": "02113",
@@ -6523,6 +6898,8 @@
             },
             {
               "name": "Dollar General Store No. 19117",
+              "name_display": "Dollar General Store No. 19117",
+              "brand_key": "dollar general store no 19117",
               "address": "500  GENEVA AV",
               "address_display": "500  GENEVA AV, 02122",
               "zip": "02122",
@@ -6534,6 +6911,8 @@
             },
             {
               "name": "KAREN MARKET",
+              "name_display": "Karen Market",
+              "brand_key": "karen market",
               "address": "41  BENNINGTON ST",
               "address_display": "41  BENNINGTON ST, 02128",
               "zip": "02128",
@@ -6545,6 +6924,8 @@
             },
             {
               "name": "MASS. AVE. SUNOCO MART",
+              "name_display": "Mass. Ave. Sunoco Mart",
+              "brand_key": "mass ave sunoco mart",
               "address": "895  MASSACHUSETTS AV",
               "address_display": "895  MASSACHUSETTS AV, 02118",
               "zip": "02118",
@@ -6556,6 +6937,8 @@
             },
             {
               "name": "Star Market Company",
+              "name_display": "Star Market Company",
+              "brand_key": "star market company",
               "address": "50  CAUSEWAY ST",
               "address_display": "50  CAUSEWAY ST, 02114",
               "zip": "02114",
@@ -6574,6 +6957,8 @@
           "always_pass": [
             {
               "name": "Boston Trolley DogsNo. 2",
+              "name_display": "Boston Trolley DogsNo. 2",
+              "brand_key": "boston trolley dogsno 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
@@ -6585,6 +6970,8 @@
             },
             {
               "name": "Eloti No. 2",
+              "name_display": "Eloti No. 2",
+              "brand_key": "eloti no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 550426",
               "zip": "02128",
@@ -6596,6 +6983,8 @@
             },
             {
               "name": "Madame Chervilo",
+              "name_display": "Madame Chervilo",
+              "brand_key": "madame chervilo",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 595710",
               "zip": "02128",
@@ -6607,6 +6996,8 @@
             },
             {
               "name": "Papi's Stuffed Sopapillas",
+              "name_display": "Papi's Stuffed Sopapillas",
+              "brand_key": "papis stuffed sopapillas",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 528241",
               "zip": "02128",
@@ -6618,6 +7009,8 @@
             },
             {
               "name": "Twizted Pickle",
+              "name_display": "Twizted Pickle",
+              "brand_key": "twizted pickle",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 531319",
               "zip": "02128",
@@ -6629,6 +7022,8 @@
             },
             {
               "name": "Zaz Food Truck",
+              "name_display": "Zaz Food Truck",
+              "brand_key": "zaz food truck",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 482060",
               "zip": "02128",
@@ -6652,6 +7047,8 @@
       "always_pass": [
         {
           "name": "BM2: Bon Me OrangeNo. 2",
+          "name_display": "BM2: Bon Me OrangeNo. 2",
+          "brand_key": "bm2 bon me orangeno 2",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 523524",
           "zip": "02128",
@@ -6663,6 +7060,8 @@
         },
         {
           "name": "Cool Shade 2",
+          "name_display": "Cool Shade 2",
+          "brand_key": "cool shade 2",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 599905",
           "zip": "02128",
@@ -6674,6 +7073,8 @@
         },
         {
           "name": "Dave's Hot Chicken",
+          "name_display": "Dave's Hot Chicken",
+          "brand_key": "daves hot chicken",
           "address": "1260  BOYLSTON ST",
           "address_display": "1260  BOYLSTON ST, 02215",
           "zip": "02215",
@@ -6685,6 +7086,8 @@
         },
         {
           "name": "Grace Note Coffee",
+          "name_display": "Grace Note Coffee",
+          "brand_key": "grace note coffee",
           "address": "100  HIGH ST",
           "address_display": "100  HIGH ST, 02110",
           "zip": "02110",
@@ -6696,6 +7099,8 @@
         },
         {
           "name": "Olu's African Market",
+          "name_display": "Olu's African Market",
+          "brand_key": "olus african market",
           "address": "4400  WASHINGTON ST",
           "address_display": "4400  WASHINGTON ST, 02131",
           "zip": "02131",
@@ -6707,6 +7112,8 @@
         },
         {
           "name": "Ashmont Convenience Store",
+          "name_display": "Ashmont Convenience Store",
+          "brand_key": "ashmont convenience store",
           "address": "1996  DORCHESTER AV",
           "address_display": "1996  DORCHESTER AV, 02124",
           "zip": "02124",
@@ -6718,6 +7125,8 @@
         },
         {
           "name": "B/SPOKE",
+          "name_display": "B/spoke",
+          "brand_key": "b spoke",
           "address": "54  OLD COLONY AV",
           "address_display": "54  OLD COLONY AV, 02127",
           "zip": "02127",
@@ -6729,6 +7138,8 @@
         },
         {
           "name": "Bibim Box",
+          "name_display": "Bibim Box",
+          "brand_key": "bibim box",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 317902",
           "zip": "02128",
@@ -6740,6 +7151,8 @@
         },
         {
           "name": "Boston Trolley Dogs",
+          "name_display": "Boston Trolley Dogs",
+          "brand_key": "boston trolley dogs",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 139282",
           "zip": "02128",
@@ -6751,6 +7164,8 @@
         },
         {
           "name": "Boston Trolley DogsNo. 2",
+          "name_display": "Boston Trolley DogsNo. 2",
+          "brand_key": "boston trolley dogsno 2",
           "address": "1  CITYWIDE ST",
           "address_display": "Mobile (citywide) \u00b7 License 531943",
           "zip": "02128",
@@ -6768,8 +7183,8 @@
       "category_n": [
         {
           "label": "Ice cream",
-          "inspections": 19,
-          "fails": 6
+          "inspections": 69,
+          "fails": 28
         },
         {
           "label": "Cultural / attraction",
@@ -6778,38 +7193,38 @@
         },
         {
           "label": "Hospital",
-          "inspections": 42,
-          "fails": 16
+          "inspections": 35,
+          "fails": 13
         },
         {
           "label": "Hotel",
-          "inspections": 183,
-          "fails": 79
+          "inspections": 161,
+          "fails": 70
         },
         {
           "label": "School",
-          "inspections": 54,
-          "fails": 23
+          "inspections": 56,
+          "fails": 25
         },
         {
           "label": "Cafe",
-          "inspections": 873,
-          "fails": 389
+          "inspections": 861,
+          "fails": 383
         },
         {
           "label": "Food and drinks",
-          "inspections": 3478,
-          "fails": 1715
+          "inspections": 3488,
+          "fails": 1721
         },
         {
           "label": "Take-out",
-          "inspections": 2882,
-          "fails": 1234
+          "inspections": 2849,
+          "fails": 1220
         },
         {
           "label": "Retail food",
-          "inspections": 1070,
-          "fails": 387
+          "inspections": 1082,
+          "fails": 389
         },
         {
           "label": "Mobile food",
@@ -6822,6 +7237,8 @@
           "always_pass": [
             {
               "name": "Grace Note Coffee",
+              "name_display": "Grace Note Coffee",
+              "brand_key": "grace note coffee",
               "address": "100  HIGH ST",
               "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
@@ -6833,6 +7250,8 @@
             },
             {
               "name": "FLOUR BAKERY & CAFE",
+              "name_display": "Flour Bakery & Cafe",
+              "brand_key": "flour bakery cafe",
               "address": "1595  WASHINGTON ST",
               "address_display": "1595  WASHINGTON ST, 02118",
               "zip": "02118",
@@ -6851,6 +7270,8 @@
           "always_pass": [
             {
               "name": "Bubble Bath",
+              "name_display": "Bubble Bath",
+              "brand_key": "bubble bath",
               "address": "100  HIGH ST",
               "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
@@ -6862,6 +7283,8 @@
             },
             {
               "name": "Chipotle Mexican Grill",
+              "name_display": "Chipotle Mexican Grill",
+              "brand_key": "chipotle mexican grill",
               "address": "1924  BEACON ST",
               "address_display": "1924  BEACON ST, 02135",
               "zip": "02135",
@@ -6873,6 +7296,8 @@
             },
             {
               "name": "Irashai Sushi and Teriyaki",
+              "name_display": "Irashai Sushi and Teriyaki",
+              "brand_key": "irashai sushi teriyaki",
               "address": "8  KNEELAND ST",
               "address_display": "8  KNEELAND ST, 02111",
               "zip": "02111",
@@ -6884,6 +7309,8 @@
             },
             {
               "name": "Island Cuisine Restaurant and Bakery",
+              "name_display": "Island Cuisine Restaurant and Bakery",
+              "brand_key": "island cuisine restaurant bakery",
               "address": "554  DUDLEY ST",
               "address_display": "554  DUDLEY ST, 02125",
               "zip": "02125",
@@ -6895,6 +7322,8 @@
             },
             {
               "name": "Ropes & Gray L L P",
+              "name_display": "Ropes & Gray L L P",
+              "brand_key": "ropes gray llp",
               "address": "800  BOYLSTON ST",
               "address_display": "800  BOYLSTON ST, 02199",
               "zip": "02199",
@@ -6906,6 +7335,8 @@
             },
             {
               "name": "Starbucks",
+              "name_display": "Starbucks",
+              "brand_key": "starbucks",
               "address": "1341  BOYLSTON ST",
               "address_display": "1341  BOYLSTON ST, 02215",
               "zip": "02215",
@@ -6917,6 +7348,8 @@
             },
             {
               "name": "Tasty Burger",
+              "name_display": "Tasty Burger",
+              "brand_key": "tasty burger",
               "address": "86  VAN NESS ST",
               "address_display": "86  VAN NESS ST, 02215",
               "zip": "02215",
@@ -6928,6 +7361,8 @@
             },
             {
               "name": "The Ancient Bakers",
+              "name_display": "The Ancient Bakers",
+              "brand_key": "ancient bakers",
               "address": "1199  TREMONT ST",
               "address_display": "1199  TREMONT ST, 02120",
               "zip": "02120",
@@ -6939,6 +7374,8 @@
             },
             {
               "name": "Trillium at Farnsworth",
+              "name_display": "Trillium at Farnsworth",
+              "brand_key": "trillium at farnsworth",
               "address": "47  FARNSWORTH ST",
               "address_display": "47  FARNSWORTH ST, 02210",
               "zip": "02210",
@@ -6957,6 +7394,8 @@
           "always_pass": [
             {
               "name": "Dave's Hot Chicken",
+              "name_display": "Dave's Hot Chicken",
+              "brand_key": "daves hot chicken",
               "address": "1260  BOYLSTON ST",
               "address_display": "1260  BOYLSTON ST, 02215",
               "zip": "02215",
@@ -6968,6 +7407,8 @@
             },
             {
               "name": "B/SPOKE",
+              "name_display": "B/spoke",
+              "brand_key": "b spoke",
               "address": "54  OLD COLONY AV",
               "address_display": "54  OLD COLONY AV, 02127",
               "zip": "02127",
@@ -6979,6 +7420,8 @@
             },
             {
               "name": "Burger King",
+              "name_display": "Burger King",
+              "brand_key": "burger king",
               "address": "210  BRIGHTON AV",
               "address_display": "210  BRIGHTON AV, 02134",
               "zip": "02134",
@@ -6990,6 +7433,8 @@
             },
             {
               "name": "Charming Gardener/Dive Bar",
+              "name_display": "Charming Gardener/Dive Bar",
+              "brand_key": "charming gardener dive bar",
               "address": "100  HIGH ST",
               "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
@@ -7001,6 +7446,8 @@
             },
             {
               "name": "Cumin Club Indian Kitchen",
+              "name_display": "Cumin Club Indian Kitchen",
+              "brand_key": "cumin club indian kitchen",
               "address": "100  HIGH ST",
               "address_display": "100  HIGH ST, 02110",
               "zip": "02110",
@@ -7012,6 +7459,8 @@
             },
             {
               "name": "Dunkin",
+              "name_display": "Dunkin",
+              "brand_key": "dunkin",
               "address": "214 N BEACON ST",
               "address_display": "214 N BEACON ST, 02135",
               "zip": "02135",
@@ -7023,6 +7472,8 @@
             },
             {
               "name": "Dunkin Donuts",
+              "name_display": "Dunkin Donuts",
+              "brand_key": "dunkin donuts",
               "address": "210  HARVARD AV",
               "address_display": "210  HARVARD AV, 02134",
               "zip": "02134",
@@ -7034,6 +7485,8 @@
             },
             {
               "name": "DUNKIN DONUTS/SCNVANOS",
+              "name_display": "Dunkin Donuts/scnvanos",
+              "brand_key": "dunkin donuts scnvanos",
               "address": "440  MASSACHUSETTS AV",
               "address_display": "440  MASSACHUSETTS AV, 02118",
               "zip": "02118",
@@ -7045,6 +7498,8 @@
             },
             {
               "name": "Dunkin' Donuts",
+              "name_display": "Dunkin' Donuts",
+              "brand_key": "dunkin donuts",
               "address": "1131  TREMONT ST",
               "address_display": "1131  TREMONT ST, 02120",
               "zip": "02120",
@@ -7056,6 +7511,8 @@
             },
             {
               "name": "Gary's Pizza",
+              "name_display": "Gary's Pizza",
+              "brand_key": "garys pizza",
               "address": "1744  WASHINGTON ST",
               "address_display": "1744  WASHINGTON ST, 02118",
               "zip": "02118",
@@ -7074,6 +7531,8 @@
           "always_pass": [
             {
               "name": "Olu's African Market",
+              "name_display": "Olu's African Market",
+              "brand_key": "olus african market",
               "address": "4400  WASHINGTON ST",
               "address_display": "4400  WASHINGTON ST, 02131",
               "zip": "02131",
@@ -7085,6 +7544,8 @@
             },
             {
               "name": "Ashmont Convenience Store",
+              "name_display": "Ashmont Convenience Store",
+              "brand_key": "ashmont convenience store",
               "address": "1996  DORCHESTER AV",
               "address_display": "1996  DORCHESTER AV, 02124",
               "zip": "02124",
@@ -7096,6 +7557,8 @@
             },
             {
               "name": "CVS  Pharmacy",
+              "name_display": "CVS Pharmacy",
+              "brand_key": "cvs pharmacy",
               "address": "214  HARVARD AV",
               "address_display": "214  HARVARD AV, 02134",
               "zip": "02134",
@@ -7107,6 +7570,8 @@
             },
             {
               "name": "Dollar Tree",
+              "name_display": "Dollar Tree",
+              "brand_key": "dollar tree",
               "address": "1230  VFW PW",
               "address_display": "1230  VFW PW, 02132",
               "zip": "02132",
@@ -7118,6 +7583,8 @@
             },
             {
               "name": "HENRY'S MARKET",
+              "name_display": "Henry's Market",
+              "brand_key": "henrys market",
               "address": "892  SOUTH ST",
               "address_display": "892  SOUTH ST, 02131",
               "zip": "02131",
@@ -7129,6 +7596,8 @@
             },
             {
               "name": "Kaba African Market",
+              "name_display": "Kaba African Market",
+              "brand_key": "kaba african market",
               "address": "11  ROXBURY ST",
               "address_display": "11  ROXBURY ST, 02119",
               "zip": "02119",
@@ -7140,6 +7609,8 @@
             },
             {
               "name": "WHOLE FOODS MARKET(415 Centre St.)",
+              "name_display": "Whole Foods Market",
+              "brand_key": "whole foods market",
               "address": "415  CENTRE ST",
               "address_display": "415  CENTRE ST, 02130",
               "zip": "02130",
@@ -7151,6 +7622,8 @@
             },
             {
               "name": "Wild Duck Food Market",
+              "name_display": "Wild Duck Food Market",
+              "brand_key": "wild duck food market",
               "address": "362  COMMONWEALTH AV",
               "address_display": "362  COMMONWEALTH AV, 02115",
               "zip": "02115",
@@ -7169,6 +7642,8 @@
           "always_pass": [
             {
               "name": "BM2: Bon Me OrangeNo. 2",
+              "name_display": "BM2: Bon Me OrangeNo. 2",
+              "brand_key": "bm2 bon me orangeno 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 523524",
               "zip": "02128",
@@ -7180,6 +7655,8 @@
             },
             {
               "name": "Cool Shade 2",
+              "name_display": "Cool Shade 2",
+              "brand_key": "cool shade 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 599905",
               "zip": "02128",
@@ -7191,6 +7668,8 @@
             },
             {
               "name": "Bibim Box",
+              "name_display": "Bibim Box",
+              "brand_key": "bibim box",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 317902",
               "zip": "02128",
@@ -7202,6 +7681,8 @@
             },
             {
               "name": "Boston Trolley Dogs",
+              "name_display": "Boston Trolley Dogs",
+              "brand_key": "boston trolley dogs",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 139282",
               "zip": "02128",
@@ -7213,6 +7694,8 @@
             },
             {
               "name": "Boston Trolley DogsNo. 2",
+              "name_display": "Boston Trolley DogsNo. 2",
+              "brand_key": "boston trolley dogsno 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 531943",
               "zip": "02128",
@@ -7224,6 +7707,8 @@
             },
             {
               "name": "Caribbean Hibachi",
+              "name_display": "Caribbean Hibachi",
+              "brand_key": "caribbean hibachi",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 529989",
               "zip": "02128",
@@ -7235,6 +7720,8 @@
             },
             {
               "name": "Cousins Maine Lobster",
+              "name_display": "Cousins Maine Lobster",
+              "brand_key": "cousins maine lobster",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 597760",
               "zip": "02128",
@@ -7246,6 +7733,8 @@
             },
             {
               "name": "El Dugout",
+              "name_display": "El Dugout",
+              "brand_key": "el dugout",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 598183",
               "zip": "02128",
@@ -7257,6 +7746,8 @@
             },
             {
               "name": "Extreme Flavor",
+              "name_display": "Extreme Flavor",
+              "brand_key": "extreme flavor",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 598092",
               "zip": "02128",
@@ -7268,6 +7759,8 @@
             },
             {
               "name": "Gogi On The Block No. 2",
+              "name_display": "Gogi On The Block No. 2",
+              "brand_key": "gogi on the block no 2",
               "address": "1  CITYWIDE ST",
               "address_display": "Mobile (citywide) \u00b7 License 354104",
               "zip": "02128",
@@ -7315,6 +7808,8 @@
     "places": [
       {
         "name": "Go Fresh 365",
+        "name_display": "Go Fresh 365",
+        "brand_key": "go fresh 365",
         "address": "1102  WASHINGTON ST",
         "address_display": "1102  WASHINGTON ST, 02118",
         "zip": "02118",
@@ -7327,6 +7822,8 @@
       },
       {
         "name": "BOURBON ST. CAFE",
+        "name_display": "Bourbon ST Cafe",
+        "brand_key": "bourbon st cafe",
         "address": "417  WASHINGTON ST",
         "address_display": "417  WASHINGTON ST, 02108",
         "zip": "02108",
@@ -7339,6 +7836,8 @@
       },
       {
         "name": "Fan Fan Restaurant",
+        "name_display": "Fan Fan Restaurant",
+        "brand_key": "fan fan restaurant",
         "address": "15  HARVARD AV",
         "address_display": "15  HARVARD AV, 02136",
         "zip": "02136",
@@ -7351,6 +7850,8 @@
       },
       {
         "name": "Bonchon Allston",
+        "name_display": "Bonchon Allston",
+        "brand_key": "bonchon allston",
         "address": "101  BRIGHTON AV",
         "address_display": "101  BRIGHTON AV, 02134",
         "zip": "02134",
@@ -7363,6 +7864,8 @@
       },
       {
         "name": "The Real Deal",
+        "name_display": "The Real Deal",
+        "brand_key": "real deal",
         "address": "1882  CENTRE ST",
         "address_display": "1882  CENTRE ST, 02132",
         "zip": "02132",
@@ -7375,6 +7878,8 @@
       },
       {
         "name": "Nhu Lan Fast Food",
+        "name_display": "Nhu Lan Fast Food",
+        "brand_key": "nhu lan fast food",
         "address": "1155  DORCHESTER AV",
         "address_display": "1155  DORCHESTER AV, 02125",
         "zip": "02125",
@@ -7387,6 +7892,8 @@
       },
       {
         "name": "Yamato Japanese Cuisine",
+        "name_display": "Yamato Japanese Cuisine",
+        "brand_key": "yamato japanese cuisine",
         "address": "111  CHISWICK RD",
         "address_display": "111  CHISWICK RD, 02135",
         "zip": "02135",
@@ -7399,6 +7906,8 @@
       },
       {
         "name": "Yely's Coffee Shop",
+        "name_display": "Yely's Coffee Shop",
+        "brand_key": "yelys coffee shop",
         "address": "284  CENTRE ST",
         "address_display": "284  CENTRE ST, 02130",
         "zip": "02130",
@@ -7411,6 +7920,8 @@
       },
       {
         "name": "BALE RESTAURANT",
+        "name_display": "Bale Restaurant",
+        "brand_key": "bale restaurant",
         "address": "1052  DORCHESTER AV",
         "address_display": "1052  DORCHESTER AV, 02125",
         "zip": "02125",
@@ -7423,6 +7934,8 @@
       },
       {
         "name": "MCKENNA'S CAFE",
+        "name_display": "Mckenna's Cafe",
+        "brand_key": "mckennas cafe",
         "address": "109  SAVIN HILL AV",
         "address_display": "109  SAVIN HILL AV, 02125",
         "zip": "02125",
@@ -7435,6 +7948,8 @@
       },
       {
         "name": "NEW YORK FRIED CHICKEN & PIZZA",
+        "name_display": "New York Fried Chicken & Pizza",
+        "brand_key": "new york fried chicken pizza",
         "address": "531  COLUMBIA RD",
         "address_display": "531  COLUMBIA RD, 02125",
         "zip": "02125",
@@ -7447,6 +7962,8 @@
       },
       {
         "name": "NICOLE'S PIZZA",
+        "name_display": "Nicole's Pizza",
+        "brand_key": "nicoles pizza",
         "address": "639  TREMONT ST",
         "address_display": "639  TREMONT ST, 02118",
         "zip": "02118",
@@ -7459,6 +7976,8 @@
       },
       {
         "name": "BERTUCCI'S",
+        "name_display": "Bertucci's",
+        "brand_key": "bertuccis",
         "address": "633  V F W PK",
         "address_display": "633  V F W PK, 02132",
         "zip": "02132",
@@ -7471,6 +7990,8 @@
       },
       {
         "name": "Los Amigos Mexican Grill",
+        "name_display": "Los Amigos Mexican Grill",
+        "brand_key": "los amigos mexican grill",
         "address": "1741  CENTRE ST",
         "address_display": "1741  CENTRE ST, 02132",
         "zip": "02132",
@@ -7483,6 +8004,8 @@
       },
       {
         "name": "PARAMOUNT",
+        "name_display": "Paramount",
+        "brand_key": "paramount",
         "address": "44  CHARLES ST",
         "address_display": "44  CHARLES ST, 02114",
         "zip": "02114",
@@ -7498,7 +8021,23 @@
       "Ice cream": {
         "places_to_avoid": [
           {
+            "name": "J.P. LICKS INC.",
+            "name_display": "J.P. Licks",
+            "brand_key": "jp licks",
+            "address": "659  CENTRE ST",
+            "address_display": "659  CENTRE ST, 02130",
+            "zip": "02130",
+            "license": "21069",
+            "category": "Ice cream",
+            "inspections": 59,
+            "fails": 26,
+            "fail_rate": 44.1,
+            "years_failed": 15
+          },
+          {
             "name": "P & R ICE CREAM",
+            "name_display": "P & R Ice Cream",
+            "brand_key": "pr ice cream",
             "address": "1284  BLUE HILL AV",
             "address_display": "1284  BLUE HILL AV, 02126",
             "zip": "02126",
@@ -7511,6 +8050,8 @@
           },
           {
             "name": "THE BOSTON ICE CREAM FACTORY",
+            "name_display": "The Boston Ice Cream Factory",
+            "brand_key": "boston ice cream factory",
             "address": "777  WILLIAM T MORRISSEY BL",
             "address_display": "777  WILLIAM T MORRISSEY BL, 02122",
             "zip": "02122",
@@ -7522,7 +8063,23 @@
             "years_failed": 13
           },
           {
+            "name": "Cold Stone Creamery",
+            "name_display": "Cold Stone Creamery",
+            "brand_key": "cold stone creamery",
+            "address": "800  BOYLSTON ST",
+            "address_display": "800  BOYLSTON ST, 02199",
+            "zip": "02199",
+            "license": "141000",
+            "category": "Ice cream",
+            "inspections": 68,
+            "fails": 36,
+            "fail_rate": 52.9,
+            "years_failed": 11
+          },
+          {
             "name": "P & R Restaurant & Ice Cream Parlor",
+            "name_display": "P & R Restaurant & Ice Cream Parlor",
+            "brand_key": "pr restaurant ice cream parlor",
             "address": "208  DUDLEY ST",
             "address_display": "208  DUDLEY ST, 02119",
             "zip": "02119",
@@ -7534,96 +8091,84 @@
             "years_failed": 11
           },
           {
-            "name": "Casa Colombia Rest. Ice Cream & Bakery",
-            "address": "14  WILLIAM C KELLY SQ",
-            "address_display": "14  WILLIAM C KELLY SQ, 02128",
-            "zip": "02128",
-            "license": "90341",
+            "name": "J.P. LICKS AT W.R.  INC.",
+            "name_display": "J.P. Licks",
+            "brand_key": "jp licks",
+            "address": "661  V F W PK",
+            "address_display": "661  V F W PK, 02467",
+            "zip": "02467",
+            "license": "21821",
             "category": "Ice cream",
-            "inspections": 26,
-            "fails": 11,
-            "fail_rate": 42.3,
-            "years_failed": 7
+            "inspections": 55,
+            "fails": 20,
+            "fail_rate": 36.4,
+            "years_failed": 11
           },
           {
-            "name": "WAI WAI ICE CREAM SHOP",
-            "address": "26  OXFORD ST",
-            "address_display": "26  OXFORD ST, 02111",
-            "zip": "02111",
-            "license": "24990",
+            "name": "Emack & Bolio's",
+            "name_display": "Emack & Bolio's",
+            "brand_key": "emack bolios",
+            "address": "290  NEWBURY ST",
+            "address_display": "290  NEWBURY ST, 02115",
+            "zip": "02115",
+            "license": "25678",
             "category": "Ice cream",
-            "inspections": 35,
-            "fails": 10,
-            "fail_rate": 28.6,
-            "years_failed": 7
+            "inspections": 43,
+            "fails": 17,
+            "fail_rate": 39.5,
+            "years_failed": 11
           },
           {
-            "name": "Froyo World",
-            "address": "157  HARVARD AV",
-            "address_display": "157  HARVARD AV, 02134",
-            "zip": "02134",
-            "license": "80923",
+            "name": "Emack & Bolio's",
+            "name_display": "Emack & Bolio's",
+            "brand_key": "emack bolios",
+            "address": "1  CHELSEA ST",
+            "address_display": "1  CHELSEA ST, 02129",
+            "zip": "02129",
+            "license": "67656",
             "category": "Ice cream",
-            "inspections": 29,
-            "fails": 6,
-            "fail_rate": 20.7,
-            "years_failed": 6
+            "inspections": 43,
+            "fails": 15,
+            "fail_rate": 34.9,
+            "years_failed": 10
           },
           {
-            "name": "Fomu Ice Cream",
-            "address": "140  BROOKLINE AV",
-            "address_display": "140  BROOKLINE AV, 02215",
+            "name": "J.P. Licks @ Boylston St.",
+            "name_display": "J.P. Licks",
+            "brand_key": "jp licks",
+            "address": "1106  BOYLSTON ST",
+            "address_display": "1106  BOYLSTON ST, 02215",
             "zip": "02215",
-            "license": "388817",
+            "license": "81090",
             "category": "Ice cream",
-            "inspections": 21,
-            "fails": 6,
-            "fail_rate": 28.6,
-            "years_failed": 5
+            "inspections": 44,
+            "fails": 13,
+            "fail_rate": 29.5,
+            "years_failed": 10
           },
           {
-            "name": "Sprinkle's Ice Cream",
-            "address": "100-199  FANEUIL HALL MARKET PL",
-            "address_display": "100-199  FANEUIL HALL MARKET PL, 02109",
-            "zip": "02109",
-            "license": "26246",
+            "name": "Ben & Jerry's",
+            "name_display": "Ben & Jerry's",
+            "brand_key": "ben jerrys",
+            "address": "174  NEWBURY ST",
+            "address_display": "174  NEWBURY ST, 02116",
+            "zip": "02116",
+            "license": "22630",
             "category": "Ice cream",
-            "inspections": 27,
-            "fails": 5,
-            "fail_rate": 18.5,
-            "years_failed": 4
-          },
-          {
-            "name": "Van Leeuwen Ice Cream",
-            "address": "131  SEAPORT BL",
-            "address_display": "131  SEAPORT BL, 02210",
-            "zip": "02210",
-            "license": "554057",
-            "category": "Ice cream",
-            "inspections": 11,
-            "fails": 5,
-            "fail_rate": 45.5,
-            "years_failed": 3
-          },
-          {
-            "name": "Jimmies Ice Cream Parlor",
-            "address": "46  CORINTH ST ST",
-            "address_display": "46  CORINTH ST ST, 02131",
-            "zip": "02131",
-            "license": "32437",
-            "category": "Ice cream",
-            "inspections": 17,
-            "fails": 4,
-            "fail_rate": 23.5,
-            "years_failed": 3
+            "inspections": 38,
+            "fails": 12,
+            "fail_rate": 31.6,
+            "years_failed": 10
           }
         ],
-        "repeat_n": 14
+        "repeat_n": 45
       },
       "Cultural / attraction": {
         "places_to_avoid": [
           {
             "name": "Museum of Fine Arts Cafeteria",
+            "name_display": "Museum of Fine Arts Cafeteria",
+            "brand_key": "museum of fine arts cafeteria",
             "address": "465  HUNTINGTON AV",
             "address_display": "465  HUNTINGTON AV, 02115",
             "zip": "02115",
@@ -7636,6 +8181,8 @@
           },
           {
             "name": "Museum of Science",
+            "name_display": "Museum of Science",
+            "brand_key": "museum of science",
             "address": "10  CHARLES RIVER DM",
             "address_display": "10  CHARLES RIVER DM, 02114",
             "zip": "02114",
@@ -7648,6 +8195,8 @@
           },
           {
             "name": "Fenway Park-Aura Club",
+            "name_display": "Fenway Park-Aura Club",
+            "brand_key": "fenway park aura club",
             "address": "4  JERSEY ST",
             "address_display": "4  JERSEY ST, 02215",
             "zip": "02215",
@@ -7660,6 +8209,8 @@
           },
           {
             "name": "GAME ON FENWAY PARK",
+            "name_display": "Game ON Fenway Park",
+            "brand_key": "game on fenway park",
             "address": "70  LANSDOWNE",
             "address_display": "70  LANSDOWNE, 02215",
             "zip": "02215",
@@ -7672,6 +8223,8 @@
           },
           {
             "name": "Gardner Museum Cafe",
+            "name_display": "Gardner Museum Cafe",
+            "brand_key": "gardner museum cafe",
             "address": "2  PALACE RD",
             "address_display": "2  PALACE RD, 02115",
             "zip": "02115",
@@ -7684,6 +8237,8 @@
           },
           {
             "name": "Museum of Fine Arts New American Cafe",
+            "name_display": "Museum of Fine Arts New American Cafe",
+            "brand_key": "museum of fine arts new american cafe",
             "address": "465  HUNTINGTON AV",
             "address_display": "465  HUNTINGTON AV, 02115",
             "zip": "02115",
@@ -7696,6 +8251,8 @@
           },
           {
             "name": "Museum of Fine Arts-465 Bar and Restaurant",
+            "name_display": "Museum of Fine Arts-465 Bar and Restaurant",
+            "brand_key": "museum of fine arts 465 bar restaurant",
             "address": "465  HUNTINGTON AV",
             "address_display": "465  HUNTINGTON AV, 02215",
             "zip": "02215",
@@ -7708,6 +8265,8 @@
           },
           {
             "name": "NEW ENGLAND AQUARIUM CORP.",
+            "name_display": "New England Aquarium",
+            "brand_key": "new england aquarium",
             "address": "250  ATLANTIC AV",
             "address_display": "250  ATLANTIC AV, 02110",
             "zip": "02110",
@@ -7720,6 +8279,8 @@
           },
           {
             "name": "Museum of Fine Arts-Taste D/B/A No. 19285",
+            "name_display": "Museum of Fine Arts-Taste D/B/A No. 19285",
+            "brand_key": "museum of fine arts taste dba no 19285",
             "address": "465  HUNTINGTON AV",
             "address_display": "465  HUNTINGTON AV, 02115",
             "zip": "02115",
@@ -7732,6 +8293,8 @@
           },
           {
             "name": "Fenway Stadium 13",
+            "name_display": "Fenway Stadium 13",
+            "brand_key": "fenway stadium 13",
             "address": "201  BROOKLINE AV",
             "address_display": "201  BROOKLINE AV, 02215",
             "zip": "02215",
@@ -7749,6 +8312,8 @@
         "places_to_avoid": [
           {
             "name": "Brighams & Womens Hospital - Tower Cafe",
+            "name_display": "Brighams & Womens Hospital - Tower Cafe",
+            "brand_key": "brighams womens hospital tower cafe",
             "address": "75  FRANCIS ST",
             "address_display": "75  FRANCIS ST, 02115",
             "zip": "02115",
@@ -7761,6 +8326,8 @@
           },
           {
             "name": "N.E. Deaconess Hospital Cafe",
+            "name_display": "N.E. Deaconess Hospital Cafe",
+            "brand_key": "ne deaconess hospital cafe",
             "address": "1  DEACONESS RD",
             "address_display": "1  DEACONESS RD, 02215",
             "zip": "02215",
@@ -7773,6 +8340,8 @@
           },
           {
             "name": "St. Elizabeth's Medical Center",
+            "name_display": "St. Elizabeth's Medical Center",
+            "brand_key": "st elizabeths medical center",
             "address": "736  CAMBRIDGE ST",
             "address_display": "736  CAMBRIDGE ST, 02135",
             "zip": "02135",
@@ -7785,6 +8354,8 @@
           },
           {
             "name": "BRIGHAM & WOMENS FAULKNER HOSPITAL",
+            "name_display": "Brigham & Womens Faulkner Hospital",
+            "brand_key": "brigham womens faulkner hospital",
             "address": "1153  CENTRE",
             "address_display": "1153  CENTRE, 02130",
             "zip": "02130",
@@ -7797,6 +8368,8 @@
           },
           {
             "name": "CHILDRENS HOSPITAL MAIN CAF",
+            "name_display": "Childrens Hospital Main Caf",
+            "brand_key": "childrens hospital main caf",
             "address": "300  LONGWOOD AV",
             "address_display": "300  LONGWOOD AV, 02115",
             "zip": "02115",
@@ -7809,6 +8382,8 @@
           },
           {
             "name": "CARNEY HOSPITAL",
+            "name_display": "Carney Hospital",
+            "brand_key": "carney hospital",
             "address": "2100  DORCHESTER AV",
             "address_display": "2100  DORCHESTER AV, 02124",
             "zip": "02124",
@@ -7821,6 +8396,8 @@
           },
           {
             "name": "CARTER FULLER MENTAL HOSPITAL",
+            "name_display": "Carter Fuller Mental Hospital",
+            "brand_key": "carter fuller mental hospital",
             "address": "85 E NEWTON ST",
             "address_display": "85 E NEWTON ST, 02118",
             "zip": "02118",
@@ -7833,6 +8410,8 @@
           },
           {
             "name": "Mass General Hospital Cafe",
+            "name_display": "Mass General Hospital Cafe",
+            "brand_key": "mass general hospital cafe",
             "address": "55  FRUIT ST",
             "address_display": "55  FRUIT ST, 02114",
             "zip": "02114",
@@ -7845,6 +8424,8 @@
           },
           {
             "name": "Boston Medical Center (Shapiro Bldg.)",
+            "name_display": "Boston Medical Center",
+            "brand_key": "boston medical center",
             "address": "830  HARRISON AV",
             "address_display": "830  HARRISON AV, 02118",
             "zip": "02118",
@@ -7857,6 +8438,8 @@
           },
           {
             "name": "Brigham & Womens Hospital d/b/a O'Naturals",
+            "name_display": "Brigham & Womens Hospital d/b/a O'Naturals",
+            "brand_key": "brigham womens hospital dba onaturals",
             "address": "70  FRANCIS ST",
             "address_display": "70  FRANCIS ST, 02115",
             "zip": "02115",
@@ -7868,12 +8451,14 @@
             "years_failed": 4
           }
         ],
-        "repeat_n": 21
+        "repeat_n": 19
       },
       "Hotel": {
         "places_to_avoid": [
           {
             "name": "Seaport Hotel",
+            "name_display": "Seaport Hotel",
+            "brand_key": "seaport hotel",
             "address": "1  SEAPORT LN",
             "address_display": "1  SEAPORT LN, 02210",
             "zip": "02210",
@@ -7886,6 +8471,8 @@
           },
           {
             "name": "Colonnade Hotel",
+            "name_display": "Colonnade Hotel",
+            "brand_key": "colonnade hotel",
             "address": "120  HUNTINGTON AV",
             "address_display": "120  HUNTINGTON AV, 02116",
             "zip": "02116",
@@ -7898,6 +8485,8 @@
           },
           {
             "name": "The Bostonian Boston - A Millennium Hotel",
+            "name_display": "The Bostonian Boston - A Millennium Hotel",
+            "brand_key": "bostonian boston a millennium hotel",
             "address": "20  NORTH ST",
             "address_display": "20  NORTH ST, 02109",
             "zip": "02109",
@@ -7910,6 +8499,8 @@
           },
           {
             "name": "MARRIOTT HOTEL-COPLEY PLACE",
+            "name_display": "Marriott Hotel-copley Place",
+            "brand_key": "marriott hotel copley place",
             "address": "110  HUNTINGTON AV",
             "address_display": "110  HUNTINGTON AV, 02116",
             "zip": "02116",
@@ -7922,6 +8513,8 @@
           },
           {
             "name": "Four Seasons Hotel Boston",
+            "name_display": "Four Seasons Hotel Boston",
+            "brand_key": "four seasons hotel boston",
             "address": "200  BOYLSTON ST",
             "address_display": "200  BOYLSTON ST, 02116",
             "zip": "02116",
@@ -7934,6 +8527,8 @@
           },
           {
             "name": "Lenox Hotel (5 Food Serv. Loc.)",
+            "name_display": "Lenox Hotel",
+            "brand_key": "lenox hotel",
             "address": "704  BOYLSTON ST",
             "address_display": "704  BOYLSTON ST, 02199",
             "zip": "02199",
@@ -7946,6 +8541,8 @@
           },
           {
             "name": "BOSTON BACK BAY HILTON",
+            "name_display": "Boston Back Bay Hilton",
+            "brand_key": "boston back bay hilton",
             "address": "40  DALTON ST",
             "address_display": "40  DALTON ST, 02115",
             "zip": "02115",
@@ -7958,6 +8555,8 @@
           },
           {
             "name": "SHERATON BOSTON (R.S./CAFE)",
+            "name_display": "Sheraton Boston",
+            "brand_key": "sheraton boston",
             "address": "39  DALTON ST",
             "address_display": "39  DALTON ST, 02199",
             "zip": "02199",
@@ -7970,6 +8569,8 @@
           },
           {
             "name": "The Liberty Hotel",
+            "name_display": "The Liberty Hotel",
+            "brand_key": "liberty hotel",
             "address": "215  CHARLES ST",
             "address_display": "215  CHARLES ST, 02114",
             "zip": "02114",
@@ -7982,6 +8583,8 @@
           },
           {
             "name": "WESTIN COPLEY Place -BAR 10",
+            "name_display": "Westin Copley Place -bar 10",
+            "brand_key": "westin copley place bar 10",
             "address": "10  HUNTINGTON AV",
             "address_display": "10  HUNTINGTON AV, 02116",
             "zip": "02116",
@@ -7993,12 +8596,14 @@
             "years_failed": 11
           }
         ],
-        "repeat_n": 93
+        "repeat_n": 86
       },
       "School": {
         "places_to_avoid": [
           {
             "name": "UNIVERSITY HOUSE OF PIZZA",
+            "name_display": "University House OF Pizza",
+            "brand_key": "university house of pizza",
             "address": "452  HUNTINGTON AV",
             "address_display": "452  HUNTINGTON AV, 02115",
             "zip": "02115",
@@ -8011,6 +8616,8 @@
           },
           {
             "name": "Simmons College-Bartol",
+            "name_display": "Simmons College-Bartol",
+            "brand_key": "simmons college bartol",
             "address": "84  PILGRIM RD",
             "address_display": "84  PILGRIM RD, 02115",
             "zip": "02115",
@@ -8023,6 +8630,8 @@
           },
           {
             "name": "Emmanuel College (Muddy River Cafe)",
+            "name_display": "Emmanuel College",
+            "brand_key": "emmanuel college",
             "address": "400  FENWAY",
             "address_display": "400  FENWAY, 02115",
             "zip": "02115",
@@ -8035,6 +8644,8 @@
           },
           {
             "name": "UNIVERSITY GRILL & PIZZA",
+            "name_display": "University Grill & Pizza",
+            "brand_key": "university grill pizza",
             "address": "712  COMMONWEALTH AV",
             "address_display": "712  COMMONWEALTH AV, 02215",
             "zip": "02215",
@@ -8047,6 +8658,8 @@
           },
           {
             "name": "Emmanuel College",
+            "name_display": "Emmanuel College",
+            "brand_key": "emmanuel college",
             "address": "400  FENWAY",
             "address_display": "400  FENWAY, 02115",
             "zip": "02115",
@@ -8059,6 +8672,8 @@
           },
           {
             "name": "SIMMONS COLLEGE-THE FENS",
+            "name_display": "Simmons College-the Fens",
+            "brand_key": "simmons college the fens",
             "address": "300  FENWAY",
             "address_display": "300  FENWAY, 02115",
             "zip": "02115",
@@ -8071,6 +8686,8 @@
           },
           {
             "name": "Berklee College of Music",
+            "name_display": "Berklee College of Music",
+            "brand_key": "berklee college of music",
             "address": "160  MASSACHUSETTS AV",
             "address_display": "160  MASSACHUSETTS AV, 02115",
             "zip": "02115",
@@ -8082,19 +8699,9 @@
             "years_failed": 12
           },
           {
-            "name": "Common Ground Cafe @ Simmons College",
-            "address": "300  FENWAY",
-            "address_display": "300  FENWAY, 02115",
-            "zip": "02115",
-            "license": "73675",
-            "category": "School",
-            "inspections": 44,
-            "fails": 15,
-            "fail_rate": 34.1,
-            "years_failed": 12
-          },
-          {
             "name": "FISHER COLLEGE",
+            "name_display": "Fisher College",
+            "brand_key": "fisher college",
             "address": "118  BEACON ST",
             "address_display": "118  BEACON ST, 02116",
             "zip": "02116",
@@ -8107,6 +8714,8 @@
           },
           {
             "name": "University Club of Boston",
+            "name_display": "University Club of Boston",
+            "brand_key": "university club of boston",
             "address": "426  STUART ST",
             "address_display": "426  STUART ST, 02116",
             "zip": "02116",
@@ -8116,14 +8725,30 @@
             "fails": 18,
             "fail_rate": 36.7,
             "years_failed": 11
+          },
+          {
+            "name": "Dining Hall @Emerson",
+            "name_display": "Dining Hall",
+            "brand_key": "dining hall",
+            "address": "122  BOYLSTON ST",
+            "address_display": "122  BOYLSTON ST, 02116",
+            "zip": "02116",
+            "license": "364830",
+            "category": "School",
+            "inspections": 35,
+            "fails": 15,
+            "fail_rate": 42.9,
+            "years_failed": 9
           }
         ],
-        "repeat_n": 48
+        "repeat_n": 45
       },
       "Cafe": {
         "places_to_avoid": [
           {
             "name": "BOURBON ST. CAFE",
+            "name_display": "Bourbon ST Cafe",
+            "brand_key": "bourbon st cafe",
             "address": "417  WASHINGTON ST",
             "address_display": "417  WASHINGTON ST, 02108",
             "zip": "02108",
@@ -8136,6 +8761,8 @@
           },
           {
             "name": "Yely's Coffee Shop",
+            "name_display": "Yely's Coffee Shop",
+            "brand_key": "yelys coffee shop",
             "address": "284  CENTRE ST",
             "address_display": "284  CENTRE ST, 02130",
             "zip": "02130",
@@ -8148,6 +8775,8 @@
           },
           {
             "name": "MCKENNA'S CAFE",
+            "name_display": "Mckenna's Cafe",
+            "brand_key": "mckennas cafe",
             "address": "109  SAVIN HILL AV",
             "address_display": "109  SAVIN HILL AV, 02125",
             "zip": "02125",
@@ -8160,6 +8789,8 @@
           },
           {
             "name": "Bourbon Street Cafe",
+            "name_display": "Bourbon Street Cafe",
+            "brand_key": "bourbon street cafe",
             "address": "350  LONGWOOD AV",
             "address_display": "350  LONGWOOD AV, 02215",
             "zip": "02215",
@@ -8172,6 +8803,8 @@
           },
           {
             "name": "Minina's Cafe",
+            "name_display": "Minina's Cafe",
+            "brand_key": "mininas cafe",
             "address": "430  GENEVA AV",
             "address_display": "430  GENEVA AV, 02122",
             "zip": "02122",
@@ -8184,6 +8817,8 @@
           },
           {
             "name": "My Thai Cafe Vegetarian & Bubble Tea Bristro",
+            "name_display": "My Thai Cafe Vegetarian & Bubble Tea Bristro",
+            "brand_key": "my thai cafe vegetarian bubble tea bristro",
             "address": "3  BEACH ST",
             "address_display": "3  BEACH ST, 02111",
             "zip": "02111",
@@ -8196,6 +8831,8 @@
           },
           {
             "name": "Hong Kong 888 Cafe",
+            "name_display": "Hong Kong 888 Cafe",
+            "brand_key": "hong kong 888 cafe",
             "address": "888  SOUTH ST",
             "address_display": "888  SOUTH ST, 02131",
             "zip": "02131",
@@ -8208,6 +8845,8 @@
           },
           {
             "name": "Jaho Coffee & Tea",
+            "name_display": "Jaho Coffee & Tea",
+            "brand_key": "jaho coffee tea",
             "address": "1651  WASHINGTON ST",
             "address_display": "1651  WASHINGTON ST, 02118",
             "zip": "02118",
@@ -8220,6 +8859,8 @@
           },
           {
             "name": "Nos Casa Cafe",
+            "name_display": "Nos Casa Cafe",
+            "brand_key": "nos casa cafe",
             "address": "475  DUDLEY ST",
             "address_display": "475  DUDLEY ST, 02119",
             "zip": "02119",
@@ -8232,6 +8873,8 @@
           },
           {
             "name": "CAFE MIRROR",
+            "name_display": "Cafe Mirror",
+            "brand_key": "cafe mirror",
             "address": "362  WASHINGTON ST",
             "address_display": "362  WASHINGTON ST, 02135",
             "zip": "02135",
@@ -8243,12 +8886,14 @@
             "years_failed": 15
           }
         ],
-        "repeat_n": 610
+        "repeat_n": 605
       },
       "Food and drinks": {
         "places_to_avoid": [
           {
             "name": "Fan Fan Restaurant",
+            "name_display": "Fan Fan Restaurant",
+            "brand_key": "fan fan restaurant",
             "address": "15  HARVARD AV",
             "address_display": "15  HARVARD AV, 02136",
             "zip": "02136",
@@ -8261,6 +8906,8 @@
           },
           {
             "name": "Bonchon Allston",
+            "name_display": "Bonchon Allston",
+            "brand_key": "bonchon allston",
             "address": "101  BRIGHTON AV",
             "address_display": "101  BRIGHTON AV, 02134",
             "zip": "02134",
@@ -8273,6 +8920,8 @@
           },
           {
             "name": "The Real Deal",
+            "name_display": "The Real Deal",
+            "brand_key": "real deal",
             "address": "1882  CENTRE ST",
             "address_display": "1882  CENTRE ST, 02132",
             "zip": "02132",
@@ -8285,6 +8934,8 @@
           },
           {
             "name": "Yamato Japanese Cuisine",
+            "name_display": "Yamato Japanese Cuisine",
+            "brand_key": "yamato japanese cuisine",
             "address": "111  CHISWICK RD",
             "address_display": "111  CHISWICK RD, 02135",
             "zip": "02135",
@@ -8297,6 +8948,8 @@
           },
           {
             "name": "BERTUCCI'S",
+            "name_display": "Bertucci's",
+            "brand_key": "bertuccis",
             "address": "633  V F W PK",
             "address_display": "633  V F W PK, 02132",
             "zip": "02132",
@@ -8309,6 +8962,8 @@
           },
           {
             "name": "PARAMOUNT",
+            "name_display": "Paramount",
+            "brand_key": "paramount",
             "address": "44  CHARLES ST",
             "address_display": "44  CHARLES ST, 02114",
             "zip": "02114",
@@ -8321,6 +8976,8 @@
           },
           {
             "name": "Pho Le",
+            "name_display": "Pho Le",
+            "brand_key": "pho le",
             "address": "1356  DORCHESTER AV",
             "address_display": "1356  DORCHESTER AV, 02122",
             "zip": "02122",
@@ -8333,6 +8990,8 @@
           },
           {
             "name": "Victoria Seafood",
+            "name_display": "Victoria Seafood",
+            "brand_key": "victoria seafood",
             "address": "1029  COMMONWEALTH AV",
             "address_display": "1029  COMMONWEALTH AV, 02215",
             "zip": "02215",
@@ -8345,6 +9004,8 @@
           },
           {
             "name": "PHO 2000",
+            "name_display": "Pho 2000",
+            "brand_key": "pho 2000",
             "address": "198  ADAMS ST",
             "address_display": "198  ADAMS ST, 02122",
             "zip": "02122",
@@ -8357,6 +9018,8 @@
           },
           {
             "name": "MERENGUE RESTAURANT",
+            "name_display": "Merengue Restaurant",
+            "brand_key": "merengue restaurant",
             "address": "156  BLUE HILL AV",
             "address_display": "156  BLUE HILL AV, 02119",
             "zip": "02119",
@@ -8368,12 +9031,14 @@
             "years_failed": 15
           }
         ],
-        "repeat_n": 2269
+        "repeat_n": 2277
       },
       "Take-out": {
         "places_to_avoid": [
           {
             "name": "Nhu Lan Fast Food",
+            "name_display": "Nhu Lan Fast Food",
+            "brand_key": "nhu lan fast food",
             "address": "1155  DORCHESTER AV",
             "address_display": "1155  DORCHESTER AV, 02125",
             "zip": "02125",
@@ -8386,6 +9051,8 @@
           },
           {
             "name": "BALE RESTAURANT",
+            "name_display": "Bale Restaurant",
+            "brand_key": "bale restaurant",
             "address": "1052  DORCHESTER AV",
             "address_display": "1052  DORCHESTER AV, 02125",
             "zip": "02125",
@@ -8398,6 +9065,8 @@
           },
           {
             "name": "NEW YORK FRIED CHICKEN & PIZZA",
+            "name_display": "New York Fried Chicken & Pizza",
+            "brand_key": "new york fried chicken pizza",
             "address": "531  COLUMBIA RD",
             "address_display": "531  COLUMBIA RD, 02125",
             "zip": "02125",
@@ -8410,6 +9079,8 @@
           },
           {
             "name": "NICOLE'S PIZZA",
+            "name_display": "Nicole's Pizza",
+            "brand_key": "nicoles pizza",
             "address": "639  TREMONT ST",
             "address_display": "639  TREMONT ST, 02118",
             "zip": "02118",
@@ -8422,6 +9093,8 @@
           },
           {
             "name": "Los Amigos Mexican Grill",
+            "name_display": "Los Amigos Mexican Grill",
+            "brand_key": "los amigos mexican grill",
             "address": "1741  CENTRE ST",
             "address_display": "1741  CENTRE ST, 02132",
             "zip": "02132",
@@ -8434,6 +9107,8 @@
           },
           {
             "name": "Jen Lai Noodle and Rice Co.",
+            "name_display": "Jen Lai Noodle and Rice Co.",
+            "brand_key": "jen lai noodle rice co",
             "address": "1  FANEUIL HALL MKT PL PL",
             "address_display": "1  FANEUIL HALL MKT PL PL, 02109",
             "zip": "02109",
@@ -8446,6 +9121,8 @@
           },
           {
             "name": "Domino's Pizza",
+            "name_display": "Domino's Pizza",
+            "brand_key": "dominos pizza",
             "address": "205  ADAMS ST",
             "address_display": "205  ADAMS ST, 02122",
             "zip": "02122",
@@ -8458,6 +9135,8 @@
           },
           {
             "name": "CHUNG WAH",
+            "name_display": "Chung Wah",
+            "brand_key": "chung wah",
             "address": "199  BOWDOIN ST",
             "address_display": "199  BOWDOIN ST, 02122",
             "zip": "02122",
@@ -8470,6 +9149,8 @@
           },
           {
             "name": "EL CHALAN",
+            "name_display": "EL Chalan",
+            "brand_key": "el chalan",
             "address": "405  CHELSEA ST",
             "address_display": "405  CHELSEA ST, 02128",
             "zip": "02128",
@@ -8482,6 +9163,8 @@
           },
           {
             "name": "Comella's",
+            "name_display": "Comella's",
+            "brand_key": "comellas",
             "address": "1882  CENTRE ST",
             "address_display": "1882  CENTRE ST, 02132",
             "zip": "02132",
@@ -8493,12 +9176,14 @@
             "years_failed": 15
           }
         ],
-        "repeat_n": 1905
+        "repeat_n": 1882
       },
       "Retail food": {
         "places_to_avoid": [
           {
             "name": "Go Fresh 365",
+            "name_display": "Go Fresh 365",
+            "brand_key": "go fresh 365",
             "address": "1102  WASHINGTON ST",
             "address_display": "1102  WASHINGTON ST, 02118",
             "zip": "02118",
@@ -8511,6 +9196,8 @@
           },
           {
             "name": "A C Farm Market",
+            "name_display": "A C Farm Market",
+            "brand_key": "ac farm market",
             "address": "1429  DORCHESTER AV",
             "address_display": "1429  DORCHESTER AV, 02122",
             "zip": "02122",
@@ -8523,6 +9210,8 @@
           },
           {
             "name": "Shaw's Supermarkets No. 602",
+            "name_display": "Shaw's Supermarkets No. 602",
+            "brand_key": "shaws supermarkets no 602",
             "address": "53  HUNTINGTON AV",
             "address_display": "53  HUNTINGTON AV, 02199",
             "zip": "02199",
@@ -8535,6 +9224,8 @@
           },
           {
             "name": "Star Market No. 3588",
+            "name_display": "Star Market No. 3588",
+            "brand_key": "star market no 3588",
             "address": "1065  COMMONWEALTH AV",
             "address_display": "1065  COMMONWEALTH AV, 02215",
             "zip": "02215",
@@ -8547,6 +9238,8 @@
           },
           {
             "name": "Stop & Shop No. 412",
+            "name_display": "Stop & Shop No. 412",
+            "brand_key": "stop shop no 412",
             "address": "1622  TREMONT ST",
             "address_display": "1622  TREMONT ST, 02120",
             "zip": "02120",
@@ -8559,6 +9252,8 @@
           },
           {
             "name": "Stop & Shop Supermarket No. 004",
+            "name_display": "Stop & Shop Supermarket No. 004",
+            "brand_key": "stop shop supermarket no 004",
             "address": "950  AMERICAN LEGION HW",
             "address_display": "950  AMERICAN LEGION HW, 02136",
             "zip": "02136",
@@ -8571,6 +9266,8 @@
           },
           {
             "name": "F & T Davey's Supermarket",
+            "name_display": "F & T Davey's Supermarket",
+            "brand_key": "ft daveys supermarket",
             "address": "438  DUDLEY ST",
             "address_display": "438  DUDLEY ST, 02119",
             "zip": "02119",
@@ -8583,6 +9280,8 @@
           },
           {
             "name": "GARDEN HALAL MEAT MARKET INC.",
+            "name_display": "Garden Halal Meat Market",
+            "brand_key": "garden halal meat market",
             "address": "88  BLACKSTONE ST",
             "address_display": "88  BLACKSTONE ST, 02108",
             "zip": "02108",
@@ -8595,6 +9294,8 @@
           },
           {
             "name": "Star Market No. 4587",
+            "name_display": "Star Market No. 4587",
+            "brand_key": "star market no 4587",
             "address": "45  WM T MORRISSEY BL",
             "address_display": "45  WM T MORRISSEY BL, 02122",
             "zip": "02122",
@@ -8607,6 +9308,8 @@
           },
           {
             "name": "Super Stop & Shop",
+            "name_display": "Super Stop & Shop",
+            "brand_key": "super stop shop",
             "address": "1100  MASSACHUSETTS AV",
             "address_display": "1100  MASSACHUSETTS AV, 02125",
             "zip": "02125",
@@ -8618,12 +9321,14 @@
             "years_failed": 14
           }
         ],
-        "repeat_n": 837
+        "repeat_n": 839
       },
       "Mobile food": {
         "places_to_avoid": [
           {
             "name": "Tenoch Mexican",
+            "name_display": "Tenoch Mexican",
+            "brand_key": "tenoch mexican",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 138469",
             "zip": "02128",
@@ -8636,6 +9341,8 @@
           },
           {
             "name": "BM3:BON ME RED",
+            "name_display": "Bm3:bon ME Red",
+            "brand_key": "bm3 bon me red",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 86676",
             "zip": "02128",
@@ -8648,6 +9355,8 @@
           },
           {
             "name": "Chubby Chickpea Mobile",
+            "name_display": "Chubby Chickpea Mobile",
+            "brand_key": "chubby chickpea mobile",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 77929",
             "zip": "02128",
@@ -8660,6 +9369,8 @@
           },
           {
             "name": "Vanderbilt Food Trolly @107 Ave Louis Pasteur",
+            "name_display": "Vanderbilt Food Trolly",
+            "brand_key": "vanderbilt food trolly",
             "address": "1  CITYWIDE",
             "address_display": "Mobile (citywide) \u00b7 License 37237",
             "zip": "02128",
@@ -8672,6 +9383,8 @@
           },
           {
             "name": "Momogoose 2",
+            "name_display": "Momogoose 2",
+            "brand_key": "momogoose 2",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 68113",
             "zip": "02128",
@@ -8684,6 +9397,8 @@
           },
           {
             "name": "Momogoose 3",
+            "name_display": "Momogoose 3",
+            "brand_key": "momogoose 3",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 78558",
             "zip": "02128",
@@ -8696,6 +9411,8 @@
           },
           {
             "name": "Momogoose 4",
+            "name_display": "Momogoose 4",
+            "brand_key": "momogoose 4",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 76220",
             "zip": "02128",
@@ -8708,6 +9425,8 @@
           },
           {
             "name": "Pennypackers 2",
+            "name_display": "Pennypackers 2",
+            "brand_key": "pennypackers 2",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 128072",
             "zip": "02128",
@@ -8720,6 +9439,8 @@
           },
           {
             "name": "Roxy's Gourmet Grilled Cheese No. 2",
+            "name_display": "Roxy's Gourmet Grilled Cheese No. 2",
+            "brand_key": "roxys gourmet grilled cheese no 2",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 74860",
             "zip": "02128",
@@ -8732,6 +9453,8 @@
           },
           {
             "name": "Suya Joint",
+            "name_display": "Suya Joint",
+            "brand_key": "suya joint",
             "address": "1  CITYWIDE ST",
             "address_display": "Mobile (citywide) \u00b7 License 390602",
             "zip": "02128",
@@ -8743,7 +9466,7 @@
             "years_failed": 6
           }
         ],
-        "repeat_n": 135
+        "repeat_n": 134
       }
     }
   },

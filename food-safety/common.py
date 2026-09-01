@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import os
 import urllib.request
 from datetime import datetime
 from pathlib import Path
 
-OUT = Path("/Users/dhshah/fullsend/fullsend-demo-target/.github/workflows/boston_data")
-DOWNLOADS = Path("/Users/dhshah/Downloads")
+HERE = Path(__file__).resolve().parent
+OUT = Path(os.environ.get("BOSTON_ANALYSIS_OUT", HERE / "outputs"))
+DOWNLOADS = Path(os.environ.get("BOSTON_DATA_DIR", Path.home() / "Downloads"))
+OUT.mkdir(parents=True, exist_ok=True)
+
 DUMP = "https://data.boston.gov/datastore/dump/{id}"
 
 ZIP_NEIGHBORHOOD = {
@@ -78,9 +82,3 @@ def download_dump(resource_id: str, dest: Path, opener=urllib.request.urlopen) -
                 break
             out.write(chunk)
     return dest
-
-
-def per_1000(count: int, pop: int) -> float:
-    if not pop:
-        return 0.0
-    return round(1000.0 * count / pop, 1)

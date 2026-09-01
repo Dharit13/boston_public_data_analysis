@@ -29,7 +29,7 @@ Do **not** add 12,414 inspections + 3,347 licenses. Neighborhood on the inspecti
 3. **Department** — result clock, ZIP neighborhoods, licenses
 4. **City / Mayor** — policy asks
 5. **Public** — plain language for residents
-6. **Places** — always-pass by year (2019, 2024, 2025, 2026 YTD) and category; repeat offenders are places that failed in at least two calendar years 2012–2026
+6. **Places** — always-pass by year (2019, 2024, 2025, 2026 YTD) and category; repeat offenders are places that failed in at least two calendar years 2012–2026. Ice cream is a name overlay (regex or sourced web matches), not a City license type. `1 CITYWIDE ST` is shown as Mobile (citywide).
 7. **Notes** — row counts and cleaning rules
 
 ## Files in this folder
@@ -38,6 +38,8 @@ Do **not** add 12,414 inspections + 3,347 licenses. Neighborhood on the inspecti
 | --- | --- |
 | [boston-food-safety-summary.md](boston-food-safety-summary.md) | Full written findings |
 | `analyze_food.py` | Clean inspections + licenses → `outputs/food_stats.json` |
+| `ice_cream_web_matches.json` | Sourced ice-cream shop names + URLs (not a City license type) |
+| `test_analyze_food.py` | Unit tests (`python3 -m unittest test_analyze_food`) |
 | `common.py` | Download skip-if-exists, date parse, ZIP neighborhood map |
 | [canvases/boston-food-safety.canvas.tsx](canvases/boston-food-safety.canvas.tsx) | Original Cursor canvas |
 
@@ -60,6 +62,8 @@ Analyze Boston datasets. Scripts look for:
 ## Cleaning rules (short)
 
 Drop `resultdttm` that fail to parse or fall outside 2006–2026. Collapse on license number (or business name) + result timestamp to the second. Fail and star levels are **exact codes**, not substrings. Complete inspection years are 2012–2025. Dump span: inspections 2006-04-04 to 2026-08-28. All 3,347 license rows in this extract are `Active`.
+
+Display names strip trailing `Inc`/`LLC`/`Corp`/`Ltd` — not `Company` in a trade name (Atlantic Fish Company). `@` is a location suffix only after a street, hospital, hotel, or college (`A @ Time` stays). Ice cream overlays use word-boundary regex **or** sourced public scoop-shop pages joined on brand key (J.P. Licks, Ben & Jerry’s). `1 CITYWIDE ST` is ISD’s placeholder for mobile licenses, shown as **Mobile (citywide) · License …**.
 
 | Check | Count |
 | --- | ---: |

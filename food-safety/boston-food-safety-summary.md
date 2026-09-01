@@ -80,6 +80,8 @@ Always-pass is computed **inside each window**: complete years **2019, 2024, 202
 
 A **repeat offender** failed in **at least two calendar years** from **2012 through 2026**. Two fails in the same year count as one year, not a repeat. 2026 YTD counts as one calendar year if it has a fail. Places to avoid are the top of those multi-year repeats, including by category (Ice cream, Cultural / attraction, Hospital, Hotel, School, Cafe, then licensecat FS/FT/RF/MFW).
 
+Display names strip trailing Inc/LLC/Corp/Ltd, not Company in Atlantic Fish Company. `@` is a location only after a street/hospital/hotel/college. Ice cream is **not** a City cuisine or license field: word-boundary matching (ice cream, gelato, frozen yogurt, creamery) plus public ice-cream roundups and official scoop-shop pages joined on brand key. **J.P. Licks** and **Ben & Jerry’s** are Ice cream from that join. `1 CITYWIDE ST` is ISD’s mobile-license placeholder, shown as **Mobile (citywide) · License …**.
+
 | Window | Always-pass |
 | --- | ---: |
 | 2019 | 60 |
@@ -87,6 +89,6 @@ A **repeat offender** failed in **at least two calendar years** from **2012 thro
 | 2025 | 92 |
 | 2026 YTD | 49 |
 
-5,945 places met the multi-year repeat rule. Across 2012–2026: **Go Fresh 365** failed in all 15 years. Ice cream has no 2025 always-pass list (omit empty).
+5,945 places met the multi-year repeat rule. Across 2012–2026: **Go Fresh 365** failed in all 15 years. Ice cream has **45** multi-year repeats (J.P. Licks leads). 2025 ice cream always-pass is **Crescent Ridge Dairy**.
 
-Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays with word-boundary matching add Ice cream, Cafe, School, Hotel, Hospital, and Cultural / attraction. The City has no cafe or ice-cream license code. `ice` does not match ICE Auto Services.
+Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays add Ice cream, Cafe, School, Hotel, Hospital, and Cultural / attraction. The City has no cafe or ice-cream license code. `ice` does not match ICE Auto Services.

@@ -61,9 +61,56 @@ OVERLAY_ORDER = (
 )
 
 _ICE_RE = re.compile(
-    r"\b(ice\s*cream|gelato|frozen\s+yogurt|frozen\s+dessert|fro-?yo|yoghurt\s+shop)\b",
+    r"\b(ice\s*cream|gelato|frozen\s+yogurt|frozen\s+dessert|fro-?yo|yoghurt\s+shop|\w*creamery)\b",
     re.I,
 )
+_AT_ABBREV_RE = re.compile(r"\s+at\s+(?:[A-Za-z]\.?\s*){1,3}$", re.I)
+_PAREN_TAG_RE = re.compile(r"\s*\([^)]*\)\s*$")
+# Trailing legal forms only (ISO 20275 / cleanco-style). Do not strip bare
+# Company/Co — those are often the trade name (Atlantic Fish Company).
+_LEGAL_SUFFIX_RE = re.compile(
+    r"(?:,|\s)+((?:incorporated|inc|l\.l\.c|llc|l\s+l\s+c|corporation|corp|"
+    r"ltd|limited)\.?)\s*(?:[ivx]{1,4}|\d+)?\s*$",
+    re.I,
+)
+_PLACE_WORD_RE = re.compile(
+    r"(?ix)\b("
+    r"hospital|hotel|college|university|univ|school|institute|"
+    r"medical|centre|center|"
+    r"street|avenue|blvd|boulevard|"
+    r"circle|square|plaza|broadway|park|wharf|hall|"
+    r"market|supermarket|airport|station|mbta|library|"
+    r"theater|theatre|museum|church|beach|island|golf|"
+    r"garden|greenway|fitness|club|bank|kiosk|"
+    r"floor|bldg|building|tower|lobby|pavilion|"
+    r"convention|courthouse|track|farm|logan|"
+    r"marriott|hilton|westin|sheraton|hyatt|aloft|"
+    r"common|walgreens|childrens?"
+    r")\b"
+)
+_STREET_END_RE = re.compile(
+    r"(?i)\b(?:street|st|avenue|ave|road|rd|blvd|boulevard|"
+    r"circle|square|plaza|broadway|park|wharf)\.?$"
+)
+_GENERIC_HOST_KITCHEN_RE = re.compile(
+    r"(?ix)^(?:the\s+)?("
+    r"patient\s+dining|basement\s+dining|"
+    r"dining\s+hall|dining\s+room|"
+    r"cafeteria|canteen|"
+    r"\d+(?:st|nd|rd|th)\s+floor|"
+    r"kitchen"
+    r")$"
+)
+_SCHOOL_HOST_RE = re.compile(
+    r"(?i)\b(bhcc|rcc|umass|berklee|emerson|simmons|suffolk|wentworth|"
+    r"lesley|wheelock|harvard|northeastern|massart|mass\s*art)\b"
+)
+_HOSPITAL_HOST_RE = re.compile(
+    r"(?i)\b(bidmc|mgh|bmc|spaulding|faulkner|children'?s)\b"
+)
+WEB_ICE_PATH = Path(__file__).resolve().parent / "ice_cream_web_matches.json"
+_web_ice_override: set[str] | None = None
+_web_ice_file_cache: set[str] | None = None
 _CULTURAL_RE = re.compile(
     r"\b(museum|aquarium|zoo|botanical\s+gardens?|stadium|fenway\s+park)\b",
     re.I,
@@ -92,8 +139,53 @@ QUALITY_NOTE = (
     "Complete years are 2012–2025. 2026 is year-to-date through 28 August — "
     "not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, "
     "HE_FailExt, Fail, Failed, and HE_FAILNOR — not a substring. Star levels "
-    "are exact *, **, ***."
+    "are exact *, **, ***. Display names strip trailing Inc/LLC/Corp/Ltd, "
+    "not Company/Co in a trade name, and strip @ only when it is a location "
+    "suffix (street, hospital, hotel, college). Ice cream overlays are not a "
+    "City license type."
 )
+
+
+def _at_tokens(text: str) -> list[str]:
+    return [tok for tok in re.split(r"[^\w]+", strip_null(text)) if tok]
+
+
+def _at_is_location(left: str, right: str) -> bool:
+    """True when @ marks a site (street/hospital/hotel/college), not a trade name."""
+    right_s = right.strip()
+    left_s = left.strip()
+    if not right_s or not left_s:
+        return False
+    if re.search(r"\d", right_s):
+        return True
+    if _PLACE_WORD_RE.search(right_s) or _STREET_END_RE.search(right_s):
+        return True
+    if _SCHOOL_HOST_RE.search(right_s) or _HOSPITAL_HOST_RE.search(right_s):
+        return True
+    right_toks = _at_tokens(right_s)
+    left_toks = [tok for tok in _at_tokens(left_s) if tok.casefold() != "the"]
+    if len(right_toks) >= 3:
+        return True
+    if len(left_toks) >= 2:
+        return True
+    return False
+
+
+def split_at_location(business: str) -> tuple[str, str]:
+    """Split trade name from an @ location suffix. Keep trade-name @ (A @ Time)."""
+    text = strip_null(business)
+    idx = text.find("@")
+    if idx < 0:
+        return text, ""
+    left, right = text[:idx], text[idx + 1 :]
+    if _at_is_location(left, right):
+        return left.strip(), right.strip()
+    return text, ""
+
+
+def _is_generic_host_kitchen(trade: str) -> bool:
+    core = " ".join(strip_null(trade).split())
+    return bool(_GENERIC_HOST_KITCHEN_RE.match(core))
 
 
 def zip5_of(raw: str) -> str:
@@ -116,22 +208,163 @@ def viol_star(raw: str) -> str:
     return ""
 
 
+def _strip_affixes(text: str) -> str:
+    text, _loc = split_at_location(text)
+    changed = True
+    while changed:
+        changed = False
+        new = _PAREN_TAG_RE.sub("", text).rstrip(" ,")
+        if new != text:
+            text, changed = new, True
+        new = _LEGAL_SUFFIX_RE.sub("", text).rstrip(" ,")
+        if new != text:
+            text, changed = new, True
+    text = _AT_ABBREV_RE.sub("", text).rstrip(" ,")
+    return " ".join(text.split())
+
+
+def _fuse_initials(tokens: list[str]) -> list[str]:
+    out: list[str] = []
+    buf = ""
+    for tok in tokens:
+        if len(tok) == 1 and tok.isalpha():
+            buf += tok
+            continue
+        if buf:
+            out.append(buf)
+            buf = ""
+        out.append(tok)
+    if buf:
+        out.append(buf)
+    return out
+
+
+def normalize_name(business: str) -> str:
+    text = _strip_affixes(business).casefold()
+    text = text.replace("&", " ").replace("+", " ")
+    text = re.sub(r"\band\b", " ", text)
+    text = text.replace("'", "").replace("’", "")
+    text = re.sub(r"[^a-z0-9]+", " ", text)
+    tokens = [tok for tok in text.split() if tok]
+    if tokens and tokens[0] == "the":
+        tokens = tokens[1:]
+    return " ".join(_fuse_initials(tokens))
+
+
+def brand_key(business: str) -> str:
+    return normalize_name(business)
+
+
+def brand_compact(business: str) -> str:
+    return brand_key(business).replace(" ", "")
+
+
+def _web_ice_hit(compact: str, keys: set[str]) -> bool:
+    if not compact:
+        return False
+    if compact in keys:
+        return True
+    if compact.endswith("s") and compact[:-1] in keys:
+        return True
+    return compact + "s" in keys
+
+
+def _title_case_name(stripped: str) -> str:
+    out: list[str] = []
+    for word in stripped.split():
+        if word in {"&", "+", "@"}:
+            out.append(word)
+            continue
+        if re.fullmatch(r"(?:[A-Za-z]\.){1,4}", word):
+            out.append(word.upper())
+            continue
+        core = word.rstrip(".")
+        if len(core) <= 2 and core.isalpha():
+            out.append(core.upper())
+            continue
+        out.append(word.capitalize())
+    return " ".join(out)
+
+
+def name_display(business: str) -> str:
+    stripped = _strip_affixes(business)
+    if not stripped:
+        return strip_null(business)
+    letters = [ch for ch in stripped if ch.isalpha()]
+    if letters and (sum(ch.isupper() for ch in letters) / len(letters)) >= 0.72:
+        return _title_case_name(stripped)
+    return stripped
+
+
+def set_web_ice_names(names: list[str] | None) -> None:
+    global _web_ice_override, _web_ice_file_cache
+    if names is None:
+        _web_ice_override = None
+        _web_ice_file_cache = None
+    else:
+        _web_ice_override = {brand_compact(n) for n in names if n.strip()}
+
+
+def _load_web_ice_compact(path: Path) -> set[str]:
+    if not path.is_file():
+        return set()
+    raw = json.loads(path.read_text())
+    names = raw.get("names", [])
+    keys: set[str] = set()
+    for item in names:
+        label = item.get("name", "") if isinstance(item, dict) else str(item)
+        compact = brand_compact(label)
+        if compact:
+            keys.add(compact)
+    return keys
+
+
+def _web_ice_compact() -> set[str]:
+    global _web_ice_file_cache
+    if _web_ice_override is not None:
+        return _web_ice_override
+    if _web_ice_file_cache is None:
+        _web_ice_file_cache = _load_web_ice_compact(WEB_ICE_PATH)
+    return _web_ice_file_cache
+
+
 def categorize(business: str, licensecat: str) -> str:
     name = strip_null(business)
+    trade, loc = split_at_location(name)
+    norm = normalize_name(name)
     coded = CODED_CAT.get(strip_null(licensecat).upper(), CAT_OTHER)
-    if _ICE_RE.search(name):
+    if (
+        _ICE_RE.search(name)
+        or _ICE_RE.search(norm)
+        or _web_ice_hit(brand_compact(name), _web_ice_compact())
+    ):
         return CAT_ICE
-    if _CULTURAL_RE.search(name):
+    if loc and _is_generic_host_kitchen(trade):
+        if (
+            _HOSPITAL_RE.search(loc)
+            or re.search(r"(?i)\bmedical\s+c(?:en)?t", loc)
+            or _HOSPITAL_HOST_RE.search(loc)
+        ):
+            return CAT_HOSPITAL
+        if (
+            _SCHOOL_RE.search(loc)
+            or re.search(
+                r"(?i)\b(?:college|university|univ\.?|school|institute)\b", loc
+            )
+            or _SCHOOL_HOST_RE.search(loc)
+        ):
+            return CAT_SCHOOL
+    if _CULTURAL_RE.search(norm):
         return CAT_CULTURAL
-    if _HOSPITAL_RE.search(name):
+    if _HOSPITAL_RE.search(norm):
         return CAT_HOSPITAL
-    if _HOTEL_RE.search(name):
+    if _HOTEL_RE.search(norm):
         return CAT_HOTEL
-    if _SCHOOL_RE.search(name) or (
-        _SCHOOL_WORD_RE.search(name) and not _SCHOOL_STREET_RE.search(name)
+    if _SCHOOL_RE.search(norm) or (
+        _SCHOOL_WORD_RE.search(norm) and not _SCHOOL_STREET_RE.search(norm)
     ):
         return CAT_SCHOOL
-    if _CAFE_RE.search(name):
+    if _CAFE_RE.search(norm):
         return CAT_CAFE
     return coded
 
@@ -171,6 +404,8 @@ def _roll_places(rows: list[dict]) -> dict[str, dict]:
         if rec is None:
             rec = {
                 "name": row["business"],
+                "name_display": name_display(row["business"]),
+                "brand_key": brand_key(row["business"]),
                 "address": row["address"],
                 "zip": row["zip"],
                 "license": row["licenseno"],
@@ -195,6 +430,8 @@ def _public_place(rec: dict, extra: tuple[str, ...] = ()) -> dict:
     )
     keys = (
         "name",
+        "name_display",
+        "brand_key",
         "address",
         "address_display",
         "zip",
@@ -436,6 +673,8 @@ def briefing_from_rows(
         if rec is None:
             rec = {
                 "name": row["business"],
+                "name_display": name_display(row["business"]),
+                "brand_key": brand_key(row["business"]),
                 "address": row["address"],
                 "zip": row["zip"],
                 "license": row["licenseno"],
