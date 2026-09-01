@@ -25,11 +25,11 @@ Do **not** add 12,414 inspections + 3,347 licenses. Neighborhood on the inspecti
 ## What’s on the live page
 
 1. **Summary** — six findings
-2. **Overview** — inspection vs fail-share series, result mix, stars
+2. **Overview** — inspection vs fail-share series, result mix, stars, major vs minor-only fail split
 3. **Department** — result clock, ZIP neighborhoods, licenses
 4. **City / Mayor** — policy asks
 5. **Public** — plain language for residents
-6. **Places** — always-pass by year (2019, 2024, 2025, 2026 YTD) and category; repeated fails across ≥2 calendar years 2012–2026 are listed as **Be cautious — repeated fails**, not a skip list. Ice cream, Pharmacy, and Grocery are name overlays (regex or sourced web matches), not City license types. `1 CITYWIDE ST` is shown as Mobile (citywide).
+6. **Places** — always-pass by year (2019, 2024, 2025, 2026 YTD) and category; repeated fails across ≥2 calendar years 2012–2026 are listed as **Be cautious — repeated fails**, not a skip list, with last fail major vs minor-only. Ice cream, Pharmacy, and Grocery are name overlays (regex or sourced web matches), not City license types. `1 CITYWIDE ST` is shown as Mobile (citywide).
 7. **Notes** — row counts and cleaning rules
 
 ## Files in this folder

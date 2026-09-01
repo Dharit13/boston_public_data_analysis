@@ -24,7 +24,17 @@ FAIL_RESULTS = frozenset({
     "Failed",
     "HE_FAILNOR",
 })
+# Temporary suspension / voluntary or emergency closure — not fail codes.
+SEVERE_OPS = frozenset({"HE_TSOP", "HE_VolClos", "HE_Closure"})
 STAR_LEVELS = ("*", "**", "***")
+SEV_MAJOR = "major"
+SEV_MINOR = "minor_only"
+SEV_UNSTARRED = "unstarred"
+SEV_LABEL = {
+    SEV_MAJOR: "Major",
+    SEV_MINOR: "Minor-only",
+    SEV_UNSTARRED: "Unstarred",
+}
 ALWAYS_PASS_MIN = 3
 REPEAT_YEAR_MIN = 2
 PLACE_DETAIL_YEARS = (2019, 2024, 2025)
@@ -153,8 +163,14 @@ QUALITY_NOTE = (
     "license number and result timestamp. Drop rows with no resultdttm. "
     "Complete years are 2012–2025. 2026 is year-to-date through 28 August — "
     "not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, "
-    "HE_FailExt, Fail, Failed, and HE_FAILNOR — not a substring. Star levels "
-    "are exact *, **, ***. Display names strip trailing Inc/LLC/Corp/Ltd, "
+    "HE_FailExt, Fail, Failed, and HE_FAILNOR — not a substring. HE_Filed is "
+    "not a fail. Star levels are exact *, **, ***. Fail severity is our split "
+    "from viol_level on a failed visit — not an official ISD “major failure” "
+    "label, and not the letter grade on the door: major if the visit has ** or "
+    "*** (critical / foodborne-critical), minor-only if starred violations are "
+    "only * (non-critical; wiping cloths stay minor), mixed counts as major "
+    "(worst-on-visit). HE_TSOP / HE_VolClos / HE_Closure are severe operational "
+    "results, counted separately from fail codes. Display names strip trailing Inc/LLC/Corp/Ltd, "
     "not Company/Co in a trade name, and strip @ only when it is a location "
     "suffix (street, hospital, hotel, college). Ice cream, pharmacy, and "
     "grocery overlays are not City license types. ISD licensecat RF remains "
@@ -216,6 +232,22 @@ def zip5_of(raw: str) -> str:
 
 def is_fail(raw: str) -> bool:
     return strip_null(raw) in FAIL_RESULTS
+
+
+def fail_severity(stars: dict) -> str:
+    """Worst-on-visit class for a failed inspection. Our mapping, not ISD's.
+
+    Analyze Boston does not publish a viol_level dictionary. The dump's
+    Food Code suffixes line up with Boston's three grading bands:
+    * = non-critical / Core (C) / 2 points (walls, wiping cloths);
+    ** = critical / Priority Foundation (Pf) / 7 points (pests, date marking);
+    *** = foodborne-critical / Priority (P) / 10 points (hot/cold holding).
+    """
+    if stars.get("**") or stars.get("***"):
+        return SEV_MAJOR
+    if stars.get("*"):
+        return SEV_MINOR
+    return SEV_UNSTARRED
 
 
 def viol_star(raw: str) -> str:
@@ -628,9 +660,15 @@ def load_inspections(path: Path) -> tuple[list[dict], dict]:
                     "descript": strip_null(raw.get("descript", "")),
                     "zip": zip5,
                     "neighborhood": ZIP_NEIGHBORHOOD.get(zip5, ""),
+                    "resultdttm": dt.isoformat(timespec="seconds"),
                     "n_viol": 0,
                     "stars": {"*": 0, "**": 0, "***": 0},
                     "violdesc": Counter(),
+                    "violdesc_star": {
+                        "*": Counter(),
+                        "**": Counter(),
+                        "***": Counter(),
+                    },
                 }
             rec = groups[key]
             if has_viol:
@@ -640,6 +678,8 @@ def load_inspections(path: Path) -> tuple[list[dict], dict]:
             desc = strip_null(raw.get("violdesc", ""))
             if desc:
                 rec["violdesc"][desc] += 1
+                if star:
+                    rec["violdesc_star"][star][desc] += 1
     rows = list(groups.values())
     quality["insp_kept"] = len(rows)
     out = dict(quality)
@@ -670,6 +710,81 @@ def load_licenses(path: Path) -> tuple[list[dict], dict]:
 
 def _top(counter: Counter, n: int) -> list[dict]:
     return [{"label": k, "value": v} for k, v in counter.most_common(n) if k]
+
+
+def _severity_block(visits: list[dict]) -> dict:
+    fails = [r for r in visits if r["fail"]]
+    n = len(fails)
+    bands = Counter(fail_severity(r["stars"]) for r in fails)
+    major = bands[SEV_MAJOR]
+    minor = bands[SEV_MINOR]
+    unst = bands[SEV_UNSTARRED]
+    foodborne = sum(1 for r in fails if r["stars"].get("***"))
+    crit_only = sum(
+        1 for r in fails if r["stars"].get("**") and not r["stars"].get("***")
+    )
+    major_desc: Counter = Counter()
+    minor_desc: Counter = Counter()
+    for r in fails:
+        by_star = r.get("violdesc_star") or {}
+        major_seen = set(by_star.get("**", ())) | set(by_star.get("***", ()))
+        minor_seen = set(by_star.get("*", ()))
+        major_desc.update(major_seen)
+        minor_desc.update(minor_seen)
+    ops = Counter(r["result"] for r in visits if r["result"] in SEVERE_OPS)
+    by_category = []
+    for lab in OVERLAY_ORDER:
+        subset = [
+            r
+            for r in fails
+            if categorize(r["business"], r["licensecat"]) == lab
+        ]
+        if not subset:
+            continue
+        cb = Counter(fail_severity(r["stars"]) for r in subset)
+        tot = len(subset)
+        by_category.append({
+            "label": lab,
+            "fails": tot,
+            "major": cb[SEV_MAJOR],
+            "minor_only": cb[SEV_MINOR],
+            "unstarred": cb[SEV_UNSTARRED],
+            "major_share": round(100.0 * cb[SEV_MAJOR] / tot, 1) if tot else 0.0,
+        })
+    return {
+        "fails": n,
+        "major": major,
+        "minor_only": minor,
+        "unstarred": unst,
+        "major_share": round(100.0 * major / n, 1) if n else 0.0,
+        "minor_only_share": round(100.0 * minor / n, 1) if n else 0.0,
+        "foodborne_critical": foodborne,
+        "critical_not_foodborne": crit_only,
+        "severe_ops": {
+            "n": sum(ops.values()),
+            "HE_VolClos": ops.get("HE_VolClos", 0),
+            "HE_TSOP": ops.get("HE_TSOP", 0),
+            "HE_Closure": ops.get("HE_Closure", 0),
+        },
+        "top_major": _top(major_desc, 8),
+        "top_minor": _top(minor_desc, 8),
+        "by_category": by_category,
+    }
+
+
+SEVERITY_RULE = (
+    "A failed inspection is major if it has at least one ** or *** "
+    "violation (critical / foodborne-critical on Boston’s 7- and 10-point "
+    "bands); minor-only if starred violations are only * (non-critical / "
+    "2 points — walls, wiping cloths, labels). Mixed visits count as major "
+    "(worst-on-visit). Unstarred fails have no * / ** / ***. Analyze Boston "
+    "does not publish a star dictionary; this is our mapping from viol_level "
+    "plus Food Code (C)/(Pf)/(P) suffixes in the dump, aligned to ISD grading "
+    "and Mayor’s Food Court language. It is not an official ISD “major "
+    "failure” label. Letter grade is still on the door. HE_TSOP / HE_VolClos "
+    "/ HE_Closure are severe operational results, not fail codes. HE_Filed "
+    "is not a fail."
+)
 
 
 def _days_in_year(year: int) -> int:
@@ -775,12 +890,18 @@ def briefing_from_rows(
                 "category": categorize(row["business"], row["licensecat"]),
                 "inspections": 0,
                 "fails": 0,
+                "last_fail_dt": "",
+                "last_fail_severity": "",
             }
             across_roll[key] = rec
         rec["inspections"] += 1
         if row["fail"]:
             rec["fails"] += 1
             years_failed[key].add(row["year"])
+            dtiso = row.get("resultdttm") or ""
+            if dtiso >= rec["last_fail_dt"]:
+                rec["last_fail_dt"] = dtiso
+                rec["last_fail_severity"] = fail_severity(row["stars"])
     across_places = []
     for key, rec in across_roll.items():
         nyears = len(years_failed.get(key, ()))
@@ -801,7 +922,10 @@ def briefing_from_rows(
             continue
         across_by_cat[lab] = {
             "places_to_avoid": [
-                _public_place(p, extra=("years_failed",)) for p in subset[:10]
+                _public_place(
+                    p, extra=("years_failed", "last_fail_severity")
+                )
+                for p in subset[:10]
             ],
             "repeat_n": len(subset),
         }
@@ -810,7 +934,8 @@ def briefing_from_rows(
         "years": list(range(YEAR_MIN, YEAR_MAX + 1)),
         "repeat_n": len(across_places),
         "places": [
-            _public_place(p, extra=("years_failed",)) for p in across_places[:15]
+            _public_place(p, extra=("years_failed", "last_fail_severity"))
+            for p in across_places[:15]
         ],
         "by_category": across_by_cat,
     }
@@ -860,6 +985,11 @@ def briefing_from_rows(
             if stars_2025[star]
         ],
         "violdesc_2025": _top(violdesc_2025, 12),
+        "fail_severity": {
+            "rule": SEVERITY_RULE,
+            "y2025": _severity_block(y2025),
+            "y2026_ytd": _severity_block(y2026),
+        },
         "neighborhoods_2025": _top(Counter(r["neighborhood"] for r in y2025), 12),
         "fail_rate_zip_year": fail_rate_zip_year,
         "active_licenses": len(licenses),
@@ -905,6 +1035,19 @@ def main() -> None:
         "results_2025": briefing["results_2025"],
         "levels_2025": briefing["levels_2025"],
         "violdesc_2025": briefing["violdesc_2025"][:6],
+        "fail_severity": {
+            "y2025": briefing["fail_severity"]["y2025"],
+            "y2026_ytd": {
+                k: briefing["fail_severity"]["y2026_ytd"][k]
+                for k in (
+                    "fails",
+                    "major",
+                    "minor_only",
+                    "unstarred",
+                    "major_share",
+                )
+            },
+        },
         "neighborhoods_2025": briefing["neighborhoods_2025"][:8],
         "active_licenses": briefing["active_licenses"],
         "license_cats": briefing["license_cats"],

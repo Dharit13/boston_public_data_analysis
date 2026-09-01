@@ -6,13 +6,18 @@ from pathlib import Path
 
 from analyze_food import (
     ALWAYS_PASS_MIN,
+    FAIL_RESULTS,
     OVERLAY_ORDER,
+    SEVERE_OPS,
+    SEV_MAJOR,
+    SEV_MINOR,
     _place_key,
     _roll_places,
     brand_compact,
     brand_key,
     briefing_from_rows,
     categorize,
+    fail_severity,
     format_address_display,
     is_citywide_placeholder,
     is_fail,
@@ -43,6 +48,20 @@ class ResultTests(unittest.TestCase):
         self.assertFalse(is_fail("PassViol"))
         self.assertFalse(is_fail("HE_Hearing"))
         self.assertFalse(is_fail("HE_Closure"))
+        self.assertFalse(is_fail("HE_TSOP"))
+        self.assertFalse(is_fail("HE_VolClos"))
+        self.assertNotIn("HE_Filed", FAIL_RESULTS)
+        self.assertTrue(SEVERE_OPS.isdisjoint(FAIL_RESULTS))
+
+    def test_fail_severity_stars_not_keywords(self):
+        self.assertEqual(fail_severity({"*": 2, "**": 0, "***": 0}), SEV_MINOR)
+        self.assertEqual(fail_severity({"*": 1, "**": 1, "***": 0}), SEV_MAJOR)
+        self.assertEqual(fail_severity({"*": 0, "**": 0, "***": 1}), SEV_MAJOR)
+        self.assertEqual(fail_severity({"*": 0, "**": 0, "***": 0}), "unstarred")
+        self.assertEqual(
+            fail_severity({"*": 1, "**": 0, "***": 1}),
+            SEV_MAJOR,
+        )
 
     def test_star_levels_are_exact(self):
         self.assertEqual(viol_star("*"), "*")
@@ -65,12 +84,14 @@ class ZipTests(unittest.TestCase):
 class LoadTests(unittest.TestCase):
     def test_drops_null_resultdttm_and_collapses_violations(self):
         rows, q = load_inspections(FIX / "food_inspections_sample.csv")
-        self.assertEqual(q["insp_raw"], 12)
+        self.assertEqual(q["insp_raw"], 13)
         self.assertEqual(q["insp_drop"], 1)
-        self.assertEqual(q["insp_kept_rows"], 11)
-        self.assertEqual(q["insp_kept"], 8)
+        self.assertEqual(q["insp_kept_rows"], 12)
+        self.assertEqual(q["insp_kept"], 9)
         years = sorted(r["year"] for r in rows)
-        self.assertEqual(years, [2012, 2019, 2019, 2020, 2025, 2025, 2025, 2026])
+        self.assertEqual(
+            years, [2012, 2019, 2019, 2020, 2025, 2025, 2025, 2025, 2026]
+        )
         fail_2019 = [r for r in rows if r["year"] == 2019 and r["fail"]]
         self.assertEqual(len(fail_2019), 1)
         self.assertEqual(fail_2019[0]["n_viol"], 3)
@@ -98,18 +119,18 @@ class BriefingTests(unittest.TestCase):
         self.assertEqual(by[2012]["inspections"], 1)
         self.assertEqual(by[2019]["inspections"], 2)
         self.assertEqual(by[2020]["inspections"], 1)
-        self.assertEqual(by[2025]["inspections"], 3)
         self.assertNotIn("licenses", by[2025])
-        self.assertEqual(b["y2025"]["n"], 3)
+        self.assertEqual(by[2025]["inspections"], 4)
+        self.assertEqual(b["y2025"]["n"], 4)
         self.assertEqual(b["y2019"]["n"], 2)
         self.assertEqual(b["y2026_ytd"]["n"], 1)
         self.assertEqual(b["active_licenses"], 2)
         results = {x["label"]: x["value"] for x in b["results_2025"]}
-        self.assertEqual(results["HE_Fail"], 1)
+        self.assertEqual(results["HE_Fail"], 2)
         self.assertEqual(results["HE_Pass"], 1)
         self.assertEqual(results["HE_Filed"], 1)
         levels = {x["label"]: x["value"] for x in b["levels_2025"]}
-        self.assertEqual(levels["*"], 1)
+        self.assertEqual(levels["*"], 2)
         self.assertEqual(levels["**"], 1)
         self.assertEqual(levels.get("***", 0), 0)
         rates = {(x["year"], x["zip"]): x["fail_rate"] for x in b["fail_rate_zip_year"]}
@@ -117,9 +138,21 @@ class BriefingTests(unittest.TestCase):
         self.assertEqual(rates[(2025, "02108")], 0.0)
         self.assertEqual(rates[(2025, "02134")], 0.0)
         self.assertEqual(b["vs_2019"]["n2019"], 2)
-        self.assertEqual(b["vs_2019"]["n2025"], 3)
-        self.assertEqual(b["vs_2019"]["insp_pct"], 50.0)
+        self.assertEqual(b["vs_2019"]["n2025"], 4)
+        self.assertEqual(b["vs_2019"]["insp_pct"], 100.0)
         self.assertTrue(all("license" not in row for row in b["by_year"]))
+        sev = b["fail_severity"]["y2025"]
+        self.assertEqual(sev["fails"], 2)
+        self.assertEqual(sev["major"], 1)
+        self.assertEqual(sev["minor_only"], 1)
+        self.assertEqual(sev["unstarred"], 0)
+        major_labs = [x["label"] for x in sev["top_major"]]
+        minor_labs = [x["label"] for x in sev["top_minor"]]
+        self.assertIn("Food Contact Surfaces Clean", major_labs)
+        self.assertIn("Wiping Cloths Use Limitation", minor_labs)
+        self.assertNotIn("Wiping Cloths Use Limitation", major_labs)
+        self.assertIn("viol_level", b["fail_severity"]["rule"])
+        self.assertIn("not an official ISD", b["fail_severity"]["rule"])
 
 
 class CategoryTests(unittest.TestCase):
@@ -623,7 +656,7 @@ class PlaceWindowTests(unittest.TestCase):
         b = briefing_from_rows(inspections, licenses, {**iq, **lq})
         self.assertNotIn("licenses", b["by_year"][0])
         self.assertEqual(b["active_licenses"], 2)
-        self.assertEqual(b["y2025"]["n"], 36)
+        self.assertEqual(b["y2025"]["n"], 37)
         windows = b["place_windows"]
         self.assertIn("2019", windows)
         self.assertIn("2024", windows)
@@ -680,6 +713,9 @@ class PlaceWindowTests(unittest.TestCase):
         across = {p["name"]: p for p in b["repeat_across_years"]["places"]}
         self.assertIn("Repeat Taco", across)
         self.assertGreaterEqual(across["Repeat Taco"]["years_failed"], 3)
+        self.assertEqual(across["Repeat Taco"]["last_fail_severity"], "minor_only")
+        self.assertIn("Major Kitchen", across)
+        self.assertEqual(across["Major Kitchen"]["last_fail_severity"], "major")
         self.assertNotIn("Children's Museum Shop", across)
         self.assertNotIn("Marriott Hotel Kitchen", across)
         self.assertEqual(b["repeat_across_years"]["window"], "2012–2026 · fail in ≥2 calendar years")
@@ -722,6 +758,18 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertEqual(
             [p["name"] for p in across_cat["Take-out"]["places_to_avoid"]],
             ["Repeat Taco"],
+        )
+        self.assertEqual(
+            across_cat["Take-out"]["places_to_avoid"][0]["last_fail_severity"],
+            "minor_only",
+        )
+        self.assertEqual(
+            [p["name"] for p in across_cat["Food and drinks"]["places_to_avoid"]],
+            ["Major Kitchen"],
+        )
+        self.assertEqual(
+            across_cat["Food and drinks"]["places_to_avoid"][0]["last_fail_severity"],
+            "major",
         )
         self.assertNotIn("Cultural / attraction", across_cat)
 
@@ -798,7 +846,8 @@ class CanvasLayoutTests(unittest.TestCase):
         text = (CANVASES / "boston-food-safety.canvas.tsx").read_text()
         stats = json.loads((REPO / "food_stats.json").read_text())
         self.assertNotIn("Five findings", text)
-        self.assertIn("Six findings", text)
+        self.assertNotIn("Six findings", text)
+        self.assertIn("Seven findings", text)
         self.assertNotIn("fetch(", text)
         self.assertIn("12,414", text)
         self.assertIn("10,116", text)
@@ -938,8 +987,31 @@ class CanvasLayoutTests(unittest.TestCase):
         self.assertNotIn("dont eat here", text.lower())
         self.assertNotIn("hit list", text.lower())
         self.assertIn("Be cautious — repeated fails", text)
-        self.assertIn("Mayor’s Food Court", text)
+        self.assertIn("Last fail", text)
+        self.assertIn("Minor-only", text)
+        self.assertIn("our severity split", text.lower())
+        self.assertIn("not an official", text.lower())
+        self.assertIn("4,035", text)
+        self.assertIn("80.7%", text)
+        self.assertIn("Wiping Cloths", text)
+        self.assertIn("Last fail", text)
+        self.assertIn("Minor-only", text)
+        sev = stats["fail_severity"]["y2025"]
+        self.assertEqual(sev["major"], 4035)
+        self.assertEqual(sev["minor_only"], 889)
+        self.assertEqual(sev["fails"], 5003)
+        self.assertEqual(sev["major_share"], 80.7)
+        wiping = [x["label"] for x in sev["top_minor"]]
+        self.assertTrue(any("Wiping Cloths" in lab for lab in wiping))
+        self.assertFalse(
+            any("Wiping Cloths" in x["label"] for x in sev["top_major"])
+        )
+        self.assertEqual(
+            stats["repeat_across_years"]["places"][0]["last_fail_severity"],
+            "major",
+        )
         self.assertIn("not an official ISD", text)
+        self.assertIn("Mayor’s Food Court", text)
         self.assertIn("often destinations or institutions", text)
         self.assertIn("not extra ISD license types", text)
         self.assertIn("Ice cream", stats["place_windows"]["2025"]["by_category"])

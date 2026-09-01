@@ -13,6 +13,8 @@ Written briefing from cleaned Analyze Boston Food Establishment Inspections and 
 | Collapsed inspections | 12,414 (34.0 a day) |
 | vs 2019 | +22.7% (10,116 → 12,414) |
 | Fail share | 40.3% (5,003 of 12,414) |
+| Fail visits that are major (** or ***) | 4,035 (80.7%) |
+| Minor-only fail visits (* only) | 889 (17.8%) |
 | HE_Pass / HE_Fail / HE_FailExt | 6,191 / 3,867 / 1,134 |
 | Starred violation rows | * 24,219 · ** 11,929 · *** 4,498 |
 | Peak result hour | 4 p.m. (2,667) · Wednesday 2,682 |
@@ -38,6 +40,14 @@ The public dump is **one row per violation** (900,574 raw; 894,176 kept). This b
 ## HE_Pass is 49.9%. Fail is 40.3%.
 
 HE_Pass is **6,191 of 12,414 (49.9%)** — not a majority. HE_Fail 3,867 + HE_FailExt 1,134 + HE_FAILNOR 2 = **5,003** fails.
+
+**Most fails are major. Some are walls and wiping cloths.** Our split uses `viol_level` on the collapsed visit — not an official ISD “major failure” label, and not the letter grade on the door. Analyze Boston does not publish a star dictionary. In the dump, `*` lines up with Food Code Core `(C)` / Boston’s 2-point non-critical band (walls, wiping cloths); `**` with Priority Foundation `(Pf)` / 7-point critical (pests, date marking); `***` with Priority `(P)` / 10-point foodborne-critical (hot/cold holding). A fail visit is **major** if it has at least one `**` or `***`; **minor-only** if starred violations are only `*`; mixed visits count as major (worst-on-visit).
+
+In **2025**, **4,035 of 5,003** fails (80.7%) are major. **889** (17.8%) are minor-only. **1,901** had at least one `***`. Closures are a separate operational bucket: HE_VolClos **108**, HE_TSOP **17**, HE_Closure **1** (126 visits) — not fail codes. `HE_Filed` is still not a fail.
+
+Top major reasons on 2025 fail visits: Controlling Pests (Pf) **1,121** · equipment food-contact (Pf) **674** · hot/cold holding (P) **626** · PIC duties (Pf) **543** · handwashing sink (Pf) **523**. Top minor reasons: Nonfood Contact Surfaces **1,058** · floors/walls/ceilings **879** · cleaning ventilation **682**. Wiping cloths are minor (462 visits). 2026 YTD (through 28 Aug) is **3,193 of 3,925** major (81.4%) and **695** minor-only.
+
+Pharmacy (86.8% of 68 fails) and ice cream (83.8% of 37) match the citywide mix. Cultural / attraction is 66.7% of **12** fails — too small to treat as a different regime. Mobile food is the outlier at 58.0% major (more minor-only and unstarred).
 
 Star levels are **violation rows**, not inspections: * **24,219** · ** **11,929** · *** **4,498** (40,646 starred rows in 2025).
 
@@ -89,6 +99,6 @@ Display names strip trailing Inc/LLC/Corp/Ltd, not Company in Atlantic Fish Comp
 | 2025 | 92 |
 | 2026 YTD | 49 |
 
-5,945 places met the multi-year repeat rule. Across 2012–2026: **Go Fresh 365** failed in all 15 years (Grocery). Ice cream has **45** multi-year repeats (J.P. Licks leads). 2025 ice cream always-pass is **Crescent Ridge Dairy**. 2025 Pharmacy always-pass includes **CVS/Pharmacy No. 10517** and **No. 1900**.
+5,945 places met the multi-year repeat rule. Across 2012–2026: **Go Fresh 365** failed in all 15 years (Grocery); its last fail in this dump was **major**. The Be cautious table now shows whether the last fail was major vs minor-only (our `viol_level` split). Ice cream has **45** multi-year repeats (J.P. Licks leads). 2025 ice cream always-pass is **Crescent Ridge Dairy**. 2025 Pharmacy always-pass includes **CVS/Pharmacy No. 10517** and **No. 1900**.
 
 Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays add Ice cream, Cafe, School, Hotel, Hospital, Cultural / attraction, Pharmacy, and Grocery before those codes. The City has no cafe, ice-cream, pharmacy, or grocery license code. `ice` does not match ICE Auto Services. RF remainder after overlays is other packaged retail.

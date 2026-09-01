@@ -41,7 +41,7 @@
   </div>
 
   <div id="summary" class="tab-panel active">
-    <p class="tab-blurb">Six findings. Numbers a reader can take into a meeting.</p>
+    <p class="tab-blurb">Seven findings. Numbers a reader can take into a meeting.</p>
     <div class="callout warn">
       <strong>Inspections rose versus 2019. The fail share rose with them.</strong>
       Collapsed food inspections were 12,414 in 2025 against 10,116 in 2019 (+22.7%). Fail share was 40.3% against 37.0%. Do not add 3,347 licenses into 12,414.
@@ -58,12 +58,13 @@
         <tr><td>2025 vs 2019 inspections</td><td class="num">12,414 vs 10,116 (+22.7%)</td></tr>
         <tr><td>2025 vs 2019 fail share</td><td class="num">40.3% vs 37.0%</td></tr>
         <tr><td>HE_Pass / HE_Fail / HE_FailExt, 2025</td><td class="num">6,191 / 3,867 / 1,134</td></tr>
+        <tr><td>2025 fails that are major (** or ***)</td><td class="num">4,035 of 5,003 (80.7%)</td></tr>
         <tr><td>Starred violation rows, 2025</td><td class="num">* 24,219 · ** 11,929 · *** 4,498</td></tr>
         <tr><td>Peak result hour, 2025</td><td class="num">4 p.m. (2,667) · Wednesday 2,682</td></tr>
         <tr><td>2026 YTD inspections (through 28 Aug)</td><td class="num">8,894 · 37.1 a day</td></tr>
       </tbody>
     </table>
-    <p>Open Overview for the citywide trend, Department for the result clock, City / Mayor for ZIP fail rates, Public for plain language, Places for always-pass by year and category, and repeat offenders who failed in at least two calendar years.</p>
+    <p>Open Overview for the citywide trend and the major vs minor-only fail split, Department for the result clock, City / Mayor for ZIP fail rates, Public for plain language, Places for always-pass by year and category, and repeat offenders who failed in at least two calendar years.</p>
   </div>
 
   <div id="overview" class="tab-panel">
@@ -124,6 +125,52 @@
     <h3>Top 2025 violation descriptions</h3>
     <div class="chart-box"><canvas id="cViol"></canvas></div>
     <p class="caption">Source: Analyze Boston Food Establishment Inspections · violdesc · 2025 · violation rows, not inspections · Controlling Pests 1,873</p>
+    <h2>Most 2025 fails are major. Some are walls and wiping cloths.</h2>
+    <p>A failed inspection is not automatically a foodborne-critical event. Our split uses viol_level on the collapsed visit: major if the visit has ** or *** (critical / foodborne-critical on Boston’s 7- and 10-point bands); minor-only if starred violations are only * (non-critical / 2 points). Mixed visits count as major (worst-on-visit). Analyze Boston does not publish a star dictionary — this is our mapping, not an official ISD “major failure” label. Letter grade is still on the door.</p>
+    <div class="callout warn">
+      <strong>4,035 of 5,003 fails in 2025 are major (80.7%).</strong>
+      1,901 of those 5,003 had at least one *** foodborne-critical (Priority / 10 points). Another 2,134 had ** critical and no ***. 889 fails (17.8%) were *-only — walls, ventilation, wiping cloths. 79 fails had no star. Wiping cloths are minor.
+    </div>
+    <div class="stats">
+      <div class="stat warn"><div class="stat-val">4,035</div><div class="stat-label">Major fail visits, 2025 (80.7%)</div></div>
+      <div class="stat"><div class="stat-val">889</div><div class="stat-label">Minor-only fail visits (17.8%)</div></div>
+      <div class="stat"><div class="stat-val">1,901</div><div class="stat-label">Fails with *** foodborne-critical</div></div>
+      <div class="stat warn"><div class="stat-val">126</div><div class="stat-label">Closures / TSOP / VolClos (not fail codes)</div></div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>2025 fail visits by our severity split</h3>
+        <div class="chart-box"><canvas id="cFailSev"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · 2025 · 5,003 fail visits · our severity split from viol_level · not an official ISD major-failure label · letter grade is on the door</p>
+      </div>
+      <div>
+        <h3>Pharmacy, ice cream, cultural vs citywide</h3>
+        <table>
+          <thead><tr><th>Category</th><th class="num">Fail visits</th><th class="num">Major share</th></tr></thead>
+          <tbody>
+            <tr><td>Citywide</td><td class="num">5,003</td><td class="num">80.7%</td></tr>
+            <tr><td>Pharmacy</td><td class="num">68</td><td class="num">86.8%</td></tr>
+            <tr><td>Ice cream</td><td class="num">37</td><td class="num">83.8%</td></tr>
+            <tr><td>Cultural / attraction</td><td class="num">12</td><td class="num">66.7%</td></tr>
+            <tr><td>Mobile food</td><td class="num">69</td><td class="num">58.0%</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · 2025 fail visits · name overlays, not a City cuisine · Pharmacy / ice cream match the citywide mix; cultural n is 12; mobile food has more minor-only and unstarred fails</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Top major reasons on 2025 fail visits</h3>
+        <div class="chart-box"><canvas id="cMajor"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · 2025 fail visits · violdesc at ** or *** · visit presence · Controlling Pests is Pf / ** critical, not *** · wiping cloths are not on this list</p>
+      </div>
+      <div>
+        <h3>Top minor reasons on 2025 fail visits</h3>
+        <div class="chart-box"><canvas id="cMinor"></canvas></div>
+        <p class="caption">Source: Analyze Boston Food Establishment Inspections · 2025 fail visits · violdesc at * · Wiping Cloths Use Limitation is 462 visits, also minor · our severity split from viol_level</p>
+      </div>
+    </div>
+    <p>2026 YTD through 28 August is 3,193 of 3,925 (81.4%) major and 695 minor-only. Closures are a separate operational bucket: 2025 HE_VolClos 108, HE_TSOP 17, HE_Closure 1 (126 visits) — not folded into fail codes.</p>
   </div>
 
   <div id="department" class="tab-panel">
@@ -299,7 +346,7 @@
     <div id="avoidSection">
       <h3 id="avoidHead">Be cautious — repeated fails</h3>
       <table>
-        <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Years with a fail</th><th class="num">Fails</th><th class="num">Inspections</th></tr></thead>
+        <thead><tr><th>Place</th><th>Address</th><th>Category</th><th class="num">Years with a fail</th><th class="num">Fails</th><th class="num">Inspections</th><th>Last fail</th></tr></thead>
         <tbody id="avoidBody"></tbody>
       </table>
       <p class="caption" id="avoidCaption"></p>
@@ -321,6 +368,7 @@
         <tr><td>2022 volume is as recorded</td><td>19,648 inspections and a 24.9% fail share. Not a baseline.</td></tr>
         <tr><td>Repeat offender = fail in ≥2 calendar years</td><td>Two fails in the same year count as one year. Always-pass still uses the year window (≥3 inspections, 0 fails). 2026 YTD is one calendar year if it has a fail.</td></tr>
         <tr><td>Names: strip Inc/LLC/Corp/Ltd, not Company</td><td>Atlantic Fish Company keeps Company. @ is a location only after a street/hospital/hotel/college. A @ Time is a trade name. Ice cream, Pharmacy, and Grocery are not City license types.</td></tr>
+        <tr><td>Fail severity is our viol_level split, not an ISD label</td><td>Major = ** or *** on a fail visit. Minor-only = * only. Wiping cloths stay minor. Letter grade is still on the door. HE_TSOP / HE_VolClos / HE_Closure are not fail codes.</td></tr>
       </tbody>
     </table>
     <p class="caption">Source: Analyze Boston datasets food-establishment-inspections and active-food-establishment-licenses · dumps pulled 31 Aug 2026</p>
@@ -344,6 +392,9 @@ barChart("cFail", S.years, [
   { label: "Fails", data: S.fails, color: "#c45c5c" },
 ]);
 barChart("cViol", S.violLabels, [{ label: "2025 violation rows", data: S.viol2025 }], { horizontal: true });
+pieChart("cFailSev", S.failSevLabels.map((label, i) => ({ label, value: S.failSev2025[i], color: ["#c45c5c","#d08770","#888"][i] })));
+barChart("cMajor", S.majorLabels, [{ label: "Fail visits citing reason", data: S.major2025, color: "#c45c5c" }], { horizontal: true });
+barChart("cMinor", S.minorLabels, [{ label: "Fail visits citing reason", data: S.minor2025 }], { horizontal: true });
 lineChart("cHour", S.hours, [{ label: "Inspections", data: S.hour2025 }], { zero: true });
 barChart("cWeek", S.weekdays, [{ label: "Inspections", data: S.weekday2025 }]);
 barChart("cMonth", S.months, [{ label: "Inspections", data: S.month2025 }]);
@@ -451,14 +502,14 @@ function renderPlaces() {
     document.getElementById("avoidHead").textContent =
       "Be cautious — repeated fails — " + catLabel + " (failed in ≥2 calendar years)";
     document.getElementById("avoidBody").innerHTML = catAvoid.map((p) =>
-      `<tr><td>${esc(placeName(p))}</td><td>${esc(placeAddress(p))}</td><td>${esc(p.category)}</td><td class="num">${num(p.yearsFailed)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td></tr>`
+      `<tr><td>${esc(placeName(p))}</td><td>${esc(placeAddress(p))}</td><td>${esc(p.category)}</td><td class="num">${num(p.yearsFailed)}</td><td class="num">${num(p.fails)}</td><td class="num">${num(p.inspections)}</td><td>${esc(p.lastFailSeverity || "")}</td></tr>`
     ).join("");
     const instCats = ["Cultural / attraction", "Hospital", "School", "Hotel"];
     const instNote = (catLabel === "all categories" || instCats.indexOf(catLabel) >= 0)
       ? " Cultural / attraction, Hospital, School, and Hotel are often destinations or institutions people still use — this is inspection history, not “skip this museum.”"
       : "";
     document.getElementById("avoidCaption").textContent =
-      "Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeated inspection fails = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · " + catLabel + " · " + num(S.repeatNTotal) + " places citywide met this rule · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address. This is our reconstruction from ISD result codes, not an official ISD list. Letter grade is on the door / Mayor’s Food Court." + instNote;
+      "Source: Analyze Boston Food Establishment Inspections · 2012–2026 · repeated inspection fails = at least two calendar years with a fail · two fails in the same year count as one year · ranked by years with a fail, then fail count · top 10 · " + catLabel + " · " + num(S.repeatNTotal) + " places citywide met this rule · Place is the ISD businessname (raw); name_display in the briefing JSON strips trailing Inc/LLC/Corp/Ltd · not a City cuisine field · 1 CITYWIDE ST is ISD’s placeholder for mobile licenses, not a shared physical address. This is our reconstruction from ISD result codes, not an official ISD list. Letter grade is on the door / Mayor’s Food Court. Last fail is our severity split from viol_level (major = ** or ***; minor-only = * only) — not an official ISD “major failure” label. Wiping cloths stay minor." + instNote;
   } else {
     avoidSec.hidden = true;
   }
