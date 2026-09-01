@@ -152,11 +152,11 @@ const OVERLAY_2019 = [
   86,
   1038,
   131,
-  248,
-  48,
+  250,
+  43,
   4026,
-  3046,
-  910,
+  3051,
+  908,
   218,
   0,
 ];
@@ -168,11 +168,11 @@ const OVERLAY_2024 = [
   109,
   1145,
   140,
-  249,
-  106,
+  253,
+  102,
   4486,
-  3721,
-  884,
+  3725,
+  880,
   218,
   0,
 ];
@@ -184,11 +184,11 @@ const OVERLAY_2025 = [
   104,
   1204,
   155,
-  306,
-  90,
+  311,
+  85,
   4844,
-  4080,
-  930,
+  4084,
+  926,
   257,
   0,
 ];
@@ -200,11 +200,11 @@ const OVERLAY_2026 = [
   56,
   860,
   71,
-  214,
-  60,
+  216,
+  58,
   3472,
-  2840,
-  742,
+  2842,
+  740,
   267,
   0,
 ];
@@ -422,12 +422,11 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Variety / general merchandise": {
       alwaysN: 1,
-      cautiousN: 3,
+      cautiousN: 2,
       alwaysPass: [
       { name: "Dollar Tree No. 07716", nameDisplay: "Dollar Tree No. 07716", address: "1041  COMMONWEALTH AV", addressDisplay: "1041  COMMONWEALTH AV, 02215", zip: "02215", license: "381582", category: "Variety / general merchandise", inspections: 2, fails: 0, failRate: 0.0 }
     ],
       cautious: [
-      { name: "Target Pizza", nameDisplay: "Target Pizza", address: "5200  WASHINGTON ST", addressDisplay: "5200  WASHINGTON ST, 02132", zip: "02132", license: "386126", category: "Variety / general merchandise", inspections: 5, fails: 3, failRate: 60.0, majorFails: 3, lastFailSeverity: "major" },
       { name: "Target Store T-1898", nameDisplay: "Target Store T-1898", address: "7  ALLSTATE RD", addressDisplay: "7  ALLSTATE RD, 02125", zip: "02125", license: "23056", category: "Variety / general merchandise", inspections: 6, fails: 3, failRate: 50.0, majorFails: 2, lastFailSeverity: "major" },
       { name: "Family Dollar Store No.  27248", nameDisplay: "Family Dollar Store No. 27248", address: "995  BLUE HILL AV", addressDisplay: "995  BLUE HILL AV, 02124", zip: "02124", license: "4036", category: "Variety / general merchandise", inspections: 3, fails: 2, failRate: 66.7, majorFails: 2, lastFailSeverity: "major" }
     ],
@@ -462,7 +461,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Take-out": {
       alwaysN: 92,
-      cautiousN: 116,
+      cautiousN: 117,
       alwaysPass: [
       { name: "Mcdonalds", nameDisplay: "Mcdonalds", address: "315  WASHINGTON ST", addressDisplay: "315  WASHINGTON ST, 02108", zip: "02108", license: "76336", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "AFC Sushi @ Walgreens No. 15390", nameDisplay: "AFC Sushi", address: "10  SCHOOL ST", addressDisplay: "10  SCHOOL ST, 02108", zip: "02108", license: "90461", category: "Take-out", inspections: 3, fails: 0, failRate: 0.0 },
@@ -530,7 +529,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     ],
       cautious: [],
     }
-    },
+    }
   },
   "2024": {
     ytd: false,
@@ -702,7 +701,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Grocery": {
       alwaysN: 14,
-      cautiousN: 24,
+      cautiousN: 25,
       alwaysPass: [
       { name: "Star Market No. 4572", nameDisplay: "Star Market No. 4572", address: "370  WESTERN AV", addressDisplay: "370  WESTERN AV, 02135", zip: "02135", license: "25692", category: "Grocery", inspections: 3, fails: 0, failRate: 0.0 },
       { name: "AMERICA'S FOOD BASKET", nameDisplay: "America's Food Basket", address: "576  WASHINGTON ST", addressDisplay: "576  WASHINGTON ST, 02124", zip: "02124", license: "74772", category: "Grocery", inspections: 2, fails: 0, failRate: 0.0 },
@@ -730,7 +729,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Variety / general merchandise": {
       alwaysN: 0,
-      cautiousN: 11,
+      cautiousN: 10,
       alwaysPass: [],
       cautious: [
       { name: "Dollar Tree", nameDisplay: "Dollar Tree", address: "1230  VFW PW", addressDisplay: "1230  VFW PW, 02132", zip: "02132", license: "144741", category: "Variety / general merchandise", inspections: 13, fails: 9, failRate: 69.2, majorFails: 8, lastFailSeverity: "major" },
@@ -740,9 +739,9 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       { name: "Family Dollar Store No.  27248", nameDisplay: "Family Dollar Store No. 27248", address: "995  BLUE HILL AV", addressDisplay: "995  BLUE HILL AV, 02124", zip: "02124", license: "4036", category: "Variety / general merchandise", inspections: 9, fails: 4, failRate: 44.4, majorFails: 4, lastFailSeverity: "major" },
       { name: "Target Store  T-3363", nameDisplay: "Target Store T-3363", address: "500  GENEVA AV", addressDisplay: "500  GENEVA AV, 02122", zip: "02122", license: "436317", category: "Variety / general merchandise", inspections: 7, fails: 4, failRate: 57.1, majorFails: 3, lastFailSeverity: "major" },
       { name: "Dollar Tree No. 07507", nameDisplay: "Dollar Tree No. 07507", address: "45  VINE ST", addressDisplay: "45  VINE ST, 02129", zip: "02129", license: "358763", category: "Variety / general merchandise", inspections: 5, fails: 3, failRate: 60.0, majorFails: 3, lastFailSeverity: "major" },
-      { name: "Target Pizza", nameDisplay: "Target Pizza", address: "5200  WASHINGTON ST", addressDisplay: "5200  WASHINGTON ST, 02132", zip: "02132", license: "386126", category: "Variety / general merchandise", inspections: 4, fails: 3, failRate: 75.0, majorFails: 3, lastFailSeverity: "major" },
       { name: "Family Dollar No. 31662", nameDisplay: "Family Dollar No. 31662", address: "273  COLUMBIA RD", addressDisplay: "273  COLUMBIA RD, 02121", zip: "02121", license: "350867", category: "Variety / general merchandise", inspections: 5, fails: 4, failRate: 80.0, majorFails: 2, lastFailSeverity: "major" },
-      { name: "Dollar Tree No.  4577", nameDisplay: "Dollar Tree No. 4577", address: "950  AMERICAN LEGION HW", addressDisplay: "950  AMERICAN LEGION HW, 02130", zip: "02130", license: "74582", category: "Variety / general merchandise", inspections: 3, fails: 2, failRate: 66.7, majorFails: 2, lastFailSeverity: "major" }
+      { name: "Dollar Tree No.  4577", nameDisplay: "Dollar Tree No. 4577", address: "950  AMERICAN LEGION HW", addressDisplay: "950  AMERICAN LEGION HW, 02130", zip: "02130", license: "74582", category: "Variety / general merchandise", inspections: 3, fails: 2, failRate: 66.7, majorFails: 2, lastFailSeverity: "major" },
+      { name: "Target Store T-1898", nameDisplay: "Target Store T-1898", address: "7  ALLSTATE RD", addressDisplay: "7  ALLSTATE RD, 02125", zip: "02125", license: "23056", category: "Variety / general merchandise", inspections: 6, fails: 2, failRate: 33.3, majorFails: 2, lastFailSeverity: "major" }
     ],
     },
       "Food and drinks": {
@@ -775,7 +774,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Take-out": {
       alwaysN: 140,
-      cautiousN: 283,
+      cautiousN: 284,
       alwaysPass: [
       { name: "SALSAS MEXICAN GRILL", nameDisplay: "Salsas Mexican Grill", address: "417  WASHINGTON ST", addressDisplay: "417  WASHINGTON ST, 02108", zip: "02108", license: "90395", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "Sugar Baking", nameDisplay: "Sugar Baking", address: "1884  CENTRE ST", addressDisplay: "1884  CENTRE ST, 02132", zip: "02132", license: "541724", category: "Take-out", inspections: 4, fails: 0, failRate: 0.0 },
@@ -803,7 +802,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Retail food": {
       alwaysN: 46,
-      cautiousN: 44,
+      cautiousN: 43,
       alwaysPass: [
       { name: "AFC Zenshi @ Shaw's 3588", nameDisplay: "AFC Zenshi", address: "1065  COMMONWEALTH AV", addressDisplay: "1065  COMMONWEALTH AV, 02215", zip: "02215", license: "378993", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
       { name: "Adams Fish Mkt", nameDisplay: "Adams Fish Mkt", address: "781  ADAMS ST", addressDisplay: "781  ADAMS ST, 02124", zip: "02124", license: "18021", category: "Retail food", inspections: 2, fails: 0, failRate: 0.0 },
@@ -852,7 +851,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       { name: "Pedro's On Wheels", nameDisplay: "Pedro's On Wheels", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 573313", zip: "02128", license: "573313", category: "Mobile food", inspections: 4, fails: 2, failRate: 50.0, majorFails: 2, lastFailSeverity: "major" }
     ],
     }
-    },
+    }
   },
   "2025": {
     ytd: false,
@@ -1039,7 +1038,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Grocery": {
       alwaysN: 15,
-      cautiousN: 29,
+      cautiousN: 30,
       alwaysPass: [
       { name: "Trader Joe's No. 566", nameDisplay: "Trader Joe's No. 566", address: "44  THOMSON PL", addressDisplay: "44  THOMSON PL, 02210", zip: "02210", license: "398730", category: "Grocery", inspections: 4, fails: 0, failRate: 0.0 },
       { name: "WHOLE FOODS MARKET", nameDisplay: "Whole Foods Market", address: "15  WASHINGTON ST", addressDisplay: "15  WASHINGTON ST, 02135", zip: "02135", license: "24017", category: "Grocery", inspections: 4, fails: 0, failRate: 0.0 },
@@ -1142,7 +1141,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
     },
       "Retail food": {
       alwaysN: 71,
-      cautiousN: 49,
+      cautiousN: 48,
       alwaysPass: [
       { name: "ADAMS CONVENIENCE STORE", nameDisplay: "Adams Convenience Store", address: "114  BLACKSTONE ST", addressDisplay: "114  BLACKSTONE ST, 02108", zip: "02108", license: "139414", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
       { name: "ALBA PRODUCE", nameDisplay: "Alba Produce", address: "18  PARMENTER ST", addressDisplay: "18  PARMENTER ST, 02113", zip: "02113", license: "21026", category: "Retail food", inspections: 3, fails: 0, failRate: 0.0 },
@@ -1191,7 +1190,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       { name: "Fenway's Halal", nameDisplay: "Fenway's Halal", address: "1250  BOYLSTON ST", addressDisplay: "1250  BOYLSTON ST, 02215", zip: "02215", license: "595480", category: "Mobile food", inspections: 3, fails: 2, failRate: 66.7, majorFails: 2, lastFailSeverity: "major" }
     ],
     }
-    },
+    }
   },
   "2026_ytd": {
     ytd: true,
@@ -1479,7 +1478,7 @@ const PLACE_WINDOWS: Record<PlaceYearKey, {
       { name: "Yumtastic Yum Yum", nameDisplay: "Yumtastic Yum Yum", address: "1  CITYWIDE ST", addressDisplay: "Mobile (citywide) · License 626103", zip: "02128", license: "626103", category: "Mobile food", inspections: 4, fails: 2, failRate: 50.0, majorFails: 2, lastFailSeverity: "major" }
     ],
     }
-    },
+    }
   }
 };
 function placeAddress(p: PlaceRow): string {
@@ -2115,10 +2114,11 @@ function SectionPlaces() {
         brand key. Web pages only help classify ice cream, grocery, and
         variety names; lists are from Analyze Boston inspections. Ben &amp; Jerry&apos;s is Ice cream from those sourced pages, not
         from a handwritten brand list. CVS/Pharmacy stays Pharmacy even
-        when licensecat is RF. Variety / general merchandise is NAICS
-        dollar stores and supercenters with a food department, not
-        grocery. Leftover Retail food is true packaged retail (bodega,
-        convenience, independent dollar shops). ICE Auto Services and All
+        when licensecat is RF. Variety / general merchandise is the NAICS 455219 / 455211 class
+        (dollar chains, Five Below, Big Lots, Target, Walmart) with a food
+        department, from a leftover-RF dump audit — not grocery and not a
+        three-name regex. Leftover Retail food is true packaged retail
+        (bodega, convenience, airport newsstand, gas C-store, independent dollar shops). ICE Auto Services and All
         Spice are not ice cream. 7-Eleven is not grocery. School Street is not School. A coffee shop @ a hotel is Cafe, not Hotel;
         generic dining @ a hospital is Hospital. Hospital, School,
         Cultural / attraction, and Hotel stay on this overlay count table

@@ -169,10 +169,22 @@ _GROCERY_RE = re.compile(
     r"\b(grocery|supermarket|super\s+market)\b",
     re.I,
 )
-_VARIETY_STORE_RE = re.compile(
-    r"\b(dollar\s+tree|family\s+dollar|dollar\s+general)\b",
-    re.I,
+# NAICS 2022 455219 (dollar / variety chains) and 455211 (supercenters).
+# Distinctive phrases from the dump audit plus the same class (Five Below,
+# Big Lots) even when Boston has no row. Not the word "dollar", not
+# neighborhood "X Variety" corner stores, not Target Pizza.
+_VARIETY_GM_RE = re.compile(
+    r"(?ix)(?:"
+    r"\b(?:dollar\s+tree|family\s+dollar|dollar\s+general|"
+    r"five\s+below|big\s+lots|amazon\s+fresh)\b"
+    r"|"
+    r"\bwal\s*marts?\b"
+    r"|"
+    r"\btargets?\s+(?:store|storeno|no\.?|depot|t[- ]?\d)"
+    r")"
 )
+_VARIETY_GM_EXACT_RE = re.compile(r"(?ix)^(?:targets?|wal\s*marts?)$")
+_GM_STORE_SUFFIX_RE = re.compile(r"(?ix)^(store|storeno|no|depot|t\d|\d)")
 
 QUALITY_NOTE = (
     "Food establishment inspections and active food licenses are separate "
@@ -194,8 +206,8 @@ QUALITY_NOTE = (
     "grocery, and variety/general-merchandise overlays are not City license "
     "types. ISD licensecat RF remains Retail Food (packaged food); leftover "
     "Retail food after overlays is other packaged retail, not pharmacy, "
-    "grocery, or variety/general merchandise (Dollar Tree, Family Dollar, "
-    "Dollar General, Target, Walmart). Place lists skip "
+    "grocery, or variety/general merchandise (NAICS 455219 / 455211: dollar "
+    "chains, Five Below, Big Lots, Target, Walmart). Place lists skip "
     "HE_NotReq: it is not counted as an inspection for always-pass or "
     "cautious tables. Always-pass and be-cautious in a Places view use "
     "the same year window. Ranking pills include ice cream, cafe, pharmacy, "
@@ -476,16 +488,22 @@ def _web_variety_keys() -> set[str]:
 
 
 def _web_variety_hit(key: str, keys: set[str]) -> bool:
-    """Prefix/equality for all brands; consecutive tokens only if the web name is multi-token."""
+    """Prefix/equality; single-token brands need a store-number suffix, not pizza."""
     if not key:
         return False
     for web in keys:
         if not web:
             continue
+        if " " not in web:
+            if key == web:
+                return True
+            if key.startswith(web + " "):
+                rest = key[len(web) + 1 :]
+                if _GM_STORE_SUFFIX_RE.match(rest):
+                    return True
+            continue
         if key == web or key.startswith(web + " "):
             return True
-        if " " not in web:
-            continue
         if _consecutive_tokens(key, web):
             return True
         if web.endswith("s"):
@@ -497,6 +515,56 @@ def _web_variety_hit(key: str, keys: set[str]) -> bool:
             if stem and (stem == web or stem.startswith(web + " ")):
                 return True
     return False
+
+
+def _web_name_forms(web: str) -> list[str]:
+    """Equality/prefix forms, including last-token singular/plural (Star Market/s)."""
+    forms = [web]
+    toks = web.split()
+    if not toks:
+        return forms
+    last = toks[-1]
+    head = toks[:-1]
+    if last.endswith("s") and len(last) > 1:
+        forms.append(" ".join(head + [last[:-1]]) if head else last[:-1])
+    else:
+        forms.append(" ".join(head + [last + "s"]) if head else last + "s")
+    return [f for f in forms if f]
+
+
+def _web_brand_key_hit(key: str, keys: set[str]) -> bool:
+    if not key:
+        return False
+    for web in keys:
+        if not web:
+            continue
+        for form in _web_name_forms(web):
+            if key == form or key.startswith(form + " "):
+                return True
+            if _consecutive_tokens(key, form):
+                return True
+        if web.endswith("s"):
+            stem = web[:-1].rstrip()
+            if stem and (key == stem or key.startswith(stem + " ")):
+                return True
+        if key.endswith("s"):
+            stem = key[:-1].rstrip()
+            if stem and (stem == web or stem.startswith(web + " ")):
+                return True
+    return False
+
+
+def is_variety_general_merchandise(business: str) -> bool:
+    """True for NAICS variety / general-merchandise chains, not bodegas."""
+    name = strip_null(business)
+    if not name:
+        return False
+    key = brand_key(name)
+    if _VARIETY_GM_EXACT_RE.match(key):
+        return True
+    if _VARIETY_GM_RE.search(name) or _VARIETY_GM_RE.search(key):
+        return True
+    return _web_variety_hit(key, _web_variety_keys())
 
 
 def _consecutive_tokens(hay: str, needle: str) -> bool:
@@ -508,27 +576,6 @@ def _consecutive_tokens(hay: str, needle: str) -> bool:
     for i in range(len(h) - span + 1):
         if h[i : i + span] == n:
             return True
-    return False
-
-
-def _web_brand_key_hit(key: str, keys: set[str]) -> bool:
-    if not key:
-        return False
-    for web in keys:
-        if not web:
-            continue
-        if key == web or key.startswith(web + " "):
-            return True
-        if _consecutive_tokens(key, web):
-            return True
-        if web.endswith("s"):
-            stem = web[:-1].rstrip()
-            if stem and (key == stem or key.startswith(stem + " ")):
-                return True
-        if key.endswith("s"):
-            stem = key[:-1].rstrip()
-            if stem and (stem == web or stem.startswith(web + " ")):
-                return True
     return False
 
 
@@ -581,11 +628,7 @@ def categorize(business: str, licensecat: str) -> str:
         brand_key(name), _web_grocery_keys()
     ):
         return CAT_GROCERY
-    if (
-        _VARIETY_STORE_RE.search(norm)
-        or _VARIETY_STORE_RE.search(name)
-        or _web_variety_hit(brand_key(name), _web_variety_keys())
-    ):
+    if is_variety_general_merchandise(name):
         return CAT_VARIETY
     return coded
 

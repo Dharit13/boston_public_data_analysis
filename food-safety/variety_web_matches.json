@@ -1,8 +1,9 @@
 {
-  "note": "General merchandise / variety overlay on top of ISD Retail Food (RF). Matching uses brand_key equality or prefix after name normalization; multi-token brands also match consecutive tokens. Single-token brands (Target, Walmart) are prefix/equality only so a middle token cannot hijack. Not a City license type. NAICS 2022 455219 names dollar stores and variety stores; 455211 is warehouse clubs/supercenters (Target, Walmart). These stores are inspected because they sell packaged and TCS food, not because they are grocers. Convenience (7-Eleven) and independent corner markets stay Retail food. Independent 'Dollar Express' / 'Dollar City' names are not listed. Amazon Fresh is kept for the join even if the Boston dump has no row.",
+  "note": "Built from the 2026-09-01 Analyze Boston dump audit (collapse license + timestamp, leftover Active RF brand_key clusters) plus NAICS 2022 store-type pages. Matching uses brand_key equality or prefix after name normalization; multi-token brands also match consecutive tokens. Single-token brands (Target, Walmart) match equality or a store-number suffix (store / no / depot / T-digits) so Target Pizza cannot hijack. Not a City license type. NAICS 455219 names dollar stores and variety stores; 455211 is warehouse clubs/supercenters. Boston Active RF in this class is Dollar Tree, Family Dollar, Dollar General, Target, and Walmart. Five Below and Big Lots are the same class (no row in this dump). Independent Dollar Express / Dollar City and neighborhood 'X Variety' corner stores are not listed. Amazon Fresh is kept for the join even if the Boston dump has no row. Convenience (7-Eleven) stays Retail food.",
   "names": [
     {
       "name": "Dollar Tree",
+      "dump": true,
       "sources": [
         "https://locations.dollartree.com/ma/hyde-park/1329-hyde-park-ave",
         "https://naics.askkodiak.com/naics/2022/455219",
@@ -11,6 +12,7 @@
     },
     {
       "name": "Family Dollar",
+      "dump": true,
       "sources": [
         "https://www.familydollar.com/",
         "https://naics.askkodiak.com/naics/2022/455219",
@@ -19,6 +21,7 @@
     },
     {
       "name": "Dollar General",
+      "dump": true,
       "sources": [
         "https://www.dollargeneral.com/",
         "https://naics.askkodiak.com/naics/2022/455219",
@@ -26,7 +29,24 @@
       ]
     },
     {
+      "name": "Five Below",
+      "dump": false,
+      "sources": [
+        "https://www.fivebelow.com/",
+        "https://naics.askkodiak.com/naics/2022/455219"
+      ]
+    },
+    {
+      "name": "Big Lots",
+      "dump": false,
+      "sources": [
+        "https://www.biglots.com/",
+        "https://naics.askkodiak.com/naics/2022/455219"
+      ]
+    },
+    {
       "name": "Target",
+      "dump": true,
       "sources": [
         "https://naics.askkodiak.com/naics/2022/455211",
         "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
@@ -34,6 +54,7 @@
     },
     {
       "name": "Walmart",
+      "dump": true,
       "sources": [
         "https://naics.askkodiak.com/naics/2022/455211",
         "https://grocerychop.com/blog/best-grocery-stores-boston"
@@ -41,6 +62,7 @@
     },
     {
       "name": "Amazon Fresh",
+      "dump": false,
       "sources": [
         "https://www.amazon.com/fmc/store-finder",
         "https://naics.askkodiak.com/naics/2022/455211"

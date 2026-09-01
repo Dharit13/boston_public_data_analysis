@@ -8,7 +8,7 @@
     "insp_max": "2026-08-28",
     "lic_raw": 3347,
     "lic_kept": 3347,
-    "note": "Food establishment inspections and active food licenses are separate files. Do not count a license row as an inspection. The inspection dump is one row per violation; this briefing collapses to one inspection per license number and result timestamp. Drop rows with no resultdttm. Complete years are 2012\u20132025. 2026 is year-to-date through 28 August \u2014 not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR \u2014 not a substring. HE_Filed is not a fail. Star levels are exact *, **, ***. Fail severity is our split from viol_level on a failed visit \u2014 not an official ISD \u201cmajor failure\u201d label, and not the letter grade on the door: major if the visit has ** or *** (critical / foodborne-critical), minor-only if starred violations are only * (non-critical; wiping cloths stay minor), mixed counts as major (worst-on-visit). HE_TSOP / HE_VolClos / HE_Closure are severe operational results, counted separately from fail codes. Display names strip trailing Inc/LLC/Corp/Ltd, not Company/Co in a trade name, and strip @ only when it is a location suffix (street, hospital, hotel, college). Ice cream, pharmacy, grocery, and variety/general-merchandise overlays are not City license types. ISD licensecat RF remains Retail Food (packaged food); leftover Retail food after overlays is other packaged retail, not pharmacy, grocery, or variety/general merchandise (Dollar Tree, Family Dollar, Dollar General, Target, Walmart). Place lists skip HE_NotReq: it is not counted as an inspection for always-pass or cautious tables. Always-pass and be-cautious in a Places view use the same year window. Ranking pills include ice cream, cafe, pharmacy, grocery, variety/general merchandise, food and drinks, take-out, retail food, mobile food, and Hospital, School, Cultural / attraction, and Hotel. Always-pass is an Active license, zero fails, and at least two real visits in that window. Be cautious is an Active license with at least two major fails (** or *** on a fail visit) in that same window; minor-only * repeats are excluded. A license number cannot appear on both lists in the same view. Institution kitchens are cafeteria inspection records, not a rating of the hospital or a skip list. Variety stores are general merchandise with a food department (NAICS 455219 / 455211), not grocers."
+    "note": "Food establishment inspections and active food licenses are separate files. Do not count a license row as an inspection. The inspection dump is one row per violation; this briefing collapses to one inspection per license number and result timestamp. Drop rows with no resultdttm. Complete years are 2012\u20132025. 2026 is year-to-date through 28 August \u2014 not a full year. 2020 is COVID. Fail is the exact result codes HE_Fail, HE_FailExt, Fail, Failed, and HE_FAILNOR \u2014 not a substring. HE_Filed is not a fail. Star levels are exact *, **, ***. Fail severity is our split from viol_level on a failed visit \u2014 not an official ISD \u201cmajor failure\u201d label, and not the letter grade on the door: major if the visit has ** or *** (critical / foodborne-critical), minor-only if starred violations are only * (non-critical; wiping cloths stay minor), mixed counts as major (worst-on-visit). HE_TSOP / HE_VolClos / HE_Closure are severe operational results, counted separately from fail codes. Display names strip trailing Inc/LLC/Corp/Ltd, not Company/Co in a trade name, and strip @ only when it is a location suffix (street, hospital, hotel, college). Ice cream, pharmacy, grocery, and variety/general-merchandise overlays are not City license types. ISD licensecat RF remains Retail Food (packaged food); leftover Retail food after overlays is other packaged retail, not pharmacy, grocery, or variety/general merchandise (NAICS 455219 / 455211: dollar chains, Five Below, Big Lots, Target, Walmart). Place lists skip HE_NotReq: it is not counted as an inspection for always-pass or cautious tables. Always-pass and be-cautious in a Places view use the same year window. Ranking pills include ice cream, cafe, pharmacy, grocery, variety/general merchandise, food and drinks, take-out, retail food, mobile food, and Hospital, School, Cultural / attraction, and Hotel. Always-pass is an Active license, zero fails, and at least two real visits in that window. Be cautious is an Active license with at least two major fails (** or *** on a fail visit) in that same window; minor-only * repeats are excluded. A license number cannot appear on both lists in the same view. Institution kitchens are cafeteria inspection records, not a rating of the hospital or a skip list. Variety stores are general merchandise with a food department (NAICS 455219 / 455211), not grocers."
   },
   "years": [
     2012,
@@ -438,19 +438,19 @@
         },
         {
           "label": "Grocery",
-          "fails": 140,
-          "major": 110,
+          "fails": 142,
+          "major": 112,
           "minor_only": 30,
           "unstarred": 0,
-          "major_share": 78.6
+          "major_share": 78.9
         },
         {
           "label": "Variety / general merchandise",
-          "fails": 49,
-          "major": 36,
-          "minor_only": 13,
+          "fails": 47,
+          "major": 35,
+          "minor_only": 12,
           "unstarred": 0,
-          "major_share": 73.5
+          "major_share": 74.5
         },
         {
           "label": "Food and drinks",
@@ -462,19 +462,19 @@
         },
         {
           "label": "Take-out",
-          "fails": 1630,
-          "major": 1264,
-          "minor_only": 332,
+          "fails": 1632,
+          "major": 1265,
+          "minor_only": 333,
           "unstarred": 34,
           "major_share": 77.5
         },
         {
           "label": "Retail food",
-          "fails": 288,
-          "major": 245,
+          "fails": 286,
+          "major": 243,
           "minor_only": 35,
           "unstarred": 8,
-          "major_share": 85.1
+          "major_share": 85.0
         },
         {
           "label": "Mobile food",
@@ -628,19 +628,19 @@
         },
         {
           "label": "Grocery",
-          "fails": 103,
-          "major": 80,
+          "fails": 104,
+          "major": 81,
           "minor_only": 22,
           "unstarred": 1,
-          "major_share": 77.7
+          "major_share": 77.9
         },
         {
           "label": "Variety / general merchandise",
-          "fails": 23,
+          "fails": 22,
           "major": 12,
-          "minor_only": 11,
+          "minor_only": 10,
           "unstarred": 0,
-          "major_share": 52.2
+          "major_share": 54.5
         },
         {
           "label": "Food and drinks",
@@ -652,16 +652,16 @@
         },
         {
           "label": "Take-out",
-          "fails": 1219,
+          "fails": 1220,
           "major": 926,
-          "minor_only": 280,
+          "minor_only": 281,
           "unstarred": 13,
-          "major_share": 76.0
+          "major_share": 75.9
         },
         {
           "label": "Retail food",
-          "fails": 241,
-          "major": 197,
+          "fails": 240,
+          "major": 196,
           "minor_only": 33,
           "unstarred": 11,
           "major_share": 81.7
@@ -4854,13 +4854,13 @@
         },
         {
           "label": "Grocery",
-          "inspections": 248,
-          "fails": 111
+          "inspections": 250,
+          "fails": 112
         },
         {
           "label": "Variety / general merchandise",
-          "inspections": 48,
-          "fails": 21
+          "inspections": 43,
+          "fails": 18
         },
         {
           "label": "Food and drinks",
@@ -4869,13 +4869,13 @@
         },
         {
           "label": "Take-out",
-          "inspections": 3046,
-          "fails": 1163
+          "inspections": 3051,
+          "fails": 1166
         },
         {
           "label": "Retail food",
-          "inspections": 910,
-          "fails": 291
+          "inspections": 908,
+          "fails": 290
         },
         {
           "label": "Mobile food",
@@ -6210,21 +6210,6 @@
           ],
           "places_to_avoid": [
             {
-              "name": "Target Pizza",
-              "name_display": "Target Pizza",
-              "brand_key": "target pizza",
-              "address": "5200  WASHINGTON ST",
-              "address_display": "5200  WASHINGTON ST, 02132",
-              "zip": "02132",
-              "license": "386126",
-              "category": "Variety / general merchandise",
-              "inspections": 5,
-              "fails": 3,
-              "fail_rate": 60.0,
-              "major_fails": 3,
-              "last_fail_severity": "major"
-            },
-            {
               "name": "Target Store T-1898",
               "name_display": "Target Store T-1898",
               "brand_key": "target store t 1898",
@@ -6256,7 +6241,7 @@
             }
           ],
           "always_pass_n": 1,
-          "repeat_n": 3
+          "repeat_n": 2
         },
         "Food and drinks": {
           "always_pass": [
@@ -6832,7 +6817,7 @@
             }
           ],
           "always_pass_n": 92,
-          "repeat_n": 116
+          "repeat_n": 117
         },
         "Retail food": {
           "always_pass": [
@@ -7552,13 +7537,13 @@
         },
         {
           "label": "Grocery",
-          "inspections": 249,
-          "fails": 108
+          "inspections": 253,
+          "fails": 110
         },
         {
           "label": "Variety / general merchandise",
-          "inspections": 106,
-          "fails": 58
+          "inspections": 102,
+          "fails": 55
         },
         {
           "label": "Food and drinks",
@@ -7567,13 +7552,13 @@
         },
         {
           "label": "Take-out",
-          "inspections": 3721,
-          "fails": 1530
+          "inspections": 3725,
+          "fails": 1533
         },
         {
           "label": "Retail food",
-          "inspections": 884,
-          "fails": 297
+          "inspections": 880,
+          "fails": 295
         },
         {
           "label": "Mobile food",
@@ -9088,7 +9073,7 @@
             }
           ],
           "always_pass_n": 14,
-          "repeat_n": 24
+          "repeat_n": 25
         },
         "Variety / general merchandise": {
           "always_pass": [],
@@ -9199,21 +9184,6 @@
               "last_fail_severity": "major"
             },
             {
-              "name": "Target Pizza",
-              "name_display": "Target Pizza",
-              "brand_key": "target pizza",
-              "address": "5200  WASHINGTON ST",
-              "address_display": "5200  WASHINGTON ST, 02132",
-              "zip": "02132",
-              "license": "386126",
-              "category": "Variety / general merchandise",
-              "inspections": 4,
-              "fails": 3,
-              "fail_rate": 75.0,
-              "major_fails": 3,
-              "last_fail_severity": "major"
-            },
-            {
               "name": "Family Dollar No. 31662",
               "name_display": "Family Dollar No. 31662",
               "brand_key": "family dollar no 31662",
@@ -9242,10 +9212,25 @@
               "fail_rate": 66.7,
               "major_fails": 2,
               "last_fail_severity": "major"
+            },
+            {
+              "name": "Target Store T-1898",
+              "name_display": "Target Store T-1898",
+              "brand_key": "target store t 1898",
+              "address": "7  ALLSTATE RD",
+              "address_display": "7  ALLSTATE RD, 02125",
+              "zip": "02125",
+              "license": "23056",
+              "category": "Variety / general merchandise",
+              "inspections": 6,
+              "fails": 2,
+              "fail_rate": 33.3,
+              "major_fails": 2,
+              "last_fail_severity": "major"
             }
           ],
           "always_pass_n": 0,
-          "repeat_n": 11
+          "repeat_n": 10
         },
         "Food and drinks": {
           "always_pass": [
@@ -9821,7 +9806,7 @@
             }
           ],
           "always_pass_n": 140,
-          "repeat_n": 283
+          "repeat_n": 284
         },
         "Retail food": {
           "always_pass": [
@@ -10109,7 +10094,7 @@
             }
           ],
           "always_pass_n": 46,
-          "repeat_n": 44
+          "repeat_n": 43
         },
         "Mobile food": {
           "always_pass": [
@@ -10656,13 +10641,13 @@
         },
         {
           "label": "Grocery",
-          "inspections": 306,
-          "fails": 140
+          "inspections": 311,
+          "fails": 142
         },
         {
           "label": "Variety / general merchandise",
-          "inspections": 90,
-          "fails": 49
+          "inspections": 85,
+          "fails": 47
         },
         {
           "label": "Food and drinks",
@@ -10671,13 +10656,13 @@
         },
         {
           "label": "Take-out",
-          "inspections": 4080,
-          "fails": 1630
+          "inspections": 4084,
+          "fails": 1632
         },
         {
           "label": "Retail food",
-          "inspections": 930,
-          "fails": 288
+          "inspections": 926,
+          "fails": 286
         },
         {
           "label": "Mobile food",
@@ -12385,7 +12370,7 @@
             }
           ],
           "always_pass_n": 15,
-          "repeat_n": 29
+          "repeat_n": 30
         },
         "Variety / general merchandise": {
           "always_pass": [
@@ -13418,7 +13403,7 @@
             }
           ],
           "always_pass_n": 71,
-          "repeat_n": 49
+          "repeat_n": 48
         },
         "Mobile food": {
           "always_pass": [
@@ -13965,13 +13950,13 @@
         },
         {
           "label": "Grocery",
-          "inspections": 214,
-          "fails": 103
+          "inspections": 216,
+          "fails": 104
         },
         {
           "label": "Variety / general merchandise",
-          "inspections": 60,
-          "fails": 23
+          "inspections": 58,
+          "fails": 22
         },
         {
           "label": "Food and drinks",
@@ -13980,13 +13965,13 @@
         },
         {
           "label": "Take-out",
-          "inspections": 2840,
-          "fails": 1219
+          "inspections": 2842,
+          "fails": 1220
         },
         {
           "label": "Retail food",
-          "inspections": 742,
-          "fails": 241
+          "inspections": 740,
+          "fails": 240
         },
         {
           "label": "Mobile food",
@@ -17615,6 +17600,21 @@
             "last_fail_severity": "major"
           },
           {
+            "name": "Star Markets No. 2576",
+            "name_display": "Star Markets No. 2576",
+            "brand_key": "star markets no 2576",
+            "address": "33  KILMARNOCK ST",
+            "address_display": "33  KILMARNOCK ST, 02215",
+            "zip": "02215",
+            "license": "25671",
+            "category": "Grocery",
+            "inspections": 52,
+            "fails": 19,
+            "fail_rate": 36.5,
+            "years_failed": 13,
+            "last_fail_severity": "major"
+          },
+          {
             "name": "Liriano Grocery",
             "name_display": "Liriano Grocery",
             "brand_key": "liriano grocery",
@@ -17643,24 +17643,9 @@
             "fail_rate": 38.6,
             "years_failed": 12,
             "last_fail_severity": "major"
-          },
-          {
-            "name": "Star Market No. 4587",
-            "name_display": "Star Market No. 4587",
-            "brand_key": "star market no 4587",
-            "address": "45  WM T MORRISSEY BL",
-            "address_display": "45  WM T MORRISSEY BL, 02122",
-            "zip": "02122",
-            "license": "25690",
-            "category": "Grocery",
-            "inspections": 94,
-            "fails": 38,
-            "fail_rate": 40.4,
-            "years_failed": 11,
-            "last_fail_severity": "major"
           }
         ],
-        "repeat_n": 64
+        "repeat_n": 65
       },
       "Variety / general merchandise": {
         "places_to_avoid": [
@@ -17721,21 +17706,6 @@
             "inspections": 40,
             "fails": 14,
             "fail_rate": 35.0,
-            "years_failed": 7,
-            "last_fail_severity": "major"
-          },
-          {
-            "name": "Target Pizza",
-            "name_display": "Target Pizza",
-            "brand_key": "target pizza",
-            "address": "5200  WASHINGTON ST",
-            "address_display": "5200  WASHINGTON ST, 02132",
-            "zip": "02132",
-            "license": "386126",
-            "category": "Variety / general merchandise",
-            "inspections": 31,
-            "fails": 14,
-            "fail_rate": 45.2,
             "years_failed": 7,
             "last_fail_severity": "major"
           },
@@ -17813,9 +17783,24 @@
             "fail_rate": 16.7,
             "years_failed": 4,
             "last_fail_severity": "major"
+          },
+          {
+            "name": "Dollar General Store No. 30635",
+            "name_display": "Dollar General Store No. 30635",
+            "brand_key": "dollar general store no 30635",
+            "address": "1248  RIVER ST",
+            "address_display": "1248  RIVER ST, 02136",
+            "zip": "02136",
+            "license": "344427",
+            "category": "Variety / general merchandise",
+            "inspections": 28,
+            "fails": 4,
+            "fail_rate": 14.3,
+            "years_failed": 4,
+            "last_fail_severity": "major"
           }
         ],
-        "repeat_n": 17
+        "repeat_n": 16
       },
       "Food and drinks": {
         "places_to_avoid": [
@@ -18125,7 +18110,7 @@
             "last_fail_severity": "major"
           }
         ],
-        "repeat_n": 825
+        "repeat_n": 826
       },
       "Retail food": {
         "places_to_avoid": [
@@ -18235,21 +18220,6 @@
             "last_fail_severity": "major"
           },
           {
-            "name": "Star Markets No. 2576",
-            "name_display": "Star Markets No. 2576",
-            "brand_key": "star markets no 2576",
-            "address": "33  KILMARNOCK ST",
-            "address_display": "33  KILMARNOCK ST, 02215",
-            "zip": "02215",
-            "license": "25671",
-            "category": "Retail food",
-            "inspections": 52,
-            "fails": 19,
-            "fail_rate": 36.5,
-            "years_failed": 13,
-            "last_fail_severity": "major"
-          },
-          {
             "name": "NUNEZ MARKET",
             "name_display": "Nunez Market",
             "brand_key": "nunez market",
@@ -18278,9 +18248,24 @@
             "fail_rate": 41.2,
             "years_failed": 12,
             "last_fail_severity": "major"
+          },
+          {
+            "name": "Lord Jeff's Beef Place",
+            "name_display": "Lord Jeff's Beef Place",
+            "brand_key": "lord jeffs beef place",
+            "address": "128  NEWMARKET SQ",
+            "address_display": "128  NEWMARKET SQ, 02118",
+            "zip": "02118",
+            "license": "77035",
+            "category": "Retail food",
+            "inspections": 47,
+            "fails": 16,
+            "fail_rate": 34.0,
+            "years_failed": 12,
+            "last_fail_severity": "major"
           }
         ],
-        "repeat_n": 236
+        "repeat_n": 235
       },
       "Mobile food": {
         "places_to_avoid": [

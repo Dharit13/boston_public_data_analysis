@@ -1,9 +1,11 @@
 from __future__ import annotations
 
 import json
+import re
 import unittest
 from pathlib import Path
 
+import analyze_food
 from analyze_food import (
     ALWAYS_PASS_MIN,
     CAUTIOUS_MAJOR_MIN,
@@ -268,6 +270,43 @@ class CategoryTests(unittest.TestCase):
         self.assertEqual(categorize("Million Dollar Pizza", "FT"), "Take-out")
         self.assertNotEqual(categorize("Million Dollar Pizza", "RF"), variety)
         self.assertNotEqual(categorize("On Target Cafe", "FS"), variety)
+        self.assertEqual(categorize("Five Below", "RF"), variety)
+        self.assertEqual(categorize("Five Below No. 1234", "RF"), variety)
+        self.assertEqual(categorize("Big Lots", "RF"), variety)
+        self.assertEqual(categorize("Big Lots No. 538", "RF"), variety)
+        self.assertEqual(categorize("Target Pizza", "FT"), "Take-out")
+        self.assertNotEqual(categorize("Target Pizza", "FT"), variety)
+        self.assertEqual(categorize("Brooks Variety", "RF"), "Retail food")
+        self.assertEqual(categorize("East Boston Variety", "RF"), "Retail food")
+        self.assertEqual(categorize("Five Guys", "FS"), "Food and drinks")
+
+    def test_variety_overlay_is_a_naics_class_not_three_chain_regex(self):
+        self.assertTrue(
+            hasattr(analyze_food, "is_variety_general_merchandise"),
+            "variety overlay must be a class detector, not a three-name regex",
+        )
+        src = (Path(__file__).parent / "analyze_food.py").read_text()
+        self.assertNotIn(
+            r"\b(dollar\s+tree|family\s+dollar|dollar\s+general)\b",
+            src,
+        )
+        self.assertTrue(analyze_food.is_variety_general_merchandise("Dollar Tree StoreNo. 09513"))
+        self.assertTrue(analyze_food.is_variety_general_merchandise("Five Below"))
+        self.assertTrue(analyze_food.is_variety_general_merchandise("Big Lots"))
+        self.assertTrue(analyze_food.is_variety_general_merchandise("Walmart Depot No. 9552"))
+        self.assertTrue(analyze_food.is_variety_general_merchandise("Target Store T-1898"))
+        self.assertFalse(analyze_food.is_variety_general_merchandise("Target Pizza"))
+        self.assertFalse(analyze_food.is_variety_general_merchandise("Dollar Express"))
+        self.assertFalse(analyze_food.is_variety_general_merchandise("Million Dollar Pizza"))
+        self.assertFalse(analyze_food.is_variety_general_merchandise("Brooks Variety"))
+        self.assertFalse(analyze_food.is_variety_general_merchandise("Five Guys"))
+        self.assertFalse(analyze_food.is_variety_general_merchandise("Lily's Market"))
+        self.assertFalse(analyze_food.is_variety_general_merchandise("7-ELEVEN"))
+
+    def test_star_markets_plural_is_grocery_not_leftover_retail(self):
+        self.assertEqual(categorize("Star Markets No. 2576", "RF"), "Grocery")
+        self.assertEqual(categorize("Star Market No. 4572", "RF"), "Grocery")
+        self.assertEqual(categorize("AFC Zenshi @ Shaw's 3588", "RF"), "Retail food")
 
 
 class NamePipelineTests(unittest.TestCase):
@@ -679,6 +718,11 @@ class WebVarietyJsonTests(unittest.TestCase):
         self.assertIn("Dollar General", labels)
         self.assertIn("Target", labels)
         self.assertIn("Walmart", labels)
+        self.assertIn("Five Below", labels)
+        self.assertIn("Big Lots", labels)
+        note = data.get("note", "").casefold()
+        self.assertIn("dump", note)
+        self.assertIn("455219", note)
         analyzer = (Path(__file__).parent / "analyze_food.py").read_text()
         self.assertNotIn("544779", analyzer)
         self.assertNotIn('frozenset({"Dollar Tree"', analyzer)
@@ -694,6 +738,9 @@ class WebVarietyJsonTests(unittest.TestCase):
         self.assertEqual(categorize("7-ELEVEN", "RF"), "Retail food")
         self.assertEqual(categorize("Lily's Market", "RF"), "Retail food")
         self.assertEqual(categorize("Dollar Express", "RF"), "Retail food")
+        self.assertEqual(categorize("Five Below", "RF"), CAT_VARIETY)
+        self.assertEqual(categorize("Big Lots", "RF"), CAT_VARIETY)
+        self.assertEqual(categorize("Target Pizza", "FT"), "Take-out")
 
 
 class CitywideAddressTests(unittest.TestCase):
@@ -1597,6 +1644,15 @@ class DumpPlaceWindowAuditTests(unittest.TestCase):
             if dollar_lic in var_ids:
                 self.assertTrue(True)
 
+    def test_target_pizza_is_not_variety_on_place_lists(self):
+        self.assertEqual(categorize("Target Pizza", "FT"), "Take-out")
+        for key, win in self.stats["place_windows"].items():
+            variety = win["by_category"].get("Variety / general merchandise", {})
+            var_ids = _place_licenses(variety.get("always_pass", [])) | _place_licenses(
+                variety.get("places_to_avoid", [])
+            )
+            self.assertNotIn("386126", var_ids, f"{key} Target Pizza still Variety")
+
     def test_mgh_cafe_2025_is_hospital_always_pass(self):
         win = self.stats["place_windows"]["2025"]
         hosp = win["by_category"]["Hospital"]
@@ -1605,3 +1661,81 @@ class DumpPlaceWindowAuditTests(unittest.TestCase):
         self.assertIn(MGH_CAFE_LICENSE, always_ids)
         self.assertNotIn(MGH_CAFE_LICENSE, caut_ids)
         self.assertNotIn(MGH_CAFE_LICENSE, _place_licenses(win["places_to_avoid"]))
+
+
+# Dump-audit leftover detectors: NAICS variety/GM, pharmacy, supermarket brand.
+# Match brand_key (location @ already stripped). Not per-store license numbers.
+_LEFTOVER_VARIETY_GM_RE = re.compile(
+    r"(?ix)(?:"
+    r"\b(?:dollar\s+tree|family\s+dollar|dollar\s+general|"
+    r"five\s+below|big\s+lots|amazon\s+fresh)\b"
+    r"|\bwal\s*marts?\b"
+    r"|\btargets?\s+(?:store|storeno|no|depot|t\d)"
+    r"|^targets?$"
+    r")"
+)
+_LEFTOVER_PHARMACY_RE = re.compile(
+    r"(?ix)\b(?:pharmacy|drugstore|drug\s+store|walgreens?|rite\s+aid|\bcvs\b)\b"
+)
+_LEFTOVER_SUPERMARKET_RE = re.compile(
+    r"(?ix)\b(?:grocery|supermarket|super\s+market|"
+    r"trader\s+joes?|whole\s+foods|stop\s+shop|"
+    r"star\s+markets?|"
+    r"shaws(?:\s+supermarket)?"
+    r"|market\s+basket|wegmans?|roche\s+bros|"
+    r"aldi|hannaford|\bh\s+mart\b|costco)\b"
+)
+
+
+class DumpLeftoverRetailClassTests(unittest.TestCase):
+    """Full-CSV leftover RF must not still contain variety/GM, pharmacy, or supermarket brands."""
+
+    @classmethod
+    def setUpClass(cls):
+        if not DUMP.is_file():
+            raise unittest.SkipTest(f"missing dump {DUMP}")
+        from audit_rf_leftover import classify_licenses, collapse_licenses, leftover_rf
+
+        by = collapse_licenses(DUMP)
+        classify_licenses(by)
+        cls.leftover = leftover_rf(by, active_only=True)
+        cls.leftover_n = len(cls.leftover)
+
+    def test_leftover_rf_has_no_variety_gm_pharmacy_or_supermarket_class(self):
+        self.assertGreater(self.leftover_n, 0)
+        variety_hits = [
+            r
+            for r in self.leftover
+            if _LEFTOVER_VARIETY_GM_RE.search(r["brand_key"])
+            or (
+                hasattr(analyze_food, "is_variety_general_merchandise")
+                and analyze_food.is_variety_general_merchandise(r["name"])
+            )
+        ]
+        pharmacy_hits = [
+            r for r in self.leftover if _LEFTOVER_PHARMACY_RE.search(r["brand_key"])
+        ]
+        grocery_hits = [
+            r for r in self.leftover if _LEFTOVER_SUPERMARKET_RE.search(r["brand_key"])
+        ]
+        self.assertEqual(
+            [],
+            [f"{r['license']} {r['name']}" for r in variety_hits],
+            "variety/general-merchandise class still in leftover Retail food",
+        )
+        self.assertEqual(
+            [],
+            [f"{r['license']} {r['name']}" for r in pharmacy_hits],
+            "pharmacy class still in leftover Retail food",
+        )
+        self.assertEqual(
+            [],
+            [f"{r['license']} {r['name']}" for r in grocery_hits],
+            "supermarket class still in leftover Retail food",
+        )
+        self.assertEqual(
+            categorize("Dollar Tree StoreNo. 09513", "RF"),
+            CAT_VARIETY,
+        )
+        self.assertEqual(categorize("Lily's Market", "RF"), "Retail food")
+        self.assertEqual(categorize("7-ELEVEN", "RF"), "Retail food")
