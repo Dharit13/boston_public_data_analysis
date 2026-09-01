@@ -29,7 +29,7 @@ Do **not** add 12,414 inspections + 3,347 licenses. Neighborhood on the inspecti
 3. **Department** — result clock, ZIP neighborhoods, licenses
 4. **City / Mayor** — policy asks
 5. **Public** — plain language for residents
-6. **Places** — always-pass and be-cautious share the year pill (2019, 2024, 2025, 2026 YTD). Always-pass is ≥3 real visits and 0 fails. Be cautious is ≥2 major fails in that same window. Hospital, School, Cultural / attraction, and Hotel are not ranking pills. Ice cream, Pharmacy, and Grocery are name overlays, not City license types. `1 CITYWIDE ST` is shown as Mobile (citywide).
+6. **Places** — always-pass and be-cautious share the year pill (2019, 2024, 2025, 2026 YTD). Always-pass is ≥2 real visits and 0 fails. Be cautious is ≥2 major fails in that same window. Hospital, School, Cultural / attraction, and Hotel stay on the ranking pills with the same math (kitchen/cafeteria records, not a skip list). Variety / general merchandise is a sourced overlay for dollar stores and supercenters. Ice cream, Pharmacy, Grocery, and Variety are name overlays, not City license types. `1 CITYWIDE ST` is shown as Mobile (citywide).
 7. **Notes** — row counts and cleaning rules
 
 ## Files in this folder
@@ -40,6 +40,7 @@ Do **not** add 12,414 inspections + 3,347 licenses. Neighborhood on the inspecti
 | `analyze_food.py` | Clean inspections + licenses → `outputs/food_stats.json` |
 | `ice_cream_web_matches.json` | Sourced ice-cream shop names + URLs (not a City license type) |
 | `grocery_web_matches.json` | Sourced grocery/supermarket names + URLs (not a City license type) |
+| `variety_web_matches.json` | Sourced variety / general merchandise names + URLs (Dollar Tree, Target, Walmart; not grocery) |
 | `test_analyze_food.py` | Unit tests (`python3 -m unittest test_analyze_food`) |
 | `common.py` | Download skip-if-exists, date parse, ZIP neighborhood map |
 | [canvases/boston-food-safety.canvas.tsx](canvases/boston-food-safety.canvas.tsx) | Original Cursor canvas |

@@ -86,17 +86,17 @@ Food inspections and active licenses are **not** RentSmart, **not** building per
 
 ## Places — same clock for both lists
 
-Always-pass and be-cautious share the year pill: complete years **2019, 2024, 2025**, plus **2026 YTD through 28 August**. Always-pass needs **at least 3 real visits** in that window and **zero** fail codes (`HE_Filed` is not a fail; `HE_NotReq` is not an inspection). Be cautious needs **at least 2 major fails** (`**` / `***`) in that **same** window. A license number cannot appear on both lists in the same view. **Hospital, School, Cultural / attraction, and Hotel** kitchens are cafeteria/kitchen inspection records, not ranking pills.
+Always-pass and be-cautious share the year pill: complete years **2019, 2024, 2025**, plus **2026 YTD through 28 August**. Always-pass needs **at least 2 real visits** in that window and **zero** fail codes (`HE_Filed` is not a fail; `HE_NotReq` is not an inspection). Be cautious needs **at least 2 major fails** (`**` / `***`) in that **same** window. A license number cannot appear on both lists in the same view. **Hospital, School, Cultural / attraction, and Hotel** stay on the ranking pills with the same math; those rows are cafeteria/kitchen inspection records, not a rating of the institution.
 
 | Window | Always-pass | Be cautious |
 | --- | ---: | ---: |
-| 2019 | 36 | 396 |
-| 2024 | 40 | 848 |
-| 2025 | 79 | 985 |
-| 2026 YTD | 48 | 814 |
+| 2019 | 307 | 415 |
+| 2024 | 462 | 871 |
+| 2025 | 707 | 1010 |
+| 2026 YTD | 253 | 840 |
 
-2025 always-pass includes **Dunkin Donuts**, **Blue Ribbon Barbecue**, and **CVS/Pharmacy No. 10517**. 2025 be-cautious is led by **Dans Mini Dogs**. Mass General Hospital Cafe at 55 Fruit St is not on either ranking list.
+2025 always-pass includes **Dunkin Donuts**, **Blue Ribbon Barbecue**, and **CVS/Pharmacy No. 10517**. 2025 be-cautious is led by **Dans Mini Dogs**. Mass General Hospital Cafe (`18550`) is **2025 Hospital always-pass** (three HE_Pass visits, zero fails). Dollar Tree StoreNo. 09513 (`544779`) is **Variety / general merchandise**, not leftover Retail food.
 
-Display names strip trailing Inc/LLC/Corp/Ltd, not Company in Atlantic Fish Company. `@` is a location only after a street/hospital/hotel/college. Ice cream, Pharmacy, and Grocery are **not** City license types. Ice cream: word-boundary matching plus public scoop-shop pages joined on brand key (**J.P. Licks**, **Ben & Jerry’s**). Pharmacy: pharmacy/drugstore and chains (CVS, Walgreens, Rite Aid) on the normalized name — **CVS/Pharmacy No. 10517** (77 Seaport) and **No. 1900** (218 Hanover) are Pharmacy, not generic Retail food. Grocery: grocery/supermarket in the name plus sourced supermarket roundups joined on brand key (Trader Joe’s, Whole Foods, Stop & Shop, Star Market). 7-Eleven is not grocery. Leftover RF is other packaged retail. `1 CITYWIDE ST` is ISD’s mobile-license placeholder, shown as **Mobile (citywide) · License …**.
+Display names strip trailing Inc/LLC/Corp/Ltd, not Company in Atlantic Fish Company. `@` is a location only after a street/hospital/hotel/college. Ice cream, Pharmacy, Grocery, and Variety / general merchandise are **not** City license types. Ice cream: word-boundary matching plus public scoop-shop pages joined on brand key (**J.P. Licks**, **Ben & Jerry’s**). Pharmacy: pharmacy/drugstore and chains (CVS, Walgreens, Rite Aid) on the normalized name — **CVS/Pharmacy No. 10517** (77 Seaport) and **No. 1900** (218 Hanover) are Pharmacy, not generic Retail food. Grocery: grocery/supermarket in the name plus sourced supermarket roundups joined on brand key (Trader Joe’s, Whole Foods, Stop & Shop, Star Market). 7-Eleven is not grocery. Variety: sourced NAICS general-merchandise chains (Dollar Tree, Family Dollar, Dollar General, Target, Walmart). Leftover RF is true packaged retail (bodega/convenience). `1 CITYWIDE ST` is ISD’s mobile-license placeholder, shown as **Mobile (citywide) · License …**.
 
-Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays add Ice cream, Cafe, School, Hotel, Hospital, Cultural / attraction, Pharmacy, and Grocery before those codes — overlays still count inspections, but ranking pills are ice cream, cafe, pharmacy, grocery, food and drinks, take-out, retail food, and mobile food. The City has no cafe, ice-cream, pharmacy, or grocery license code. `ice` does not match ICE Auto Services. RF remainder after overlays is other packaged retail.
+Categories: City `licensecat` first (FS Food and drinks · FT Take-out · RF Retail food · MFW Mobile food). Name overlays add Ice cream, Cafe, School, Hotel, Hospital, Cultural / attraction, Pharmacy, Grocery, and Variety / general merchandise before those codes. Ranking pills are every overlay except Other — including institutions and variety. The City has no cafe, ice-cream, pharmacy, grocery, or variety license code. `ice` does not match ICE Auto Services. RF remainder after overlays is other packaged retail.

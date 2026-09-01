@@ -1,0 +1,50 @@
+{
+  "note": "General merchandise / variety overlay on top of ISD Retail Food (RF). Matching uses brand_key equality or prefix after name normalization; multi-token brands also match consecutive tokens. Single-token brands (Target, Walmart) are prefix/equality only so a middle token cannot hijack. Not a City license type. NAICS 2022 455219 names dollar stores and variety stores; 455211 is warehouse clubs/supercenters (Target, Walmart). These stores are inspected because they sell packaged and TCS food, not because they are grocers. Convenience (7-Eleven) and independent corner markets stay Retail food. Independent 'Dollar Express' / 'Dollar City' names are not listed. Amazon Fresh is kept for the join even if the Boston dump has no row.",
+  "names": [
+    {
+      "name": "Dollar Tree",
+      "sources": [
+        "https://locations.dollartree.com/ma/hyde-park/1329-hyde-park-ave",
+        "https://naics.askkodiak.com/naics/2022/455219",
+        "https://www.naics.com/naics-code-description/?code=452319"
+      ]
+    },
+    {
+      "name": "Family Dollar",
+      "sources": [
+        "https://www.familydollar.com/",
+        "https://naics.askkodiak.com/naics/2022/455219",
+        "https://www.naics.com/naics-code-description/?code=452319"
+      ]
+    },
+    {
+      "name": "Dollar General",
+      "sources": [
+        "https://www.dollargeneral.com/",
+        "https://naics.askkodiak.com/naics/2022/455219",
+        "https://www.naics.com/naics-code-description/?code=452319"
+      ]
+    },
+    {
+      "name": "Target",
+      "sources": [
+        "https://naics.askkodiak.com/naics/2022/455211",
+        "https://www.marketreportblog.com/2025/11/the-grocers-of-boston.html"
+      ]
+    },
+    {
+      "name": "Walmart",
+      "sources": [
+        "https://naics.askkodiak.com/naics/2022/455211",
+        "https://grocerychop.com/blog/best-grocery-stores-boston"
+      ]
+    },
+    {
+      "name": "Amazon Fresh",
+      "sources": [
+        "https://www.amazon.com/fmc/store-finder",
+        "https://naics.askkodiak.com/naics/2022/455211"
+      ]
+    }
+  ]
+}

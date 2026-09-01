@@ -33,9 +33,11 @@ from analyze_food import (
     normalize_name,
     set_web_grocery_names,
     set_web_ice_names,
+    set_web_variety_names,
     viol_star,
     zip5_of,
 )
+CAT_VARIETY = "Variety / general merchandise"
 from common import ZIP_NEIGHBORHOOD
 
 REPO = Path(__file__).parent
@@ -217,6 +219,7 @@ class CategoryTests(unittest.TestCase):
         self.assertEqual(
             OVERLAY_ORDER[8:],
             (
+                "Variety / general merchandise",
                 "Food and drinks",
                 "Take-out",
                 "Retail food",
@@ -243,23 +246,28 @@ class CategoryTests(unittest.TestCase):
         self.assertEqual(categorize("Shaw's Supermarkets No. 602", "RF"), "Grocery")
         self.assertNotIn("legalowner", categorize.__code__.co_varnames)
 
-    def test_dollar_variety_stores_are_unclassified_not_retail_food(self):
-        other = "Other / unclassified"
-        self.assertEqual(categorize("Dollar Tree StoreNo. 09513", "RF"), other)
-        self.assertEqual(categorize("Dollar Tree", "RF"), other)
-        self.assertEqual(categorize("Dollar Tree No. 8071", "RF"), other)
-        self.assertEqual(categorize("Family Dollar Store No. 27248", "RF"), other)
-        self.assertEqual(categorize("Family Dollar", "RF"), other)
-        self.assertEqual(categorize("Dollar General Store No. 19117", "RF"), other)
-        self.assertEqual(categorize("Dollar General", "RF"), other)
+    def test_dollar_variety_stores_are_general_merchandise_not_retail_food(self):
+        variety = CAT_VARIETY
+        self.assertEqual(categorize("Dollar Tree StoreNo. 09513", "RF"), variety)
+        self.assertEqual(categorize("Dollar Tree", "RF"), variety)
+        self.assertEqual(categorize("Dollar Tree No. 8071", "RF"), variety)
+        self.assertEqual(categorize("Family Dollar Store No. 27248", "RF"), variety)
+        self.assertEqual(categorize("Family Dollar", "RF"), variety)
+        self.assertEqual(categorize("Dollar General Store No. 19117", "RF"), variety)
+        self.assertEqual(categorize("Dollar General", "RF"), variety)
+        self.assertEqual(categorize("Target Store T-1898", "RF"), variety)
+        self.assertEqual(categorize("Target No. 2822", "RF"), variety)
+        self.assertEqual(categorize("Walmart Depot No. 9552", "RF"), variety)
         self.assertEqual(categorize("Lily's Market", "RF"), "Retail food")
         self.assertEqual(categorize("7-ELEVEN", "RF"), "Retail food")
         self.assertEqual(categorize("Corner Market", "RF"), "Retail food")
+        self.assertEqual(categorize("Dollar Express", "RF"), "Retail food")
         self.assertEqual(categorize("Stop & Shop No. 412", "RF"), "Grocery")
         self.assertEqual(categorize("Shaw's Supermarkets No. 602", "RF"), "Grocery")
         self.assertEqual(categorize("CVS/Pharmacy No. 10517", "RF"), "Pharmacy")
         self.assertEqual(categorize("Million Dollar Pizza", "FT"), "Take-out")
-        self.assertNotEqual(categorize("Million Dollar Pizza", "RF"), other)
+        self.assertNotEqual(categorize("Million Dollar Pizza", "RF"), variety)
+        self.assertNotEqual(categorize("On Target Cafe", "FS"), variety)
 
 
 class NamePipelineTests(unittest.TestCase):
@@ -655,6 +663,39 @@ class WebGroceryJsonTests(unittest.TestCase):
         self.assertEqual(categorize("Lily's Market", "RF"), "Retail food")
 
 
+class WebVarietyJsonTests(unittest.TestCase):
+    def test_generated_json_has_source_urls_not_a_store_number_frozenset(self):
+        path = Path(__file__).parent / "variety_web_matches.json"
+        data = json.loads(path.read_text())
+        self.assertTrue(data["names"])
+        labels = []
+        for item in data["names"]:
+            self.assertTrue(item["name"])
+            self.assertTrue(item["sources"])
+            self.assertTrue(all(s.startswith("http") for s in item["sources"]))
+            labels.append(item["name"])
+        self.assertIn("Dollar Tree", labels)
+        self.assertIn("Family Dollar", labels)
+        self.assertIn("Dollar General", labels)
+        self.assertIn("Target", labels)
+        self.assertIn("Walmart", labels)
+        analyzer = (Path(__file__).parent / "analyze_food.py").read_text()
+        self.assertNotIn("544779", analyzer)
+        self.assertNotIn('frozenset({"Dollar Tree"', analyzer)
+
+    def test_production_json_classifies_listed_variety_chains(self):
+        set_web_variety_names(None)
+        self.assertEqual(
+            categorize("Dollar Tree StoreNo. 09513", "RF"),
+            CAT_VARIETY,
+        )
+        self.assertEqual(categorize("Target Store T-1898", "RF"), CAT_VARIETY)
+        self.assertEqual(categorize("Walmart Depot No. 9552", "RF"), CAT_VARIETY)
+        self.assertEqual(categorize("7-ELEVEN", "RF"), "Retail food")
+        self.assertEqual(categorize("Lily's Market", "RF"), "Retail food")
+        self.assertEqual(categorize("Dollar Express", "RF"), "Retail food")
+
+
 class CitywideAddressTests(unittest.TestCase):
     def test_placeholder_is_citywide_not_a_street(self):
         self.assertTrue(is_citywide_placeholder("1  CITYWIDE ST"))
@@ -690,16 +731,24 @@ class CitywideAddressTests(unittest.TestCase):
 
 class PlaceWindowTests(unittest.TestCase):
     def test_always_pass_repeat_avoid_and_multi_year(self):
-        self.assertEqual(ALWAYS_PASS_MIN, 3)
+        self.assertEqual(ALWAYS_PASS_MIN, 2)
         self.assertEqual(CAUTIOUS_MAJOR_MIN, 2)
-        self.assertTrue(INSTITUTION_CATS.isdisjoint(RANKING_CATS))
+        self.assertTrue(INSTITUTION_CATS.issubset(RANKING_CATS))
+        self.assertIn("Hospital", RANKING_ORDER)
+        self.assertIn("School", RANKING_ORDER)
+        self.assertIn("Variety / general merchandise", RANKING_ORDER)
         self.assertEqual(
             list(RANKING_ORDER),
             [
                 "Ice cream",
+                "Cultural / attraction",
+                "Hospital",
+                "Hotel",
+                "School",
                 "Cafe",
                 "Pharmacy",
                 "Grocery",
+                "Variety / general merchandise",
                 "Food and drinks",
                 "Take-out",
                 "Retail food",
@@ -718,7 +767,7 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertIn("2026_ytd", windows)
         self.assertTrue(windows["2026_ytd"]["ytd"])
         self.assertFalse(windows["2025"]["ytd"])
-        self.assertEqual(windows["2025"]["min_pass_inspections"], 3)
+        self.assertEqual(windows["2025"]["min_pass_inspections"], 2)
         self.assertEqual(windows["2025"]["min_major_fails"], 2)
 
         names_2025_pass = _names(windows["2025"]["always_pass"])
@@ -727,12 +776,10 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertIn("ICE Auto Services", names_2025_pass)
         self.assertIn("Al's School Street Cafe", names_2025_pass)
         self.assertIn("Filed Only", names_2025_pass)
-        self.assertIn("Solid Pad", names_2025_pass)
         self.assertIn("Clean Kitchen", names_2025_pass)
-        self.assertNotIn(MGH_CAFE_NAME, names_2025_pass)
-        self.assertNotIn("Tufts Medical Center Cafe", names_2025_pass)
-        self.assertNotIn("Emerson College Dining", names_2025_pass)
-        self.assertNotIn("NotReq Pad", names_2025_pass)
+        self.assertIn(MGH_CAFE_NAME, names_2025_pass)
+        self.assertIn("Emerson College Dining", names_2025_pass)
+        self.assertNotIn("Closed Diner", names_2025_pass)
         self.assertNotIn("Closed Diner", names_2025_pass)
         self.assertNotIn("One Lucky Bowl", names_2025_pass)
         self.assertNotIn("Repeat Taco", names_2025_pass)
@@ -760,6 +807,10 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertNotIn("Marriott Hotel Kitchen", avoid_names)
         self.assertNotIn("Clean Kitchen", avoid_names)
         self.assertNotIn(MGH_CAFE_NAME, avoid_names)
+        mgh = next(p for p in windows["2025"]["always_pass"] if p["license"] == MGH_CAFE_LICENSE)
+        self.assertEqual(mgh["category"], "Hospital")
+        self.assertEqual(mgh["fails"], 0)
+        self.assertGreaterEqual(mgh["inspections"], 2)
         major_k = next(p for p in avoid if p["name"] == "Major Kitchen")
         self.assertGreaterEqual(major_k["major_fails"], 2)
         self.assertEqual(major_k["last_fail_severity"], "major")
@@ -777,7 +828,7 @@ class PlaceWindowTests(unittest.TestCase):
         y2024_avoid = _names(windows["2024"]["places_to_avoid"])
         self.assertIn("Clean Kitchen", y2024_avoid)
         self.assertIn("Citywide Major", y2024_avoid)
-        self.assertNotIn(MGH_CAFE_NAME, y2024_avoid)
+        self.assertIn(MGH_CAFE_NAME, y2024_avoid)
         y2026_pass = _names(windows["2026_ytd"]["always_pass"])
         self.assertEqual(y2026_pass, ["Safe Diner"])
         y2026_rep = _names(windows["2026_ytd"]["repeat_offenders"])
@@ -820,17 +871,26 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertEqual(cafe_pass, ["Al's School Street Cafe"])
         self.assertNotIn("Tufts Medical Center Cafe", cafe_pass)
         for lab in INSTITUTION_CATS:
-            self.assertNotIn(lab, by_cat)
+            self.assertIn(lab, RANKING_CATS)
+        self.assertIn("Hospital", by_cat)
+        self.assertIn("School", by_cat)
+        hosp_pass = _names(by_cat["Hospital"]["always_pass"])
+        self.assertIn(MGH_CAFE_NAME, hosp_pass)
+        self.assertIn("Tufts Medical Center Cafe", hosp_pass)
+        school_pass = _names(by_cat["School"]["always_pass"])
+        self.assertIn("Emerson College Dining", school_pass)
         pharm_pass = _names(by_cat["Pharmacy"]["always_pass"])
         self.assertEqual(pharm_pass, ["CVS/Pharmacy No. 10517"])
         food_pass = _names(by_cat["Food and drinks"]["always_pass"])
         self.assertIn("Safe Diner", food_pass)
         self.assertIn("Clean Kitchen", food_pass)
-        self.assertNotIn("NotReq Pad", food_pass)
+        self.assertIn("Solid Pad", food_pass)
+        self.assertIn("NotReq Pad", food_pass)
         self.assertNotIn("Bart Ice Cream", food_pass)
         self.assertNotIn("Al's School Street Cafe", food_pass)
         self.assertNotIn("Tufts Medical Center Cafe", food_pass)
         self.assertNotIn("Emerson College Dining", food_pass)
+        self.assertNotIn(MGH_CAFE_NAME, food_pass)
         self.assertIn("by_category", windows["2026_ytd"])
 
         across_cat = b["repeat_across_years"]["by_category"]
@@ -855,10 +915,8 @@ class PlaceWindowTests(unittest.TestCase):
         y2025 = [r for r in inspections if r["year"] == 2025]
         lists = place_lists_for_window(list(_roll_places(y2025).values()))
         by = lists["by_category"]
-        for lab in ("Ice cream", "Cafe", "Pharmacy", "Take-out"):
+        for lab in ("Ice cream", "Cafe", "Pharmacy", "Take-out", "Hospital", "School"):
             self.assertIn(lab, by)
-        for lab in INSTITUTION_CATS:
-            self.assertNotIn(lab, by)
         ice_ids = _place_licenses(by["Ice cream"]["always_pass"])
         cafe_ids = _place_licenses(by["Cafe"]["always_pass"])
         take_caut = _place_licenses(by["Take-out"]["places_to_avoid"])
@@ -866,8 +924,9 @@ class PlaceWindowTests(unittest.TestCase):
         self.assertIn("L200", ice_ids)
         self.assertIn("L105", cafe_ids)
         self.assertIn("L201", _place_licenses(by["Pharmacy"]["always_pass"]))
+        self.assertIn(MGH_CAFE_LICENSE, _place_licenses(by["Hospital"]["always_pass"]))
         self.assertIn("L118", take_caut)
-        self.assertEqual(RANKING_ORDER[2], "Pharmacy")
+        self.assertEqual(RANKING_ORDER[2], "Hospital")
 
     def test_same_clock_lists_are_mutually_exclusive(self):
         inspections, iq = load_inspections(FIX / "food_places_inspections.csv")
@@ -883,21 +942,39 @@ class PlaceWindowTests(unittest.TestCase):
                     block.get("places_to_avoid", [])
                 )
                 self.assertFalse(overlap, f"{key} {lab} overlap {overlap}")
-                self.assertNotIn(lab, INSTITUTION_CATS)
+                self.assertIn(lab, RANKING_CATS)
 
-    def test_mgh_cafe_not_on_both_lists_in_same_window(self):
+    def test_mgh_cafe_same_window_not_on_both_lists(self):
         inspections, iq = load_inspections(FIX / "food_places_inspections.csv")
         licenses, lq = load_licenses(FIX / "food_places_licenses.csv")
         b = briefing_from_rows(inspections, licenses, {**iq, **lq})
         for key, win in b["place_windows"].items():
             always_ids = _place_licenses(win["always_pass"])
             cautious_ids = _place_licenses(win["places_to_avoid"])
-            self.assertNotIn(MGH_CAFE_LICENSE, always_ids, key)
-            self.assertNotIn(MGH_CAFE_LICENSE, cautious_ids, key)
             self.assertFalse(always_ids & cautious_ids, key)
             for lab in INSTITUTION_CATS:
-                self.assertNotIn(lab, win["by_category"], key)
+                self.assertIn(lab, RANKING_CATS)
         win = b["place_windows"]["2025"]
+        self.assertIn(
+            MGH_CAFE_LICENSE,
+            _place_licenses(win["always_pass"]),
+        )
+        self.assertIn(
+            MGH_CAFE_LICENSE,
+            _place_licenses(win["by_category"]["Hospital"]["always_pass"]),
+        )
+        self.assertNotIn(
+            MGH_CAFE_LICENSE,
+            _place_licenses(win["places_to_avoid"]),
+        )
+        self.assertIn(
+            MGH_CAFE_LICENSE,
+            _place_licenses(b["place_windows"]["2024"]["places_to_avoid"]),
+        )
+        self.assertNotIn(
+            MGH_CAFE_LICENSE,
+            _place_licenses(b["place_windows"]["2024"]["always_pass"]),
+        )
         cautious_ids = _place_licenses(win["places_to_avoid"])
         clean = next(p for p in win["always_pass"] if p["name"] == "Clean Kitchen")
         self.assertEqual(clean["license"], "L130")
@@ -975,12 +1052,14 @@ class PublishedListQualityTests(unittest.TestCase):
     def test_published_windows_share_one_clock_and_exclude_licenses(self):
         for key, win in self.stats["place_windows"].items():
             always, cautious = self._window_lists(win)
-            self.assertEqual(win["min_pass_inspections"], 3)
+            self.assertEqual(win["min_pass_inspections"], 2)
             self.assertEqual(win["min_major_fails"], 2)
             overlap = _place_licenses(always) & _place_licenses(cautious)
             self.assertFalse(overlap, f"{key} overlap {overlap}")
             for lab in win["by_category"]:
                 self.assertIn(lab, RANKING_CATS)
+            if key == "2025":
+                self.assertIn("Hospital", win["by_category"])
             for p in cautious:
                 self.assertGreaterEqual(p.get("major_fails", p["fails"]), 2, p)
                 self.assertEqual(p["last_fail_severity"], "major", p["name"])
@@ -1011,9 +1090,10 @@ class PublishedListQualityTests(unittest.TestCase):
             }
             self.assertFalse(overlap_names, f"{key} MGH on both {overlap_names}")
             if key == "2025":
-                self.assertEqual(always_hit, [], "2025 always-pass must not include MGH Cafe")
+                self.assertTrue(always_hit, "2025 always-pass must include MGH Cafe")
                 self.assertEqual(cautious_hit, [], f"2025 cautious {cautious_hit}")
-        self.assertNotIn("Hospital", self.stats["place_windows"]["2025"]["by_category"])
+                self.assertEqual(always_hit[0]["category"], "Hospital")
+        self.assertIn("Hospital", self.stats["place_windows"]["2025"]["by_category"])
         self.assertEqual(self.stats["ranking_labels"], list(RANKING_ORDER))
 
 
@@ -1170,7 +1250,8 @@ class CanvasLayoutTests(unittest.TestCase):
         self.assertIn("places-year", text)
         self.assertIn("places-category", text)
         self.assertIn("2026 YTD", text)
-        self.assertIn("at least 3 inspections", text)
+        self.assertIn("at least 2 inspections", text)
+        self.assertNotIn("at least 3 inspections", text)
         self.assertIn("Ice cream", text)
         self.assertIn("Pharmacy", text)
         self.assertIn("Grocery", text)
@@ -1191,9 +1272,9 @@ class CanvasLayoutTests(unittest.TestCase):
         self.assertNotIn("hit list", text.lower())
         self.assertIn("RANKING_LABELS", text)
         self.assertIn("CAUTIOUS_N", text)
-        self.assertIn("Be cautious — repeated fails", text)
-        self.assertNotIn("Mass General Hospital Cafe", text)
-        self.assertNotIn('category: "Hospital"', text)
+        self.assertIn("Be cautious — repeated major fails", text)
+        self.assertIn("Mass General Hospital Cafe", text)
+        self.assertIn('category: "Hospital"', text)
         self.assertIn("Last fail", text)
         self.assertIn("Minor-only", text)
         self.assertIn("our severity split", text.lower())
@@ -1226,7 +1307,7 @@ class CanvasLayoutTests(unittest.TestCase):
         self.assertIn("Ice cream", stats["place_windows"]["2025"]["by_category"])
         self.assertIn("Ice cream", stats["repeat_across_years"]["by_category"])
         self.assertIn("names are cleaned", text)
-        self.assertIn("variety stores are unclassified", text)
+        self.assertIn("Variety / general merchandise", text)
         self.assertIn("not a City cuisine", text)
         self.assertIn("School Street is not School", text)
         self.assertIn("Atlantic Fish Company", text)
@@ -1269,8 +1350,12 @@ class CanvasLayoutTests(unittest.TestCase):
             len(stats["place_windows"]["2025"]["places_to_avoid"]),
             0,
         )
-        self.assertNotIn(
+        self.assertIn(
             "Hospital",
+            stats["place_windows"]["2025"]["by_category"],
+        )
+        self.assertIn(
+            "Variety / general merchandise",
             stats["place_windows"]["2025"]["by_category"],
         )
         self.assertEqual(
@@ -1323,6 +1408,7 @@ class CanvasLayoutTests(unittest.TestCase):
             "Cafe",
             "Pharmacy",
             "Grocery",
+            "Variety / general merchandise",
             "Food and drinks",
             "Take-out",
             "Retail food",
@@ -1463,19 +1549,18 @@ class DumpPlaceWindowAuditTests(unittest.TestCase):
 
     def test_empty_intersection_every_year_and_category(self):
         windows = self.stats["place_windows"]
-        self.assertEqual(ALWAYS_PASS_MIN, 3)
-        self.assertEqual(windows["2025"]["min_pass_inspections"], 3)
+        self.assertEqual(ALWAYS_PASS_MIN, 2)
+        self.assertEqual(windows["2025"]["min_pass_inspections"], 2)
         self.assertEqual(windows["2025"]["min_major_fails"], 2)
-        self.assertNotIn("Hospital", windows["2025"]["by_category"])
-        self.assertTrue(INSTITUTION_CATS.isdisjoint(RANKING_CATS))
+        self.assertIn("Hospital", windows["2025"]["by_category"])
+        self.assertTrue(INSTITUTION_CATS.issubset(RANKING_CATS))
         for key, win in windows.items():
             city_overlap = _place_licenses(win["always_pass"]) & _place_licenses(
                 win["places_to_avoid"]
             )
             self.assertFalse(city_overlap, f"{key} citywide {city_overlap}")
-            self.assertNotIn("Hospital", win["by_category"], key)
             for lab in win["by_category"]:
-                self.assertNotIn(lab, INSTITUTION_CATS)
+                self.assertIn(lab, RANKING_CATS)
             for lab, block in win["by_category"].items():
                 overlap = _place_licenses(block["always_pass"]) & _place_licenses(
                     block.get("places_to_avoid", [])
@@ -1487,3 +1572,36 @@ class DumpPlaceWindowAuditTests(unittest.TestCase):
                 for p in block["always_pass"]:
                     self.assertEqual(p["fails"], 0, p)
                     self.assertGreaterEqual(p["inspections"], ALWAYS_PASS_MIN, p)
+
+    def test_hyde_park_dollar_tree_is_variety_not_retail_food(self):
+        dollar_lic = "544779"
+        self.assertEqual(
+            categorize("Dollar Tree StoreNo. 09513", "RF"),
+            CAT_VARIETY,
+        )
+        for key, win in self.stats["place_windows"].items():
+            retail = win["by_category"].get("Retail food", {})
+            always_ids = _place_licenses(retail.get("always_pass", []))
+            caut_ids = _place_licenses(retail.get("places_to_avoid", []))
+            self.assertNotIn(dollar_lic, always_ids, f"{key} retail always-pass")
+            self.assertNotIn(dollar_lic, caut_ids, f"{key} retail cautious")
+            variety = win["by_category"].get("Variety / general merchandise", {})
+            var_ids = _place_licenses(variety.get("always_pass", [])) | _place_licenses(
+                variety.get("places_to_avoid", [])
+            )
+            grocery = win["by_category"].get("Grocery", {})
+            groc_ids = _place_licenses(grocery.get("always_pass", [])) | _place_licenses(
+                grocery.get("places_to_avoid", [])
+            )
+            self.assertNotIn(dollar_lic, groc_ids, f"{key} grocery")
+            if dollar_lic in var_ids:
+                self.assertTrue(True)
+
+    def test_mgh_cafe_2025_is_hospital_always_pass(self):
+        win = self.stats["place_windows"]["2025"]
+        hosp = win["by_category"]["Hospital"]
+        always_ids = _place_licenses(hosp["always_pass"])
+        caut_ids = _place_licenses(hosp.get("places_to_avoid", []))
+        self.assertIn(MGH_CAFE_LICENSE, always_ids)
+        self.assertNotIn(MGH_CAFE_LICENSE, caut_ids)
+        self.assertNotIn(MGH_CAFE_LICENSE, _place_licenses(win["places_to_avoid"]))

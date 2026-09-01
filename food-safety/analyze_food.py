@@ -35,7 +35,7 @@ SEV_LABEL = {
     SEV_MINOR: "Minor-only",
     SEV_UNSTARRED: "Unstarred",
 }
-ALWAYS_PASS_MIN = 3
+ALWAYS_PASS_MIN = 2
 CAUTIOUS_MAJOR_MIN = 2
 REPEAT_YEAR_MIN = 2
 PLACE_DETAIL_YEARS = (2019, 2024, 2025)
@@ -48,6 +48,7 @@ CAT_ICE = "Ice cream"
 CAT_CAFE = "Cafe"
 CAT_PHARMACY = "Pharmacy"
 CAT_GROCERY = "Grocery"
+CAT_VARIETY = "Variety / general merchandise"
 CAT_CULTURAL = "Cultural / attraction"
 CAT_SCHOOL = "School"
 CAT_HOSPITAL = "Hospital"
@@ -68,22 +69,19 @@ OVERLAY_ORDER = (
     CAT_CAFE,
     CAT_PHARMACY,
     CAT_GROCERY,
+    CAT_VARIETY,
     CAT_FOOD_DRINKS,
     CAT_TAKEOUT,
     CAT_RETAIL,
     CAT_MOBILE,
     CAT_OTHER,
 )
-# Overlay counts still include Hospital / School / Cultural / Hotel.
-# Ranking pills do not: those kitchens are not consumer pick-a-restaurant lists.
+# Hospital / School / Cultural / Hotel use the same ranking math as ice cream.
+# Caption those rows as kitchen/cafeteria records, not a skip-the-hospital list.
 INSTITUTION_CATS = frozenset(
     {CAT_HOSPITAL, CAT_SCHOOL, CAT_CULTURAL, CAT_HOTEL}
 )
-RANKING_CATS = frozenset(
-    lab
-    for lab in OVERLAY_ORDER
-    if lab != CAT_OTHER and lab not in INSTITUTION_CATS
-)
+RANKING_CATS = frozenset(lab for lab in OVERLAY_ORDER if lab != CAT_OTHER)
 RANKING_ORDER = tuple(lab for lab in OVERLAY_ORDER if lab in RANKING_CATS)
 ACTIVE_STATUS = "Active"
 
@@ -137,10 +135,13 @@ _HOSPITAL_HOST_RE = re.compile(
 )
 WEB_ICE_PATH = Path(__file__).resolve().parent / "ice_cream_web_matches.json"
 WEB_GROCERY_PATH = Path(__file__).resolve().parent / "grocery_web_matches.json"
+WEB_VARIETY_PATH = Path(__file__).resolve().parent / "variety_web_matches.json"
 _web_ice_override: set[str] | None = None
 _web_ice_file_cache: set[str] | None = None
 _web_grocery_override: set[str] | None = None
 _web_grocery_file_cache: set[str] | None = None
+_web_variety_override: set[str] | None = None
+_web_variety_file_cache: set[str] | None = None
 _CULTURAL_RE = re.compile(
     r"\b(museum|aquarium|zoo|botanical\s+gardens?|stadium|fenway\s+park)\b",
     re.I,
@@ -189,22 +190,26 @@ QUALITY_NOTE = (
     "(worst-on-visit). HE_TSOP / HE_VolClos / HE_Closure are severe operational "
     "results, counted separately from fail codes. Display names strip trailing Inc/LLC/Corp/Ltd, "
     "not Company/Co in a trade name, and strip @ only when it is a location "
-    "suffix (street, hospital, hotel, college). Ice cream, pharmacy, and "
-    "grocery overlays are not City license types. ISD licensecat RF remains "
-    "Retail Food (packaged food); leftover Retail food after overlays is "
-    "other packaged retail, not pharmacy, grocery, or dollar/variety stores "
-    "(Dollar Tree, Family Dollar, Dollar General). Place lists skip "
+    "suffix (street, hospital, hotel, college). Ice cream, pharmacy, "
+    "grocery, and variety/general-merchandise overlays are not City license "
+    "types. ISD licensecat RF remains Retail Food (packaged food); leftover "
+    "Retail food after overlays is other packaged retail, not pharmacy, "
+    "grocery, or variety/general merchandise (Dollar Tree, Family Dollar, "
+    "Dollar General, Target, Walmart). Place lists skip "
     "HE_NotReq: it is not counted as an inspection for always-pass or "
     "cautious tables. Always-pass and be-cautious in a Places view use "
-    "the same year window. Ranking pills are ice cream, cafe, pharmacy, "
-    "grocery, food and drinks, take-out, retail food, and mobile food — "
-    "not Hospital, School, Cultural / attraction, or Hotel. Always-pass "
-    "is an Active license, zero fails, and at least three real visits in "
+    "the same year window. Ranking pills include ice cream, cafe, pharmacy, "
+    "grocery, variety/general merchandise, food and drinks, take-out, "
+    "retail food, mobile food, and Hospital, School, Cultural / attraction, "
+    "and Hotel. Always-pass "
+    "is an Active license, zero fails, and at least two real visits in "
     "that window. Be cautious is an Active license with at least two "
     "major fails (** or *** on a fail visit) in that same window; "
     "minor-only * repeats are excluded. A license number cannot appear "
     "on both lists in the same view. Institution kitchens are cafeteria "
-    "inspection records, not a rating of the hospital or a skip list."
+    "inspection records, not a rating of the hospital or a skip list. "
+    "Variety stores are general merchandise with a food department "
+    "(NAICS 455219 / 455211), not grocers."
 )
 
 
@@ -452,6 +457,48 @@ def _web_grocery_keys() -> set[str]:
     return _web_grocery_file_cache
 
 
+def set_web_variety_names(names: list[str] | None) -> None:
+    global _web_variety_override, _web_variety_file_cache
+    if names is None:
+        _web_variety_override = None
+        _web_variety_file_cache = None
+    else:
+        _web_variety_override = {brand_key(n) for n in names if n.strip()}
+
+
+def _web_variety_keys() -> set[str]:
+    global _web_variety_file_cache
+    if _web_variety_override is not None:
+        return _web_variety_override
+    if _web_variety_file_cache is None:
+        _web_variety_file_cache = _load_web_grocery_keys(WEB_VARIETY_PATH)
+    return _web_variety_file_cache
+
+
+def _web_variety_hit(key: str, keys: set[str]) -> bool:
+    """Prefix/equality for all brands; consecutive tokens only if the web name is multi-token."""
+    if not key:
+        return False
+    for web in keys:
+        if not web:
+            continue
+        if key == web or key.startswith(web + " "):
+            return True
+        if " " not in web:
+            continue
+        if _consecutive_tokens(key, web):
+            return True
+        if web.endswith("s"):
+            stem = web[:-1].rstrip()
+            if stem and (key == stem or key.startswith(stem + " ")):
+                return True
+        if key.endswith("s"):
+            stem = key[:-1].rstrip()
+            if stem and (stem == web or stem.startswith(web + " ")):
+                return True
+    return False
+
+
 def _consecutive_tokens(hay: str, needle: str) -> bool:
     h = hay.split()
     n = needle.split()
@@ -534,8 +581,12 @@ def categorize(business: str, licensecat: str) -> str:
         brand_key(name), _web_grocery_keys()
     ):
         return CAT_GROCERY
-    if _VARIETY_STORE_RE.search(norm) or _VARIETY_STORE_RE.search(name):
-        return CAT_OTHER
+    if (
+        _VARIETY_STORE_RE.search(norm)
+        or _VARIETY_STORE_RE.search(name)
+        or _web_variety_hit(brand_key(name), _web_variety_keys())
+    ):
+        return CAT_VARIETY
     return coded
 
 
@@ -891,15 +942,17 @@ SEVERITY_RULE = (
 REPEAT_ACROSS_WINDOW = "2012–2026 · methods appendix · not a Places year pill"
 REPEAT_ACROSS_RULE = (
     "Places always-pass and be-cautious use the same window. This career "
-    "rollup is not mixed with a year pill. It lists ranking categories only "
-    "(not Hospital, School, Cultural / attraction, or Hotel) with a major "
+    "rollup is not mixed with a year pill. It lists ranking categories "
+    "with a major "
     "fail (** or ***) in at least two calendar "
-    "years. Minor-only repeats "
+    "years. Institution kitchens stay on this appendix with the same math; "
+    "they are cafeteria records, not a skip-the-hospital list. Minor-only repeats "
     "(* only — walls, wiping cloths) are excluded. Two major fails in the "
     "same year count as one year. Ranked by years with a major fail, then "
     "major-fail count. Severity is viol_level on the collapsed visit, not "
-    "an official ISD avoid list. Web pages only help classify ice cream "
-    "and grocery names; they are not inspection outcomes. HE_NotReq is not "
+    "an official ISD avoid list. Web pages only help classify ice cream, "
+    "grocery, and variety/general-merchandise names; they are not inspection "
+    "outcomes. HE_NotReq is not "
     "counted as an inspection on these lists."
 )
 
