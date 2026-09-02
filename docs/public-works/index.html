@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boston Public Works, 2008–2026 YTD</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="../">All analyses</a>
+    <a href="../earnings/">Earnings</a>
+    <a href="../fire/">Fire</a>
+    <a href="../crime/">Police</a>
+    <a href="../311/">311</a>
+    <a href="../vision-zero/">Vision Zero</a>
+    <a href="../building-permits/">Permits</a>
+    <a href="../food-safety/">Food</a>
+    <a class="active" href="./">Public Works</a>
+  </div>
+  <h1>Boston Public Works — city briefing</h1>
+  <p class="subtitle">Code Enforcement tickets 14 June 2008 through 1 September 2026, collapsed to unique ticket_no. Complete years 2012–2025. 2026 is year-to-date. Active work zones, streetlight points, and snow-emergency routes are snapshots. This is not a second 311 briefing, and it is not a work-order log.</p>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="summary">Summary</button>
+    <button class="tab-btn" data-tab="overview">Overview</button>
+    <button class="tab-btn" data-tab="place">Place</button>
+    <button class="tab-btn" data-tab="clock">Clock</button>
+    <button class="tab-btn" data-tab="construction">Construction</button>
+    <button class="tab-btn" data-tab="quality">Quality</button>
+  </div>
+
+  <div id="summary" class="tab-panel active">
+    <p class="tab-blurb">Five findings. The live Public Works event file is tickets, not repairs.</p>
+    <h2>The live Public Works event dump is Code Enforcement tickets, mostly trash storage.</h2>
+    <p>Analyze Boston does not publish a DPW work-order history. The event clock for this briefing is unique Code Enforcement tickets after exact-duplicate rows are dropped. In 2025 that is 63,226 tickets — not 73,219 raw rows, and not 11,064 pothole-repair requests. Trash storage is on 50,587 of those tickets (80.0%). Code 1, “Improper storage trash: res,” is 39,697.</p>
+    <div class="callout warn">
+      <strong>311 is overlap. Do not add it into the year chart.</strong>
+      Pothole repair requests, streetlight outages, and most snow work live in 311 (and internally in Cartegraph). Boston does not publish Cartegraph work orders on Analyze Boston. Traffic signals are BTD, not DPW.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">63,226</div><div class="stat-label">Tickets issued in 2025 · 173.2 a day</div></div>
+      <div class="stat"><div class="stat-val">+36.8%</div><div class="stat-label">Tickets vs 2019 (46,214)</div></div>
+      <div class="stat"><div class="stat-val">80%</div><div class="stat-label">2025 tickets with a trash-storage code</div></div>
+      <div class="stat warn"><div class="stat-val">116,431</div><div class="stat-label">Open caseload (snapshot, not a year)</div></div>
+    </div>
+    <table>
+      <thead><tr><th>Finding</th><th class="num">Number</th></tr></thead>
+      <tbody>
+        <tr><td>2025 vs 2019 tickets</td><td class="num">63,226 vs 46,214 (+36.8%)</td></tr>
+        <tr><td>Trash storage, 2025</td><td class="num">50,587 of 63,226 (80.0%)</td></tr>
+        <tr><td>Code 1, “Improper storage trash: res,” 2025</td><td class="num">39,697</td></tr>
+        <tr><td>Open caseload (latest status Open)</td><td class="num">116,431 · not a year</td></tr>
+        <tr><td>2026 YTD tickets (through 1 Sep)</td><td class="num">44,684 · 183.1 a day</td></tr>
+      </tbody>
+    </table>
+    <h2>What is not in this file</h2>
+    <p>311 is how a resident files a request. A Code Enforcement ticket is written to a property owner. Chicago publishes both 311 requests and work orders. Boston publishes the request file and this citation file. The Cartegraph work-order table is not on Analyze Boston.</p>
+    <table>
+      <thead><tr><th>311 (Session 1, 2025)</th><th class="num">Requests</th><th>In the citation year chart?</th></tr></thead>
+      <tbody>
+        <tr><td>Request for Pothole Repair</td><td class="num">11,064</td><td>No — no repair log here</td></tr>
+        <tr><td>Requests for Street Cleaning</td><td class="num">20,917</td><td>No</td></tr>
+        <tr><td>Improper Storage of Trash (Barrels)</td><td class="num">20,083</td><td>No — overlap with code 1, different grain</td></tr>
+        <tr><td>CE Collection</td><td class="num">18,653</td><td>No</td></tr>
+        <tr><td>Lights / signs family</td><td class="num">17,103</td><td>No — lights here are a 2016 inventory</td></tr>
+        <tr><td>Snow family</td><td class="num">819</td><td>No — sidewalk-snow tickets are a different file</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: 311_briefing_stats.json Session 1 · 2025 complete year · 276,093 requests. Citation y2025 n is 63,226. Do not add these columns.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Tickets vs 2019</h3>
+        <p>63,226 in 2025 is 36.8% above 46,214 in 2019. Use 2019, not 2020 (42,275).</p>
+      </div>
+      <div>
+        <h3>What DPW publishes vs what it does</h3>
+        <p>Citations, a current work-zone list, and stale inventories. Repair history is not in this dump.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="overview" class="tab-panel">
+    <p class="tab-blurb">Code Enforcement tickets 2012–2025. 2026 is year-to-date. Work zones and lights are snapshots.</p>
+    <h2>The live Public Works event dump is Code Enforcement tickets, mostly trash storage.</h2>
+    <p>Analyze Boston does not publish a DPW work-order history. The event clock for this briefing is unique Code Enforcement tickets after exact-duplicate rows are dropped. In 2025 that is 63,226 tickets — not 73,219 raw rows, and not 11,064 pothole-repair requests. Trash storage is on 50,587 of those tickets (80.0%). Code 1, “Improper storage trash: res,” is 39,697.</p>
+    <div class="callout warn">
+      <strong>311 is overlap. Do not add it into the year chart.</strong>
+      Pothole repair requests, streetlight outages, and most snow work live in 311 (and internally in Cartegraph). Boston does not publish Cartegraph work orders on Analyze Boston. Traffic signals are BTD, not DPW.
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">63,226</div><div class="stat-label">Tickets issued in 2025 · 173.2 a day</div></div>
+      <div class="stat"><div class="stat-val">+36.8%</div><div class="stat-label">Tickets vs 2019 (46,214)</div></div>
+      <div class="stat"><div class="stat-val">80%</div><div class="stat-label">2025 tickets with a trash-storage code</div></div>
+      <div class="stat warn"><div class="stat-val">116,431</div><div class="stat-label">Open caseload (snapshot, not a year)</div></div>
+    </div>
+    <h2>More tickets than 2019. 2020 is not the baseline.</h2>
+    <p>Complete citation years are 2012–2025. 2025 is 63,226 tickets against 46,214 in 2019. 2020 fell to 42,275 — COVID, not a comparison year. 2026 is 44,684 through 1 September (183.1 a day), not a 13th bar.</p>
+    <div class="callout warn">
+      <strong>2026 is year-to-date, not a calendar year.</strong>
+      Dump max date is 1 September 2026. Do not annualize 44,684, and do not mix it onto the 2012–2025 year chart.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Code Enforcement tickets per year</h3>
+        <div class="chart-box"><canvas id="cVol"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Violations · unique ticket_no after exact-dup drop and Void out · min(status_dttm) · 2012–2025 complete years · 2026 YTD omitted</p>
+      </div>
+      <div>
+        <h3>2025 ticket families (a ticket can count in two)</h3>
+        <div class="chart-box"><canvas id="cFam"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Violations · unique (ticket, family) in 2025 · family from pw_code_table.json · stacked families (67,859) exceed ticket n (63,226)</p>
+      </div>
+    </div>
+    <h3>Ticket families, 2012–2025</h3>
+    <div class="chart-box tall"><canvas id="cMix"></canvas></div>
+    <p class="caption">Source: Analyze Boston Public Works Violations · unique (ticket, family) per year · 2012–2025 · not raw rows · not 311 requests</p>
+    <h2>2025 codes are ordinance tickets, not NAICS.</h2>
+    <p>Families come from dump (code, description) clusters confirmed against boston.gov Code Enforcement — not a three-name regex. Assessed fines on 2025 tickets sum to $4.05 million. Trash storage is most of the count ($2.42 million); illegal dumping is a smaller count and a larger share of dollars.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Top 2025 codes</h3>
+        <table>
+          <thead><tr><th>Code</th><th>Description</th><th class="num">Tickets</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Improper storage trash: res</td><td class="num">39,697</td></tr>
+            <tr><td>3</td><td>Overfilling of barrel/dumpster</td><td class="num">11,538</td></tr>
+            <tr><td>24</td><td>Overgrown weeds on property</td><td class="num">6,001</td></tr>
+            <tr><td>17a</td><td>Failure clear sidewalk — snow</td><td class="num">4,751</td></tr>
+            <tr><td>2</td><td>Improper storage trash: com</td><td class="num">4,264</td></tr>
+            <tr><td>9a</td><td>Illegal dumping &lt; 1 cubic yd</td><td class="num">1,950</td></tr>
+            <tr><td>27a</td><td>Occupying City property w/o permit</td><td class="num">1,264</td></tr>
+            <tr><td>17c</td><td>Failure clear sidewalk — snow</td><td class="num">1,070</td></tr>
+          </tbody>
+        </table>
+        <p class="caption">Source: Analyze Boston Public Works Violations · unique (ticket, code) · issued 2025 · Void excluded</p>
+      </div>
+      <div>
+        <h3>Assessed fines by family, 2025</h3>
+        <div class="chart-box"><canvas id="cFine"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Violations · value parsed as dollars · unique (ticket, code) in 2025 · $4,050,220 total</p>
+      </div>
+    </div>
+    <h2>Open caseload is a separate stat.</h2>
+    <p>116,431 tickets currently Open. That is not 2025 issued (63,226) and not 2026 year-to-date (44,684). A 2025 ticket can still be Open; those IDs may overlap. Counts must not be added, and Open IDs must not be treated as extra 2026 events.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">63,226</div><div class="stat-label">Issued in 2025</div></div>
+      <div class="stat"><div class="stat-val">44,684</div><div class="stat-label">Issued 2026 YTD (through 1 Sep)</div></div>
+      <div class="stat warn"><div class="stat-val">116,431</div><div class="stat-label">Latest status Open</div></div>
+    </div>
+    <h3>Open tickets by neighborhood</h3>
+    <div class="chart-box"><canvas id="cOpenNb"></canvas></div>
+    <p class="caption">Source: Analyze Boston Public Works Violations · latest status per ticket = Open · ZIP via ZIP_NEIGHBORHOOD · snapshot, not a 2025 street list</p>
+  </div>
+
+  <div id="place" class="tab-panel">
+    <p class="tab-blurb">2025 issued tickets by neighborhood and street name. Not a career list. Not open caseload.</p>
+    <h2>2025 issued tickets, not a career ranking.</h2>
+    <p>Dorchester leads 2025 issued tickets (10,541). Street names are 2025 only. Washington, Newbury, and Beacon are long streets — not a single block, and not “the worst street in Boston.”</p>
+    <div class="grid-2">
+      <div>
+        <h3>Neighborhoods, 2025 issued tickets</h3>
+        <div class="chart-box tall"><canvas id="cNb"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Violations · unique tickets · min(status_dttm) in 2025 · ZIP via ZIP_NEIGHBORHOOD</p>
+      </div>
+      <div>
+        <h3>Street names, 2025 issued tickets</h3>
+        <div class="chart-box tall"><canvas id="cStreet"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Violations · violation_street · 2025 issued tickets only · not open caseload · not 2008–2026 career</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="clock" class="tab-panel">
+    <p class="tab-blurb">When Code Enforcement writes tickets in 2025. status_dttm hour, not a work-order clock.</p>
+    <h2>Patrol hours, not a repair clock.</h2>
+    <p>status_dttm on 2025 tickets peaks at 7 a.m. (7,210). Evening hours are near zero. Tuesday is the busiest weekday (12,538); Saturday is the quietest (4,153). August is the peak month (6,475). This is when tickets were written, not when a pothole was filled.</p>
+    <div class="grid-2">
+      <div>
+        <h3>Hour of status_dttm, 2025</h3>
+        <div class="chart-box"><canvas id="cHour"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Violations · hour of min(status_dttm) · 2025 issued tickets · peak 7 a.m.</p>
+      </div>
+      <div>
+        <h3>Weekday, 2025</h3>
+        <div class="chart-box"><canvas id="cWeek"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Violations · weekday of min(status_dttm) · 2025 · Tuesday 12,538 · Saturday 4,153</p>
+      </div>
+    </div>
+    <h3>Month, 2025</h3>
+    <div class="chart-box"><canvas id="cMonth"></canvas></div>
+    <p class="caption">Source: Analyze Boston Public Works Violations · month of min(status_dttm) · 2025 complete year · August 6,475 · May 4,407</p>
+  </div>
+
+  <div id="construction" class="tab-panel">
+    <p class="tab-blurb">Active work zones as of 1 September 2026, 2016 streetlight inventory, snow-emergency routes.</p>
+    <h2>Construction and assets are snapshots, not a year series.</h2>
+    <p>The CIU active-work-zone file is a daily report of jobs in the street: 810 permits, 907 locations, as of 1 September 2026. Collapse to Permit. Do not stack these onto citation years. Streetlight Locations is a 2016 inventory (74,065 points with coordinates). The city now cites roughly 68k–71k city-owned lights — treat 74,065 as a vintage denominator. Outages are 311. Snow-emergency routes are 736 named segments (214 street names), not plow GPS.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">810</div><div class="stat-label">Active work-zone permits</div></div>
+      <div class="stat"><div class="stat-val">907</div><div class="stat-label">Work-zone locations in the daily report</div></div>
+      <div class="stat"><div class="stat-val">74,065</div><div class="stat-label">Streetlight points (2016 inventory)</div></div>
+      <div class="stat"><div class="stat-val">736</div><div class="stat-label">Snow-emergency route segments</div></div>
+    </div>
+    <div class="callout info">
+      <strong>Traffic signals are BTD, not DPW.</strong>
+      The traffic-signal inventory is a Boston Transportation Department file. It is not a Public Works year series.
+    </div>
+    <div class="grid-2">
+      <div>
+        <h3>Active jobs by project category</h3>
+        <div class="chart-box"><canvas id="cWzCat"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Active Work Zones · unique Permit · Project_Category whitespace-normalized · as of 1 Sep 2026 · Unspecified = blank category</p>
+      </div>
+      <div>
+        <h3>Active jobs by neighborhood</h3>
+        <div class="chart-box"><canvas id="cWzNb"></canvas></div>
+        <p class="caption">Source: Analyze Boston Public Works Active Work Zones · unique Permit · Neighborhood as published · snapshot 1 Sep 2026 · not citation ZIP neighborhoods</p>
+      </div>
+    </div>
+    <h2>What is not in this file</h2>
+    <p>311 is how a resident files a request. A Code Enforcement ticket is written to a property owner. Chicago publishes both 311 requests and work orders. Boston publishes the request file and this citation file. The Cartegraph work-order table is not on Analyze Boston.</p>
+    <table>
+      <thead><tr><th>311 (Session 1, 2025)</th><th class="num">Requests</th><th>In the citation year chart?</th></tr></thead>
+      <tbody>
+        <tr><td>Request for Pothole Repair</td><td class="num">11,064</td><td>No — no repair log here</td></tr>
+        <tr><td>Requests for Street Cleaning</td><td class="num">20,917</td><td>No</td></tr>
+        <tr><td>Improper Storage of Trash (Barrels)</td><td class="num">20,083</td><td>No — overlap with code 1, different grain</td></tr>
+        <tr><td>CE Collection</td><td class="num">18,653</td><td>No</td></tr>
+        <tr><td>Lights / signs family</td><td class="num">17,103</td><td>No — lights here are a 2016 inventory</td></tr>
+        <tr><td>Snow family</td><td class="num">819</td><td>No — sidewalk-snow tickets are a different file</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: 311_briefing_stats.json Session 1 · 2025 complete year · 276,093 requests. Citation y2025 n is 63,226. Do not add these columns.</p>
+  </div>
+
+  <div id="quality" class="tab-panel">
+    <p class="tab-blurb">Collapse grain, leftover codes, 311 isolation, missing Cartegraph work orders.</p>
+    <h2>Grain, clocks, leftovers.</h2>
+    <table>
+      <thead><tr><th>Check</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Raw citation rows</td><td>916,375</td></tr>
+        <tr><td>Unique tickets (identity)</td><td>807,528</td></tr>
+        <tr><td>Volume after Void out</td><td>807,282</td></tr>
+        <tr><td>Exact-duplicate rows dropped</td><td>386</td></tr>
+        <tr><td>Tickets with more than one code</td><td>100,993</td></tr>
+        <tr><td>Tickets with both Closed and Open rows</td><td>41 — not a status-history file</td></tr>
+        <tr><td>Void tickets excluded from volume</td><td>246</td></tr>
+        <tr><td>Null ticket_no rows (fell back to case_no)</td><td>72</td></tr>
+        <tr><td>Pre-2012 tickets (quality only)</td><td>98,711</td></tr>
+        <tr><td>2025 raw rows vs tickets</td><td>73,219 rows → 63,226 tickets</td></tr>
+        <tr><td>Leftover codes in table as Other</td><td>7 codes / 912 tickets</td></tr>
+        <tr><td>311 2025 requests vs citation 2025</td><td>276,093 ≠ 63,226</td></tr>
+      </tbody>
+    </table>
+    <p class="caption">Source: pw_dump_audit.json and pw_stats.json · dumps downloaded 1 September 2026 · leftover codes 26, 37, 42, 45, 43, 32, 31 stay Other (vacant/board-up/rental and rare vending)</p>
+    <div class="callout warn">
+      <strong>Do not mix these clocks.</strong>
+      Year pill = unique tickets issued that year. Open caseload = latest status Open. Work zones = permits in the daily CIU report. Streetlights = 2016 points. 311 = resident requests. None of those n’s belong in citation by_year.
+    </div>
+    <h2>Open caseload is a separate stat.</h2>
+    <p>116,431 tickets currently Open. That is not 2025 issued (63,226) and not 2026 year-to-date (44,684). A 2025 ticket can still be Open; those IDs may overlap. Counts must not be added, and Open IDs must not be treated as extra 2026 events.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-val">63,226</div><div class="stat-label">Issued in 2025</div></div>
+      <div class="stat"><div class="stat-val">44,684</div><div class="stat-label">Issued 2026 YTD (through 1 Sep)</div></div>
+      <div class="stat warn"><div class="stat-val">116,431</div><div class="stat-label">Latest status Open</div></div>
+    </div>
+    <p>Raw City CSVs are not in this repo. Run <code>python3 analyze_public_works.py</code> from <code>public-works/</code> with files in <code>$BOSTON_DATA_DIR</code> or <code>~/Downloads</code>.</p>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/ui.js"></script>
+<script src="data.js"></script>
+<script>
+const S = window.PW;
+lineChart("cVol", S.years, [{ label: "Tickets", data: S.tickets }], { zero: true });
+barChart("cFam", S.famLabels, [{ label: "2025 tickets with family", data: S.fam2025 }], { horizontal: true });
+barChart("cMix", S.years, [
+  { label: "Trash storage", data: S.trash },
+  { label: "Overgrown weeds", data: S.weeds, color: "#d08770" },
+  { label: "Snow / ice sidewalk", data: S.snow, color: "#7bafe9" },
+  { label: "Illegal dumping", data: S.dumping, color: "#c45c5c" },
+  { label: "Occupying city property", data: S.occupy, color: "#888" },
+], { stacked: true });
+barChart("cFine", S.fineLabels, [{ label: "Assessed fines", data: S.fine2025, color: "#d08770" }], { horizontal: true });
+barChart("cOpenNb", S.openNbLabels, [{ label: "Open tickets", data: S.openNb, color: "#d08770" }], { horizontal: true });
+barChart("cNb", S.nbLabels, [{ label: "2025 tickets", data: S.nb2025 }], { horizontal: true });
+barChart("cStreet", S.streetLabels, [{ label: "2025 tickets", data: S.street2025 }], { horizontal: true });
+barChart("cHour", S.hours, [{ label: "Tickets", data: S.hour2025 }]);
+barChart("cWeek", S.weekdays, [{ label: "Tickets", data: S.weekday2025 }]);
+barChart("cMonth", S.months, [{ label: "Tickets", data: S.month2025 }]);
+barChart("cWzCat", S.wzCatLabels, [{ label: "Permits", data: S.wzCat }], { horizontal: true });
+barChart("cWzNb", S.wzNbLabels, [{ label: "Permits", data: S.wzNb }], { horizontal: true });
+</script>
+</body>
+</html>

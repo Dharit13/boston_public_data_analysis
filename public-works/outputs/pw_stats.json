@@ -1,0 +1,813 @@
+{
+  "quality": {
+    "citation_raw": 916375,
+    "citation_exact_dup": 386,
+    "citation_tickets": 807282,
+    "pre2012": 98711,
+    "void_tickets": 246,
+    "citation_min": "2008-06-14",
+    "citation_max": "2026-09-01",
+    "workzone_raw": 907,
+    "workzone_cat_SERVICE": 87,
+    "workzone_cat_NEW CONDUIT AND/OR MAIN": 163,
+    "workzone_cat_EMERGENCY": 283,
+    "workzone_cat_MAINTENANCE": 233,
+    "workzone_cat_Unspecified": 104,
+    "workzone_cat_CUT AND CAP WATER LINE": 1,
+    "workzone_cat_CAPITAL": 18,
+    "workzone_cat_SINKHOLE": 8,
+    "workzone_cat_NEW WATER LINE SERVICE CONNECTION": 1,
+    "workzone_cat_NEW SEWER LINE SERVICE CONNECTION": 2,
+    "workzone_cat_DRILLING": 2,
+    "workzone_cat_NEW FIRE PROTECTION SERVICE CONNECTION": 2,
+    "workzone_cat_POINT REPAIR": 3,
+    "workzone_jobs": 810,
+    "workzone_as_of": "2026-09-01",
+    "streetlight_raw": 74065,
+    "streetlight_n": 74065,
+    "snow_raw": 736,
+    "snow_named_segments": 214,
+    "note": "The live Public Works event file is Code Enforcement tickets, not work orders and not 311 requests. Collapse exact-duplicate rows; one ticket can carry two codes. Volume is unique tickets after Void is removed. Issue year is min(status_dttm). Open caseload is a separate snapshot and must not be added into a year-pill street list. 2020 is COVID \u2014 not a baseline. 2026 is year-to-date through the dump max date. Work zones and streetlight points are snapshots, not a year series. Streetlight Locations is a 2016 inventory; outages are 311. Traffic signals are BTD, not DPW. Boston does not publish Cartegraph work-order history on Analyze Boston. Do not add 311 counts into citation by_year."
+  },
+  "date_span": {
+    "min": "2008-06-14",
+    "max": "2026-09-01"
+  },
+  "years": [
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "by_year": [
+    {
+      "year": 2012,
+      "n": 26153
+    },
+    {
+      "year": 2013,
+      "n": 29236
+    },
+    {
+      "year": 2014,
+      "n": 41950
+    },
+    {
+      "year": 2015,
+      "n": 49009
+    },
+    {
+      "year": 2016,
+      "n": 50316
+    },
+    {
+      "year": 2017,
+      "n": 49229
+    },
+    {
+      "year": 2018,
+      "n": 51432
+    },
+    {
+      "year": 2019,
+      "n": 46214
+    },
+    {
+      "year": 2020,
+      "n": 42275
+    },
+    {
+      "year": 2021,
+      "n": 44689
+    },
+    {
+      "year": 2022,
+      "n": 48489
+    },
+    {
+      "year": 2023,
+      "n": 57066
+    },
+    {
+      "year": 2024,
+      "n": 64603
+    },
+    {
+      "year": 2025,
+      "n": 63226
+    }
+  ],
+  "stacked_families": {
+    "years": [
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "series": [
+      {
+        "name": "Trash storage",
+        "data": [
+          22566,
+          22524,
+          35828,
+          36335,
+          39909,
+          35984,
+          41371,
+          37498,
+          34693,
+          36292,
+          39426,
+          49105,
+          54077,
+          50587
+        ]
+      },
+      {
+        "name": "Overgrown weeds",
+        "data": [
+          3086,
+          3277,
+          4215,
+          6264,
+          6432,
+          6331,
+          4883,
+          3891,
+          4985,
+          4305,
+          4117,
+          5447,
+          5235,
+          6001
+        ]
+      },
+      {
+        "name": "Snow / ice sidewalk",
+        "data": [
+          122,
+          3704,
+          1715,
+          6606,
+          3728,
+          5410,
+          3414,
+          3553,
+          1805,
+          2761,
+          3723,
+          802,
+          3377,
+          6039
+        ]
+      },
+      {
+        "name": "Illegal dumping",
+        "data": [
+          708,
+          653,
+          1875,
+          1707,
+          1386,
+          998,
+          1443,
+          1084,
+          1027,
+          2015,
+          2196,
+          2400,
+          2419,
+          2303
+        ]
+      },
+      {
+        "name": "Illegal parking on property",
+        "data": [
+          1469,
+          802,
+          826,
+          1390,
+          2091,
+          1840,
+          1370,
+          1013,
+          744,
+          721,
+          609,
+          976,
+          1026,
+          745
+        ]
+      },
+      {
+        "name": "Occupying city property",
+        "data": [
+          451,
+          483,
+          597,
+          457,
+          465,
+          585,
+          979,
+          663,
+          310,
+          798,
+          855,
+          905,
+          1125,
+          1638
+        ]
+      },
+      {
+        "name": "Site cleanliness / admin",
+        "data": [
+          460,
+          274,
+          342,
+          941,
+          378,
+          321,
+          449,
+          169,
+          456,
+          380,
+          350,
+          275,
+          216,
+          458
+        ]
+      },
+      {
+        "name": "Signs / vending / graffiti",
+        "data": [
+          113,
+          187,
+          316,
+          137,
+          166,
+          241,
+          100,
+          52,
+          24,
+          113,
+          88,
+          102,
+          73,
+          65
+        ]
+      },
+      {
+        "name": "Other",
+        "data": [
+          43,
+          147,
+          101,
+          23,
+          24,
+          28,
+          3,
+          39,
+          68,
+          45,
+          13,
+          19,
+          8,
+          18
+        ]
+      },
+      {
+        "name": "Sidewalk cleanliness",
+        "data": [
+          0,
+          1,
+          0,
+          55,
+          15,
+          16,
+          4,
+          3,
+          0,
+          96,
+          11,
+          18,
+          8,
+          5
+        ]
+      }
+    ]
+  },
+  "y2019": {
+    "n": 46214,
+    "per_day": 126.6,
+    "peak_hour": 7,
+    "quiet_hour": 5,
+    "fines": 2331840.0
+  },
+  "y2020": {
+    "n": 42275,
+    "per_day": 115.5,
+    "peak_hour": 7,
+    "quiet_hour": 5,
+    "fines": 2255900.0
+  },
+  "y2025": {
+    "n": 63226,
+    "per_day": 173.2,
+    "peak_hour": 7,
+    "quiet_hour": 19,
+    "fines": 4050220.0
+  },
+  "y2026_ytd": {
+    "n": 44684,
+    "per_day": 183.1,
+    "peak_hour": 7,
+    "quiet_hour": 20,
+    "fines": 2965935.0
+  },
+  "hour_2025": [
+    2031,
+    1932,
+    1796,
+    1623,
+    908,
+    760,
+    3081,
+    7210,
+    6778,
+    6120,
+    6623,
+    5170,
+    5882,
+    3143,
+    2208,
+    2616,
+    2154,
+    617,
+    43,
+    5,
+    20,
+    38,
+    782,
+    1686
+  ],
+  "weekday_2025": [
+    12140,
+    12538,
+    12301,
+    10578,
+    4980,
+    4153,
+    6536
+  ],
+  "month_2025": [
+    4946,
+    5910,
+    4821,
+    5112,
+    4407,
+    5625,
+    5045,
+    6475,
+    5966,
+    5057,
+    4471,
+    5391
+  ],
+  "neighborhoods_2025": [
+    {
+      "label": "Dorchester",
+      "value": 10541
+    },
+    {
+      "label": "South Boston",
+      "value": 4933
+    },
+    {
+      "label": "Brighton",
+      "value": 4402
+    },
+    {
+      "label": "Back Bay / Bay Village",
+      "value": 4399
+    },
+    {
+      "label": "East Boston",
+      "value": 4187
+    },
+    {
+      "label": "Allston",
+      "value": 3333
+    },
+    {
+      "label": "South End",
+      "value": 3068
+    },
+    {
+      "label": "Roxbury",
+      "value": 2867
+    },
+    {
+      "label": "Mattapan",
+      "value": 2811
+    },
+    {
+      "label": "Mission Hill / Roxbury",
+      "value": 2779
+    },
+    {
+      "label": "North End",
+      "value": 2740
+    },
+    {
+      "label": "West End / Beacon Hill",
+      "value": 2487
+    }
+  ],
+  "streets_2025": [
+    {
+      "label": "Washington",
+      "value": 1407
+    },
+    {
+      "label": "Newbury",
+      "value": 1103
+    },
+    {
+      "label": "Beacon",
+      "value": 1063
+    },
+    {
+      "label": "Boylston",
+      "value": 1039
+    },
+    {
+      "label": "Commonwealth",
+      "value": 954
+    },
+    {
+      "label": "Tremont",
+      "value": 783
+    },
+    {
+      "label": "Blue Hill",
+      "value": 742
+    },
+    {
+      "label": "Dorchester",
+      "value": 675
+    },
+    {
+      "label": "Massachusetts",
+      "value": 651
+    },
+    {
+      "label": "Columbus",
+      "value": 601
+    },
+    {
+      "label": "Marlborough",
+      "value": 554
+    },
+    {
+      "label": "Foster",
+      "value": 536
+    }
+  ],
+  "families_2025": [
+    {
+      "label": "Trash storage",
+      "value": 50587
+    },
+    {
+      "label": "Snow / ice sidewalk",
+      "value": 6039
+    },
+    {
+      "label": "Overgrown weeds",
+      "value": 6001
+    },
+    {
+      "label": "Illegal dumping",
+      "value": 2303
+    },
+    {
+      "label": "Occupying city property",
+      "value": 1638
+    },
+    {
+      "label": "Illegal parking on property",
+      "value": 745
+    },
+    {
+      "label": "Site cleanliness / admin",
+      "value": 458
+    },
+    {
+      "label": "Signs / vending / graffiti",
+      "value": 65
+    },
+    {
+      "label": "Other",
+      "value": 18
+    },
+    {
+      "label": "Sidewalk cleanliness",
+      "value": 5
+    }
+  ],
+  "top_codes_2025": [
+    {
+      "code": "1",
+      "description": "Improper storage trash: res",
+      "n": 39697
+    },
+    {
+      "code": "3",
+      "description": "Overfilling of barrel/dumpster",
+      "n": 11538
+    },
+    {
+      "code": "24",
+      "description": "Overgrown Weeds On Property",
+      "n": 6001
+    },
+    {
+      "code": "17a",
+      "description": "Failure clear sidewalk - snow",
+      "n": 4751
+    },
+    {
+      "code": "2",
+      "description": "Improper storage trash: com",
+      "n": 4264
+    },
+    {
+      "code": "9a",
+      "description": "Illegal dumping < 1 cubic yd",
+      "n": 1950
+    },
+    {
+      "code": "27a",
+      "description": "Occupying City prop wo permit",
+      "n": 1264
+    },
+    {
+      "code": "17c",
+      "description": "Failure clear sidewalk - snow",
+      "n": 1070
+    },
+    {
+      "code": "22b",
+      "description": "Unregistered motor vehicles- 2",
+      "n": 295
+    },
+    {
+      "code": "8",
+      "description": "Trash illegally dump container",
+      "n": 278
+    },
+    {
+      "code": "21b",
+      "description": "illegal parking prop owner 2",
+      "n": 252
+    },
+    {
+      "code": "19a",
+      "description": "Site Cleanliness license \u2013 WAR",
+      "n": 231
+    }
+  ],
+  "fines_2025": {
+    "total": 4050220.0,
+    "by_family": [
+      {
+        "label": "Trash storage",
+        "value": 2424075.0
+      },
+      {
+        "label": "Illegal dumping",
+        "value": 587800.0
+      },
+      {
+        "label": "Snow / ice sidewalk",
+        "value": 470500.0
+      },
+      {
+        "label": "Illegal parking on property",
+        "value": 192300.0
+      },
+      {
+        "label": "Site cleanliness / admin",
+        "value": 145150.0
+      },
+      {
+        "label": "Occupying city property",
+        "value": 123100.0
+      },
+      {
+        "label": "Overgrown weeds",
+        "value": 90015.0
+      },
+      {
+        "label": "Signs / vending / graffiti",
+        "value": 12530.0
+      },
+      {
+        "label": "Other",
+        "value": 4500.0
+      },
+      {
+        "label": "Sidewalk cleanliness",
+        "value": 250.0
+      }
+    ]
+  },
+  "open_caseload": {
+    "n": 116431,
+    "neighborhoods": [
+      {
+        "label": "Dorchester",
+        "value": 21012
+      },
+      {
+        "label": "Brighton",
+        "value": 8206
+      },
+      {
+        "label": "Allston",
+        "value": 7873
+      },
+      {
+        "label": "South Boston",
+        "value": 7362
+      },
+      {
+        "label": "Back Bay / Bay Village",
+        "value": 7263
+      },
+      {
+        "label": "Mission Hill / Roxbury",
+        "value": 6686
+      },
+      {
+        "label": "Mattapan",
+        "value": 6188
+      },
+      {
+        "label": "Roxbury",
+        "value": 5827
+      }
+    ]
+  },
+  "workzones": {
+    "jobs": 810,
+    "locations": 907,
+    "as_of": "2026-09-01",
+    "categories": [
+      {
+        "label": "EMERGENCY",
+        "value": 246
+      },
+      {
+        "label": "MAINTENANCE",
+        "value": 198
+      },
+      {
+        "label": "NEW CONDUIT AND/OR MAIN",
+        "value": 162
+      },
+      {
+        "label": "Unspecified",
+        "value": 91
+      },
+      {
+        "label": "SERVICE",
+        "value": 85
+      },
+      {
+        "label": "CAPITAL",
+        "value": 18
+      },
+      {
+        "label": "NEW SEWER LINE SERVICE CONNECTION",
+        "value": 2
+      },
+      {
+        "label": "DRILLING",
+        "value": 2
+      },
+      {
+        "label": "NEW FIRE PROTECTION SERVICE CONNECTION",
+        "value": 2
+      },
+      {
+        "label": "POINT REPAIR",
+        "value": 2
+      },
+      {
+        "label": "CUT AND CAP WATER LINE",
+        "value": 1
+      },
+      {
+        "label": "SINKHOLE",
+        "value": 1
+      }
+    ],
+    "neighborhoods": [
+      {
+        "label": "ALLSTON/BRIGHTON",
+        "value": 100
+      },
+      {
+        "label": "SOUTH END/BACK BAY",
+        "value": 86
+      },
+      {
+        "label": "SOUTH DORCHESTER/MATTAPAN",
+        "value": 80
+      },
+      {
+        "label": "ROXBURY",
+        "value": 79
+      },
+      {
+        "label": "WEST ROXBURY/ROSLINDALE",
+        "value": 76
+      },
+      {
+        "label": "NORTH DORCHESTER",
+        "value": 69
+      },
+      {
+        "label": "SOUTH BOSTON",
+        "value": 60
+      },
+      {
+        "label": "MISSION HILL/FENWAY",
+        "value": 58
+      },
+      {
+        "label": "EAST BOSTON",
+        "value": 50
+      },
+      {
+        "label": "BOSTON PROPER",
+        "value": 49
+      },
+      {
+        "label": "JAMAICA PLAIN",
+        "value": 40
+      },
+      {
+        "label": "NORTH END/BEACON HILL",
+        "value": 35
+      }
+    ]
+  },
+  "streetlights": {
+    "n": 74065,
+    "vintage_caption": "Streetlight Locations last modified 2016-12-11. City-owned inventory points, not outages. Outages are 311."
+  },
+  "snow_routes": {
+    "n": 736,
+    "named_segments": 214,
+    "grain": "Named snow-emergency route segment, not a plow run."
+  },
+  "overlap_311": {
+    "caption": "311 is resident requests. This briefing\u2019s year chart is Code Enforcement tickets. Pothole repair requests, streetlight outages, and most snow work are not in the citation file. Boston does not publish Cartegraph work orders on Analyze Boston.",
+    "y2025_pothole_repair_requests": 11064,
+    "y2025_improper_trash_storage_requests": 20083,
+    "y2025_ce_collection_requests": 18653,
+    "y2025_street_cleaning_requests": 20917,
+    "y2025_lights_signs_family": 17103,
+    "y2025_snow_family": 819,
+    "y2025_n": 276093,
+    "source": "311_briefing_stats.json Session 1"
+  },
+  "vs_2019": {
+    "n2019": 46214,
+    "n2025": 63226,
+    "tickets_pct": 36.8
+  }
+}

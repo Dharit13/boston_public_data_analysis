@@ -1,0 +1,471 @@
+[
+  {
+    "code": "1",
+    "description": "Improper storage trash: res",
+    "family": "Trash storage",
+    "n": 524855,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "3",
+    "description": "Overfilling of barrel/dumpster",
+    "family": "Trash storage",
+    "n": 106722,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "24",
+    "description": "Overgrown Weeds On Property",
+    "family": "Overgrown weeds",
+    "n": 87633,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "2",
+    "description": "Improper storage trash: com",
+    "family": "Trash storage",
+    "n": 51753,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "17a",
+    "description": "Failure clear sidewalk - snow",
+    "family": "Snow / ice sidewalk",
+    "n": 45775,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "9a",
+    "description": "Illegal dumping < 1 cubic yd",
+    "family": "Illegal dumping",
+    "n": 25839,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "17c",
+    "description": "Failure clear sidewalk - snow",
+    "family": "Snow / ice sidewalk",
+    "n": 10522,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "27a",
+    "description": "Occupying City prop wo permit",
+    "family": "Occupying city property",
+    "n": 10222,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "21b",
+    "description": "illegal parking prop owner 2",
+    "family": "Illegal parking on property",
+    "n": 7530,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "21a",
+    "description": "illegal parking prop owner 1",
+    "family": "Illegal parking on property",
+    "n": 7320,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "22b",
+    "description": "Unregistered motor vehicles- 2",
+    "family": "Illegal parking on property",
+    "n": 5740,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "22a",
+    "description": "Unregistered motor vehicles-1",
+    "family": "Illegal parking on property",
+    "n": 2993,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "27c",
+    "description": "Occupying City prop wo permit",
+    "family": "Occupying city property",
+    "n": 2401,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "9b",
+    "description": "Illegal dumping 1-5 cubic yd.:",
+    "family": "Illegal dumping",
+    "n": 2352,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "4",
+    "description": "Maint a dumpster wopermit",
+    "family": "Trash storage",
+    "n": 2331,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "17b",
+    "description": "Failure clear sidewalk - snow:",
+    "family": "Snow / ice sidewalk",
+    "n": 2093,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "19a",
+    "description": "Site Cleanliness license \u2013 WAR",
+    "family": "Site cleanliness / admin",
+    "n": 1993,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "8",
+    "description": "Trash illegally dump container",
+    "family": "Illegal dumping",
+    "n": 1558,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "15a",
+    "description": "Removal snow private prop",
+    "family": "Snow / ice sidewalk",
+    "n": 1469,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "25",
+    "description": "No Number On A Building",
+    "family": "Site cleanliness / admin",
+    "n": 1300,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "23b",
+    "description": "Shopping Cart - 2",
+    "family": "Signs / vending / graffiti",
+    "n": 1242,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "27b",
+    "description": "Occupying City prop wo permit",
+    "family": "Occupying city property",
+    "n": 1216,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "44",
+    "description": "Failure To Register",
+    "family": "Site cleanliness / admin",
+    "n": 1213,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "33a",
+    "description": "Graffiti on building- 1",
+    "family": "Signs / vending / graffiti",
+    "n": 1097,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "40",
+    "description": "Failure to secure a Re-Inspect",
+    "family": "Site cleanliness / admin",
+    "n": 971,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "33b",
+    "description": "Graffiti on building- 2",
+    "family": "Signs / vending / graffiti",
+    "n": 965,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "23a",
+    "description": "Shopping Cart - 1",
+    "family": "Signs / vending / graffiti",
+    "n": 879,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "16b",
+    "description": "Removal snow non-res property",
+    "family": "Snow / ice sidewalk",
+    "n": 816,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "19b",
+    "description": "Site Cleanliness license \u2013 VIO",
+    "family": "Site cleanliness / admin",
+    "n": 673,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "18",
+    "description": "Posting signs wo authority",
+    "family": "Signs / vending / graffiti",
+    "n": 600,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "26",
+    "description": "Non-Emergency Auto Repair",
+    "family": "Other",
+    "n": 398,
+    "source": "dump cluster leftover"
+  },
+  {
+    "code": "29",
+    "description": "Illegal Vending",
+    "family": "Signs / vending / graffiti",
+    "n": 396,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "9c",
+    "description": "Illegal dumping 5+ cubic yd",
+    "family": "Illegal dumping",
+    "n": 387,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "38",
+    "description": "Fail to post management comp",
+    "family": "Site cleanliness / admin",
+    "n": 358,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "7",
+    "description": "Failure clean sidewalk com",
+    "family": "Sidewalk cleanliness",
+    "n": 270,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "41",
+    "description": "Failure of Delivery Standards",
+    "family": "Site cleanliness / admin",
+    "n": 211,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "46",
+    "description": "Failure to Obtain Inspection",
+    "family": "Site cleanliness / admin",
+    "n": 188,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "16a",
+    "description": "Removal snow non-res property",
+    "family": "Snow / ice sidewalk",
+    "n": 155,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "37",
+    "description": "Maintain vacant/foreclose prop",
+    "family": "Other",
+    "n": 149,
+    "source": "dump cluster leftover"
+  },
+  {
+    "code": "5",
+    "description": "Transporting refuse without pe",
+    "family": "Illegal dumping",
+    "n": 145,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "42",
+    "description": "Vacant Property (Ch 111-122)",
+    "family": "Other",
+    "n": 144,
+    "source": "dump cluster leftover"
+  },
+  {
+    "code": "15b",
+    "description": "Removal snow private property",
+    "family": "Snow / ice sidewalk",
+    "n": 143,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "15d",
+    "description": "Removal snow private property",
+    "family": "Snow / ice sidewalk",
+    "n": 123,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "45",
+    "description": "Failed Multiple Rental Insp",
+    "family": "Other",
+    "n": 121,
+    "source": "dump cluster leftover"
+  },
+  {
+    "code": "43",
+    "description": "Board Up Property (Ch 139-3A)",
+    "family": "Other",
+    "n": 97,
+    "source": "dump cluster leftover"
+  },
+  {
+    "code": "20a",
+    "description": "Large building recycling- 1",
+    "family": "Trash storage",
+    "n": 86,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "20b",
+    "description": "Large building recycling - 2",
+    "family": "Trash storage",
+    "n": 79,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "14a",
+    "description": "Illegal dumping w a vehicle",
+    "family": "Illegal dumping",
+    "n": 47,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "15c",
+    "description": "Removal snow private property",
+    "family": "Snow / ice sidewalk",
+    "n": 46,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "13",
+    "description": "Illegal dumping: Haz Waste",
+    "family": "Illegal dumping",
+    "n": 44,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "12",
+    "description": "Illegal dumping Const debris",
+    "family": "Illegal dumping",
+    "n": 40,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "39a",
+    "description": "Sign: COB Zoning Article 11-1",
+    "family": "Signs / vending / graffiti",
+    "n": 37,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "10b",
+    "description": "Illegal dumping 1-5 cuyd.",
+    "family": "Illegal dumping",
+    "n": 36,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "10a",
+    "description": "Illegal dumping park",
+    "family": "Illegal dumping",
+    "n": 33,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "6",
+    "description": "Disposal med waste",
+    "family": "Illegal dumping",
+    "n": 33,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "28",
+    "description": "Illegal vending: fruit",
+    "family": "Signs / vending / graffiti",
+    "n": 22,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "10c",
+    "description": "Illegal dumping 5 cubic yd.",
+    "family": "Illegal dumping",
+    "n": 18,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "11",
+    "description": "Illegal dumping solid waste",
+    "family": "Illegal dumping",
+    "n": 15,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "34",
+    "description": "Littering",
+    "family": "Illegal dumping",
+    "n": 10,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "30a",
+    "description": "Crying out wares- 1",
+    "family": "Signs / vending / graffiti",
+    "n": 8,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "39b",
+    "description": "Sign: Zoning Code Art 11-2&sub",
+    "family": "Signs / vending / graffiti",
+    "n": 7,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "30c",
+    "description": "Crying out wares - 3",
+    "family": "Signs / vending / graffiti",
+    "n": 3,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "14b",
+    "description": "Illegal dumping  vehicle:",
+    "family": "Illegal dumping",
+    "n": 2,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "32",
+    "description": "Abusive Language In Solicitati",
+    "family": "Other",
+    "n": 2,
+    "source": "dump cluster leftover"
+  },
+  {
+    "code": "30b",
+    "description": "Crying out wares - 2",
+    "family": "Signs / vending / graffiti",
+    "n": 1,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "31",
+    "description": "Use of propelled novelty",
+    "family": "Other",
+    "n": 1,
+    "source": "dump cluster leftover"
+  },
+  {
+    "code": "36",
+    "description": "Illegal Dumping (vehicle)",
+    "family": "Illegal dumping",
+    "n": 1,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  }
+]

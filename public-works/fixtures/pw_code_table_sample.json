@@ -1,0 +1,37 @@
+[
+  {
+    "code": "1",
+    "description": "Improper storage trash: res",
+    "family": "Trash storage",
+    "n": 3,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "17a",
+    "description": "Failure clear sidewalk - snow",
+    "family": "Snow / ice sidewalk",
+    "n": 1,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "24",
+    "description": "Overgrown Weeds On Property",
+    "family": "Overgrown weeds",
+    "n": 1,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "27b",
+    "description": "Occupying City prop wo permit",
+    "family": "Occupying city property",
+    "n": 1,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  },
+  {
+    "code": "3",
+    "description": "Overfilling of barrel/dumpster",
+    "family": "Trash storage",
+    "n": 1,
+    "source": "https://www.boston.gov/departments/public-works/how-code-enforcement-works-boston"
+  }
+]

@@ -1,0 +1,279 @@
+{
+  "citations": {
+    "raw_rows": 916375,
+    "unique_tickets": 807528,
+    "multi_code_tickets": 100993,
+    "exact_dup_rows": 386,
+    "void_tickets": 246,
+    "null_ticket_rows": 72,
+    "closed_and_open_tickets": 41,
+    "year_histogram_raw": {
+      "2008": 16552,
+      "2009": 36598,
+      "2010": 38883,
+      "2011": 26044,
+      "2012": 30800,
+      "2013": 33903,
+      "2014": 48005,
+      "2015": 56725,
+      "2016": 56546,
+      "2017": 52670,
+      "2018": 55575,
+      "2019": 49732,
+      "2020": 46667,
+      "2021": 50475,
+      "2022": 54816,
+      "2023": 64880,
+      "2024": 72460,
+      "2025": 73219,
+      "2026": 51825
+    },
+    "top_code_desc": [
+      {
+        "code": "1",
+        "description": "Improper storage trash: res",
+        "n": 525057
+      },
+      {
+        "code": "3",
+        "description": "Overfilling of barrel/dumpster",
+        "n": 106749
+      },
+      {
+        "code": "24",
+        "description": "Overgrown Weeds On Property",
+        "n": 87678
+      },
+      {
+        "code": "2",
+        "description": "Improper storage trash: com",
+        "n": 51768
+      },
+      {
+        "code": "17a",
+        "description": "Failure clear sidewalk - snow",
+        "n": 45782
+      },
+      {
+        "code": "9a",
+        "description": "Illegal dumping < 1 cubic yd",
+        "n": 25852
+      },
+      {
+        "code": "17c",
+        "description": "Failure clear sidewalk - snow",
+        "n": 10526
+      },
+      {
+        "code": "27a",
+        "description": "Occupying City prop wo permit",
+        "n": 10230
+      },
+      {
+        "code": "21b",
+        "description": "illegal parking prop owner 2",
+        "n": 7534
+      },
+      {
+        "code": "21a",
+        "description": "illegal parking prop owner 1",
+        "n": 7321
+      },
+      {
+        "code": "22b",
+        "description": "Unregistered motor vehicles- 2",
+        "n": 5741
+      },
+      {
+        "code": "22a",
+        "description": "Unregistered motor vehicles-1",
+        "n": 2993
+      },
+      {
+        "code": "27c",
+        "description": "Occupying City prop wo permit",
+        "n": 2402
+      },
+      {
+        "code": "9b",
+        "description": "Illegal dumping 1-5 cubic yd.:",
+        "n": 2354
+      },
+      {
+        "code": "4",
+        "description": "Maint a dumpster wopermit",
+        "n": 2331
+      },
+      {
+        "code": "17b",
+        "description": "Failure clear sidewalk - snow:",
+        "n": 2093
+      },
+      {
+        "code": "19a",
+        "description": "Site Cleanliness license \u2013 WAR",
+        "n": 2022
+      },
+      {
+        "code": "8",
+        "description": "Trash illegally dump container",
+        "n": 1559
+      },
+      {
+        "code": "15a",
+        "description": "Removal snow private prop",
+        "n": 1469
+      },
+      {
+        "code": "25",
+        "description": "No Number On A Building",
+        "n": 1300
+      },
+      {
+        "code": "44",
+        "description": "Failure To Register",
+        "n": 1250
+      },
+      {
+        "code": "23b",
+        "description": "Shopping Cart - 2",
+        "n": 1242
+      },
+      {
+        "code": "27b",
+        "description": "Occupying City prop wo permit",
+        "n": 1220
+      },
+      {
+        "code": "33a",
+        "description": "Graffiti on building- 1",
+        "n": 1097
+      },
+      {
+        "code": "40",
+        "description": "Failure to secure a Re-Inspect",
+        "n": 998
+      },
+      {
+        "code": "33b",
+        "description": "Graffiti on building- 2",
+        "n": 965
+      },
+      {
+        "code": "23a",
+        "description": "Shopping Cart - 1",
+        "n": 879
+      },
+      {
+        "code": "16b",
+        "description": "Removal snow non-res property",
+        "n": 816
+      },
+      {
+        "code": "19b",
+        "description": "Site Cleanliness license \u2013 VIO",
+        "n": 674
+      },
+      {
+        "code": "18",
+        "description": "Posting signs wo authority",
+        "n": 600
+      },
+      {
+        "code": "29",
+        "description": "Illegal Vending",
+        "n": 398
+      },
+      {
+        "code": "26",
+        "description": "Non-Emergency Auto Repair",
+        "n": 398
+      },
+      {
+        "code": "9c",
+        "description": "Illegal dumping 5+ cubic yd",
+        "n": 388
+      },
+      {
+        "code": "38",
+        "description": "Fail to post management comp",
+        "n": 358
+      },
+      {
+        "code": "7",
+        "description": "Failure clean sidewalk com",
+        "n": 270
+      },
+      {
+        "code": "41",
+        "description": "Failure of Delivery Standards",
+        "n": 212
+      },
+      {
+        "code": "46",
+        "description": "Failure to Obtain Inspection",
+        "n": 194
+      },
+      {
+        "code": "16a",
+        "description": "Removal snow non-res property",
+        "n": 155
+      },
+      {
+        "code": "37",
+        "description": "Maintain vacant/foreclose prop",
+        "n": 149
+      },
+      {
+        "code": "5",
+        "description": "Transporting refuse without pe",
+        "n": 145
+      }
+    ]
+  },
+  "workzones": {
+    "raw_rows": 907,
+    "unique_permits": 810,
+    "categories": {
+      "SERVICE": 87,
+      "NEW CONDUIT AND/OR MAIN": 163,
+      "EMERGENCY": 283,
+      "MAINTENANCE": 233,
+      "": 104,
+      "CUT AND CAP WATER LINE": 1,
+      "CAPITAL": 18,
+      "SINKHOLE": 8,
+      "NEW WATER LINE SERVICE CONNECTION": 1,
+      "NEW SEWER LINE SERVICE CONNECTION": 2,
+      "DRILLING": 2,
+      "NEW FIRE PROTECTION SERVICE CONNECTION": 2,
+      "POINT REPAIR": 3
+    }
+  },
+  "streetlights": {
+    "raw_rows": 74065,
+    "with_lat_lon": 74065,
+    "types": {
+      "LIGHT": 74016,
+      "LIGHT`": 1,
+      "light": 5,
+      "": 39,
+      "LIGHTS": 2,
+      "1795": 1,
+      "0785": 1
+    },
+    "vintage_caption": "Streetlight Locations last modified 2016-12-11. Not an outage log."
+  },
+  "snow_routes": {
+    "raw_rows": 736,
+    "named_segments": 214,
+    "grain": "Named snow-emergency route segment, not a plow run."
+  },
+  "collapse_rules": {
+    "exact_dup": "Drop rows sharing ticket/case, code, status, status_dttm, value.",
+    "volume": "Unique ticket_no (case_no if ticket empty).",
+    "issue_year": "min(status_dttm) per ticket.",
+    "open_caseload": "Latest status Open; never mixed into year-pill n.",
+    "void": "Exclude from volume, fines, and street lists."
+  }
+}
